@@ -1,0 +1,20 @@
+#!/bin/csh
+echo "Returns number of PATTERNS learned against number of PATTERNS seen"
+set base = $1
+shift
+echo -n "colex->"
+colex $base.log $base.clx 0
+echo -n "loglines->"
+loglines < $base.clx > $base.ll
+set nlines = `wc -l $base.ll`
+echo -n "totalpatno->"
+totalpatno $base.ll patnums > $base.tt
+echo -n "paste->"
+set nlines = `wc -l $base.ll`
+paste patnums $base.tt | head -$nlines[1] > $base.xy
+echo -n "graph->"
+xgraph -P -x "Patterns" -y "Cycles" -t "Learning time for $base" $* $base.xy
+echo -n "tidy->"
+rm $base.ll $base.clx $base.tt
+echo -n "done. New file: $base.xy"
+echo " "

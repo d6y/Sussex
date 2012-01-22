@@ -1,0 +1,14 @@
+
+The above discussion, and comments made in chapter~\ref{c:fsm} assume that
+learning is a continuous process.  However, this is hard to square with the
+details of the model. The learning algorithm (backpropagation) requires a
+teaching source at all times. No doubt other kinds of gradient descent
+learning will be devised which do not require a teacher at all times.
+However, the ideas that flow from the connectionism mode do not quite match
+the details of the system with respect to this point.
+
+Although previously learned subskills can be utilized by the system, it
+takes many epochs to bring about the change. Connectionism has little to
+say about ``fast'' learning---the kind that appears to take place whilst a
+subject is solving a problem like the Towers of Hanoi.  Exactly how
+``fast'' arithmetic is learned is unknown in this sense.

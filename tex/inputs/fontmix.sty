@@ -1,0 +1,23 @@
+
+\input /csuna/home/richardd/tex/inputs/myfonts.sty
+\typeout{Mixing times-roman with \otherfont}
+
+% From latex.tex
+\def\@startsection#1#2#3#4#5#6{\if@noskipsec \leavevmode \fi
+   \par \@tempskipa #4\relax
+   \@afterindenttrue
+   \ifdim \@tempskipa <\z@ \@tempskipa -\@tempskipa \@afterindentfalse\fi
+   \if@nobreak \everypar{}\else
+     \addpenalty{\@secpenalty}\addvspace{\@tempskipa}\fi \@ifstar
+     {\@ssect{#3}{#4}{#5}{#6\changefont{\otherfont}\bf}}%
+    {\@dblarg{\@sect{#1}{#2}{#3}{#4}{#5}{#6\changefont{\otherfont}\bf}}}}
+
+
+\long\def\@caption#1[#2]#3{\par\addcontentsline{\csname
+  ext@#1\endcsname}{#1}{\protect\numberline{\csname
+  the#1\endcsname}{\ignorespaces #2}}\begingroup
+    \@parboxrestore
+    \normalsize
+    \@makecaption{{\changefont{\otherfont}\bf%
+        \csname fnum@#1\endcsname}}{#3}\par
+  \endgroup}

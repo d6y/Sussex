@@ -1,0 +1,132 @@
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3.p
+;;; LOADING /csuna/home/richardd/pop/lib/stringtolist.p
+;;; LOADING /csuna/home/richardd/pop/lib/stringtovector.p
+;;; LOADING /csuna/home/richardd/pop/lib/sysio.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_utils.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_getweights.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_getpatterns.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_activate.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_cascade.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_recordunits.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_performance.p
+;;; LOADING /csuna/home/richardd/marith/read_rt.p
+;;; LOADING /csuna/home/richardd/marith/threshold_errors.p
+;;; LOADING /csuna/home/richardd/marith/latex_matrix.p
+;;; LOADING /csuna/home/richardd/marith/c_errrt.p
+;;; LOADING /csuna/home/richardd/marith/product_code.p
+...?...4...6...8...9..10..12..14..15..16..18..20..21..24..25..27..28..30..32..
+	35..36..40..42..45..48..49..54..56..63..64..72..81
+
+
+** [~/marith/development/weights/tolerance0_25/dev- min 0.4 Max 0.9 and
+	 25 blocks]
+** [now starting 1]
+** [Classify 1.53846 per cent with tss 28.9478]
+
+
+   ------------- WARNING ----------------
+1455 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+** [now starting 5]
+** [Classify 6.15385 per cent with tss 24.3034]
+
+
+   ------------- WARNING ----------------
+1370 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+** [now starting 10]
+** [Classify 10.7692 per cent with tss 23.1958]
+
+
+   ------------- WARNING ----------------
+1362 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+** [now starting 20]
+** [Classify 20.0 per cent with tss 19.8692]
+
+
+   ------------- WARNING ----------------
+1245 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+** [now starting 30]
+** [Classify 30.7692 per cent with tss 18.1837]
+
+
+   ------------- WARNING ----------------
+1213 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+** [now starting 40]
+** [Classify 40.0 per cent with tss 13.906]
+
+
+   ------------- WARNING ----------------
+1053 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+** [now starting 50]
+** [Classify 50.7692 per cent with tss 12.3074]
+
+
+   ------------- WARNING ----------------
+946 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+** [now starting 60]
+** [Classify 60.0 per cent with tss 10.5799]
+
+
+   ------------- WARNING ----------------
+853 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+** [now starting 70]
+** [Classify 70.7692 per cent with tss 8.51164]
+
+
+   ------------- WARNING ----------------
+702 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+** [now starting 80]
+** [Classify 81.5385 per cent with tss 6.08085]
+
+
+   ------------- WARNING ----------------
+509 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+** [now starting 90]
+** [Classify 90.7692 per cent with tss 3.24673]
+
+
+   ------------- WARNING ----------------
+239 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+** [now starting 100]
+** [Classify 100.0 per cent with tss 0.189404]
+
+
+   ------------- WARNING ----------------
+11 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+;;; DECLARING VARIABLE N_problems
+;;; DECLARING VARIABLE First_multiplier
+;;; DECLARING VARIABLE Last_multiplier
+;;; DECLARING VARIABLE product_list
+;;; DECLARING VARIABLE N_tables
+;;; DECLARING VARIABLE N_products
+;;; DECLARING VARIABLE epc
+;;; DECLARING VARIABLE netL
+;;; DECLARING VARIABLE oedev
+;;; DECLARING VARIABLE odedev
+;;; DECLARING VARIABLE omitdev
+;;; DECLARING VARIABLE omit
+;;; DECLARING VARIABLE errdev
+;;; DECLARING VARIABLE err

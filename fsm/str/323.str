@@ -1,0 +1,38 @@
+get net networks/fsm35.net
+
+do networks/fsm_param.str 1
+
+log output/323.log
+
+set param lrate 0.01
+set param momentum 0.0
+
+set dl 1
+set sl 1
+set stepsize nepochs
+get pat patterns/mult13.pat
+set nepochs 100
+sttrain
+save w weights/323-1.wts
+sttrain
+save w weights/323-2.wts
+sttrain
+save w weights/323-3.wts
+sttrain
+save w weights/323-4.wts
+sttrain
+save w weights/323-5.wts
+sttrain
+save w weights/323-6.wts
+set nepochs 600
+sttrain
+save w weights/323-7.wts
+sttrain
+save w weights/323-8.wts
+sttrain
+save w weights/323-9.wts
+sttrain
+save w weights/323-10.wts
+log -
+q
+y

@@ -1,0 +1,16 @@
+#!/bin/csh
+set base = $1
+shift
+echo -n "colex->"
+colex $base.log $base.clx 0
+echo -n "loglines->"
+loglines < $base.clx > $base.ll
+set nlines = `wc -l $base.ll`
+echo -n "paste->"
+paste numbers $base.ll | head -$nlines[1] > $base.xy
+echo -n "graph->"
+xgraph -P -x "Problems" -y "Epochs" -t "Learning time" $* $base.xy
+echo -n "tidy->"
+rm $base.ll $base.clx
+echo -n "done. New file: $base.xy"
+echo " "

@@ -1,0 +1,415 @@
+From davec@cogs.susx.ac.uk Fri May 29 10:27:16 1992
+Received: from rsund by csuna.cogs.susx.ac.uk; Fri, 29 May 92 10:27:05 +0100
+Message-Id: <7846.9205290924@rsund.cogs.susx.ac.uk>
+From: David Cliff <davec@cogs.susx.ac.uk>
+Date: Fri, 29 May 92 10:24:11 +0100
+To: announce@cogs.susx.ac.uk
+Subject: WIPS Monday 1 Jun.
+
+WIPS4
+
+COGS Work In Progress Seminar, Monday Jun 1, 12:30pm, Room PB5C11
+
+Richard Dallaway, "The Speed and Slips of Mental Arithmetic"
+
+
+Abstract:
+
+Mastering the simple number facts, such as the one hundred multiplications
+(0x0 to 9x9), requires five or six years of classroom drill. Despite (or
+perhaps because of) this, error rates can be as high as 30 per cent for
+adults recalling certain problems, like 4x8. Indeed, children and adults
+show systematic error and response time patterns across all the
+single-digit multiplication problems.
+
+There are a number of theories suggesting that the phenomenon is due
+to spreading activation between problem nodes (like "7" and "8") and
+product nodes (like "56").  These theories tend to come complete with
+assumptions about connections between nodes, learning, and recall, but
+without implementations.
+
+I'll present a connectionist account of mental multiplication which models
+adult reaction time and error patterns. The results are from
+simulations designed to mimic experiments on adults' memory for
+single-digit multiplication. Surprisingly few assumptions are needed to
+replicate the results found in the literature.
+
+
+Everyone welcome.
+
+
+---------------------------------------------------------------------------
+
+0.  The speed and slips of mental arithmetic                  [TITLE SLIDE]
+
+If I were to ask you "what's 6 x 7?", there are lots of ways you could come
+up with the answer: You might add-up a row of seven sixes; remember the
+answer to 6 x 6 and add on another 6; you might use a calculator.
+Children tend to use a number of strategies (counting fingers), but there
+is a developmental trend, to adulthood, of relying on recall.   The model
+I'll present is an account of this "memory for multiplication": no
+counting, just recall.
+
+There have been a good number of experiments which have tried to clarify
+the etails of arithmetic recall.  They tend to go something like this:
+subject is seated in front of a computer screen, and wired-up to a voice
+(de)activated timer.  Two digits are presented on the screen (say, 3 and
+5), and a clock starts. The subject is ask to reply with the product of
+those two numbers, 15, as quickly and accurately as possible. If they get
+the answer right, the response time is recorded; incorrect answers are
+noted... a straight-forward set of memory experiments.  There are typical
+errors you're likely to make and typical reaction times.
+
+___________________________________________________________________________
+1.  Project history                                         [SUB-NET SLIDE]
+
+It was a little by accident that I ended up spending time on this problem.
+My intention was to study long, or multi-digit, arithmetic: prolonged
+sequences of actions, involving crossing-out numbers and remembering
+carries, and the like.  The example is for subtraction, because this is an
+old slide. This architecture was being used: one network for handing the
+sequences of actions...I'm working on this part now.  The system had a
+subnetwork for doing the actual calculations (addition, subtraction,
+multiplication, whatever).  It's a simple network which takes two digits
+and any carry mark, and produces an TENS and UNITS output.
+
+A natural question which arose was:  what information should the subnetwork
+provide?   It seems that most of the work in this area was on single-digit
+multiplication, in fact multiplication for the problems 2 x 2 through to 9
+x 9.
+
+___________________________________________________________________________
+2.  Problem-size effect                               [TOP OF 2-9 RT SLIDE]
+
+The first finding of interest was the pattern to reaction times.  This is a
+graph showing the correct response time for problems in the 2 times table,
+3 times table, and so on to the 9 times table.  For both adults and grade 5
+children, there is a so-called "problem size effect": in general, smaller
+problems are quicker to recall than larger problems.  As you can see, there
+are plenty of exceptions to this, most notable the 5s and the 9s for the
+children.
+
+Another effect is that "tie problems" are rather easy to recall. Tie
+problems are  2 x 2, 3 x 3, 4 x 4 and so on.
+
+___________________________________________________________________________
+3.  RT in neural nets.                                  [FEEDFORWARD SLIDE]
+
+Interesting as that may be, I'm working with feed-forward networks, trained
+with backpropagation.  These systems don't have a "reaction time" as such:
+one step and everything is done.
+
+You're recall that with this kind of network, you typically present an
+input pattern and then compute the net-input to each unit (weighted sum,
+dot product, whatever you call it).  This is just the inputs multiplied by
+the weights.  Then we put the net-input through the logistic squashing
+function, which, amongst other things, gives you a neat number between zero
+and one.   But as I mentioned, this is usually viewed as a one-step
+process. Maybe two steps.
+
+___________________________________________________________________________
+4.  Cascade                                                 [CASCADE SLIDE]
+
+Fortunately, there is a way to allow activation to slowly accumulate in
+units.  All we need do is modify the net-input equation to, this.  This is
+the idea of James McClelland, and is called a "cascaded feed-forward
+network".  It's described in the PDP handbook of models and programs.
+
+You'll recognize the good old weights sum, here.  The idea is simply to
+limit the net-input flowing into a unit by some fraction, k.  This is added
+with a fraction of the previous net input to the unit.
+
+The speed with which activation builds-up depends on this value k, which is
+0.05, and the weighted-sum into a unit.  This simplified graph shows how
+activity builds up.  It shows the activation of a single unit over time.
+The input is fixed, but values for the weights are varied.
+
+I've set a threshold of 0.7, and we can see that a weight of 1.0 takes 37
+steps to reach the threshold;  a larger weight, 1.5, takes just 16 steps to
+reach threshold.   This negative weight just decays away.
+
+We can vary k to vary the granularity of the response time measure.  If we
+make k smaller, this graph would stretch, and we'd be able to discern
+events that occur close together.  The opposite happens when k gets larger,
+and when k is 1.0, the equation falls back to the standard feed-forward
+step, and there is no reaction time measure again.
+
+This is actually useful, because we can train networks in the usual way
+without having to worry about activation building up.
+
+___________________________________________________________________________
+5.  The network architecture                                [NETWORK SLIDE]
+
+So the idea behind measuring reaction time is to allow activity to build up
+until an output unit exceeds some threshold.   The initial experiments
+with this set up did show a reaction time dip for the 5 times table.
+However, in light of other findings, it was necessary to change the network
+to this architecture.
+
+Here we have a set of input units representing the two digits to be
+multiplied.  The output units represent all the products, rather than tens
+and units.  This change was required to match human results on errors in
+recall, which I discuss later.
+
+If we wish the network to produce answers over time, it requires a starting
+point...an initial state. The network is trained to produce a "don't know"
+output at the start of processing for all problems.  You'll see this in
+action, later.
+
+Finally, we found that tie problems, like 5 x 5 we always very slow.  This
+is remedied by adding an explicit "tie flag" into the input.  This signals
+1.0 whenever a tie is seen and is zero otherwise.
+
+___________________________________________________________________________
+6.  Models at the time                            [CAMPBELL & GRAHAM SLIDE]
+
+That's the basic architecture I ended up with.  It's interesting to just
+look for a moment at what was around in the literature at the time.  This
+is a model put forward by Campbell and Graham.  You'll note a large number
+of connections here. Between operands and products; between problems and
+products; also incorrect connections; and these "magnitude" units.
+
+This system was never implemented: no details of how activation spread or
+responses were selected.  Just a suggested set of connections: no
+explanation for how those connections got there. It was proposed as a
+theory.  Without running model, we have to ask WHY all these connections?
+Or, to put it another way, how simple a system can we get away with?
+
+___________________________________________________________________________
+7.  Training and running                                [EXPERIMENTS SLIDE]
+
+Well...I did some simulations with backpropagation and those cascade
+equations.
+
+Some early experiments identified that the skew in problem frequency was
+important for getting response time effects.   Its acknowledged that
+children see smaller problems more often than larger problems.  So I skewed
+the training set: small problems, like 2x2, occurred most frequently, and
+large problems relatively infrequently.  I didn't have any data on the way
+the problems should be skewed, so I simply chose a straight line.
+
+However, it's not obvious that adults experience this skew in problem
+frequency.  So, after training on the skewed data, I then made all the
+frequencies equal and continued training.
+
+This cycle was repeated for 20 different networks (different starting
+points).
+
+For recall, I turned on that cascade equation you saw earlier and recorded
+how long it took a problem to hit a threshold.  Each problem was presented
+50 times, and each time a new, random threshold was selected (between 0.4
+and 0.9).
+
+___________________________________________________________________________
+8. Reaction time results                             [BACK TO 2-9 RT SLIDE]
+
+The mean reaction time of those twenty networks, was something like this.
+The correlations are to the adult reaction times.   Fairly happy with
+those;  you'll note that the extra training given to the "equalized"
+networks produces a faster and flatter response curve, which is also what
+you'd expect to see with human subjects.
+
+___________________________________________________________________________
+9.  Introduction to errors                           [TYPES OF ERROR SLIDE]
+
+Reaction time is only half the story.  The subjects in the experiments are
+under a mild time pressure: they sometimes make mistakes.  Five categories
+cover most of the mistakes.
+
+Most of the mistakes you'll make will be "operand errors".  For a given
+problem, say a x b, the wrong answer you give will be in the a or b times
+table.  So, if you're asked "what's seven eights?" you're likely to recall
+any of the answers in this cross.
+
+A more restricted form of operand error, the close operand error is much
+the same, but in a smaller cross.  Technically, the wrong answer you
+produce will be correct for a problem which shares one operand with the
+presented problem, but is out by plus or minus two on the other operand.
+
+Products which naturally occur more frequently in the table occur more
+frequently as incorrect answers.
+
+Table errors are more or less anything not covered by these 3.  Four times
+five = 18, the incorrect response isn't in one of these crosses.  Note that
+18 is also a frequent product: you'd have guessed by now that these
+categories are not mutually exclusive.
+
+Finally, operand errors occur, where the subject appears to have performed
+the wrong calculation, say addition instead of multiplication.
+
+An addition category is "non table errors".  Some times subjects will
+respond with, say "13", which isn't in this table.  Hence the name
+"non-table".   The network only has output units for numbers in the table,
+so it can't produce non-table errors.  Perhaps we could add a TENS and
+UNITS readout, to account for this.  I don't know.  However, these errors
+are the most infrequent: typically only 7 per cent of all errors are
+non-table errors.  We'll leave them for another day.
+
+___________________________________________________________________________
+10. Network's errors                            [BOTTOM OF TIME PLOT SLIDE]
+
+When testing the networks, this is the kind of activation patterns you see.
+In this case, for 3 x 8, activation builds up and decays.  Note we start
+from that "don't know" state, and eventually reach the correct answer: 24.
+
+However, on route you see other products becoming most active.  Here, for
+example, is 27.  Here's 16.  With a low enough threshold, processing will
+stop early, and the incorrect response is read out.
+
+You'll remember that during testing a random threshold is selected, and
+this is the basis for recording errors.  Due to the time pressure subjects
+are under, sometimes there thresholds are low enough to allow incorrect
+answers to be read out.
+
+___________________________________________________________________________
+11. Actual errors                                         [ERROR DOT SLIDE]
+
+We actually see this pattern of errors for human subjects.  For the
+networks this pattern is produced.  You can't see this, but along the top
+we have the different products, 4 6 9 10 12...81.  Down the side we have
+the problems, from 2 x 2 down to 9 x 9.  Each coloured dot represents a
+different kind of error.
+
+This isn't a terribly useful slide, but it does show you the general
+tendency for errors to be along this diagonal.
+
+Interestingly, with the human subjects there is a reliable correlation
+between a problem's response time and the number of errors
+made on that problem.  The same is true of the network.  It seems
+intuitively obvious that slower problems should be more prone to error, but
+it's not so obvious that this model should be like that, but it is.
+
+___________________________________________________________________________
+12. Error percentages                                    [PERCENTAGE SLIDE]
+
+More useful is this comparison of the percentages of errors. The numbers
+seem to match up pretty well, although the nets are making more errors
+than the human subjects.
+
+Oddly enough, although the net didn't see a single addition problem, it
+seems to be as likely to produce operation errors as people do.
+
+___________________________________________________________________________
+13. Analysis                                [TOP OF TIME PLOT/HIDDEN UNITS]
+
+OK...so what's going on?
+
+Faster response is due to large positive weights (or lots of small positive
+weights).  More partially, is due to large net-input, which is a
+combination of input pattern and weights.
+
+If we look at the weights, the hidden to output in particular, we do indeed
+see large net-inputs for, say, 5s problems (for which, you'll remember,
+there is a dip in the response time). However, the real question must be:
+why do these weights develop in the first place?
+
+One factor is the skew in frequency.  Simulations without this skew didn't
+produce the observed response time graph.
+
+This doesn't account for everything.  Take the 5s: they have an average
+presentation frequency, but a fast response time.  There is an element of
+"product uniqueness" at play here.  None of the products in the 5 times
+table occur outside the context of "5".  Compare this to, say, the 2 times
+table, where the products 12, 16 and 18 occur in other tables).  Error
+signals for 5s are not "diluted" through differing hidden representations
+for different problems.  So "15" will only occur with a "5" active in the
+input layer; where as "12" will occur with a combination of 2, 6, 3 and 4.
+It's not clear how I could test this idea out; and I'm not yet completely
+convinced of it.
+
+This graph shows the hidden unit activation for a typical network.  Each of
+these large squares represents a hidden units response to the problems in
+the table.  The square mimics the table; up here is the unit's response to
+2x2, and down here is the response to 9x9.
+
+This preference for overlap explains what's happening when errors occur.
+Hidden unit's activations change smoothly, but a different rates.  This
+change effects GROUPS of products.  For example, this overlap between 23
+and 24 might push a false product in the middle here above threshold.
+
+___________________________________________________________________________
+14.  Zero and one                                                [3D SLIDE]
+
+These results were extended to include the zero and one times table.  I
+found a paper containing a measure of the frequency of occurrence of
+multiplication problems in a couple of textbooks.   So over here we have
+the frequency for zero times zero, quite tiny; and over here is the
+frequency for 9x9.  You'll not that a linear skew I used as an estimate
+wasn't so bad.
+
+___________________________________________________________________________
+15. Zero and One RT                                        [LOWER 3D SLIDE]
+
+The error and RT results for networks trained with this skew were quite
+similar.  Here's the RT graph.  These correlations are against this lower
+curve.
+
+Notice how fast the zero table is.  In the literature there are persistent
+statements that because the zero table is SO fast, it must be governed by
+a rule: 0xN=0.  Here it seems that you don't have to make any assumptions
+about additional mechanisms, like rules (never specified, of course).
+
+Unfortunately, because zero is SO fast, it has strong connections in the
+network.  This means it is unrealistically promoted as an error to all
+sorts of problems (like 3x8=0).  In addition to this, errors on the zero
+problems are almost always of the form 0xN=N.  But such errors are rarely
+produced by the model.
+
+What this is saying is that its the ERROR PERFORMANCE, and not the response
+time, which suggests some kind of special treatment for zero problems.
+
+I say "special treatment" because notions like "rule" are rarely defined,
+and there are no simulations to demonstrate the importance of a rule.
+
+For example, with tie problems it was necessary to add an additional
+input-bit to get the appropriate response time.  Likewise, we might add
+something else to the input for the correct handling of zero problems.
+Perhaps there's something visual about zero.  Perhaps the errors come from
+mixing operations: adding zero and N to get N.
+
+Whatever the case, it's a bit early in modelling to go assuming addition,
+different mechanisms for the zero times table before exploring this network
+framework.
+
+___________________________________________________________________________
+16. Other models                                        [OTHER MODELS SLIDE]
+
+When I began this work, I thought I was the only connectionist looking at
+arithmetic.  I was, of course, wrong.
+
+There is a group at Brown University.  They have produced a number of
+papers since 1989, including a PhD thesis, but still haven't given the full
+details of their model.  They have worked mostly on "qualitative
+multiplication"...getting the answer approximately correct, like 1 x 3 = 5.
+Although they have looked at "proper" multiplication more recently.  They
+base their model on the brain-state-in-a-box machine (the details of which
+I'm not going to go into).   For some reason there model is capable of
+producing errors by simply not being capable of learning the problem in the
+first place.  The system is resource limited, so it simply gets some
+problems wrong...but always wrong. This seems at odds with the idea that
+these errors are really just "slips", and not permanent disabilities.
+They say the get realist response times, but as I mentioned, it's hard to
+judge because they haven't published the details.
+
+The other group is at Johns Hopkins, and this is rather more interesting.
+For a start, it's a psychology group who really do experiments on people,
+and brain damaged patients.  Their model is based on mean-field theory
+networks, which is something like Boltzmann machines.  The units are
+inherently random, and there are two stages to learning: free running and a
+clamped phase.   These networks (MATHNET), three of them,  do produce
+errors only "occasionally".  The output is based on TENS and UNITS and has
+connections between those output units (for no apparent reason).
+However, the system fails to produce some of the observed results, most
+notable response time dip for 5s.
+
+As I mentioned, McCloskey has also reported results for brain damaged
+patients, which it appears I can also account for, but damaging the
+network. But that's another half an hour.
+
+These two models and mine are the only ones which are explicit enough to be
+considered.  Most other network accounts (non connectionist) do not have an
+explicit account of how responses are selected or how activation spreads.
+
+Perhaps what;s left to do, is to consolidate the models to discover which
+assumptions are important, and try to make the link back to the
+(under constrained) theories.

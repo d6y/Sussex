@@ -1,0 +1,118 @@
+;;; LOADING testerrrt.p
+** Sun Feb  9 23:15:30 GMT 1992 
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3.p
+;;; LOADING /csuna/home/richardd/pop/lib/stringtolist.p
+;;; LOADING /csuna/home/richardd/pop/lib/stringtovector.p
+;;; LOADING /csuna/home/richardd/pop/lib/sysio.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_utils.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_getweights.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_getpatterns.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_activate.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_cascade.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_recordunits.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_performance.p
+;;; LOADING response_mechanism.p
+;;; LOADING read_rt.p
+;;; LOADING product_code.p
+...?...4...6...8...9..10..12..14..15..16..18..20..21..24..25..27..28..30..32..
+	35..36..40..42..45..48..49..54..56..63..64..72..81
+;;; LOADING cascade_rt.p
+;;; LOADING threshold_errors.p
+;;; LOADING c_errrt.p
+;;; LOADING rt_cor.p
+
+
+** [prob-one10- 1 - 10 min 0.4 Max 0.9 and 50 blocks]
+
+
+   ------------- WARNING ----------------
+100 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+
+
+   ------------- WARNING ----------------
+51 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+** [zeros in prob-one10- 2]
+
+
+   ------------- WARNING ----------------
+173 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+** [zeros in prob-one10- 3]
+
+
+   ------------- WARNING ----------------
+121 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+** [zeros in prob-one10- 4]
+
+
+   ------------- WARNING ----------------
+113 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+
+
+   ------------- WARNING ----------------
+157 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+** [zeros in prob-one10- 6]
+
+
+   ------------- WARNING ----------------
+143 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+** [zeros in prob-one10- 7]
+
+
+   ------------- WARNING ----------------
+166 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+** [zeros in prob-one10- 8]
+
+
+   ------------- WARNING ----------------
+142 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+** [zeros in prob-one10- 9]
+
+
+   ------------- WARNING ----------------
+167 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+** [zeros in prob-one10- 10]
+Total of 1939.0 errors (tokens), of which...
+Operand errors            606.00  31.25%
+Operand distance effect   314.00  16.19%
+High frequency            470.00  77.56%
+Table errors                0.00   0.00%
+Operation errors            0.00   0.00%
+Omission errors          1333.00  68.75%
+
+Campbell     r =   0.32615 p = 0.004268
+Miller       r =   0.38689 p = 0.000794
+Aiken        r =   0.37629 p = 0.00109
+Grade 3a     r =   0.24025 p = 0.079068
+Grade 3b     r =   0.16793 p = 0.163785
+Grade 3c     r =   0.15552 p = 0.182543
+Grade 4      r =   0.07211 p = 0.338
+Grade 5      r =   0.04901 p = 0.388258
+plot_list([27.0424 31.017 27.2581 28.944 29.2974 27.732 33.246 28.4187
+	 31.1213 29.1915 31.248 30.324 29.805 27.1384 27.39 31.3212 27.4073
+	 30.974 28.0846 28.8893 30.5918 28.9143 28.7408 33.366 29.282 29.9542
+	 28.3184 30.7341 31.1215 31.53 29.998 33.8591 29.2253 29.932 30.0279
+	 31.3713 26.0678 28.6075 35.1902 34.1777 27.69 27.8175 28.8978
+	 31.262 28.8128 30.7164 32.2972 34.799 33.134 27.47 28.6341 30.316
+	 34.5684 32.1137 33.642 34.9087 28.291 30.7435 33.632 33.3349 34.2585
+	 33.8158 34.7446 47.3879]);
+

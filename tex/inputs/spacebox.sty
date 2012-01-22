@@ -1,0 +1,23 @@
+% spacebox.sty
+% \spacebox{height}{width}{words}
+%
+% \spacebox prduces a rectagle of empty space
+% \fspacebox produces the same as \spacebox but with a frame and
+%   text at the center
+%
+% Intended for leaving blank space for those horrible figures
+% that need to be glued into place.  Hence, \spaceboxdraft is in
+% force, a \fspacebox is produced by \spacebox.   At other times,
+% only blank space is produced.
+%
+
+
+\newcommand{\spacebox}[3]{% #1=height #2=width #3=text
+    \centerline{%
+    \hbox{{\vbox to #1{\vss\hbox to #2{ \hss  \hss }\vss}}}}}
+
+\newcommand{\fspacebox}[3]{
+    \centerline{%
+    \hbox{\frame{\vbox to #1{\vss\hbox to #2{ \hss #3 \hss }\vss}}}}}
+
+\newcommand{\spaceboxdraft}{\let\spacebox=\fspacebox}

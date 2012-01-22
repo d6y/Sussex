@@ -1,0 +1,22 @@
+
+
+\newcommand{\otherfont}{helvetica}
+\input pshelv.sty
+
+%\newcommand{\otherfont}{gillsans}
+%\input psgillsans.sty
+
+\input pstimesm.sty
+
+\newcommand{\changefont}[1]%
+    {\renewcommand{\rmdefault}{#1}\rm}
+
+\newcommand{\hf}{\changefont{\otherfont}}
+
+\newcommand{\bi}% Bold italic
+    {\series{\bfdefault}\shape{\itdefault}\selectfont}
+
+\newcommand{\heading}[1]%
+    {\begin{center}\changefont{\otherfont}\Large\bi#1\end{center}}
+
+\endinput

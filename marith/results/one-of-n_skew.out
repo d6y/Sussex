@@ -1,0 +1,110 @@
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3.p
+;;; LOADING /csuna/home/richardd/pop/lib/stringtolist.p
+;;; LOADING /csuna/home/richardd/pop/lib/stringtovector.p
+;;; LOADING /csuna/home/richardd/pop/lib/sysio.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_utils.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_getweights.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_getpatterns.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_activate.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_cascade.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_recordunits.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_performance.p
+;;; LOADING read_rt.p
+;;; LOADING threshold_errors.p
+;;; LOADING latex_matrix.p
+;;; LOADING c_errrt.p
+;;; LOADING product_ZERO.p
+...?...0...1...2...3...4...5...6...7...8...9..10..12..14..15..16..18..20..21..
+	24..25..27..28..30..32..35..36..40..42..45..48..49..54..56..63..64..72
+	..81
+;;; LOADING zero_rt_cor.p
+;;; LOADING Structured_variables.p
+;;; LOADING product_code.p
+...?...4...6...8...9..10..12..14..15..16..18..20..21..24..25..27..28..30..32..
+	35..36..40..42..45..48..49..54..56..63..64..72..81
+
+
+** [~/marith/weights/one-of-n/one10- 1 - 10 min 0.4 Max 0.9 and 25 blocks]
+** [now starting 1]
+** [Classify 100.0 per cent with tss 0.036703]
+** [now starting 2]
+** [Classify 100.0 per cent with tss 0.030222]
+** [zeros in ~/marith/weights/one-of-n/one10- 2]
+** [now starting 3]
+** [Classify 100.0 per cent with tss 0.020733]
+** [now starting 4]
+** [Classify 100.0 per cent with tss 0.029861]
+** [now starting 5]
+** [Classify 100.0 per cent with tss 0.034835]
+
+
+   ------------- WARNING ----------------
+2 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+** [zeros in ~/marith/weights/one-of-n/one10- 5]
+** [now starting 6]
+** [Classify 100.0 per cent with tss 0.024719]
+** [zeros in ~/marith/weights/one-of-n/one10- 6]
+** [now starting 7]
+** [Classify 100.0 per cent with tss 0.029621]
+** [now starting 8]
+** [Classify 100.0 per cent with tss 0.025847]
+** [zeros in ~/marith/weights/one-of-n/one10- 8]
+** [now starting 9]
+** [Classify 100.0 per cent with tss 0.02326]
+** [now starting 10]
+** [Classify 100.0 per cent with tss 0.039026]
+** [zeros in ~/marith/weights/one-of-n/one10- 10]
+
+
+
+
+plot_list([23.1111 23.2222 26.3 26.5 25.3 25.0 29.2 24.2 23.1111 24.5 24.3333
+	 23.6 29.6 25.4 25.4 26.2222 26.4 24.3333 23.9 25.5 25.4 26.7 26.9
+	 28.6 26.5 23.7 25.5 22.2 26.8 26.8 25.4 26.3 25.3 30.0 25.2 26.4
+	 25.6 27.2 26.7 31.1 24.9 25.6 26.8 26.6 27.2 24.7 29.8 27.5 29.4
+	 25.4 26.9 25.4 27.0 29.9 26.0 29.6 23.9 26.0 28.8 26.5 30.7 27.5
+	 29.3 26.1111]);
+
+Ten one-of-n networks (skew)
+
+Total of 980 errors (tokens),  12.65% of which...
+Operand errors            959.00  97.86%
+Operand distance effect   560.00  57.14%
+High frequency            383.00  39.94%
+Table errors               19.00   1.94%
+Operation errors           50.00   5.10%
+Omission errors             2.00   0.20%
+0xN = N                     0.00   0.00%
+Tie error                   3.00   0.31%
+
+** [RT and prob . err . count]
+** [r= -0.276708 p( 62 )= 0.013433]
+
+** [product and prob . err . count]
+** [r= -0.129296 p( 62 )= 0.154277]
+
+Correlations to structure variables
+Sum     ;;; DECLARING VARIABLE N_problems
+;;; DECLARING VARIABLE First_multiplier
+;;; DECLARING VARIABLE Last_multiplier
+;;; DECLARING VARIABLE product_list
+;;; DECLARING VARIABLE N_tables
+;;; DECLARING VARIABLE N_products
+;;; DECLARING VARIABLE epc
+;;; DECLARING VARIABLE cE
+;;; DECLARING VARIABLE pec
+;;; DECLARING VARIABLE rt_cor
+
+;;; MISHAP - BAD ARGUMENTS FOR INDEXED LIST ACCESS
+;;; INVOLVING:  65 [23.1111 23.2222 26.3 26.5 25.3 25.0 29.2 24.2 23.1111
+	 24.5 24.3333 23.6 29.6 25.4 25.4 26.2222 26.4 24.3333 23.9 25.5
+	 25.4 26.7 26.9 28.6 26.5 23.7 25.5 22.2 26.8 26.8 25.4 26.3 25.3
+	 30.0 25.2 26.4 25.6 27.2 26.7 31.1 24.9 25.6 26.8 26.6 27.2 24.7
+	 29.8 27.5 29.4 25.4 26.9 25.4 27.0 29.9 26.0 29.6 23.9 26.0 28.8
+	 26.5 30.7 27.5 29.3 26.1111] 
+;;; FILE     :  /csuna/home/richardd/marith/anal_one.p   LINE NUMBER: 
+	 119
+;;; DOING    :  pearson_r cor structured_variables testnet compile trycompile
+	 

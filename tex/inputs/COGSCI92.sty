@@ -1,0 +1,192 @@
+% File: cogsci92.sty
+% Modifications to article.sty for Cognitive Science Conference 1992
+% Richard Dallaway <richardd@cogs.susx.ac.uk>
+% Wednesday 22 April 1992
+
+%% \email{emailaddress} before \maketitle.  Default, no email address
+%% \maketitle produces the COGS address
+%% \section does not work but \section* does.
+
+\typeout{Style for Cognitive Science Conference 1992}
+
+\input{twocolumn.sty}
+
+%% Text area: This will look slightly odd on A4 paper: gap at the bottom
+%% of the page and text shifted off-center towards the right.
+
+\textwidth=6.5in
+\textheight=9in
+\oddsidemargin=-1in
+\topmargin=-1in
+\headheight=0pt
+\headsep=0pt
+\hoffset=1in
+\voffset=1in
+\parsep=0pt
+\parskip=0pt    % No space between paragraphs
+
+% line spaces
+%\def\twolines{\vskip2.75349ex} % approx 5mm in 12pt
+\def\twolines{\vskip 0.2in plus 1fil minus 0.1in}
+
+% More figures
+\setcounter   {topnumber}{3}                    % common default: 2
+\renewcommand {\topfraction}{0.8}               % common default: 0.8
+\setcounter   {totalnumber}{4}                  % common default: 3
+\renewcommand {\textfraction}{0.2}              % common default: 0.2
+\renewcommand {\floatpagefraction}{0.7}         % common default: 0.5
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TITLE PAGE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\email#1{\gdef\@email{#1}}
+\email{} % default is no email address
+
+% The \showwherepublished command sets the flag \@showpubflag to T
+% so that the "where published" text is printed at the top of the
+% first page.
+\def\showwherepublished{\gdef\@showpubflag{T}}
+\gdef\@showpubflag{F}    % default: don't show where published
+
+% \publishedin{WIDTH}{TEXT} Makes a box of size WIDTH for the
+% TEXT that is used as the "where published" text. See default.
+\def\publishedin#1#2{\gdef\@pubtext{\vbox{\hsize#1\noindent#2}}}
+
+% Default publication.
+\publishedin{5in}{\small Proceedings of the Fourteenth
+Annual Conference of the Cognitive Science Society, Indiana University,
+July 29--August 1, 1992. Lawrence Erlbaum Associates, Hillsdale, NJ.}
+
+
+\def\@maketitle{\newpage
+ \null
+% The extra vert. space of 0.5in on first page can be used to
+% hold a "where published" text if \@showpubflag is T
+\vbox to 0.25in{\if\@showpubflag T\@pubtext\fi\vss}
+\begin{center}
+\LARGE\bf \@title\\\twolines
+\Large\bf\@author\\
+\large
+School of Cognitive \& Computing Sciences\\
+University of Sussex\\
+Brighton BN1 9QH, UK\\
+\ifx\@email\empty\else\@email\fi
+\end{center}\vskip 0.3in plus 2fil minus 0.1in
+}
+
+%% Page numbering is starts from page N when the command
+%% \firstpage{N} is issued before \maketitle.
+\gdef\@firstpage{F}% default: no page numbering (F=FALSE)
+\def\firstpage#1{\gdef\@firstpage{#1}}
+
+\def\maketitle{\par
+ \begingroup
+   \def\thefootnote{\fnsymbol{footnote}}%
+   \def\@makefnmark{\hbox
+       to\z@{$\m@th^{\@thefnmark}$\hss}}%
+   \if@twocolumn
+     \twocolumn[\@maketitle]%
+     \else \newpage
+     \global\@topnum\z@
+     \@maketitle \fi\thispagestyle{plain}\@thanks
+ \endgroup
+\thispagestyle{empty}\pagestyle{empty}
+% No page numbering unless we have a page number
+ \if{\@firstpage} F\else\setcounter{page}{\@firstpage}
+          \thispagestyle{plain}%
+          \pagestyle{plain}%
+          \fi
+ \setcounter{footnote}{0}%
+ \let\maketitle\relax
+ \let\@maketitle\relax
+ \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\thanks\relax
+\vskip 0.3in plus 2fil minus 0.1in
+}
+
+
+%% CHANGES TO FIGURE/TABLE CAPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\long\def\@caption#1[#2]#3{\par\addcontentsline{\csname
+  ext@#1\endcsname}{#1}{\protect\numberline{\csname
+  the#1\endcsname}{\ignorespaces #2}}\begingroup
+    \@parboxrestore
+    \normalsize
+    \@makecaption{\csname fnum@#1\endcsname}{#3}\par
+  \endgroup}
+
+\long\def\@makecaption#1#2{\vskip 10pt\def\next{#2}
+\ifx\next\empty\setbox\@tempboxa\hbox{{\bf#1}}\else
+ \setbox\@tempboxa\hbox{{\bf#1:} \ignorespaces\next}\fi
+ \ifdim \wd\@tempboxa >\hsize {\bf#1:} \ignorespaces\next\par \else \hbox
+to\hsize{\hfil\box\@tempboxa\hfil}
+ \fi}
+
+%% CHANGES TO SECTIONS
+
+ \def\section{\c@startsection {section}{1}{\z@}{-3.5ex plus-1ex minus
+     -.2ex}{2.3ex plus.2ex}{\reset@font\Large\bf}}
+
+ \def\subsection{\@startsection{subsection}{2}{\z@}{-3.25ex plus-1ex
+     minus-.2ex}{1.5ex plus.2ex}{\reset@font\large\bf}}
+
+ \def\c@startsection#1#2#3#4#5#6{\if@noskipsec \leavevmode \fi
+    \par \@tempskipa #4\relax
+    \@afterindenttrue
+    \ifdim \@tempskipa <\z@ \@tempskipa -\@tempskipa \@afterindentfalse\fi
+    \if@nobreak \everypar{}\else
+      \addpenalty{\@secpenalty}\addvspace{\@tempskipa}\fi \@ifstar
+      {\c@ssect{#3}{#4}{#5}{#6}}{\@dblarg{\@sect{#1}{#2}{#3}{#4}{#5}{#6}}}}
+
+ \def\c@ssect#1#2#3#4#5{\@tempskipa #3\relax
+    \ifdim \@tempskipa>\z@
+      \begingroup
+     \centerline{#4\@hangfrom{\hskip
+ #1}{\interlinepenalty \@M #5}}\endgroup
+    \else \def\@svsechd{#4\hskip #1\relax #5}\fi
+     \@xsect{#3}}
+
+%% FROM cogsci92.sty
+
+\renewenvironment{abstract}{\centerline{\Large\bf
+  Abstract}\vspace{0.5ex}\begin{quote}}{\par\end{quote}\vskip 1ex}
+
+% Footnotes
+\footnotesep 6.65pt %
+\skip\footins 9pt plus 4pt minus 2pt
+\def\footnoterule{\kern-3pt \hrule width 5pc \kern 2.6pt }
+\setcounter{footnote}{0}
+
+% Lists and paragraphs
+\parindent 10pt
+\topsep 4pt plus 1pt minus 2pt
+\partopsep 1pt plus 0.5pt minus 0.5pt
+\itemsep 2pt plus 1pt minus 0.5pt
+\parsep 2pt plus 1pt minus 0.5pt
+
+\leftmargin 10pt \leftmargini\leftmargin \leftmarginii 10pt
+\leftmarginiii 5pt \leftmarginiv 5pt \leftmarginv 5pt \leftmarginvi 5pt
+\labelwidth\leftmargini\advance\labelwidth-\labelsep \labelsep 5pt
+
+\def\@listi{\leftmargin\leftmargini}
+\def\@listii{\leftmargin\leftmarginii
+   \labelwidth\leftmarginii\advance\labelwidth-\labelsep
+   \topsep 2pt plus 1pt minus 0.5pt
+   \parsep 1pt plus 0.5pt minus 0.5pt
+   \itemsep \parsep}
+\def\@listiii{\leftmargin\leftmarginiii
+    \labelwidth\leftmarginiii\advance\labelwidth-\labelsep
+    \topsep 1pt plus 0.5pt minus 0.5pt
+    \parsep \z@ \partopsep 0.5pt plus 0pt minus 0.5pt
+    \itemsep \topsep}
+\def\@listiv{\leftmargin\leftmarginiv
+     \labelwidth\leftmarginiv\advance\labelwidth-\labelsep}
+\def\@listv{\leftmargin\leftmarginv
+     \labelwidth\leftmarginv\advance\labelwidth-\labelsep}
+\def\@listvi{\leftmargin\leftmarginvi
+     \labelwidth\leftmarginvi\advance\labelwidth-\labelsep}
+
+\abovedisplayskip 7pt plus2pt minus5pt%
+\belowdisplayskip \abovedisplayskip
+\abovedisplayshortskip  0pt plus3pt%
+\belowdisplayshortskip  4pt plus3pt minus3pt%

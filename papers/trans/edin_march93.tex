@@ -1,0 +1,612 @@
+% EDIN_MARCH93.TEX  (VanLehn's Wager)
+% Talk presented to Edinburgh University PDP group
+% Wednesday March 17th 1993
+%    Requires the following postscript files:
+%    eye.ps
+\documentstyle[slidesonly,portrait,arithprob,alltt,bitem]{seminar}
+\newcommand{\x}[2]{\mbox{$#1\times#2$}}
+\newcommand{\anarrow}{\(\Rightarrow\)}
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{slide*}
+% \heading{Overview}
+% \begin{itemize}
+% \item Aritmetic bugs
+% \item Production systems
+% \item Why bother with PDP?
+% \item PDP account of bugs
+% \item Conclusion
+% \end{itemize}
+% \end{slide*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide*}
+
+\heading{Errors in children's arithmetic}
+
+\begin{center}
+
+\begin{arithprob}{llll}
+&$5_{\ }$&$2_{\ }$&$4_{\ }$\\
+$\times$&$7_{\ }$&$3_{\ }$&$1_{\ }$\\
+\cline{1-4}$3_{\ }$&$5_{\ }$&$6_{\ }$&$4_{\ }$\\
+\end{arithprob}
+
+
+\begin{arithprob}{llll}
+&$3_{\ }$&$4_{\ }$&$6_{\ }$\\
+$\times$&&$2_{\ }$&$8_{\ }$\\
+\cline{1-4}$2_{\ }$&$7_{3}$&$6_{4}$&$8_{\ }$\\
+\end{arithprob}
+
+
+\begin{arithprob}{ll}
+&$4_{\ }$\\
+$\times$&$2_{\ }$\\
+\cline{1-2}$8_{\ }$&$8_{\ }$\\
+\end{arithprob}
+
+
+\begin{arithprob}{lll}
+&$2_{\ }$&$4_{\ }$\\
+$\times$&$3_{\ }$&$1_{\ }$\\
+\cline{1-3}&$8_{\ }$&$4_{\ }$\\
+\end{arithprob}
+
+
+\end{center}
+
+\end{slide*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide*}
+\heading{Production system for multiplication}\bigskip
+
+\scriptsize
+\begin{alltt}
+ INTO: [processmult]          \anarrow readintandb();
+ SM:   [t ?t] [b ?b] [c ?c]   \anarrow do_calc();
+ NX:   [next_top]             \anarrow [processmult] shift_top_left();
+ WM:   [result ?u] [carry ?c] \anarrow writedown(); [next_top]
+ CC:   [no_more_top]          \anarrow chkcy(); [chkbot] [addzero]
+ CB:   [checkbottom]          \anarrow check_bottom();
+ FI:   [none_left]            \anarrow [stop]\smallskip
+ NB:   [no_more]              \anarrow endmult(); [startadd]
+ CO:   [startadd]             \anarrow readincolumn();
+ DA:   [column ?len ?dig]     \anarrow do_add();
+ ML:   [next_left]            \anarrow [startadd] moveleft();
+ WA:   [u ?u] [c ?c]          \anarrow writeadd(); [next_left]
+ CA:   [no_more_digits]       \anarrow checkadd();
+ AZ:   [addzero]              \anarrow add_zero();
+\end{alltt}
+
+\begin{alltt}
+[ [3 4] [2 2] result=[6 8] topdigit=1 botdigit=2 carry=0]
+\end{alltt}
+
+\end{slide*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide*}
+\heading{Repair theory and Sierra theory}
+
+\bitem{Faulty rules lead to impasses}
+
+{\small ``When
+a constraint or precondition gets violated the student, unlike a
+typical computer program, is not apt to just quit'' (Brown \& VanLehn,
+1980).}
+
+\bitem{Impasses need to be repaired}
+
+\medskip\begin{tabular}{l@{\hspace{5mm}}l}
+{\em Impasses}&{\em Repairs}\smallskip\\
+Decision&Barge-on\\
+Reference&No-op\\
+Primitive&Back-up\\
+\end{tabular}\medskip
+
+\bitem{Rule and patterns are induced}
+
+
+\end{slide*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide*}
+\heading{Always-borrows-left}\medskip
+
+\hspace{1cm}
+\begin{arithprob}{llll}
+&$3_{\ }$&$6_{\ }$&$5_{\ }$\\
+$-$&$1_{\ }$&$0_{\ }$&$9_{\ }$\\
+\cline{1-4}&$1_{\ }$&$6_{\ }$&$6_{\ }$\\
+\end{arithprob}
+\hspace{1.4cm}
+\begin{arithprob}{lll}
+&$6_{\ }$&$5_{\ }$\\
+$-$&$1_{\ }$&$9_{\ }$\\
+\cline{1-3}&$4_{\ }$&$6_{\ }$\\
+\end{arithprob}
+
+\noindent borrow-column = left-most and left-adjacent
+
+\begin{itemize}
+\item Skewed curriculum
+\item Input language
+\item Learns most specific rule
+\end{itemize}
+\end{slide*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide*}
+
+\heading{Why connectionism?}
+
+``If one had to choose between production systems and
+connection systems as a representation language for knowledge
+about subtraction, then production systems seem much more
+plausible.  Indeed it is not easy to see how a connection system could
+possibly generate the kind of extended, sequential problem-solving
+behaviour that characterizes students solving subtraction problems''
+(Kurt VanLehn, 1990).
+
+``When people reach an impasse\ldots they do not simply halt and
+issue and error message, as a computer would'' (VanLehn, 1990).
+
+\bigskip
+\centerline{\em Nor do neural nets}.
+
+\end{slide*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide*}
+
+\heading{What we know about arithmetic}\bigskip
+
+\begin{itemize}
+\item Children don't understand it
+\item It takes time
+\item Problems vary in length
+\item Your eyes move
+\item You don't always mark the page
+\item It's learned in steps
+\item Learning is by examples (not verbal recipes)
+\item There are bugs and slips
+\item Bugs mostly occur during testing
+\end{itemize}
+
+\bigskip
+\heading{What we don't know about arithmetic}\bigskip
+
+\begin{itemize}
+\item What is read
+\item What is done
+\item How we navigate problems
+\end{itemize}
+
+
+\end{slide*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide*}
+\heading{Real symbol processing}
+
+\noindent {\em Schemata and sequential thought processes in PDP models.}
+Rumelhart, Smolensky, McClelland and Hinton (PDP2, chapter 14).
+\medskip
+
+\noindent We are good at\ldots
+\begin{itemize}
+\item Pattern matching
+\item Modelling our environment
+\item Manipulating our environment
+\end{itemize}
+
+\noindent ``\ldots we succeed in solving logical problems\ldots by making
+the problems we wish to solve conform to problems we are good at solving''.
+
+\noindent I.e., turn long multiplication into lots of small input-output
+associations.
+
+\begin{arithprob}{lll}
+$3_{\ }$&$4_{\ }$&$3_{\ }$\\
+$8_{\ }$&$2_{\ }$&$2_{\ }$\\
+\cline{1-3}&&\\
+\end{arithprob}
+\hspace{3cm}
+\begin{arithprob}{lll}
+$3_{\ }$&$4_{\ }$&$3_{\ }$\\
+$8_{\ }$&$2_{\ }$&$2_{\ }$\\
+\cline{1-3}&&$6_{\ }$\\
+\end{arithprob}
+
+\end{slide*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide*}
+\heading{Focus of attention}\bigskip
+
+\centerline{\pssem{../postscript/eye.ps}{4in}}
+\bigskip
+
+\centerline{\pssem{../postscript/longinrep.ps}{6in}}
+
+\end{slide*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide*}
+\heading{Operations}
+
+\begin{center}\small
+\begin{tabular}{ll}
+Movement                 &  Registers\\\hline
+\verb|top_next_column|   &  \verb|push_mark|\\
+\verb|jump_answer_space| &  \verb|zero_accumulator|\\
+\verb|jump_top_row|      &  \verb|next_answer_row|\\
+\verb|left|              &  \verb|next_bottom_column|\\
+\verb|right|             &  \verb|inc_answer_column|\\
+\verb|up|                &  \verb|inc_top_column|\\
+\verb|down|              &  \verb|add_start_position|\\
+\verb|read_carry|        &  \verb|x_start_position|\bigskip\\
+Writing                  &  Special actions\\\hline
+\verb|write_units|       &  \verb|add_mark_to_accumulator|\\
+\verb|write_tens|        &  \verb|compute_product|\\
+\verb|mark_zero|         &  \verb|draw_rule|\\
+\verb|mark_carry|        &  \verb|done|\\
+\end{tabular}
+\end{center}
+\end{slide*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide*}
+\heading{Architecture}\bigskip
+
+\centerline{\pssem{../postscript/longxnet2.ps}{4.8in}}
+
+\begin{center}
+\footnotesize
+\begin{arithprob}{ll}
+&2\\
+$\times$&3\\
+\cline{1-2}
+&6
+\end{arithprob}
+\end{center}
+
+
+\begin{center}
+\footnotesize
+\begin{tabular}{ccll}
+Task&Cell&Output&Comments\\\hline
+$\times$&&\verb|x_start_pos|&Look at `3'\\
+$\times$&Number&\verb|push_mark|&Remember the `3'\\
+$\times$&Number&\verb|jump_top_row|&Move to the `2'\\
+$\times$&Number&\verb|compute_product|&Multiply digits\\
+$\times$&Number&\verb|jump_answer|&Move down\\
+$\times$&Space&\verb|write_units|&Write `6'\\
+$\times$&Space&\verb|done|&
+\end{tabular}
+\end{center}
+
+\end{slide*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide*}
+\heading{BPTT}\bigskip
+
+\centerline{\pssem{../postscript/bptt.ps}{9cm}}
+
+\end{slide*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{slide*}
+\heading{Training}\medskip
+
+\begin{enumerate}
+\item One column addition, sum < 10.
+\item Addition of three rows.
+\item Two digit numbers, no carrying.
+\item Addition with gaps.
+\item Two digits with carry.
+\item Three column addition, without carry.
+\item Three column with carry.
+\end{enumerate}
+
+\noindent $1+1$, $1+1+1$, $11+11$\ldots \x11, \x{2}{5}, \x{11}{1},
+\x{111}{1}, \x{12}{5}, \x{12}{9},
+\x{1}{11}, \x{11}{11}, \x{1}{111}, \x{12}{15},
+\x{12}{19}, \ldots \x{12}{99}, \x{111}{111}.
+
+\end{slide*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide*}
+
+\heading{Errors in network's arithmetic}
+
+``\ldots many bugs are caused by testing beyond training\ldots'' (VanLehn
+1990).
+
+\footnotesize
+
+\begin{arithprob}{llllll}
+&&&$1_{}$&$1_{}$&$1_{}$\\
+&&$\times$&&$1_{}$&$1_{}$\\
+\cline{3-6}
+&&&&$1_{}$&$1_{}$\\
+&&$+$&&&$1_{}$\\
+\cline{3-6}
+&&&&$1_{}$&$2_{}$\\
+\end{arithprob}
+\hspace{1.5cm}
+\begin{arithprob}{lll}
+&$1_{\ }$&$2_{\ }$\\
+$\times$&$1_{\ }$&$5_{\ }$\\
+\cline{1-3}&$6_{1}$&$0_{\ }$\\
+\end{arithprob}
+
+\begin{arithprob}{lll}
+&$1_{\ }$&$2_{\ }$\\
+$\times$&$5_{\ }$&$0_{\ }$\\
+\cline{1-3}&$5_{\ }$&$0_{\ }$\\
+\end{arithprob}
+\hspace{1.5cm}
+\begin{arithprob}{lllll}
+&&$0_{}$&$1_{}$&$2_{}$\\
+&$\times$&$0_{}$&$9_{}$&$0_{}$\\
+\cline{2-5}
+&&&$0_{}$&$0_{}$\\
+$+$&$0_{1}$&$0_{1}$&$8_{}$&$0_{}$\\
+\cline{1-5}
+&$0_{}$&&&\\
+\end{arithprob}
+
+
+\begin{arithprob}{lllll}
+&&&$5_{}$&$9_{}$\\
+&&$\times$&$1_{}$&$2_{}$\\
+\cline{3-5}
+&&$1_{}$&$1_{1}$&$8_{}$\\
+$+$&&$5_{}$&$9_{}$&$0_{}$\\
+\cline{1-5}
+&&$6_{}$&$0_{}$&$8_{}$\\
+\end{arithprob}
+\hspace{1.5cm}
+\begin{arithprob}{lllll}
+&&&$1_{\ }$&$2_{\ }$\\
+&&$\times$&$9_{\ }$&$0_{\ }$\\
+\cline{3-5}&&$0_{\ }$&$0_{\ }$&$0_{\ }$\\
+&$+$&$0_{1}$&$8_{\ }$&$0_{\ }$\\
+\cline{2-5}&$0_{\ }$&$0_{\ }$&$8_{\ }$&$0_{\ }$\\
+\end{arithprob}
+
+\end{slide*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide*}
+
+\heading{Processing trajectories}\medskip
+
+\centerline{\pssem{../postscript/threeDtraj.ps}{8.5cm}}
+
+\begin{itemize}
+\item Operation deletion
+\item Operation duplication
+\item Operation substitution
+\item Extra loops
+\item Premature quits
+\item Different ``repairs'' during learning
+\end{itemize}
+
+\end{slide*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide*}
+\heading{Activation into action}\bigskip
+
+\small
+\noindent Example: network trained to \x{11}{1} and tested on \x{12}{56}.
+
+\begin{center}\footnotesize
+\begin{arithprob}{lll}
+&$1_{\ }$&$2_{\ }$\\
+$\times$&$5_{\ }$&$6_{\ }$\\
+\cline{1-3}&$8_{1}$&$2_{\ }$\\
+&&$6_{\ }$\\
+\end{arithprob}
+\end{center}
+
+\centerline{\pssem{../postscript/twoDtraj.ps}{14cm}}
+
+\end{slide*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide*}
+
+\heading{Errors during learning}\bigskip
+
+\small
+
+Recording errors made when learning between \x{11}{1} and \x{111}{1}.
+Testing net every 1500 epochs.\bigskip
+
+\centerline{\pssem{../postscript/lesline.ps}{8cm}}\medskip
+
+\begin{arithprob}{llll}
+&$1_{\ }$&$1_{\ }$&$1_{\ }$\\
+$\times$&$1_{\ }$&&$1_{\ }$\\
+\cline{1-4}&&$1_{\ }$&$1_{\ }$\\
+\end{arithprob}
+\hspace{1.5cm}
+\begin{tabular}{lll}
+&{\em Should}&{\em Did}\\
+14.&IAC&ITC\\
+15.&ITC&JTR\\
+16.&JTR&MUL\\
+17.&MUL&DWN\\
+18.&JAS&RDC\\
+19.&RDC&UNI\\
+20.&UNI&DONE\\
+21.&DONE&\\
+\end{tabular}
+
+\end{slide*}
+
+\begin{slide*}
+\footnotesize
+
+\tabcolsep=1pt
+\begin{tabular}{lll}
+14.&IAC&IAC\\
+15.&ITC&JTR\\
+16.&JTR&MUL\\
+17.&MUL&DWN\\
+18.&JAS&RDC\\
+19.&RDC&RDC\\
+20.&UNI&UNI\\
+21.&DONE&ITC\\
+22.&    &JTR\\
+23.&    &MUL\\
+24.&    &DWN\\
+25.&    &RDC\\
+26.&    &RDC\\
+27.&    &UNI\\
+28.&    &DONE\\
+\end{tabular}
+\hspace{1.5cm}
+\begin{tabular}{lll}
+14.&IAC&IAC\\
+15.&ITC&JTR\\
+16.&JTR&MUL\\
+17.&MUL&DWN\\
+18.&JAS&RDC\\
+19.&RDC&RDC\\
+20.&UNI&UNI\\
+21.&DONE&RDC\\
+22.&    &JTR\\
+23.&    &JTR\\
+24.&    &DWN\\
+25.&    &ADD\\
+26.&    &JAS\\
+27.&    &RDC\\
+28.&    &UNI\\
+29.&    &DONE\\
+\end{tabular}
+
+\begin{arithprob}{llll}
+&$1_{\ }$&$1_{\ }$&$1_{\ }$\\
+$\times$&&&$1_{\ }$\\
+\cline{1-4}&&$1_{\ }$&$1_{\ }$\\
+\end{arithprob}
+\hspace{1.5cm}
+\begin{arithprob}{llll}
+&$1_{\ }$&$1_{\ }$&$1_{\ }$\\
+$\times$&&$1_{\ }$&$1_{\ }$\\
+\cline{1-4}&$1_{\ }$&$1_{\ }$&$1_{\ }$\\
+\end{arithprob}
+
+\end{slide*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide*}
+\footnotesize
+
+\begin{arithprob}{llll}
+&$1_{\ }$&$1_{\ }$&$1_{\ }$\\
+$\times$&$1_{\ }$&&$1_{\ }$\\
+\cline{1-4}&&$1_{\ }$&$1_{\ }$\\
+\end{arithprob}
+\begin{tabular}{lll}
+14.&IAC&ITC\\
+15.&ITC&JTR\\
+16.&JTR&MUL\\
+17.&MUL&JAS\\
+18.&JAS&JAS\\
+19.&RDC&RDC\\
+20.&UNI&UNI\\
+21.&DONE&UNI\\
+22.&    &TNC\\
+23.&    &JTR\\
+24.&    &MUL\\
+25.&    &DWN\\
+26.&    &RDC\\
+27.&    &RDC\\
+28.&    &UNI\\
+29.&    &DONE\\
+\end{tabular}
+
+\begin{arithprob}{llll}
+&$1_{\ }$&$1_{\ }$&$1_{\ }$\\
+$\times$&$1_{\ }$&&$1_{\ }$\\
+\cline{1-4}&&$2_{\ }$&$1_{\ }$\\
+\end{arithprob}
+
+
+\end{slide*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide*}
+
+\heading{Developmental trajectories}
+
+\noindent Learning is\ldots
+\begin{itemize}
+\item Getting the right state transitions
+\item Distinguishing between states
+\end{itemize}
+
+\noindent Bugs are\ldots
+\begin{itemize}
+\item Incorrect transitions\ldots
+\item due to overlapping states
+\end{itemize}
+
+\noindent Repairs are\ldots
+\begin{itemize}
+\item Blended trajectories
+\item Thanks to generalization, and
+\item Similarity based processing
+\end{itemize}
+
+\medskip
+Impasses don't occur
+
+\end{slide*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{slide*}
+
+\heading{Conclusions}\bigskip
+
+\begin{itemize}
+\item Repair process is inherent in the PDP architecture
+\item Implementation of a production system?
+\item Another micro-cognition account?
+\item What's the psychological role of impasses and repairs?
+\item Hybrid 1: build a PS with soft pattern matcher
+\item Hybrid 2: try to do representation redescription
+\end{itemize}
+
+\end{slide*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

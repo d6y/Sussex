@@ -1,0 +1,62 @@
+get net networks/fsm35.net
+
+do networks/fsm_param.str 1
+
+log output/344.log
+
+set param lrate 0.01
+set param momentum 0.0
+
+set dl 1
+set sl 1
+set stepsize nepochs
+set nepochs 10
+
+set pcrit 101
+set ecrit 0.0
+
+get w weights/303a-16.wts
+get pat patterns/mult17.pat
+sttrain
+save w weights/344-1.wts
+sttrain
+save w weights/344-2.wts
+sttrain
+save w weights/344-3.wts
+sttrain
+save w weights/344-4.wts
+sttrain
+save w weights/344-5.wts
+sttrain
+save w weights/344-6.wts
+sttrain
+save w weights/344-7.wts
+sttrain
+save w weights/344-8.wts
+sttrain
+save w weights/344-9.wts
+sttrain
+save w weights/344-10.wts
+sttrain
+save w weights/344-11.wts
+sttrain
+save w weights/344-12.wts
+sttrain
+save w weights/344-13.wts
+sttrain
+save w weights/344-14.wts
+sttrain
+save w weights/344-15.wts
+sttrain
+save w weights/344-16.wts
+sttrain
+save w weights/344-17.wts
+sttrain
+save w weights/344-18.wts
+sttrain
+save w weights/344-19.wts
+sttrain
+save w weights/344-20.wts
+log -
+q
+y

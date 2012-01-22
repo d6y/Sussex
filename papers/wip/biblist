@@ -1,0 +1,16 @@
+#!/bin/csh
+#   biblist - read a BibTeX file foo.bib and produce a LaTeX document file
+#            foobib.tex that contains a \nocite command for every
+#            entry in the foo.bib file
+#
+#   Author: Robert Gaizauskas   6/8/90
+#   Hacked for my own purposes, Richardd
+echo "\documentstyle[a4,pstimesm,psy]{article}" > $1bib.tex
+
+echo "\begin{document}"  >> $1bib.tex
+
+sed -e 's/^@.*{\(.*\),/\\cite{\1}/p' -n $1.bib  >> $1bib.tex
+
+echo "\bibliographystyle{psy}"  >> $1bib.tex
+echo "\bibliography{$1}"  >> $1bib.tex
+echo "\end{document}"  >> $1bib.tex

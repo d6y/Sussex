@@ -1,0 +1,121 @@
+
+\typeout{Fancy Figures, 6 OCT 1992}
+
+% FANCYFIG.STY
+%
+% Richard Dallaway <richardd@cogs.susx.ac.uk>
+% Uses shadow.sty
+% !! Unsupported macros follow !!
+%
+% \begin{fancyfigure} ... \end{fancyfigure}
+% \begin{fancytable)  ... \end{fancytable}
+%
+% Puts either a box or a shadow box around the figure or table
+% depending on which two of the following has been set:
+%
+% \useshandofigures or \useframedfigures [default]
+% \useshadowtables  or \useframedtables  [default]
+%
+% NOTE: Does not work in two-column mode
+%
+% HINT: If LaTeX compains about your table/figure, try using
+%       \begin{table}\begin{center}...\end{center}\end{table)
+%       (or \begin{figure}...etc)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% More figures per page
+\setcounter   {topnumber}{3}                    % common default: 2
+\renewcommand {\topfraction}{0.8}               % common default: 0.8
+\setcounter   {totalnumber}{4}                  % common default: 3
+\renewcommand {\textfraction}{0.2}              % common default: 0.2
+\renewcommand {\floatpagefraction}{0.7}         % common default: 0.5
+
+\newdimen\fancyreduce\fancyreduce=20mm % Hacks to make shadow fit in column
+\newdimen\fancyoffset\fancyoffset=1mm
+\newbox\fancybox
+
+%% SHADOW FIGURES
+
+\def\shadowfigure{\@ifnextchar[{\@xshadowfigure}%
+    {\@xshadowfigure[hbt]}}% my default=hbt
+
+\def\@xshadowfigure[#1]{\advance\columnwidth by -\fancyreduce
+    \begin{figure}[#1]\hspace*{\fancyoffset}
+    \setbox\fancybox\vbox\bgroup}
+
+\def\endshadowfigure{\egroup\shabox{\copy\fancybox}\end{figure}}
+
+%% FRAMED FIGURES
+
+\def\framefigure{\@ifnextchar[{\@xframefigure}%
+    {\@xframefigure[hbt]}}% my default=hbt
+
+\def\@xframefigure[#1]{\begin{figure}[#1]\setbox\fancybox\vbox\bgroup}
+
+\def\endframefigure{\egroup\framebox[\columnwidth]{\copy\fancybox}%
+    \end{figure}}
+
+%% FANCY FIGURE is either frame or shadow figure
+
+\def\usehadowfigures{%
+    \@ifundefined{shabox}{\input shadow.sty}{}
+    \let\fancyfigure=\shadowfigure%
+    \let\endfancyfigure=\endshadowfigure}
+
+\def\useframefigures{%
+    \let\fancyfigure=\framefigure%
+    \let\endfancyfigure=\endframefigure}
+
+\useframefigures % as default
+
+%% FRAMED TABLES
+
+\def\frametable{\@ifnextchar[{\@xframetable}%
+    {\@xframetable[hbt]}}% my default=hbt
+
+\def\@xframetable[#1]{\begin{table}[#1]\setbox\fancybox\vbox\bgroup}
+
+\def\endframetable{\egroup\framebox[\columnwidth]{\copy\fancybox}%
+    \end{table}}
+
+%% SHADOW TABLES
+
+\def\shadowtable{\@ifnextchar[{\@xshadowtable}%
+    {\@xshadowtable[hbt]}}% my default=hbt
+
+\def\@xshadowtable[#1]{\advance\columnwidth by -\fancyreduce
+    \begin{table}[#1]\hspace*{\fancyoffset}
+    \setbox\fancybox\vbox\bgroup}
+
+\def\endshadowtable{\egroup\shabox{\copy\fancybox}\end{table}}
+
+%% a FANCY TABLE is either frame or shadow table
+
+\def\useshadowtables{%
+    \@ifundefined{shabox}{\input shadow.sty}{}
+    \let\fancytable=\shadowtable%
+    \let\endfancytable=\endshadowtable}
+
+\def\useframetables{%
+    \let\fancytable=\frametable%
+    \let\endfancytable=\endframetable}
+
+\useframetables % as default
+
+% Reduce the width of the caption, so it doesn't touch the
+% surrounding frame in a fancy figure. (\@makecaption from latex.tex)
+
+% In case the user has loaded ~richardd/tex/sty/fontmix.sty
+\@ifundefined{otherfont}{\newcommand{\caplabfnt}{\bf}}%
+    {\newcommand{\caplabfnt}{\hf\bf}}
+
+\long\def\@makecaption#1#2{%
+   \vskip 10\p@
+   \setbox\@tempboxa\hbox{{\caplabfnt#1:} #2}%
+   \ifdim \wd\@tempboxa >\hsize%
+    {\begin{minipage}{\columnwidth}\begin{quotation}\noindent
+    {\caplabfnt#1:} #2\end{quotation}\end{minipage}\smallskip}%
+     \else
+       \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+   \fi}

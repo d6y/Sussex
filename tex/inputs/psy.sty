@@ -1,0 +1,53 @@
+% File: psy.sty (works with theapa.bst, v2.5.1 or psy.bst)
+% Version: 1.1 (5 October 1992)
+% Richard Dallaway <richardd@cogs.susx.ac.uk>
+
+% Usage notes as for theapa.sty
+% Uses theapa.sty by Young U. Ryu (young@emx.utexas.edu)
+
+% 1. New macro: \citeay{key} -> Author, Year (No brackets) % 	
+% 2. Default \refname is "References"
+
+\typeout{PSY Optional Style, Version 1.1 (11/92)}
+
+\input theapa.sty
+\let\B=\BBA	% TO SAVE SPACE!
+
+\def\BED{, ed}                % editor
+\def\BEDS{, eds}              % editors
+\def\BVOL{Vol.}                 % volume name
+\def\BNUM{No.}                  % number name
+\def\BEd{edition}               % edition
+\def\BPG{p.}                    % page
+\def\BPGS{pp.}                  % pages
+\def\BCH{chapter}                 % chapter
+\def\BTR{Technical report}      % (default) technical report type name
+
+\citepunct{(}{\&}{\&}{~}{; }{, }{)}{}{.}
+
+%% \citeay{key} -> Author, Year (no brackets)
+\newcommand{\citeay}[1]{%
+    \let\tmpBBOP=\BBOP\let\tmpBBCP=\BBCP%
+    \def\BBOP{}\def\BBCP{}\cite{#1}%
+    \let\BBOP=\tmpBBOP\let\BBCP=\tmpBBCP}
+
+\def\refname{References}
+\NoCommaBetweenTwoAuthors
+
+% No uppercase versions of \refname for \@mkboth
+\def\thebibliography#1{%
+     \@ifundefined{chapter}%
+       {\section*{\refname}%
+        \@mkboth{\refname}{\refname}
+        \addcontentsline{toc}{section}{\refname}}%
+       {\chapter*{\bibname}%
+        \@mkboth{\bibname}{\bibname}
+        \addcontentsline{toc}{chapter}{\bibname}}
+     \list
+     {\relax}{\labelsep=0em
+              \leftmargin=\bibleftmargin
+	      \itemindent=-\bibleftmargin}
+     \def\newblock{\hskip .11em plus .33em minus .07em}
+     \sloppy\clubpenalty4000\widowpenalty4000
+     \sfcode`\.=1000\relax}
+\let\endthebibliography=\endlist

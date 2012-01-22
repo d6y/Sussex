@@ -1,0 +1,32 @@
+% \overlay - a useful macro
+% which overlays one symbol with another, centre-aligning them horizontally.
+% Copes with changing styles (\displaystyle etc).
+% For example,
+%    \def\downreduce{\mathbin{\overlay\downarrow\hyph}}
+%    \mathchardef\hyph"202D
+%
+% Jeremy Gibbons 9/11/89
+
+% \loverlay and \roverlay (great names!) act similarly, but left- or
+% right-align the symbols instead of centering them.
+
+\def\loverlay#1#2{\mathpalette\@overlay{{#1}{#2}{}{\hfil}}}
+\def\overlay#1#2{\mathpalette\@overlay{{#1}{#2}{\hfil}{\hfil}}}
+\def\roverlay#1#2{\mathpalette\@overlay{{#1}{#2}{\hfil}{}}}
+
+% the \mathpalette means \@overlay will be called by something like
+%
+%    \@overlay\textstyle{{foo}{bar}{\hfil}{\hfil}}
+
+\def\@overlay#1#2{\@@overlay#1#2}
+
+% remove the brackets from the second argument, so we get, for example,
+%
+%    \@overlay\textstyle{foo}{bar}{\hfil}{\hfil}
+
+\def\@@overlay#1#2#3#4#5{{\setbox0=\hbox{\m@th$#1#2$}\setbox1=\hbox{\m@th$#1#3$}%
+                      \ifdim \wd0<\wd1%
+                         \setbox2=\box1 \setbox1=\box0 \setbox0=\box2%
+                      \fi % \box0 is the wider
+                      \rlap{\hbox to\wd0{#4\box1\relax#5}}\box0%
+                    }}

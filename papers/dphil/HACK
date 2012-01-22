@@ -1,0 +1,14 @@
+HACK
+====
+
+1.  Hack the dphil.aux file so that Anderson has his initials when part of
+    a multi-author paper
+
+2.  Hack the dphil.bbl file to reomve periods after question marks.
+
+
+CHECK
+=====
+
+1.  Check to see if the table in appendix A has moved forward to its
+    correct position.  If so, remove the \pageref information.

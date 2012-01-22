@@ -1,0 +1,17 @@
+
+\def\noteast{\hspace{-1.5em}\mbox{\raise 1mm\hbox{\footnotesize$\ast$}}}
+\def\notedag{\hspace{-1.5em}\mbox{\raise 1mm\hbox{\footnotesize\dag}}}
+\setdec 00.0
+
+\begin{tabular}{lcccl}
+&\multicolumn{2}{c}{Networks}&Adults&\\
+&Skewed&Equalized&&\\
+Operand errors          &\dec 90.04 &\dec 86.51 &\dec 79.1 &\\
+Close operand errors    &\dec 78.98 &\dec 73.75 &\dec 76.8 &\noteast\\
+Frequent product errors\notedag &\dec 27.76 &\dec 23.68 &\dec 30.6 &\\
+Table errors            &\dec 9.74  &\dec 13.49 &\dec 13.5 &\\
+Operation error         &\dec 3.98  &\dec 3.22  &\dec 1.7 &\noteast\\
+Error frequency         &\dec 14.10 &\dec 18.64 &\dec 7.65 &\smallskip\\
+\multicolumn{5}{c}{\footnotesize$\ast$ Approximate percentage.}\\
+\multicolumn{5}{c}{\footnotesize\dag Percentage of operand errors.}
+\end{tabular}

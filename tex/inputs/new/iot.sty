@@ -1,0 +1,263 @@
+% File:     iot.sty
+% Author:   Richard Dallaway <richardd@cogs.susx.ac.uk>
+% Date:     Monday 7 June 1993
+% Update:   Friday 30 July 1993
+% Purpose:  Style for CSRP papers following from the Isle of Thorns meeting
+% Usage:    See end of file.
+
+\typeout{`Isle of Thorns' Style (July 1993)}
+
+% Based on 11pt article style
+
+% ARTICLE STANDARD DOCUMENT STYLE -- Released 14 Jan 1992
+%    for LaTeX version 2.09
+\ifx\@optionlist\empty\def\@optionlist{11pt}\else%
+    \xdef\@optionlist{\@optionlist,11pt}\fi
+
+% ARTICLE STANDARD DOCUMENT STYLE -- Released 14 Jan 1992
+%    for LaTeX version 2.09
+\input article.sty
+
+%-- Page Size ----------------------------------------------------------
+
+\textheight 24cm
+\textwidth  16cm
+\hoffset -1in
+\oddsidemargin 2.7cm
+\evensidemargin 2.7cm
+\topmargin -0.6in
+
+\parskip=0mm
+
+%-- Fonts --------------------------------------------------------------
+
+% Times Roman for the main body
+
+\input pstimes.sty
+
+% Gill Sans for the headings (\sf)
+
+\input psgill.sty
+
+
+%-- Sections -----------------------------------------------------------
+
+% Headings in \sf with less space around them
+
+\def\section{\@startsection {section}{1}{\z@}{-3.5ex plus-1ex minus
+    -.2ex}{1.5ex plus.2ex}{\reset@font\large\sf}}
+
+\def\subsection{\@startsection{subsection}{2}{\z@}{-3.25ex plus-1ex
+    minus-.2ex}{0.5ex plus.2ex}{\reset@font\large\sf}}
+
+\def\subsubsection{\@startsection{subsubsection}{3}{\z@}{-1ex plus
+    -0.5ex minus-.1ex}{0.25ex plus.1ex}{\reset@font\normalsize\sf}}
+
+%-- Email address ------------------------------------------------------
+
+\def\email#1{\gdef\@email{#1}}
+\email{} % default is no email address
+
+% Don't print the space around the email if empty
+\def\insertemail#1{\ifx#1\empty\else{#1}\fi}
+
+%-- Physical address ---------------------------------------------------
+
+\def\address#1{\gdef\@address{#1}}
+
+\def\addresssize#1{\gdef\@addresssize{#1}}
+
+% Default size for address text
+\addresssize{\normalsize}
+
+\def\cogs{School of Cognitive \& Computing Sciences\\University
+of Sussex\\Brighton BN1 9QH}
+
+\def\itri{Information Technology Research Institute\\University of
+Brighton\\Brighton BN1}
+
+% Default Address
+\address{\cogs}
+
+\def\and{\end{tabular}\hskip 1em plus.17fil%
+    \@addresssize\sf\begin{tabular}[t]{c}}
+
+%-- Publication heading ------------------------------------------------
+
+% \publishedin{WIDTH}{TEXT} Makes a box of size WIDTH for the
+% TEXT that is used as the "where published" text. See default.
+\def\publishedin#1#2{\def\HeadText{\parbox[b]{#1}{\noindent#2}}}
+
+% Default publication.
+\publishedin{4.2in}{\footnotesize In: {\em The White
+House Papers: Graduate Research in the Cognitive \& Computing Sciences at
+Sussex.} University of Sussex, School of Cognitive \& Computing Sciences,
+Brighton, UK. Research Paper CSRP.}
+
+% The \showwherepublished command enables printing of the
+% "where published" text on the first page.
+\def\showwherepublished{\def\showhead{\HeadText}}
+% Default: Show nothing.
+\def\showhead{}
+
+% Sets the first page number to #1, and enables print of page numbers.
+\def\firstpage#1{%
+    \def\showpagenumber{\rm\thepage}
+    \setcounter{page}{#1}
+}
+% Default: no page numbers
+\def\showpagenumber{}
+
+
+% "My headings" will be used on the first page to show the
+% "wherepublished" information
+
+\def\ps@myheadings{\let\@mkboth\@gobbletwo
+    \def\@oddhead{{\showhead}}\def\@evenhead{\@oddhead}
+    \def\@evenfoot{\hfil\showpagenumber\hfil}
+    \def\@oddfoot{\@evenfoot}
+    \def\sectionmark##1{}\def\subsectionmark##1{}}
+
+% Plain style is used everywhere else
+
+\def\ps@plain{\let\@mkboth\@gobbletwo
+     \let\@oddhead\@empty\def\@oddfoot{\hfil\reset@font\showpagenumber
+     \hfil}\let\@evenhead\@empty\let\@evenfoot\@oddfoot}
+
+\pagestyle{plain}
+\thispagestyle{myheadings}
+
+%-- Titlepage ----------------------------------------------------------
+
+
+\def\@maketitle{\newpage\null\vskip 2em
+    \begin{center}\Large\sf
+    \@title\medskip\\
+    \large\sf\@author\\
+    \normalsize\sf\insertemail{\@email}\bigskip\\
+    \@addresssize\sf
+    \begin{tabular}[t]{c}\@address\end{tabular}
+    \end{center}
+}
+
+\def\maketitle{\par
+ \begingroup
+   \def\thefootnote{\fnsymbol{footnote}}%
+   \def\@makefnmark{\hbox
+       to\z@{$\m@th^{\@thefnmark}$\hss}}%
+   \if@twocolumn
+     \twocolumn[\@maketitle]%
+     \else \newpage
+    \global\@topnum\z@ \@maketitle \fi\@thanks
+ \endgroup
+ \vskip3mm
+ \setcounter{footnote}{0}
+ \let\maketitle\relax
+ \let\@maketitle\relax
+ \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\thanks\relax}
+
+%-- Abstract -----------------------------------------------------------
+
+\renewenvironment{abstract}%
+    {\begin{list}{}{%
+        \listparindent=0em%
+        \itemindent=0em
+        \listparindent=0em
+        \rightmargin=2.5em%
+        \leftmargin=2.5em%
+        \labelsep=0mm%
+        \labelwidth=0em}
+        \item[{\sf\abstractname\hskip 0.75em}]}%
+    {\end{list}}
+
+%-- Figures and tables -------------------------------------------------
+
+% No change
+
+%-- Configuration ------------------------------------------------------
+
+\input iot.con
+
+%-- End of document ----------------------------------------------------
+
+\endinput
+
+-----------------------------------------------------------------------
+U S A G E   G U I D E
+-----------------------------------------------------------------------
+
+This style is based on LaTeX's 11pt article style.  It sets the page
+style, page size, fonts, etc for papers to be included in the CSRP
+that follows the IOT meetings.  To use, insert the following at the
+start of your document:
+
+\documentstyle{iot}
+
+There is NO need for "article", or "a4", or "11pt", or anything like
+that.  If you require other style options (such as psfig), insert them
+in the usual way:
+
+\documentstyle[psfig]{iot}
+
+In addition to the \author and \title macros, there is a \email macro.
+\date is not used. For example:
+
+\author{Richard Dallaway}
+\title{Genetic programming and cognitive models}
+\email{richardd@cogs.susx.ac.uk}
+\maketitle
+
+By default, the address is given as COGS.  This can be changed with the
+\address macro:
+
+\address{Department of PDP\\University of New Dworking\\CA 90201}
+
+Again, this should appear before the \maketitle.  For multiple addresses,
+seperate each address by \and
+
+\address{Univeristy of Sussex\\COGS\\Brighton \and University of New
+Dworking\\CA 90201}
+
+For your convenience two macros have been defined: \cogs and \itri.  These
+produce the addresses for COGS and ITRI when used inside the \address
+macro.
+
+By default each address is set in \normalsize text.  To change this use the
+\addresssize macro. E.g., to make the address smaller:
+
+\addresssize{\small}
+
+
+One the CSRP has been published, you may insert the following commands
+before the \maketitle
+
+\showwherepublished
+
+This will insert the reference for your paper on the top of the
+first page.  If you don't like the text it inserts you can change it:
+
+\publishedin{WIDTH}{TEXT}
+
+For example, the default \publishedin command is:
+
+\publishedin{4.2in}{\footnotesize In: {\em The White
+House Papers: Graduate Research in the Cognitive \& Computing Sciences at
+Sussex.} University of Sussex, School of Cognitive \& Computing Sciences,
+Brighton, UK. Research Paper CSRP.}
+
+The \publishedin text is usually set in a file called "iot.con", which
+configures iot.sty for particular years.  Iot.con is automatically read by
+iot.sty.  The file should be maintained by the editors of the CSRP, and
+placed in a directory specified by $TEXINPUTS.
+
+When you know the starting page number of you paper, you can insert the
+following (again before \maketitle):
+
+\firstpage{53}
+
+(if 53 is the page number on which your paper starts in the CSRP)
+
+There are no other special instructions.
+
+Use \section, bibliography styles, abstract environment, and all the other
+standard "article" commands as usual.

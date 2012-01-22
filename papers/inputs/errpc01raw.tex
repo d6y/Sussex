@@ -1,0 +1,19 @@
+
+\setdec 00.0
+\def\notedag{\mbox{\raise 1mm\hbox{\footnotesize\dag}}}
+
+\begin{tabular}{lccc}
+\hline
+&\multicolumn{2}{c}{Networks}&Adults\\
+\cline{2-3} &Skewed&Equalized&\\
+\hline
+Operand errors          &\dec 93.56 &\dec 93.15 &\dec 86.20 \\
+Close operand errors    &\dec 78.14 &\dec 74.12 &\dec 76.74 \\
+Frequent product errors\notedag &\dec 22.56 &\dec 20.14 &\dec 26.99 \\
+Table errors            &\dec 6.43  &\dec 6.85  &\dec 13.80 \\
+%high operation due to 0xN=N
+%Operation error         &\dec 2.21  &\dec 1.81  &\dec 13.72 \\
+Error frequency         &\dec 10.64 &\dec 15.58 &\dec 6.3 \\
+\hline
+\multicolumn{4}{l}{\dag Percentage of operand errors.}
+\end{tabular}

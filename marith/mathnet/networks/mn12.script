@@ -1,0 +1,56 @@
+do mn12.str 1
+
+log mn12-2.log
+
+set ecrit 0.05
+get pat mn_prob.pat
+ptrain
+save w mn_prob12-6.wts
+set ecrit 0.0
+get pat mn_norm.pat
+ptrain
+save w mn_norm12-6.wts
+newstart
+
+set ecrit 0.05
+get pat mn_prob.pat
+ptrain
+save w mn_prob12-7.wts
+set ecrit 0.0
+get pat mn_norm.pat
+ptrain
+save w mn_norm12-7.wts
+newstart
+
+set ecrit 0.05
+get pat mn_prob.pat
+ptrain
+save w mn_prob12-8.wts
+set ecrit 0.0
+get pat mn_norm.pat
+ptrain
+save w mn_norm12-8.wts
+newstart
+
+set ecrit 0.05
+get pat mn_prob.pat
+ptrain
+save w mn_prob12-9.wts
+set ecrit 0.0
+get pat mn_norm.pat
+ptrain
+save w mn_norm12-9.wts
+newstart
+
+set ecrit 0.05
+get pat mn_prob.pat
+ptrain
+save w mn_prob12-10.wts
+set ecrit 0.0
+get pat mn_norm.pat
+ptrain
+save w mn_norm12-10.wts
+
+log -
+q
+y

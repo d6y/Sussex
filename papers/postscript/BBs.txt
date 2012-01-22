@@ -1,0 +1,10 @@
+xrt: %%BoundingBox: 128 66 310 360
+xact: %%BoundingBox: 100 200 261 320
+p3x6: %%BoundingBox: 92 66 360 360
+p3x6.ps:%%BoundingBox: 92 66 360 360
+p3x8.ps:%%BoundingBox: 92 66 360 360
+xact.ps:%%BoundingBox: 140 200 261 320
+xnet.ps:%%BoundingBox: 70 541 508 332
+xrt.ps:%%BoundingBox: 128 66 310 360
+x01rt.ps: %%BoundingBox: 72 40 400 400
+x01rt.ps: %%BoundingBox: 72 40 400 400

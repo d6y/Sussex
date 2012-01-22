@@ -1,0 +1,2 @@
+get net networks/fsm.net
+do networks/fsm_param.str 1

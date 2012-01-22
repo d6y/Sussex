@@ -1,0 +1,459 @@
+\par\bigskip\par\bugitem{ZXnEZCn}{0$\times$N=0-carry-N} \nopagebreak When multiplying by zero, zero is written as the column's answer, but
+ the multiplicand is carried.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}}
+$\ _{\ }$&$2_{\ }$&$0_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$3_{\ }$\\
+\cline{1-3}$\ _{\ }$&$9_{3}$&$0_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Ainsworth&2.63\%\\\end{tabular}\par\bigskip\bugitem{ACtotop}{adds-carry-and-multiplicand} \nopagebreak The carried digit is added to the multiplicand, and this sum is given
+ as the column answer.  E.g., \x68=48, 3+4=7.  The final ``5'' was
+ copied.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$5_{\ }$&$3_{\ }$&$6_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$8_{\ }$\\
+\cline{1-4}$\ _{\ }$&$5_{\ }$&$7_{4}$&$8_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Attisha&\\\end{tabular}\par\bigskip\bugitem{ACtobot}{adds-carry-and-multiplier} \nopagebreak The carried digit is added to the multiplier, and this sum is given
+ as the column answer.  I.e., \x45=20, 4+2=6, \x48=32. \nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$8_{\ }$&$0_{\ }$&$5_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$4_{\ }$\\
+\cline{1-4}$3_{\ }$&$2_{\ }$&$6_{2}$&$0_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&8.85\%\\\end{tabular}\par\bigskip\bugitem{ACtobotZ}{adds-carry-and-multiplier-when-zero} \nopagebreak When the multiplicand is a zero, the subject adds the carry digit
+ and the multiplier to obtain an answer.  In the example, \x27=14,
+ 1+2=3, \x25=10.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$5_{\ }$&$0_{\ }$&$7_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$2_{\ }$\\
+\cline{1-4}$1_{\ }$&$0_{\ }$&$3_{1}$&$4_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&0.88\%\\\end{tabular}\par\bigskip\bugitem{ACtomultiplicands}{adds-carry-to-multiplicands} \nopagebreak A column's answer is the sum of the carry digit and the multiplicand.
+ E.g., \x68=48, 3+4=7, 5+4=9.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$5_{\ }$&$3_{\ }$&$6_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$8_{\ }$\\
+\cline{1-4}$\ _{\ }$&$9_{\ }$&$7_{4}$&$8_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Attisha&\\\end{tabular}\par\bigskip\bugitem{ACtoP}{adds-carry-to-product} \nopagebreak When the result of a multiplication is a two digit number, those
+ numbers are added, e.g., \x35=15=6.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$\ _{\ }$&$5_{\ }$&$2_{\ }$\\
+$\ _{\ }$&$\times$$\ _{\ }$&$1_{\ }$&$3_{\ }$\\
+\cline{2-4}$\ _{\ }$&$\ _{\ }$&$6_{\ }$&$6_{\ }$\\
+$+$$\ _{\ }$&$5_{\ }$&$2_{\ }$&$0_{\ }$\\
+\cline{1-4}$\ _{\ }$&$5_{\ }$&$8_{\ }$&$6_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Ainsworth&1.32\%\\\end{tabular}\par\bigskip\bugitem{AinsteadX}{adds-instead-of-multiplying} \nopagebreak The addition algorithm is used instead of multiplication.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$7_{\ }$&$2_{\ }$&$5_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$3_{\ }$\\
+\cline{1-4}$\ _{\ }$&$7_{\ }$&$2_{\ }$&$8_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&2.65\%\\Attisha&\\\end{tabular}\par\bigskip\bugitem{multAtoN}{adds-multiplicand-to-answer} \nopagebreak A multiplicand is not multiplied, but instead is added to the answer. 
+I.e., \x36=18, 7+1=8.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}}
+$\ _{\ }$&$7_{\ }$&$6_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$3_{\ }$\\
+\cline{1-3}$\ _{\ }$&$8_{1}$&$8_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Buswell&5.47\%\\\end{tabular}\par\bigskip\bugitem{AinXpattern}{adds-using-multiplication-pattern} \nopagebreak The subject uses the pattern for multiplication, but adds the digits.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$3_{\ }$&$2_{\ }$&$0_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$4_{\ }$\\
+\cline{1-4}$\ _{\ }$&$7_{\ }$&$6_{\ }$&$4_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&1.77\%\\Attisha&\\\end{tabular}\par\bigskip\bugitem{alwaysC}{always-carries} \nopagebreak The subject always adds in the carry digit.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$2_{\ }$&$4_{\ }$&$2_{\ }$&$9_{\ }$\\
+$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$2_{\ }$\\
+\cline{1-4}$5_{\ }$&$9_{\ }$&$5_{1}$&$8_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Buswell&0.2\%\\Attisha&\\\end{tabular}\par\bigskip\bugitem{alwaysCone}{always-carries-one} \nopagebreak When a carry occurs, the subject adds one to a column answer, not the
+ real carry.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$5_{\ }$&$1_{\ }$&$4_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$7_{\ }$\\
+\cline{1-4}$3_{\ }$&$5_{\ }$&$8_{2}$&$8_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Attisha&\\\end{tabular}\par\bigskip\bugitem{Nonerow}{answer-on-one-row} \nopagebreak All the partial products are written on one answer row.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$\ _{\ }$&$2_{\ }$&$3_{\ }$\\
+$\ _{\ }$&$\times$$\ _{\ }$&$4_{\ }$&$8_{\ }$\\
+\cline{2-4}$9_{1}$&$3_{1}$&$8_{2}$&$4_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Ainsworth&27.63\%\\\end{tabular}\par\bigskip\bugitem{lrN}{answers-left-to-right} \nopagebreak The subject writes the answer left to right.  In the example, \x29=18,
+ subject writes 8 carries 1, and so on.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$7_{\ }$&$1_{\ }$&$2_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$9_{\ }$\\
+\cline{1-4}$8_{\ }$&$0_{1}$&$6_{1}$&$4_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Attisha&\\\end{tabular}\par\bigskip\bugitem{CwrongX}{carries-wrong-digit} \nopagebreak When the result of a multiplication or addition is a number that needs
+ to be carried, the wrong digit is carried.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$7_{\ }$&$2_{\ }$&$4_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$6_{\ }$\\
+\cline{1-4}$4_{\ }$&$8_{6}$&$1_{4}$&$2_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Ainsworth&3.95\%\\Buswell&1.76\%\\Cox&0.88\%\\Attisha&\\\end{tabular}\par\bigskip\bugitem{CwrongNum}{carries-wrong-number} \nopagebreak A composite bug, where some number was carried, but it was the wrong
+ one (e.g., the units number as in \bug{CwrongX}, or always a one, as in
+ \bug{alwaysCone}).\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{tabular}[t]{lr}Buswell&18.55\%\\\end{tabular}\par\bigskip\bugitem{CAbeforeX}{carry-added-to-multiplicand} \nopagebreak The carry digit is added to the multiplicand before multiplying. I.e.,
+ \x67=42, (2+4)$\times$6=36, (3+3)$\times$6=36. \nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$3_{\ }$&$2_{\ }$&$7_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$6_{\ }$\\
+\cline{1-4}$3_{\ }$&$6_{3}$&$6_{4}$&$2_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&7.96\%\\Buswell&0.78\%\\Attisha&\\\end{tabular}\par\bigskip\bugitem{CAtotens}{carry-added-to-tens} \nopagebreak When adding a carry digit to a product, the carry is added to the
+ tens part, e.g., \x46=24, \x42=8, 2+8=28.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$\ _{\ }$&$2_{\ }$&$6_{\ }$\\
+$\ _{\ }$&$\times$$\ _{\ }$&$1_{\ }$&$4_{\ }$\\
+\cline{2-4}$\ _{\ }$&$2_{\ }$&$8_{2}$&$4_{\ }$\\
+$+$$\ _{\ }$&$2_{\ }$&$6_{\ }$&$0_{\ }$\\
+\cline{1-4}$\ _{\ }$&$5_{1}$&$4_{\ }$&$4_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Ainsworth&1.32\%\\\end{tabular}\par\bigskip\bugitem{Cnotraised}{carry-not-raised} \nopagebreak The carry digit is not raised at the end of a answer row in 
+the partial product.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$\ _{\ }$&$4_{\ }$&$2_{\ }$\\
+$\ _{\ }$&$\times$$\ _{\ }$&$4_{\ }$&$1_{\ }$\\
+\cline{2-4}$\ _{\ }$&$\ _{\ }$&$4_{\ }$&$2_{\ }$\\
+$+$$\ _{1}$&$6_{\ }$&$8_{\ }$&$0_{\ }$\\
+\cline{1-4}$\ _{\ }$&$7_{1}$&$2_{\ }$&$2_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Ainsworth&1.32\%\\\end{tabular}\par\bigskip\bugitem{ConeCallX}{carry-once-always-carry} \nopagebreak Once the subject starts to carry a digit, it is always carried.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$1_{\ }$&$1_{\ }$&$2_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$7_{\ }$\\
+\cline{1-4}$\ _{\ }$&$8_{1}$&$8_{1}$&$4_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&0.88\%\\\end{tabular}\par\bigskip\bugitem{copyafterfirst}{copies-after-first-column} \nopagebreak The first column of a problem is solved correctly, but the
+ remaining multiplicands are copied to the answer row.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$3_{\ }$&$1_{\ }$&$3_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$3_{\ }$\\
+\cline{1-4}$\ _{\ }$&$3_{\ }$&$1_{\ }$&$9_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&7.96\%\\Attisha&\\\end{tabular}\par\bigskip\bugitem{copymultiplicand}{copies-multiplicand} \nopagebreak No multiplication is performed, but the multiplicand is copied to the
+ answer row.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$2_{\ }$&$0_{\ }$&$0_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$4_{\ }$\\
+\cline{1-4}$\ _{\ }$&$2_{\ }$&$0_{\ }$&$0_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&4.42\%\\Buswell&0.78\%\\Attisha&\\\end{tabular}\par\bigskip\bugitem{copy100}{copies-multiplicand-at-100s} \nopagebreak When processing the hundreds multiplier, the subject inserts two 
+ zeros and copies the multiplicand.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$\ _{\ }$&$5_{\ }$&$1_{\ }$&$9_{\ }$\\
+$\ _{\ }$&$\times$$\ _{\ }$&$4_{\ }$&$0_{\ }$&$2_{\ }$\\
+\cline{2-5}$\ _{\ }$&$1_{\ }$&$0_{\ }$&$3_{\ }$&$8_{\ }$\\
+$5_{\ }$&$1_{\ }$&$9_{\ }$&$0_{\ }$&$0_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&0.88\%\\\end{tabular}\par\bigskip\bugitem{copymultiplicandZ}{copies-multiplicand-including-zero} \nopagebreak The multiplicand is copied as the answer, but a zero is first
+ inserted into the answer.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$2_{\ }$&$4_{\ }$&$7_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$2_{\ }$&$0_{\ }$\\
+\cline{1-4}$2_{\ }$&$4_{\ }$&$7_{\ }$&$0_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&0.88\%\\\end{tabular}\par\bigskip\bugitem{copymultiplicandless2}{copies-multiplicand-less-2} \nopagebreak The answer is two less than the multiplicand.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}}
+$\ _{\ }$&$1_{\ }$&$6_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$4_{\ }$\\
+\cline{1-3}$\ _{\ }$&$1_{\ }$&$4_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&0.88\%\\\end{tabular}\par\bigskip\bugitem{crossX}{cross-multiplies} \nopagebreak The digits of the problem are cross multiplied, e.g., \x14=4, \x32=6.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}}
+$\ _{\ }$&$4_{\ }$&$2_{\ }$\\
+$\times$$\ _{\ }$&$3_{\ }$&$1_{\ }$\\
+\cline{1-3}$\ _{\ }$&$6_{\ }$&$4_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Ainsworth&1.32\%\\\end{tabular}\par\bigskip\bugitem{digitomit}{digit-omitted} \nopagebreak A digit in the product is not written down.  In the example, the subject
+ decided not to write down the 5 from 54 (\x88=64, \x86=48 + 6 = 54).\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$6_{\ }$&$8_{\ }$\\
+$\times$$\ _{\ }$&$9_{\ }$&$8_{\ }$&$7_{\ }$&$8_{\ }$\\
+\cline{1-5}$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$4_{6}$&$4_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Buswell&3.32\%\\\end{tabular}\par\bigskip\bugitem{dnAC}{does-not-add-carry} \nopagebreak The carry digit is not added to the column product.
+ Cox notes this error when the subject misses just one carry in a problem
+ (not necessarily every carry).\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$1_{\ }$&$4_{\ }$&$9_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$4_{\ }$\\
+\cline{1-4}$\ _{\ }$&$4_{1}$&$6_{3}$&$6_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Buswell&17.38\%\\Cox&4.42\%\\Attisha&\\\end{tabular}\par\bigskip\bugitem{dnApP}{does-not-add-partial-product} \nopagebreak The subject does not add the partial product, leaving the sum as shown
+ in the example.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$5_{\ }$&$3_{\ }$\\
+$\ _{\ }$&$\times$$\ _{\ }$&$3_{\ }$&$2_{\ }$&$1_{\ }$\\
+\cline{2-5}$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$5_{\ }$&$3_{\ }$\\
+$\ _{\ }$&$1_{\ }$&$0_{\ }$&$6_{\ }$&$0_{\ }$\\
+$1_{\ }$&$5_{\ }$&$9_{\ }$&$0_{\ }$&$0_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Buswell&2.34\%\\\end{tabular}\par\bigskip\bugitem{nCpP}{does-not-carry-in-partial-product} \nopagebreak The subject does not carry when adding the partial product.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$\ _{\ }$&$9_{\ }$&$2_{\ }$&$7_{\ }$\\
+$\ _{\ }$&$\times$$\ _{\ }$&$\ _{\ }$&$7_{\ }$&$3_{\ }$\\
+\cline{2-5}$\ _{\ }$&$2_{\ }$&$7_{\ }$&$8_{\ }$&$1_{\ }$\\
+$6_{\ }$&$4_{\ }$&$8_{\ }$&$9_{\ }$&$0_{\ }$\\
+\cline{1-5}$6_{\ }$&$6_{\ }$&$5_{\ }$&$7_{\ }$&$1_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Attisha&\\\end{tabular}\par\bigskip\bugitem{noCfor10s}{does-not-carry-to-10s} \nopagebreak The carried digit is not added to the product in the tens column.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$2_{\ }$&$1_{\ }$&$6_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$6_{\ }$\\
+\cline{1-4}$1_{\ }$&$2_{\ }$&$6_{3}$&$6_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Ainsworth&3.95\%\\Cox&0.88\%\\Attisha&\\\end{tabular}\par\bigskip\bugitem{dnRPcopy10s}{does-not-rename-copies-10s} \nopagebreak The product from the first multiplication is written in the answer row
+ without renaming, and the tens multiplicand is copied into the answer.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}}
+$\ _{\ }$&$1_{\ }$&$6_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$4_{\ }$\\
+\cline{1-3}$1_{\ }$&$2_{\ }$&$4_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&0.88\%\\\end{tabular}\par\bigskip\bugitem{dnRthencopy}{does-not-rename-first-then-copies} \nopagebreak The first multiplication is performed, and the answer is written in the
+ answer without renaming, and remaining multiplicands are copied.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$2_{\ }$&$3_{\ }$&$7_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$4_{\ }$\\
+\cline{1-4}$2_{\ }$&$3_{\ }$&$2_{\ }$&$8_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Attisha&\\\end{tabular}\par\bigskip\bugitem{dnRP}{does-not-rename-product} \nopagebreak Digits carried over from a multiplication are written on the answer row.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}}
+$\ _{\ }$&$1_{\ }$&$7_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$5_{\ }$\\
+\cline{1-3}$5_{\ }$&$3_{\ }$&$5_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Ainsworth&6.58\%\\Cox&0.88\%\\\end{tabular}\par\bigskip\bugitem{noleadingZ}{forgets-annex} \nopagebreak The zero is forgotten.  In the example, a zero should
+ have been inserted into the second answer row.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$\ _{\ }$&$4_{\ }$&$5_{\ }$\\
+$\ _{\ }$&$\times$$\ _{\ }$&$2_{\ }$&$9_{\ }$\\
+\cline{2-4}$\ _{\ }$&$4_{\ }$&$0_{4}$&$5_{\ }$\\
+$+$$\ _{\ }$&$\ _{\ }$&$9_{1}$&$0_{\ }$\\
+\cline{1-4}$\ _{\ }$&$4_{\ }$&$9_{\ }$&$5_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Buswell&7.62\%\\Ainsworth&3.95\%\\Cox&3.54\%\\\end{tabular}\par\bigskip\bugitem{ignoreZX}{ignores-zero-multiplier} \nopagebreak The first multiplier is ignored when it's a zero, and no 
+ zero is inserted in the answer row.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}}
+$\ _{\ }$&$5_{\ }$&$3_{\ }$\\
+$\times$$\ _{\ }$&$2_{\ }$&$0_{\ }$\\
+\cline{1-3}$1_{\ }$&$0_{\ }$&$6_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&3.54\%\\Attisha&\\\end{tabular}\par\bigskip\bugitem{wrongleadingZ}{incorrect-number-of-annex-zeros} \nopagebreak An incorrect number of zeros are inserted into one of the
+ answer rows.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$\ _{\ }$&$4_{\ }$&$5_{\ }$&$6_{\ }$\\
+$\ _{\ }$&$\times$$\ _{\ }$&$2_{\ }$&$5_{\ }$&$1_{\ }$\\
+\cline{2-5}$\ _{\ }$&$\ _{\ }$&$4_{\ }$&$5_{\ }$&$6_{\ }$\\
+$2_{\ }$&$2_{\ }$&$8_{\ }$&$0_{\ }$&$0_{\ }$\\
+$9_{\ }$&$1_{\ }$&$2_{\ }$&$0_{\ }$&$0_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&6.19\%\\\end{tabular}\par\bigskip\bugitem{lastXlast}{last-digits-multiplied} \nopagebreak The last multiplicand is multiplied by the last multiplier, rather than
+ multiply each multiplier by each multiplicand.  In the example, \x27=14,
+ \x20=0+1=1, then \x53=15.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$5_{\ }$&$0_{\ }$&$7_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$3_{\ }$&$2_{\ }$\\
+\cline{1-4}$1_{\ }$&$5_{\ }$&$1_{1}$&$4_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&1.77\%\\\end{tabular}\par\bigskip\bugitem{notwotwo}{last-multiplication-skipped} \nopagebreak The second multiplicand is not multiplied by the second multiplier.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}}
+$\ _{\ }$&$3_{\ }$&$2_{\ }$\\
+$\times$$\ _{\ }$&$4_{\ }$&$1_{\ }$\\
+\cline{1-3}$\ _{\ }$&$3_{\ }$&$2_{\ }$\\
+$+$$\ _{\ }$&$8_{\ }$&$0_{\ }$\\
+\cline{1-3}$1_{\ }$&$1_{\ }$&$2_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Ainsworth&1.32\%\\\end{tabular}\par\bigskip\bugitem{XPbyC}{multiplied-product-by-carry} \nopagebreak The carry digit is multiplied by the product, rather than being
+ added to it.  In this example, \x39=27, \x31=3, \x32=6.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}}
+$\ _{\ }$&$1_{\ }$&$9_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$3_{\ }$\\
+\cline{1-3}$\ _{\ }$&$6_{2}$&$7_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&1.77\%\\Attisha&\\\end{tabular}\par\bigskip\bugitem{Xbyfirstdigit}{multiplies-all-by-first-multiplier} \nopagebreak The first multiplier is used to multiply all the other digits.  In this
+ example, \x12=2, \x14=4, \x13=3.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}}
+$\ _{\ }$&$4_{\ }$&$2_{\ }$\\
+$\times$$\ _{\ }$&$3_{\ }$&$1_{\ }$\\
+\cline{1-3}$3_{\ }$&$4_{\ }$&$2_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Ainsworth&3.95\%\\\end{tabular}\par\bigskip\bugitem{XCbyremains}{multiplies-by-carry-over-blank} \nopagebreak When the multiplicand is over an empty cell, the subject multiplies
+ by the carry digit.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}}
+$\ _{\ }$&$7_{\ }$&$6_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$4_{\ }$\\
+\cline{1-3}$1_{\ }$&$4_{2}$&$4_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Attisha&\\\end{tabular}\par\bigskip\bugitem{XCbymult}{multiplies-carry} \nopagebreak When there is a carry digit in the current column, it is used for
+ multiplication instead of the multiplicand. I.e., \x84=32, \x34=12,
+ and so on.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$3_{\ }$&$0_{\ }$&$8_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$4_{\ }$\\
+\cline{1-4}$\ _{\ }$&$4_{1}$&$2_{3}$&$2_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&5.31\%\\Attisha&\\\end{tabular}\par\bigskip\bugitem{Xlasttopwrites10}{multiplies-last-multiplicand-and-writes-10} \nopagebreak The only multiplication performed is to multiply the multiplier by the
+ last multiplicand (\x36 in the example).  The product is written in
+ the answer row, and ten is written after it.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$\ _{\ }$&$3_{\ }$&$0_{\ }$\\
+$\ _{\ }$&$\times$$\ _{\ }$&$\ _{\ }$&$6_{\ }$\\
+\cline{2-4}$1_{\ }$&$0_{\ }$&$1_{\ }$&$8_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&0.88\%\\\end{tabular}\par\bigskip\bugitem{Xmultiplicands}{multiplies-multiplicands} \nopagebreak The first multiplication is correct, but the subject then multiplies the
+ multiplicands.  In this example, \x14=4, \x24=8.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}}
+$\ _{\ }$&$2_{\ }$&$4_{\ }$\\
+$\times$$\ _{\ }$&$3_{\ }$&$1_{\ }$\\
+\cline{1-3}$\ _{\ }$&$8_{\ }$&$4_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Ainsworth&1.32\%\\\end{tabular}\par\bigskip\bugitem{XpP}{multiplies-partial-product} \nopagebreak The partial product is multiplied, not added, with the bug
+ \bug{XlikeA}.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}}
+$\ _{\ }$&$3_{\ }$&$2_{\ }$\\
+$\times$$\ _{\ }$&$2_{\ }$&$1_{\ }$\\
+\cline{1-3}$\ _{\ }$&$3_{\ }$&$2_{\ }$\\
+$6_{\ }$&$4_{\ }$&$0_{\ }$\\
+\cline{1-3}$7_{1}$&$2_{\ }$&$0_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Ainsworth&2.63\%\\\end{tabular}\par\bigskip\bugitem{XlikeA}{multiplies-using-addition-pattern} \nopagebreak Uses the addition pattern, but multiplies.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$5_{\ }$&$2_{\ }$&$4_{\ }$\\
+$\times$$\ _{\ }$&$7_{\ }$&$3_{\ }$&$1_{\ }$\\
+\cline{1-4}$3_{\ }$&$5_{\ }$&$6_{\ }$&$4_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Ainsworth&11.84\%\\Cox&4.42\%\\Attisha&\\\end{tabular}\par\bigskip\bugitem{XbyCwhenZ}{multiply-by-carry-when-zero} \nopagebreak When the multiplicand is zero, the subject prefers to multiply by the
+ carry digit.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$\ _{\ }$&$4_{\ }$&$0_{\ }$&$6_{\ }$\\
+$\ _{\ }$&$\times$$\ _{\ }$&$\ _{\ }$&$7_{\ }$&$3_{\ }$\\
+\cline{2-5}$\ _{\ }$&$1_{\ }$&$2_{\ }$&$3_{1}$&$8_{\ }$\\
+$3_{\ }$&$0_{2}$&$8_{4}$&$2_{\ }$&$0_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&1.77\%\\Attisha&\\\end{tabular}\par\bigskip\bugitem{nXZEn}{N$\times$0=N} \nopagebreak When N is multiplied by zero, N is the answer.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$3_{\ }$&$0_{\ }$&$2_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$3_{\ }$\\
+\cline{1-4}$\ _{\ }$&$9_{\ }$&$3_{\ }$&$6_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Buswell&23.44\%\\Ainsworth&21.05\%\\Cox&12.39\%\\Attisha&\\\end{tabular}\par\bigskip\bugitem{nolead3}{no-annexing-in-third} \nopagebreak No zeros were inserted for the third answer row.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{tabular}[t]{lr}Cox&2.65\%\\\end{tabular}\par\bigskip\bugitem{pPconf}{partial-product-confusion} \nopagebreak A general, combination error in which the subject had difficulty when
+ the problem had two or more multipliers.  In the first example, \x45=20,
+ \x24=8+2=10, \x21=2+1=3.  In the second example, the second and third
+ products are written on the same answer row.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}}
+$1_{\ }$&$4_{\ }$&$4_{\ }$\\
+$\ _{\ }$&$2_{\ }$&$5_{\ }$\\
+\cline{1-3}$3_{1}$&$0_{2}$&$0_{\ }$\\
+\end{arithprob}
+\hfil\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}p{1em}p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$5_{\ }$&$1_{\ }$&$2_{\ }$\\
+$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$\times$$\ _{\ }$&$\ _{\ }$&$2_{\ }$&$5_{\ }$\\
+\cline{6-9}$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$5_{\ }$&$1_{\ }$&$2_{\ }$\\
+$+$$\ _{\ }$&$1_{\ }$&$0_{\ }$&$2_{\ }$&$4_{\ }$&$1_{\ }$&$5_{\ }$&$3_{\ }$&$6_{\ }$\\
+\cline{1-9}\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Buswell&6.25\%\\\end{tabular}\par\bigskip\bugitem{incorrectApP}{partial-product-incorrectly-summed} \nopagebreak The addition of the partial product is incorrect.  Cox apparently
+ used this category to cover a number of addition bugs.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$5_{\ }$&$3_{\ }$\\
+$\ _{\ }$&$\ _{\ }$&$\times$$\ _{\ }$&$7_{\ }$&$4_{\ }$\\
+\cline{3-5}$\ _{\ }$&$\ _{\ }$&$2_{\ }$&$1_{\ }$&$2_{\ }$\\
+$+$$\ _{\ }$&$3_{\ }$&$7_{\ }$&$1_{\ }$&$0_{\ }$\\
+\cline{1-5}$\ _{\ }$&$4_{\ }$&$4_{\ }$&$2_{\ }$&$2_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&4.42\%\\\end{tabular}\par\bigskip\bugitem{revpP}{partial-product-reversed} \nopagebreak The order of the digits is reversed in  the partial product. In the
+ example, the ``219'' should be ``912''.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$4_{\ }$&$5_{\ }$&$6_{\ }$\\
+$\times$$\ _{\ }$&$2_{\ }$&$5_{\ }$&$1_{\ }$\\
+\cline{1-4}$\ _{\ }$&$4_{\ }$&$5_{\ }$&$6_{\ }$\\
+$2_{\ }$&$2_{\ }$&$8_{\ }$&$0_{\ }$\\
+$\ _{\ }$&$2_{\ }$&$1_{\ }$&$9_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Buswell&1.17\%\\Cox&0.88\%\\\end{tabular}\par\bigskip\bugitem{QafterfirstX}{quits-after-first-multiplication} \nopagebreak Only the first multiplication is completed.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$2_{\ }$&$4_{\ }$&$7_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$4_{\ }$\\
+\cline{1-4}$\ _{\ }$&$\ _{\ }$&$2_{\ }$&$8_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Attisha&\\\end{tabular}\par\bigskip\bugitem{Qafterfirstbottom}{quits-after-first-multiplier} \nopagebreak Only the first multiplier is used.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$3_{\ }$&$4_{\ }$&$6_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$2_{\ }$&$8_{\ }$\\
+\cline{1-4}$2_{\ }$&$7_{3}$&$6_{4}$&$8_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Buswell&10.16\%\\Ainsworth&2.63\%\\Attisha&\\\end{tabular}\par\bigskip\bugitem{Qat100s}{quits-at-100s} \nopagebreak The subject quits multiplying after processing the tens column.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$\ _{\ }$&$2_{\ }$&$2_{\ }$&$4_{\ }$\\
+$\ _{\ }$&$\times$$\ _{\ }$&$1_{\ }$&$1_{\ }$&$8_{\ }$\\
+\cline{2-5}$\ _{\ }$&$1_{\ }$&$7_{\ }$&$9_{\ }$&$2_{\ }$\\
+$\ _{\ }$&$2_{\ }$&$2_{\ }$&$4_{\ }$&$0_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&0.88\%\\\end{tabular}\par\bigskip\bugitem{repX}{repeated-multiplication} \nopagebreak A multiplication was repeated.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}}
+$\ _{\ }$&$4_{\ }$\\
+$\times$$\ _{\ }$&$2_{\ }$\\
+\cline{1-2}$8_{\ }$&$8_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Buswell&0.59\%\\\end{tabular}\par\bigskip\bugitem{skipsZmultiplicand}{skips-zero-multiplicand} \nopagebreak When the multiplicand contains a zero, the multiplication is skipped
+ and the reminding digits of the multiplicand are multiplied by the
+ multiplier directly under the zero.  In the example, \x29=18, \x85=40.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$8_{\ }$&$0_{\ }$&$9_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$5_{\ }$&$2_{\ }$\\
+\cline{1-4}$4_{\ }$&$0_{\ }$&$1_{\ }$&$8_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Attisha&\\\end{tabular}\par\bigskip\bugitem{Zin100s}{spurious-zero-in-100s} \nopagebreak A zero is inserted in the hundreds column for no apparent reason.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$\ _{\ }$&$9_{\ }$&$0_{\ }$&$5_{\ }$\\
+$\ _{\ }$&$\times$$\ _{\ }$&$\ _{\ }$&$4_{\ }$&$6_{\ }$\\
+\cline{2-5}$5_{\ }$&$4_{\ }$&$0_{\ }$&$3_{\ }$&$0_{\ }$\\
+$3_{\ }$&$6_{\ }$&$0_{\ }$&$2_{\ }$&$0_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&0.88\%\\\end{tabular}\par\bigskip\bugitem{SpP}{subtracts-partial-product} \nopagebreak The subject subtracts the partial product rather than adding.  In this
+ example the subject also subtracts the smaller number from the larger.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$\ _{\ }$&$5_{\ }$&$3_{\ }$\\
+$\ _{\ }$&$\times$$\ _{\ }$&$7_{\ }$&$4_{\ }$\\
+\cline{2-4}$\ _{\ }$&$2_{\ }$&$1_{\ }$&$2_{\ }$\\
+$3_{\ }$&$7_{\ }$&$1_{\ }$&$0_{\ }$\\
+\cline{1-4}$3_{\ }$&$5_{\ }$&$0_{\ }$&$2_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&0.88\%\\Attisha&\\\end{tabular}\par\bigskip\bugitem{manyZ}{too-many-annex-zeros} \nopagebreak Too many zeros are inserted into the answer row when
+ multiplying by a multiple of ten.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$5_{\ }$&$5_{\ }$&$3_{\ }$\\
+$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$\times$$\ _{\ }$&$\ _{\ }$&$2_{\ }$&$0_{\ }$\\
+\cline{4-7}$1_{\ }$&$1_{\ }$&$0_{\ }$&$6_{\ }$&$0_{\ }$&$0_{\ }$&$0_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&0.88\%\\Attisha&\\\end{tabular}\par\bigskip\bugitem{weird}{weird-order} \nopagebreak The digits are multiplied in a strange order.  In this example, the
+ order is: \x41=4, \x21=2, \x23=6, \x24=8.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$\ _{\ }$&$1_{\ }$&$3_{\ }$\\
+$\ _{\ }$&$\times$$\ _{\ }$&$2_{\ }$&$4_{\ }$\\
+\cline{2-4}$8_{\ }$&$6_{\ }$&$2_{\ }$&$4_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Ainsworth&1.32\%\\\end{tabular}\par\bigskip\bugitem{workslr}{works-left-to-right} \nopagebreak The subject starts at the left, adding carries to the right. In the
+ example, \x53=15, \x23=6+1=7.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}}
+$\ _{\ }$&$5_{\ }$&$2_{\ }$\\
+$\times$$\ _{\ }$&$\ _{\ }$&$3_{\ }$\\
+\cline{1-3}$\ _{\ }$&$5_{\ }$&$7_{1}$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Buswell&0.2\%\\\end{tabular}\par\bigskip\bugitem{firstZ}{zero-in-first-row} \nopagebreak A zero is inserted at the start of the first row.  Subsequent rows have
+ the correct number of zeros.\nopagebreak\par\nopagebreak\medskip\nopagebreak 
+\begin{arithprob}{p{1em}p{1em}p{1em}p{1em}p{1em}p{1em}}
+$\ _{\ }$&$\ _{\ }$&$\ _{\ }$&$4_{\ }$&$3_{\ }$&$6_{\ }$\\
+$\ _{\ }$&$\ _{\ }$&$\times$$\ _{\ }$&$\ _{\ }$&$5_{\ }$&$1_{\ }$\\
+\cline{3-6}$\ _{\ }$&$\ _{\ }$&$4_{\ }$&$3_{\ }$&$6_{\ }$&$0_{\ }$\\
+$+$$\ _{\ }$&$2_{\ }$&$1_{1}$&$8_{3}$&$0_{\ }$&$0_{\ }$\\
+\cline{1-6}$\ _{\ }$&$2_{\ }$&$6_{1}$&$1_{\ }$&$6_{\ }$&$0_{\ }$\\
+\end{arithprob}
+\hfil\begin{tabular}[t]{lr}Cox&0.88\%\\Attisha&\\\end{tabular}\par\bigskip

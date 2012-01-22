@@ -1,0 +1,325 @@
+\documentstyle[slidesonly,portrait]{seminar}
+
+
+ % -- Title page
+ % -- Overview
+ % -- Reaction time
+ % -- Types of slip
+ % -- Spread of activation
+ % -- The model
+ % -- Experiments
+ % -- Results (2-9)
+ % -- Results (0-9)
+ % -- Error Results
+ % -- Development of errors
+ % -- Other models
+ % -- Future
+ % -- Acknowledgements
+
+\newcommand{\x}[2]{\mbox{$#1\times#2$}}
+
+\begin{document}
+
+% -- Title page -----------------------------------------------------------
+
+\begin{slide*}
+
+\heading{Memory for Multiplication Facts}
+
+\begin{center}
+\changefont{helvetica}\large
+Richard Dallaway\\
+\normalsize
+richardd@cogs.susx.ac.uk\bigskip\\
+
+University of Sussex\\
+School of Cognitive \& Computing Sciences\\
+Falmer, Brighton BN1 9QH, UK.\bigskip\\
+
+\vspace{1cm}
+
+\pssem{sussex.ps}{4cm}
+
+\end{center}
+\end{slide*}
+
+% -- Overview -------------------------------------------------------------
+\begin{slide*}
+\heading{Overview}
+\changefont{helvetica}\vspace{1 true cm}
+\begin{center}
+\begin{minipage}{5cm}
+\begin{itemize}
+\item Human empirical
+\item Why bother?
+\item Description of the model
+\item Results
+\item Analysis
+\item Other PDP models
+\item Future work
+\end{itemize}
+\end{minipage}
+\end{center}
+
+\end{slide*}
+
+% -- Reaction time --------------------------------------------------------
+
+\begin{slide*}
+\heading{Reaction Time}
+
+\vspace{0.5cm}
+\pssem{../postscript/humanrt.ps}{4in}
+\vspace{1cm}
+
+\begin{itemize}
+\item Problem-size effect: Small problems easier than large problems.
+
+\item Exceptions to the rule:\\
+\begin{itemize}
+\item Five and nine times table
+\item Tie problems $(\x22,\x33\ldots\x99)$
+\end{itemize}
+
+\end{itemize}
+
+
+\end{slide*}
+
+
+% -- Types of slip --------------------------------------------------------
+\begin{slide*}
+\heading{Types of Slip}
+
+\begin{center}
+\renewcommand{\arraystretch}{0.85}
+\tabcolsep=3pt
+\begin{tabular}{c|cccccccc}
+$\times$&2&3&4&5&6&7&8&9\\
+\hline
+2&4& 6& 8& 10& 12& 14& 16& 18\\
+3&6& 9& 12& 15& 18& 21& 24& 27\\
+4&8& 12& 16& 20& 24& 28& 32& 36\\
+5&10& 15& 20& 25& 30& 35& 40& 45\\
+6&12& 18& 24& 30& 36& 42& 48& 54\\
+7&14& 21& 28& 35& 42& 49& 56& 63\\
+8&16& 24& 32& 40& 48& 56& 64& 72\\
+9&18& 27& 36& 45& 54& 63& 72& 81\\
+\end{tabular}
+
+\newcommand{\vgap}{\vspace{4mm}}
+\vgap
+\begin{minipage}[t]{7.5 true cm}\raggedright
+\parindent=0in
+{\bf1. Operand}\\
+For \x a b the error will be in the $a$ or $b$
+table.\vgap
+
+{\bf3. Frequent Products}\\
+Ie: 12 16 18 24 36\vgap
+
+{\bf5. Operation}\\
+Eg: $3\times3=6$
+\end{minipage}\hspace{1 true cm}%
+\begin{minipage}[t]{7.5 true cm}
+{\bf2. Close Operand}\\
+Error will be: $(a \pm2)\times b$ or
+$a\times (b\pm2)$\vgap
+
+{\bf4. Table}\\
+Eg: $4\times5=18$\vgap
+
+{\bf6. Non-table}\\
+Eg: $2\times3=5$
+\end{minipage}
+\end{center}
+
+\end{slide*}
+
+% -- Spread of activation -------------------------------------------------
+
+\begin{slide*}
+\heading{Measuring Response Time}
+
+\newcommand{\net}{\mbox{net}}
+$$
+\net_i (t) = k \sum\limits_j w_{ij}a_j + (1-k) \net_i (t-1)
+$$
+
+%\pssem{../postscript/casfn.ps}{3.5in}
+\pssem{../postscript/cascade.ps}{5.5in}
+
+
+\end{slide*}
+% -- The model ------------------------------------------------------------
+
+\begin{slide*}
+
+\heading{Architecture}
+\vspace{2mm}
+\pssem{../postscript/xnet.ps}{6.5in}
+
+\heading{Input Representation}
+
+\pssem{../postscript/inrep.ps}{4in}
+
+\end{slide*}
+
+% -- Experiments ----------------------------------------------------------
+
+\begin{slide*}
+
+\heading{Experiments}
+
+\begin{itemize}
+
+\item Training
+
+\begin{itemize}
+\item Skew in problem frequency\\
+\ldots but for adults?
+
+\begin{enumerate}
+\item Skewed networks
+\item Equalized networks
+\end{enumerate}
+
+\item Twenty different networks\\
+(different initial weights)
+\end{itemize}
+
+\item Recall
+
+\begin{itemize}
+\item Random thresholds, 0.4 -- 0.9
+\item Each problem presented 50 times
+\end{itemize}
+
+\end{itemize}
+\end{slide*}
+
+
+% -- Results (2-9) --------------------------------------------------------
+\begin{slide*}
+\heading{RT Results}
+
+\pssem{../postscript/xrt.ps}{6in}
+\end{slide*}
+
+% -- Results (0-9) --------------------------------------------------------
+\begin{slide*}
+\heading{RT Results 0--9}
+
+\pssem{../postscript/x01rt.ps}{6in}
+\end{slide*}
+
+
+% -- Error Results --------------------------------------------------------
+
+\begin{slide*}
+\heading{Error Results}
+
+\begin{tabular}{lll}
+I & can't & be bothered
+\end{tabular}
+
+
+\end{slide*}
+
+
+% -- Development of errors
+
+\begin{slide*}
+
+\heading{The Development of Errors}
+
+\pssem{../postscript/dev.ps}{6in}
+
+\end{slide*}
+
+% -- Other models ---------------------------------------------------------
+
+\begin{slide*}
+
+\heading{Other PDP Models}
+\begin{itemize}
+\item Graham's backpropagation experiments [1990]
+\begin{itemize}
+\item Many simulations
+\item Detailed analysis
+\item No explicit reaction mechanism
+\end{itemize}
+
+\item BSB: Brown University [1989]
+\begin{tabular}{ll}
+J.~A.~Anderson&Sue Viscuso\\
+Kathy Spoehr&Dave Bennett
+\end{tabular}
+
+\begin{itemize}
+\item RT based on settling time
+\item Net couldn't learn all facts
+\end{itemize}
+
+\item MATHNET: Johns Hopkins [1991]
+\begin{tabular}{ll}
+Mike McCloskey&Grethe Lindemann
+\end{tabular}
+\begin{itemize}
+\item Mean field theory networks
+\item RT based on settling time
+\item Nondeterministic errors by speeded settling
+\end{itemize}
+
+\end{itemize}
+\end{slide*}
+
+% -- Future ---------------------------------------------------------------
+
+\begin{slide*}
+
+\heading{Future Work}
+
+\begin{itemize}
+\item A rule for $\x0N=0$ ?
+\item Brain damage studies
+\item Mechanism for non-table errors
+\item Prediction (10, 11, 12 tables)
+\item Addition and multiplication
+\item Other strategies (counting)
+\item Verification tasks
+\item Isolate important variables \& features
+\item Multicolumn addition and multiplication
+\end{itemize}
+
+\end{slide*}
+
+
+% -- Acknowledgements ----------------------------------------------------
+
+\begin{slide*}
+
+\begin{flushleft}
+\changefont{helvetica}
+\large
+
+Thanks to:
+\begin{center}
+Prof.~Harry Barrow\\
+Dr David Young
+\end{center}
+
+\vspace{1 true cm}
+
+Funded by:
+
+\begin{center}
+The Science and Engineering\\ Research Council, UK\\
+{\normalsize\em in conjunction with}\\
+Integral Solutions Limited\\
+\end{center}
+\end{flushleft}
+\end{slide*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

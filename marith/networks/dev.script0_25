@@ -1,0 +1,164 @@
+do /csuna/home/richardd/marith/networks/new10.str 1
+
+log /csuna/home/richardd/marith/development/results/dev0_25.log
+set param outputtolerance 0.25
+set ecrit 0.0
+
+log /csuna/home/richardd/marith/development/weights/tolerance0_25/devb.log
+set pcrit 1
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devb-1.wts
+set pcrit 5
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devb-5.wts
+set pcrit 10
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devb-10.wts
+set pcrit 20
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devb-20.wts
+set pcrit 30
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devb-30.wts
+set pcrit 40
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devb-40.wts
+set pcrit 50
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devb-50.wts
+set pcrit 60
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devb-60.wts
+set pcrit 70
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devb-70.wts
+set pcrit 80
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devb-80.wts
+set pcrit 90
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devb-90.wts
+set pcrit 100
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devb-100.wts
+log -
+newstart
+log /csuna/home/richardd/marith/development/weights/tolerance0_25/devc.log
+set pcrit 1
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devc-1.wts
+set pcrit 5
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devc-5.wts
+set pcrit 10
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devc-10.wts
+set pcrit 20
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devc-20.wts
+set pcrit 30
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devc-30.wts
+set pcrit 40
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devc-40.wts
+set pcrit 50
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devc-50.wts
+set pcrit 60
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devc-60.wts
+set pcrit 70
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devc-70.wts
+set pcrit 80
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devc-80.wts
+set pcrit 90
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devc-90.wts
+set pcrit 100
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devc-100.wts
+log -
+newstart
+log /csuna/home/richardd/marith/development/weights/tolerance0_25/devd.log
+set pcrit 1
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devd-1.wts
+set pcrit 5
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devd-5.wts
+set pcrit 10
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devd-10.wts
+set pcrit 20
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devd-20.wts
+set pcrit 30
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devd-30.wts
+set pcrit 40
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devd-40.wts
+set pcrit 50
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devd-50.wts
+set pcrit 60
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devd-60.wts
+set pcrit 70
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devd-70.wts
+set pcrit 80
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devd-80.wts
+set pcrit 90
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devd-90.wts
+set pcrit 100
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/devd-100.wts
+log -
+newstart
+log /csuna/home/richardd/marith/development/weights/tolerance0_25/deve.log
+set pcrit 1
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/deve-1.wts
+set pcrit 5
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/deve-5.wts
+set pcrit 10
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/deve-10.wts
+set pcrit 20
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/deve-20.wts
+set pcrit 30
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/deve-30.wts
+set pcrit 40
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/deve-40.wts
+set pcrit 50
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/deve-50.wts
+set pcrit 60
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/deve-60.wts
+set pcrit 70
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/deve-70.wts
+set pcrit 80
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/deve-80.wts
+set pcrit 90
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/deve-90.wts
+set pcrit 100
+ptrain
+save w /csuna/home/richardd/marith/development/weights/tolerance0_25/deve-100.wts
+log -
+
+q
+y

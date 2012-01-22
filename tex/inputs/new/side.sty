@@ -1,0 +1,74 @@
+%% Save file as: SIDE.STY                       Source: FILESERV@SHSU.BITNET
+%+
+% Name:
+%	side.sty
+% Purpose:
+%	Include sideways (landscape) tables and figures in LaTeX documents
+%	by defining new environments called sidetable and sidefigure.
+%	Three options are available for placement along the width of the
+%	printed page:
+%		flush top		[t]
+%		centered (default)	[c]
+%		flush bottom		[b]
+%	Standard LaTeX behavior (flush left) is preserved in the other
+%	direction.
+% Usage:
+%	\documentstyle[side,...]{...}
+%
+%	\begin{sidetable}
+%	  \caption{\label{mysidetable} A landscape floating table on a page.}
+%	  \begin{center}
+%	    \begin{tabular}{|l|c|}
+%	  	\hline
+%		Column1&Column2\\
+%		Line1&\\
+%		&Line2\\
+%		\hline
+%	    \end{tabular}
+%	  \end{center}
+%	\end{sidetable}
+%
+%	\begin{sidefigure}
+%	  \hbox to \textheight{\hss \fbox{CENTERED FIGURE}\hss}
+%	  \caption{\label{mysidefigure} A landscape floating figure on a page.}
+%	\end{sidefigure}
+% Restrictions:
+%	Works only with PostScript.
+%       Requires rotate.tex (part of dvips distribution)
+% Modification History:
+%	write, 17 Oct 91, F.K.Knight and M.F.Ryba, MIT Lincoln Laboratory
+%	add placement options, 3 Dec 91, FKK
+%-
+%
+%	=====>> Both environments use rotate.tex
+%
+\ifx\undefined\rotl\input{rotate}\fi
+\newbox\rotbox
+
+% from psfig
+\edef\sideRestoreAt{\catcode`@=\number\catcode`@\relax}
+\catcode`\@=11\relax
+%
+%	=====>> Sidetable: a rotated table environment.
+%	=====>> Since \newenvironment can't take definition with optional args,
+%	=====>> mimic code for \parbox in latex.tex.
+%
+\def\sidetable{\@ifnextchar [{\@sidetable}{\@sidetable[c]}}
+\long\def\@sidetable[#1]{\begin{table}[p]%
+	\setbox\rotbox\vbox to \textwidth\bgroup\hsize=\textheight
+	\if #1t\else\vss\fi
+	\if #1b\edef\@sideend{}\else\edef\@sideend{\vss}\fi}
+\long\def\endsidetable{\@sideend\egroup \rotl\rotbox\end{table}}
+%
+%	=====>> Sidefigure: a rotated figure environment,
+%
+\def\sidefigure{\@ifnextchar [{\@sidefigure}{\@sidefigure[c]}}
+\long\def\@sidefigure[#1]{\begin{figure}[p]%
+	\setbox\rotbox\vbox to \textwidth\bgroup\hsize=\textheight
+	\if #1t\else\vss\fi
+	\if #1b\edef\@sideend{}\else\edef\@sideend{\vss}\fi}
+\long\def\endsidefigure{\@sideend\egroup \rotl\rotbox\end{figure}}
+%
+%	=====>> FINISH
+%
+\sideRestoreAt

@@ -1,0 +1,10 @@
+% Defines \psdraftbg which will print a large DRAFT message in light grey
+% at an angle across the current page.
+%
+% assumes DVI file will be converted to PostScript by the dvips driver.
+%
+% taken from example posted to the net.
+\newcommand{\psdraftbg}{%
+\special{! gsave 200 30 translate
+65 rotate /Times-Roman findfont 220 scalefont setfont
+0 0 moveto 0.99 setgray (DRAFT) show grestore}}

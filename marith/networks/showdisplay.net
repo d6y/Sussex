@@ -1,0 +1,37 @@
+
+vars iy = 20, hy=2, oy=1;
+vars ho;
+vars tiex=1,d1x=2,d2x=55, hx=18, dkx=1,px=3;
+vars dscale=6;
+vars r=4;
+-4 -> ho;
+
+showdisplay([%
+
+{% "draw_circle"; tiex; iy; r; false; %};
+for d from 2 to 9 do
+{% "draw_circle"; d1x+d*dscale; iy; r; false; %}
+endfor;
+for d from 2 to 9 do
+{% "draw_circle"; d2x+d*dscale; iy; r; false; %}
+endfor;
+
+
+for d from 1 to 10 do
+{% "draw_circle"; hx+d*dscale; hy; r; false; %}
+endfor;
+
+for d from
+
+
+for h from 1 to 10 do
+{% "draw_line"; tiex; iy; hx+h*dscale; hy-ho; %};
+for d from 2 to 9 do
+{% "draw_line"; d1x+d*dscale; iy; hx+h*dscale; hy-ho; %}
+endfor;
+for d from 2 to 9 do
+{% "draw_line"; d2x+d*dscale; iy; hx+h*dscale; hy-ho; %}
+endfor; endfor;
+
+
+%],"fig");

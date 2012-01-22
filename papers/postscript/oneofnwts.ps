@@ -1,0 +1,2634 @@
+%! output.ps
+% Weighted sum into hidden units for one-of-N input encoded nets
+%%BoundingBox: 38 72 360 430
+
+36.0 72.0 translate
+0.642857 0.596685 scale
+
+/ellipsedict 8 dict def
+ellipsedict /mtrx matrix put
+/positive_ellipse
+  { ellipsedict begin
+    /endangle exch def
+    /startangle exch def
+    /yrad exch def
+    /xrad exch def
+    /y exch def
+    /x exch def
+    /savematrix mtrx currentmatrix def
+    x y translate
+    xrad yrad scale
+    0 0 1 startangle endangle arc
+    savematrix setmatrix
+    end
+  } def
+/negative_ellipse
+  { ellipsedict begin
+    /endangle exch def
+    /startangle exch def
+    /yrad exch def
+    /xrad exch def
+    /y exch def
+    /x exch def
+    /savematrix mtrx currentmatrix def
+    x y translate
+    xrad yrad scale
+    0 0 1 startangle endangle arcn
+    savematrix setmatrix
+    end
+  } def
+/scaletextdict 8 dict def
+scaletextdict /mtrx matrix put
+/scale_text
+  { scaletextdict begin
+    /thesize exch def
+    /savematrix mtrx currentmatrix def
+    dup stringwidth pop thesize exch div 1 scale show
+    savematrix setmatrix
+    end
+  } def
+
+
+0.1 setlinewidth
+
+[] 0 setdash
+
+newpath 50 574 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+
+/Helvetica findfont 10 scalefont setfont
+18 574 moveto (17) 12 scale_text
+newpath 218 574 moveto 0 -10 rlineto 10 0 rlineto 0 10 rlineto closepath fill
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 383 577 moveto 389 577 lineto stroke
+newpath 389 577 moveto 389 571 lineto stroke
+newpath 389 571 moveto 383 571 lineto stroke
+newpath 383 571 moveto 383 577 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 47 430 moveto 53 430 lineto stroke
+newpath 53 430 moveto 53 424 lineto stroke
+newpath 53 424 moveto 47 424 lineto stroke
+newpath 47 424 moveto 47 430 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 213 432 moveto 223 432 lineto stroke
+newpath 223 432 moveto 223 422 lineto stroke
+newpath 223 422 moveto 213 422 lineto stroke
+newpath 213 422 moveto 213 432 lineto stroke
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 386 427 moveto 0 -5 rlineto 5 0 rlineto 0 5 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 212 286 moveto 224 286 lineto stroke
+newpath 224 286 moveto 224 274 lineto stroke
+newpath 224 274 moveto 212 274 lineto stroke
+newpath 212 274 moveto 212 286 lineto stroke
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 384 282 moveto 388 282 lineto stroke
+newpath 388 282 moveto 388 278 lineto stroke
+newpath 388 278 moveto 384 278 lineto stroke
+newpath 384 278 moveto 384 282 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 44 139 moveto 56 139 lineto stroke
+newpath 56 139 moveto 56 127 lineto stroke
+newpath 56 127 moveto 44 127 lineto stroke
+newpath 44 127 moveto 44 139 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 216 562 moveto 220 562 lineto stroke
+newpath 220 562 moveto 220 558 lineto stroke
+newpath 220 558 moveto 216 558 lineto stroke
+newpath 216 558 moveto 216 562 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 384 562 moveto 388 562 lineto stroke
+newpath 388 562 moveto 388 558 lineto stroke
+newpath 388 558 moveto 384 558 lineto stroke
+newpath 384 558 moveto 384 562 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 50 413 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 386 413 moveto 0 -7 rlineto 7 0 rlineto 0 7 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 48 268 moveto 52 268 lineto stroke
+newpath 52 268 moveto 52 264 lineto stroke
+newpath 52 264 moveto 48 264 lineto stroke
+newpath 48 264 moveto 48 268 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 213 271 moveto 223 271 lineto stroke
+newpath 223 271 moveto 223 261 lineto stroke
+newpath 223 261 moveto 213 261 lineto stroke
+newpath 213 261 moveto 213 271 lineto stroke
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 49 120 moveto 51 120 lineto stroke
+newpath 51 120 moveto 51 118 lineto stroke
+newpath 51 118 moveto 49 118 lineto stroke
+newpath 49 118 moveto 49 120 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 49 547 moveto 51 547 lineto stroke
+newpath 51 547 moveto 51 545 lineto stroke
+newpath 51 545 moveto 49 545 lineto stroke
+newpath 49 545 moveto 49 547 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 218 546 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 48 401 moveto 52 401 lineto stroke
+newpath 52 401 moveto 52 397 lineto stroke
+newpath 52 397 moveto 48 397 lineto stroke
+newpath 48 397 moveto 48 401 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 218 399 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 50 252 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 213 257 moveto 223 257 lineto stroke
+newpath 223 257 moveto 223 247 lineto stroke
+newpath 223 247 moveto 213 247 lineto stroke
+newpath 213 247 moveto 213 257 lineto stroke
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 385 253 moveto 387 253 lineto stroke
+newpath 387 253 moveto 387 251 lineto stroke
+newpath 387 251 moveto 385 251 lineto stroke
+newpath 385 251 moveto 385 253 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 49 106 moveto 51 106 lineto stroke
+newpath 51 106 moveto 51 104 lineto stroke
+newpath 51 104 moveto 49 104 lineto stroke
+newpath 49 104 moveto 49 106 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 218 532 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 383 535 moveto 389 535 lineto stroke
+newpath 389 535 moveto 389 529 lineto stroke
+newpath 389 529 moveto 383 529 lineto stroke
+newpath 383 529 moveto 383 535 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 50 385 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 384 387 moveto 388 387 lineto stroke
+newpath 388 387 moveto 388 383 lineto stroke
+newpath 388 383 moveto 384 383 lineto stroke
+newpath 384 383 moveto 384 387 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 216 240 moveto 220 240 lineto stroke
+newpath 220 240 moveto 220 236 lineto stroke
+newpath 220 236 moveto 216 236 lineto stroke
+newpath 216 236 moveto 216 240 lineto stroke
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 386 238 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 46 95 moveto 54 95 lineto stroke
+newpath 54 95 moveto 54 87 lineto stroke
+newpath 54 87 moveto 46 87 lineto stroke
+newpath 46 87 moveto 46 95 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 45 523 moveto 55 523 lineto stroke
+newpath 55 523 moveto 55 513 lineto stroke
+newpath 55 513 moveto 45 513 lineto stroke
+newpath 45 513 moveto 45 523 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 383 521 moveto 389 521 lineto stroke
+newpath 389 521 moveto 389 515 lineto stroke
+newpath 389 515 moveto 383 515 lineto stroke
+newpath 383 515 moveto 383 521 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 386 371 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 50 224 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 215 227 moveto 221 227 lineto stroke
+newpath 221 227 moveto 221 221 lineto stroke
+newpath 221 221 moveto 215 221 lineto stroke
+newpath 215 221 moveto 215 227 lineto stroke
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 386 224 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 50 504 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 218 504 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 383 507 moveto 389 507 lineto stroke
+newpath 389 507 moveto 389 501 lineto stroke
+newpath 389 501 moveto 383 501 lineto stroke
+newpath 383 501 moveto 383 507 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 49 358 moveto 51 358 lineto stroke
+newpath 51 358 moveto 51 356 lineto stroke
+newpath 51 356 moveto 49 356 lineto stroke
+newpath 49 356 moveto 49 358 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 386 357 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 46 214 moveto 54 214 lineto stroke
+newpath 54 214 moveto 54 206 lineto stroke
+newpath 54 206 moveto 46 206 lineto stroke
+newpath 46 206 moveto 46 214 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 215 213 moveto 221 213 lineto stroke
+newpath 221 213 moveto 221 207 lineto stroke
+newpath 221 207 moveto 215 207 lineto stroke
+newpath 215 207 moveto 215 213 lineto stroke
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 386 210 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 50 63 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 50 490 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 385 491 moveto 387 491 lineto stroke
+newpath 387 491 moveto 387 489 lineto stroke
+newpath 387 489 moveto 385 489 lineto stroke
+newpath 385 489 moveto 385 491 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 48 345 moveto 52 345 lineto stroke
+newpath 52 345 moveto 52 341 lineto stroke
+newpath 52 341 moveto 48 341 lineto stroke
+newpath 48 341 moveto 48 345 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 385 344 moveto 387 344 lineto stroke
+newpath 387 344 moveto 387 342 lineto stroke
+newpath 387 342 moveto 385 342 lineto stroke
+newpath 385 342 moveto 385 344 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 50 196 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 215 199 moveto 221 199 lineto stroke
+newpath 221 199 moveto 221 193 lineto stroke
+newpath 221 193 moveto 215 193 lineto stroke
+newpath 215 193 moveto 215 199 lineto stroke
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 386 196 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 49 50 moveto 51 50 lineto stroke
+newpath 51 50 moveto 51 48 lineto stroke
+newpath 51 48 moveto 49 48 lineto stroke
+newpath 49 48 moveto 49 50 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 48 478 moveto 52 478 lineto stroke
+newpath 52 478 moveto 52 474 lineto stroke
+newpath 52 474 moveto 48 474 lineto stroke
+newpath 48 474 moveto 48 478 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 218 476 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 50 329 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 215 332 moveto 221 332 lineto stroke
+newpath 221 332 moveto 221 326 lineto stroke
+newpath 221 326 moveto 215 326 lineto stroke
+newpath 215 326 moveto 215 332 lineto stroke
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 386 329 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 49 183 moveto 51 183 lineto stroke
+newpath 51 183 moveto 51 181 lineto stroke
+newpath 51 181 moveto 49 181 lineto stroke
+newpath 49 181 moveto 49 183 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 216 184 moveto 220 184 lineto stroke
+newpath 220 184 moveto 220 180 lineto stroke
+newpath 220 180 moveto 216 180 lineto stroke
+newpath 216 180 moveto 216 184 lineto stroke
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 386 182 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 230 576 moveto 234 576 lineto stroke
+newpath 234 576 moveto 234 572 lineto stroke
+newpath 234 572 moveto 230 572 lineto stroke
+newpath 230 572 moveto 230 576 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 398 576 moveto 402 576 lineto stroke
+newpath 402 576 moveto 402 572 lineto stroke
+newpath 402 572 moveto 398 572 lineto stroke
+newpath 398 572 moveto 398 576 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 64 427 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 400 427 moveto 0 -7 rlineto 7 0 rlineto 0 7 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 62 282 moveto 66 282 lineto stroke
+newpath 66 282 moveto 66 278 lineto stroke
+newpath 66 278 moveto 62 278 lineto stroke
+newpath 62 278 moveto 62 282 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 227 285 moveto 237 285 lineto stroke
+newpath 237 285 moveto 237 275 lineto stroke
+newpath 237 275 moveto 227 275 lineto stroke
+newpath 227 275 moveto 227 285 lineto stroke
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 63 134 moveto 65 134 lineto stroke
+newpath 65 134 moveto 65 132 lineto stroke
+newpath 65 132 moveto 63 132 lineto stroke
+newpath 63 132 moveto 63 134 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 64 560 moveto 0 -6 rlineto 6 0 rlineto 0 6 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 229 563 moveto 235 563 lineto stroke
+newpath 235 563 moveto 235 557 lineto stroke
+newpath 235 557 moveto 229 557 lineto stroke
+newpath 229 557 moveto 229 563 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 400 560 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 64 413 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 229 416 moveto 235 416 lineto stroke
+newpath 235 416 moveto 235 410 lineto stroke
+newpath 235 410 moveto 229 410 lineto stroke
+newpath 229 410 moveto 229 416 lineto stroke
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 400 413 moveto 0 -12 rlineto 12 0 rlineto 0 12 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 61 269 moveto 67 269 lineto stroke
+newpath 67 269 moveto 67 263 lineto stroke
+newpath 67 263 moveto 61 263 lineto stroke
+newpath 61 263 moveto 61 269 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 231 267 moveto 233 267 lineto stroke
+newpath 233 267 moveto 233 265 lineto stroke
+newpath 233 265 moveto 231 265 lineto stroke
+newpath 231 265 moveto 231 267 lineto stroke
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 395 271 moveto 405 271 lineto stroke
+newpath 405 271 moveto 405 261 lineto stroke
+newpath 405 261 moveto 395 261 lineto stroke
+newpath 395 261 moveto 395 271 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 61 122 moveto 67 122 lineto stroke
+newpath 67 122 moveto 67 116 lineto stroke
+newpath 67 116 moveto 61 116 lineto stroke
+newpath 61 116 moveto 61 122 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 229 549 moveto 235 549 lineto stroke
+newpath 235 549 moveto 235 543 lineto stroke
+newpath 235 543 moveto 229 543 lineto stroke
+newpath 229 543 moveto 229 549 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 400 546 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 232 399 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 400 399 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 230 254 moveto 234 254 lineto stroke
+newpath 234 254 moveto 234 250 lineto stroke
+newpath 234 250 moveto 230 250 lineto stroke
+newpath 230 250 moveto 230 254 lineto stroke
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 398 254 moveto 402 254 lineto stroke
+newpath 402 254 moveto 402 250 lineto stroke
+newpath 402 250 moveto 398 250 lineto stroke
+newpath 398 250 moveto 398 254 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 64 105 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 64 532 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 229 535 moveto 235 535 lineto stroke
+newpath 235 535 moveto 235 529 lineto stroke
+newpath 235 529 moveto 229 529 lineto stroke
+newpath 229 529 moveto 229 535 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 399 533 moveto 401 533 lineto stroke
+newpath 401 533 moveto 401 531 lineto stroke
+newpath 401 531 moveto 399 531 lineto stroke
+newpath 399 531 moveto 399 533 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 64 385 moveto 0 -7 rlineto 7 0 rlineto 0 7 rlineto closepath fill
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 232 385 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 62 240 moveto 66 240 lineto stroke
+newpath 66 240 moveto 66 236 lineto stroke
+newpath 66 236 moveto 62 236 lineto stroke
+newpath 62 236 moveto 62 240 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 232 238 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 399 239 moveto 401 239 lineto stroke
+newpath 401 239 moveto 401 237 lineto stroke
+newpath 401 237 moveto 399 237 lineto stroke
+newpath 399 237 moveto 399 239 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 61 94 moveto 67 94 lineto stroke
+newpath 67 94 moveto 67 88 lineto stroke
+newpath 67 88 moveto 61 88 lineto stroke
+newpath 61 88 moveto 61 94 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 60 522 moveto 68 522 lineto stroke
+newpath 68 522 moveto 68 514 lineto stroke
+newpath 68 514 moveto 60 514 lineto stroke
+newpath 60 514 moveto 60 522 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 228 522 moveto 236 522 lineto stroke
+newpath 236 522 moveto 236 514 lineto stroke
+newpath 236 514 moveto 228 514 lineto stroke
+newpath 228 514 moveto 228 522 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 399 519 moveto 401 519 lineto stroke
+newpath 401 519 moveto 401 517 lineto stroke
+newpath 401 517 moveto 399 517 lineto stroke
+newpath 399 517 moveto 399 519 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 64 371 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 232 371 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 400 371 moveto 0 -7 rlineto 7 0 rlineto 0 7 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 399 225 moveto 401 225 lineto stroke
+newpath 401 225 moveto 401 223 lineto stroke
+newpath 401 223 moveto 399 223 lineto stroke
+newpath 399 223 moveto 399 225 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 64 77 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 64 504 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 229 507 moveto 235 507 lineto stroke
+newpath 235 507 moveto 235 501 lineto stroke
+newpath 235 501 moveto 229 501 lineto stroke
+newpath 229 501 moveto 229 507 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 399 505 moveto 401 505 lineto stroke
+newpath 401 505 moveto 401 503 lineto stroke
+newpath 401 503 moveto 399 503 lineto stroke
+newpath 399 503 moveto 399 505 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 232 357 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 400 357 moveto 0 -5 rlineto 5 0 rlineto 0 5 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 58 216 moveto 70 216 lineto stroke
+newpath 70 216 moveto 70 204 lineto stroke
+newpath 70 204 moveto 58 204 lineto stroke
+newpath 58 204 moveto 58 216 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 64 63 moveto 0 -5 rlineto 5 0 rlineto 0 5 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 64 490 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 228 494 moveto 236 494 lineto stroke
+newpath 236 494 moveto 236 486 lineto stroke
+newpath 236 486 moveto 228 486 lineto stroke
+newpath 228 486 moveto 228 494 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 63 344 moveto 65 344 lineto stroke
+newpath 65 344 moveto 65 342 lineto stroke
+newpath 65 342 moveto 63 342 lineto stroke
+newpath 63 342 moveto 63 344 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 400 343 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 63 477 moveto 65 477 lineto stroke
+newpath 65 477 moveto 65 475 lineto stroke
+newpath 65 475 moveto 63 475 lineto stroke
+newpath 63 475 moveto 63 477 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 229 479 moveto 235 479 lineto stroke
+newpath 235 479 moveto 235 473 lineto stroke
+newpath 235 473 moveto 229 473 lineto stroke
+newpath 229 473 moveto 229 479 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 400 476 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 64 329 moveto 0 -6 rlineto 6 0 rlineto 0 6 rlineto closepath fill
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 230 331 moveto 234 331 lineto stroke
+newpath 234 331 moveto 234 327 lineto stroke
+newpath 234 327 moveto 230 327 lineto stroke
+newpath 230 327 moveto 230 331 lineto stroke
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 400 329 moveto 0 -6 rlineto 6 0 rlineto 0 6 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 61 185 moveto 67 185 lineto stroke
+newpath 67 185 moveto 67 179 lineto stroke
+newpath 67 179 moveto 61 179 lineto stroke
+newpath 61 179 moveto 61 185 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 399 183 moveto 401 183 lineto stroke
+newpath 401 183 moveto 401 181 lineto stroke
+newpath 401 181 moveto 399 181 lineto stroke
+newpath 399 181 moveto 399 183 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 64 35 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 77 575 moveto 79 575 lineto stroke
+newpath 79 575 moveto 79 573 lineto stroke
+newpath 79 573 moveto 77 573 lineto stroke
+newpath 77 573 moveto 77 575 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 246 574 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 76 429 moveto 80 429 lineto stroke
+newpath 80 429 moveto 80 425 lineto stroke
+newpath 80 425 moveto 76 425 lineto stroke
+newpath 76 425 moveto 76 429 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 246 427 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 78 280 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 241 285 moveto 251 285 lineto stroke
+newpath 251 285 moveto 251 275 lineto stroke
+newpath 251 275 moveto 241 275 lineto stroke
+newpath 241 275 moveto 241 285 lineto stroke
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 413 281 moveto 415 281 lineto stroke
+newpath 415 281 moveto 415 279 lineto stroke
+newpath 415 279 moveto 413 279 lineto stroke
+newpath 413 279 moveto 413 281 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 77 134 moveto 79 134 lineto stroke
+newpath 79 134 moveto 79 132 lineto stroke
+newpath 79 132 moveto 77 132 lineto stroke
+newpath 77 132 moveto 77 134 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 243 563 moveto 249 563 lineto stroke
+newpath 249 563 moveto 249 557 lineto stroke
+newpath 249 557 moveto 243 557 lineto stroke
+newpath 243 557 moveto 243 563 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 414 560 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 246 413 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 414 413 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 244 268 moveto 248 268 lineto stroke
+newpath 248 268 moveto 248 264 lineto stroke
+newpath 248 264 moveto 244 264 lineto stroke
+newpath 244 264 moveto 244 268 lineto stroke
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 412 268 moveto 416 268 lineto stroke
+newpath 416 268 moveto 416 264 lineto stroke
+newpath 416 264 moveto 412 264 lineto stroke
+newpath 412 264 moveto 412 268 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 78 119 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 246 546 moveto 0 -6 rlineto 6 0 rlineto 0 6 rlineto closepath fill
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 414 546 moveto 0 -7 rlineto 7 0 rlineto 0 7 rlineto closepath fill
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 71 406 moveto 85 406 lineto stroke
+newpath 85 406 moveto 85 392 lineto stroke
+newpath 85 392 moveto 71 392 lineto stroke
+newpath 71 392 moveto 71 406 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 245 400 moveto 247 400 lineto stroke
+newpath 247 400 moveto 247 398 lineto stroke
+newpath 247 398 moveto 245 398 lineto stroke
+newpath 245 398 moveto 245 400 lineto stroke
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 78 252 moveto 0 -7 rlineto 7 0 rlineto 0 7 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 245 253 moveto 247 253 lineto stroke
+newpath 247 253 moveto 247 251 lineto stroke
+newpath 247 251 moveto 245 251 lineto stroke
+newpath 245 251 moveto 245 253 lineto stroke
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 408 258 moveto 420 258 lineto stroke
+newpath 420 258 moveto 420 246 lineto stroke
+newpath 420 246 moveto 408 246 lineto stroke
+newpath 408 246 moveto 408 258 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 77 106 moveto 79 106 lineto stroke
+newpath 79 106 moveto 79 104 lineto stroke
+newpath 79 104 moveto 77 104 lineto stroke
+newpath 77 104 moveto 77 106 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 77 533 moveto 79 533 lineto stroke
+newpath 79 533 moveto 79 531 lineto stroke
+newpath 79 531 moveto 77 531 lineto stroke
+newpath 77 531 moveto 77 533 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 246 385 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 411 388 moveto 417 388 lineto stroke
+newpath 417 388 moveto 417 382 lineto stroke
+newpath 417 382 moveto 411 382 lineto stroke
+newpath 411 382 moveto 411 388 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 78 238 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 246 238 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 413 239 moveto 415 239 lineto stroke
+newpath 415 239 moveto 415 237 lineto stroke
+newpath 415 237 moveto 413 237 lineto stroke
+newpath 413 237 moveto 413 239 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 76 93 moveto 80 93 lineto stroke
+newpath 80 93 moveto 80 89 lineto stroke
+newpath 80 89 moveto 76 89 lineto stroke
+newpath 76 89 moveto 76 93 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 73 523 moveto 83 523 lineto stroke
+newpath 83 523 moveto 83 513 lineto stroke
+newpath 83 513 moveto 73 513 lineto stroke
+newpath 73 513 moveto 73 523 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 245 519 moveto 247 519 lineto stroke
+newpath 247 519 moveto 247 517 lineto stroke
+newpath 247 517 moveto 245 517 lineto stroke
+newpath 245 517 moveto 245 519 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 76 373 moveto 80 373 lineto stroke
+newpath 80 373 moveto 80 369 lineto stroke
+newpath 80 369 moveto 76 369 lineto stroke
+newpath 76 369 moveto 76 373 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 246 371 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 78 224 moveto 0 -6 rlineto 6 0 rlineto 0 6 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 413 225 moveto 415 225 lineto stroke
+newpath 415 225 moveto 415 223 lineto stroke
+newpath 415 223 moveto 413 223 lineto stroke
+newpath 413 223 moveto 413 225 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 78 77 moveto 0 -5 rlineto 5 0 rlineto 0 5 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 78 504 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 75 360 moveto 81 360 lineto stroke
+newpath 81 360 moveto 81 354 lineto stroke
+newpath 81 354 moveto 75 354 lineto stroke
+newpath 75 354 moveto 75 360 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 246 357 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 413 358 moveto 415 358 lineto stroke
+newpath 415 358 moveto 415 356 lineto stroke
+newpath 415 356 moveto 413 356 lineto stroke
+newpath 413 356 moveto 413 358 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 76 212 moveto 80 212 lineto stroke
+newpath 80 212 moveto 80 208 lineto stroke
+newpath 80 208 moveto 76 208 lineto stroke
+newpath 76 208 moveto 76 212 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 413 211 moveto 415 211 lineto stroke
+newpath 415 211 moveto 415 209 lineto stroke
+newpath 415 209 moveto 413 209 lineto stroke
+newpath 413 209 moveto 413 211 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 78 63 moveto 0 -7 rlineto 7 0 rlineto 0 7 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 245 491 moveto 247 491 lineto stroke
+newpath 247 491 moveto 247 489 lineto stroke
+newpath 247 489 moveto 245 489 lineto stroke
+newpath 245 489 moveto 245 491 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 414 490 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 74 347 moveto 82 347 lineto stroke
+newpath 82 347 moveto 82 339 lineto stroke
+newpath 82 339 moveto 74 339 lineto stroke
+newpath 74 339 moveto 74 347 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 246 343 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 411 346 moveto 417 346 lineto stroke
+newpath 417 346 moveto 417 340 lineto stroke
+newpath 417 340 moveto 411 340 lineto stroke
+newpath 411 340 moveto 411 346 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 78 196 moveto 0 -8 rlineto 8 0 rlineto 0 8 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 413 197 moveto 415 197 lineto stroke
+newpath 415 197 moveto 415 195 lineto stroke
+newpath 415 195 moveto 413 195 lineto stroke
+newpath 413 195 moveto 413 197 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 78 49 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 76 478 moveto 80 478 lineto stroke
+newpath 80 478 moveto 80 474 lineto stroke
+newpath 80 474 moveto 76 474 lineto stroke
+newpath 76 474 moveto 76 478 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 414 476 moveto 0 -6 rlineto 6 0 rlineto 0 6 rlineto closepath fill
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 245 330 moveto 247 330 lineto stroke
+newpath 247 330 moveto 247 328 lineto stroke
+newpath 247 328 moveto 245 328 lineto stroke
+newpath 245 328 moveto 245 330 lineto stroke
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 78 182 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 413 183 moveto 415 183 lineto stroke
+newpath 415 183 moveto 415 181 lineto stroke
+newpath 415 181 moveto 413 181 lineto stroke
+newpath 413 181 moveto 413 183 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 78 35 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 260 574 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 425 577 moveto 431 577 lineto stroke
+newpath 431 577 moveto 431 571 lineto stroke
+newpath 431 571 moveto 425 571 lineto stroke
+newpath 425 571 moveto 425 577 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 92 427 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 426 429 moveto 430 429 lineto stroke
+newpath 430 429 moveto 430 425 lineto stroke
+newpath 430 425 moveto 426 425 lineto stroke
+newpath 426 425 moveto 426 429 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 258 282 moveto 262 282 lineto stroke
+newpath 262 282 moveto 262 278 lineto stroke
+newpath 262 278 moveto 258 278 lineto stroke
+newpath 258 278 moveto 258 282 lineto stroke
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 428 280 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 88 137 moveto 96 137 lineto stroke
+newpath 96 137 moveto 96 129 lineto stroke
+newpath 96 129 moveto 88 129 lineto stroke
+newpath 88 129 moveto 88 137 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 92 560 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 258 562 moveto 262 562 lineto stroke
+newpath 262 562 moveto 262 558 lineto stroke
+newpath 262 558 moveto 258 558 lineto stroke
+newpath 258 558 moveto 258 562 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 427 561 moveto 429 561 lineto stroke
+newpath 429 561 moveto 429 559 lineto stroke
+newpath 429 559 moveto 427 559 lineto stroke
+newpath 427 559 moveto 427 561 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 92 413 moveto 0 -7 rlineto 7 0 rlineto 0 7 rlineto closepath fill
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 260 413 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 90 268 moveto 94 268 lineto stroke
+newpath 94 268 moveto 94 264 lineto stroke
+newpath 94 264 moveto 90 264 lineto stroke
+newpath 90 264 moveto 90 268 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 260 266 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 427 267 moveto 429 267 lineto stroke
+newpath 429 267 moveto 429 265 lineto stroke
+newpath 429 265 moveto 427 265 lineto stroke
+newpath 427 265 moveto 427 267 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 89 122 moveto 95 122 lineto stroke
+newpath 95 122 moveto 95 116 lineto stroke
+newpath 95 116 moveto 89 116 lineto stroke
+newpath 89 116 moveto 89 122 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 91 547 moveto 93 547 lineto stroke
+newpath 93 547 moveto 93 545 lineto stroke
+newpath 93 545 moveto 91 545 lineto stroke
+newpath 91 545 moveto 91 547 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 260 399 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 425 402 moveto 431 402 lineto stroke
+newpath 431 402 moveto 431 396 lineto stroke
+newpath 431 396 moveto 425 396 lineto stroke
+newpath 425 396 moveto 425 402 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 92 252 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 260 252 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 427 253 moveto 429 253 lineto stroke
+newpath 429 253 moveto 429 251 lineto stroke
+newpath 429 251 moveto 427 251 lineto stroke
+newpath 427 251 moveto 427 253 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 90 107 moveto 94 107 lineto stroke
+newpath 94 107 moveto 94 103 lineto stroke
+newpath 94 103 moveto 90 103 lineto stroke
+newpath 90 103 moveto 90 107 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 92 532 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 260 532 moveto 0 -6 rlineto 6 0 rlineto 0 6 rlineto closepath fill
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 426 534 moveto 430 534 lineto stroke
+newpath 430 534 moveto 430 530 lineto stroke
+newpath 430 530 moveto 426 530 lineto stroke
+newpath 426 530 moveto 426 534 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 257 388 moveto 263 388 lineto stroke
+newpath 263 388 moveto 263 382 lineto stroke
+newpath 263 382 moveto 257 382 lineto stroke
+newpath 257 382 moveto 257 388 lineto stroke
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 423 390 moveto 433 390 lineto stroke
+newpath 433 390 moveto 433 380 lineto stroke
+newpath 433 380 moveto 423 380 lineto stroke
+newpath 423 380 moveto 423 390 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 260 238 moveto 0 -12 rlineto 12 0 rlineto 0 12 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 424 242 moveto 432 242 lineto stroke
+newpath 432 242 moveto 432 234 lineto stroke
+newpath 432 234 moveto 424 234 lineto stroke
+newpath 424 234 moveto 424 242 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 84 99 moveto 100 99 lineto stroke
+newpath 100 99 moveto 100 83 lineto stroke
+newpath 100 83 moveto 84 83 lineto stroke
+newpath 84 83 moveto 84 99 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 88 522 moveto 96 522 lineto stroke
+newpath 96 522 moveto 96 514 lineto stroke
+newpath 96 514 moveto 88 514 lineto stroke
+newpath 88 514 moveto 88 522 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 259 519 moveto 261 519 lineto stroke
+newpath 261 519 moveto 261 517 lineto stroke
+newpath 261 517 moveto 259 517 lineto stroke
+newpath 259 517 moveto 259 519 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 426 520 moveto 430 520 lineto stroke
+newpath 430 520 moveto 430 516 lineto stroke
+newpath 430 516 moveto 426 516 lineto stroke
+newpath 426 516 moveto 426 520 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 92 371 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 260 371 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 426 373 moveto 430 373 lineto stroke
+newpath 430 373 moveto 430 369 lineto stroke
+newpath 430 369 moveto 426 369 lineto stroke
+newpath 426 369 moveto 426 373 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 92 224 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 260 224 moveto 0 -7 rlineto 7 0 rlineto 0 7 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 91 78 moveto 93 78 lineto stroke
+newpath 93 78 moveto 93 76 lineto stroke
+newpath 93 76 moveto 91 76 lineto stroke
+newpath 91 76 moveto 91 78 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 92 504 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 426 506 moveto 430 506 lineto stroke
+newpath 430 506 moveto 430 502 lineto stroke
+newpath 430 502 moveto 426 502 lineto stroke
+newpath 426 502 moveto 426 506 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 260 357 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 425 360 moveto 431 360 lineto stroke
+newpath 431 360 moveto 431 354 lineto stroke
+newpath 431 354 moveto 425 354 lineto stroke
+newpath 425 354 moveto 425 360 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 88 214 moveto 96 214 lineto stroke
+newpath 96 214 moveto 96 206 lineto stroke
+newpath 96 206 moveto 88 206 lineto stroke
+newpath 88 206 moveto 88 214 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 260 210 moveto 0 -7 rlineto 7 0 rlineto 0 7 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 92 490 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 259 491 moveto 261 491 lineto stroke
+newpath 261 491 moveto 261 489 lineto stroke
+newpath 261 489 moveto 259 489 lineto stroke
+newpath 259 489 moveto 259 491 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 427 491 moveto 429 491 lineto stroke
+newpath 429 491 moveto 429 489 lineto stroke
+newpath 429 489 moveto 427 489 lineto stroke
+newpath 427 489 moveto 427 491 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 91 344 moveto 93 344 lineto stroke
+newpath 93 344 moveto 93 342 lineto stroke
+newpath 93 342 moveto 91 342 lineto stroke
+newpath 91 342 moveto 91 344 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 423 348 moveto 433 348 lineto stroke
+newpath 433 348 moveto 433 338 lineto stroke
+newpath 433 338 moveto 423 338 lineto stroke
+newpath 423 338 moveto 423 348 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 92 196 moveto 0 -5 rlineto 5 0 rlineto 0 5 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 260 196 moveto 0 -7 rlineto 7 0 rlineto 0 7 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 428 196 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 90 51 moveto 94 51 lineto stroke
+newpath 94 51 moveto 94 47 lineto stroke
+newpath 94 47 moveto 90 47 lineto stroke
+newpath 90 47 moveto 90 51 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 91 477 moveto 93 477 lineto stroke
+newpath 93 477 moveto 93 475 lineto stroke
+newpath 93 475 moveto 91 475 lineto stroke
+newpath 91 475 moveto 91 477 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 92 329 moveto 0 -6 rlineto 6 0 rlineto 0 6 rlineto closepath fill
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 258 331 moveto 262 331 lineto stroke
+newpath 262 331 moveto 262 327 lineto stroke
+newpath 262 327 moveto 258 327 lineto stroke
+newpath 258 327 moveto 258 331 lineto stroke
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 426 331 moveto 430 331 lineto stroke
+newpath 430 331 moveto 430 327 lineto stroke
+newpath 430 327 moveto 426 327 lineto stroke
+newpath 426 327 moveto 426 331 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 91 183 moveto 93 183 lineto stroke
+newpath 93 183 moveto 93 181 lineto stroke
+newpath 93 181 moveto 91 181 lineto stroke
+newpath 91 181 moveto 91 183 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 260 182 moveto 0 -7 rlineto 7 0 rlineto 0 7 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 91 36 moveto 93 36 lineto stroke
+newpath 93 36 moveto 93 34 lineto stroke
+newpath 93 34 moveto 91 34 lineto stroke
+newpath 91 34 moveto 91 36 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 101 579 moveto 111 579 lineto stroke
+newpath 111 579 moveto 111 569 lineto stroke
+newpath 111 569 moveto 101 569 lineto stroke
+newpath 101 569 moveto 101 579 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 439 577 moveto 445 577 lineto stroke
+newpath 445 577 moveto 445 571 lineto stroke
+newpath 445 571 moveto 439 571 lineto stroke
+newpath 439 571 moveto 439 577 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 442 427 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 106 280 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 271 283 moveto 277 283 lineto stroke
+newpath 277 283 moveto 277 277 lineto stroke
+newpath 277 277 moveto 271 277 lineto stroke
+newpath 271 277 moveto 271 283 lineto stroke
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 442 280 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 102 564 moveto 110 564 lineto stroke
+newpath 110 564 moveto 110 556 lineto stroke
+newpath 110 556 moveto 102 556 lineto stroke
+newpath 102 556 moveto 102 564 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 270 564 moveto 278 564 lineto stroke
+newpath 278 564 moveto 278 556 lineto stroke
+newpath 278 556 moveto 270 556 lineto stroke
+newpath 270 556 moveto 270 564 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 441 561 moveto 443 561 lineto stroke
+newpath 443 561 moveto 443 559 lineto stroke
+newpath 443 559 moveto 441 559 lineto stroke
+newpath 441 559 moveto 441 561 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 106 413 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 274 413 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 442 413 moveto 0 -7 rlineto 7 0 rlineto 0 7 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 441 267 moveto 443 267 lineto stroke
+newpath 443 267 moveto 443 265 lineto stroke
+newpath 443 265 moveto 441 265 lineto stroke
+newpath 441 265 moveto 441 267 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 106 119 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 101 551 moveto 111 551 lineto stroke
+newpath 111 551 moveto 111 541 lineto stroke
+newpath 111 541 moveto 101 541 lineto stroke
+newpath 101 541 moveto 101 551 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 273 547 moveto 275 547 lineto stroke
+newpath 275 547 moveto 275 545 lineto stroke
+newpath 275 545 moveto 273 545 lineto stroke
+newpath 273 545 moveto 273 547 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 104 401 moveto 108 401 lineto stroke
+newpath 108 401 moveto 108 397 lineto stroke
+newpath 108 397 moveto 104 397 lineto stroke
+newpath 104 397 moveto 104 401 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 274 399 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 106 252 moveto 0 -6 rlineto 6 0 rlineto 0 6 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 441 253 moveto 443 253 lineto stroke
+newpath 443 253 moveto 443 251 lineto stroke
+newpath 443 251 moveto 441 251 lineto stroke
+newpath 441 251 moveto 441 253 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 106 105 moveto 0 -5 rlineto 5 0 rlineto 0 5 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 102 536 moveto 110 536 lineto stroke
+newpath 110 536 moveto 110 528 lineto stroke
+newpath 110 528 moveto 102 528 lineto stroke
+newpath 102 528 moveto 102 536 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 273 533 moveto 275 533 lineto stroke
+newpath 275 533 moveto 275 531 lineto stroke
+newpath 275 531 moveto 273 531 lineto stroke
+newpath 273 531 moveto 273 533 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 440 534 moveto 444 534 lineto stroke
+newpath 444 534 moveto 444 530 lineto stroke
+newpath 444 530 moveto 440 530 lineto stroke
+newpath 440 530 moveto 440 534 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 106 385 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 274 385 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 440 387 moveto 444 387 lineto stroke
+newpath 444 387 moveto 444 383 lineto stroke
+newpath 444 383 moveto 440 383 lineto stroke
+newpath 440 383 moveto 440 387 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 106 238 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 274 238 moveto 0 -7 rlineto 7 0 rlineto 0 7 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 105 92 moveto 107 92 lineto stroke
+newpath 107 92 moveto 107 90 lineto stroke
+newpath 107 90 moveto 105 90 lineto stroke
+newpath 105 90 moveto 105 92 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 99 525 moveto 113 525 lineto stroke
+newpath 113 525 moveto 113 511 lineto stroke
+newpath 113 511 moveto 99 511 lineto stroke
+newpath 99 511 moveto 99 525 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 440 520 moveto 444 520 lineto stroke
+newpath 444 520 moveto 444 516 lineto stroke
+newpath 444 516 moveto 440 516 lineto stroke
+newpath 440 516 moveto 440 520 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 102 375 moveto 110 375 lineto stroke
+newpath 110 375 moveto 110 367 lineto stroke
+newpath 110 367 moveto 102 367 lineto stroke
+newpath 102 367 moveto 102 375 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 270 375 moveto 278 375 lineto stroke
+newpath 278 375 moveto 278 367 lineto stroke
+newpath 278 367 moveto 270 367 lineto stroke
+newpath 270 367 moveto 270 375 lineto stroke
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 442 371 moveto 0 -5 rlineto 5 0 rlineto 0 5 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 106 224 moveto 0 -6 rlineto 6 0 rlineto 0 6 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 274 224 moveto 0 -7 rlineto 7 0 rlineto 0 7 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 439 227 moveto 445 227 lineto stroke
+newpath 445 227 moveto 445 221 lineto stroke
+newpath 445 221 moveto 439 221 lineto stroke
+newpath 439 221 moveto 439 227 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 103 507 moveto 109 507 lineto stroke
+newpath 109 507 moveto 109 501 lineto stroke
+newpath 109 501 moveto 103 501 lineto stroke
+newpath 103 501 moveto 103 507 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 273 505 moveto 275 505 lineto stroke
+newpath 275 505 moveto 275 503 lineto stroke
+newpath 275 503 moveto 273 503 lineto stroke
+newpath 273 503 moveto 273 505 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 440 506 moveto 444 506 lineto stroke
+newpath 444 506 moveto 444 502 lineto stroke
+newpath 444 502 moveto 440 502 lineto stroke
+newpath 440 502 moveto 440 506 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 104 359 moveto 108 359 lineto stroke
+newpath 108 359 moveto 108 355 lineto stroke
+newpath 108 355 moveto 104 355 lineto stroke
+newpath 104 355 moveto 104 359 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 274 357 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 442 357 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 104 212 moveto 108 212 lineto stroke
+newpath 108 212 moveto 108 208 lineto stroke
+newpath 108 208 moveto 104 208 lineto stroke
+newpath 104 208 moveto 104 212 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 274 210 moveto 0 -5 rlineto 5 0 rlineto 0 5 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 442 210 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 106 63 moveto 0 -9 rlineto 9 0 rlineto 0 9 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 103 493 moveto 109 493 lineto stroke
+newpath 109 493 moveto 109 487 lineto stroke
+newpath 109 487 moveto 103 487 lineto stroke
+newpath 103 487 moveto 103 493 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 271 493 moveto 277 493 lineto stroke
+newpath 277 493 moveto 277 487 lineto stroke
+newpath 277 487 moveto 271 487 lineto stroke
+newpath 271 487 moveto 271 493 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 441 491 moveto 443 491 lineto stroke
+newpath 443 491 moveto 443 489 lineto stroke
+newpath 443 489 moveto 441 489 lineto stroke
+newpath 441 489 moveto 441 491 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 103 346 moveto 109 346 lineto stroke
+newpath 109 346 moveto 109 340 lineto stroke
+newpath 109 340 moveto 103 340 lineto stroke
+newpath 103 340 moveto 103 346 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 441 344 moveto 443 344 lineto stroke
+newpath 443 344 moveto 443 342 lineto stroke
+newpath 443 342 moveto 441 342 lineto stroke
+newpath 441 342 moveto 441 344 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 106 196 moveto 0 -7 rlineto 7 0 rlineto 0 7 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 274 196 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 442 196 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 106 49 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 100 482 moveto 112 482 lineto stroke
+newpath 112 482 moveto 112 470 lineto stroke
+newpath 112 470 moveto 100 470 lineto stroke
+newpath 100 470 moveto 100 482 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 273 477 moveto 275 477 lineto stroke
+newpath 275 477 moveto 275 475 lineto stroke
+newpath 275 475 moveto 273 475 lineto stroke
+newpath 273 475 moveto 273 477 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 106 329 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 272 331 moveto 276 331 lineto stroke
+newpath 276 331 moveto 276 327 lineto stroke
+newpath 276 327 moveto 272 327 lineto stroke
+newpath 272 327 moveto 272 331 lineto stroke
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 442 329 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 274 182 moveto 0 -5 rlineto 5 0 rlineto 0 5 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 106 35 moveto 0 -6 rlineto 6 0 rlineto 0 6 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 120 574 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 288 574 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 453 577 moveto 459 577 lineto stroke
+newpath 459 577 moveto 459 571 lineto stroke
+newpath 459 571 moveto 453 571 lineto stroke
+newpath 453 571 moveto 453 577 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 119 428 moveto 121 428 lineto stroke
+newpath 121 428 moveto 121 426 lineto stroke
+newpath 121 426 moveto 119 426 lineto stroke
+newpath 119 426 moveto 119 428 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 456 427 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 116 284 moveto 124 284 lineto stroke
+newpath 124 284 moveto 124 276 lineto stroke
+newpath 124 276 moveto 116 276 lineto stroke
+newpath 116 276 moveto 116 284 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 285 283 moveto 291 283 lineto stroke
+newpath 291 283 moveto 291 277 lineto stroke
+newpath 291 277 moveto 285 277 lineto stroke
+newpath 285 277 moveto 285 283 lineto stroke
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 456 280 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 120 133 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 120 560 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 285 563 moveto 291 563 lineto stroke
+newpath 291 563 moveto 291 557 lineto stroke
+newpath 291 557 moveto 285 557 lineto stroke
+newpath 285 557 moveto 285 563 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 455 561 moveto 457 561 lineto stroke
+newpath 457 561 moveto 457 559 lineto stroke
+newpath 457 559 moveto 455 559 lineto stroke
+newpath 455 559 moveto 455 561 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 288 413 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 456 413 moveto 0 -5 rlineto 5 0 rlineto 0 5 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 114 272 moveto 126 272 lineto stroke
+newpath 126 272 moveto 126 260 lineto stroke
+newpath 126 260 moveto 114 260 lineto stroke
+newpath 114 260 moveto 114 272 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 120 119 moveto 0 -5 rlineto 5 0 rlineto 0 5 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 120 546 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 117 402 moveto 123 402 lineto stroke
+newpath 123 402 moveto 123 396 lineto stroke
+newpath 123 396 moveto 117 396 lineto stroke
+newpath 117 396 moveto 117 402 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 288 399 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 455 400 moveto 457 400 lineto stroke
+newpath 457 400 moveto 457 398 lineto stroke
+newpath 457 398 moveto 455 398 lineto stroke
+newpath 455 398 moveto 455 400 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 118 254 moveto 122 254 lineto stroke
+newpath 122 254 moveto 122 250 lineto stroke
+newpath 122 250 moveto 118 250 lineto stroke
+newpath 118 250 moveto 118 254 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 455 253 moveto 457 253 lineto stroke
+newpath 457 253 moveto 457 251 lineto stroke
+newpath 457 251 moveto 455 251 lineto stroke
+newpath 455 251 moveto 455 253 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 120 105 moveto 0 -7 rlineto 7 0 rlineto 0 7 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 120 532 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 454 534 moveto 458 534 lineto stroke
+newpath 458 534 moveto 458 530 lineto stroke
+newpath 458 530 moveto 454 530 lineto stroke
+newpath 454 530 moveto 454 534 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 288 385 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 453 388 moveto 459 388 lineto stroke
+newpath 459 388 moveto 459 382 lineto stroke
+newpath 459 382 moveto 453 382 lineto stroke
+newpath 453 382 moveto 453 388 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 116 242 moveto 124 242 lineto stroke
+newpath 124 242 moveto 124 234 lineto stroke
+newpath 124 234 moveto 116 234 lineto stroke
+newpath 116 234 moveto 116 242 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 288 238 moveto 0 -7 rlineto 7 0 rlineto 0 7 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 117 521 moveto 123 521 lineto stroke
+newpath 123 521 moveto 123 515 lineto stroke
+newpath 123 515 moveto 117 515 lineto stroke
+newpath 117 515 moveto 117 521 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 287 519 moveto 289 519 lineto stroke
+newpath 289 519 moveto 289 517 lineto stroke
+newpath 289 517 moveto 287 517 lineto stroke
+newpath 287 517 moveto 287 519 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 454 520 moveto 458 520 lineto stroke
+newpath 458 520 moveto 458 516 lineto stroke
+newpath 458 516 moveto 454 516 lineto stroke
+newpath 454 516 moveto 454 520 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 118 373 moveto 122 373 lineto stroke
+newpath 122 373 moveto 122 369 lineto stroke
+newpath 122 369 moveto 118 369 lineto stroke
+newpath 118 369 moveto 118 373 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 288 371 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 456 371 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 118 226 moveto 122 226 lineto stroke
+newpath 122 226 moveto 122 222 lineto stroke
+newpath 122 222 moveto 118 222 lineto stroke
+newpath 118 222 moveto 118 226 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 288 224 moveto 0 -5 rlineto 5 0 rlineto 0 5 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 456 224 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 120 77 moveto 0 -9 rlineto 9 0 rlineto 0 9 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 120 504 moveto 0 -10 rlineto 10 0 rlineto 0 10 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 288 504 moveto 0 -5 rlineto 5 0 rlineto 0 5 rlineto closepath fill
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 454 506 moveto 458 506 lineto stroke
+newpath 458 506 moveto 458 502 lineto stroke
+newpath 458 502 moveto 454 502 lineto stroke
+newpath 454 502 moveto 454 506 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 114 363 moveto 126 363 lineto stroke
+newpath 126 363 moveto 126 351 lineto stroke
+newpath 126 351 moveto 114 351 lineto stroke
+newpath 114 351 moveto 114 363 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 285 360 moveto 291 360 lineto stroke
+newpath 291 360 moveto 291 354 lineto stroke
+newpath 291 354 moveto 285 354 lineto stroke
+newpath 285 354 moveto 285 360 lineto stroke
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 112 218 moveto 128 218 lineto stroke
+newpath 128 218 moveto 128 202 lineto stroke
+newpath 128 202 moveto 112 202 lineto stroke
+newpath 112 202 moveto 112 218 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 288 210 moveto 0 -8 rlineto 8 0 rlineto 0 8 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 454 212 moveto 458 212 lineto stroke
+newpath 458 212 moveto 458 208 lineto stroke
+newpath 458 208 moveto 454 208 lineto stroke
+newpath 454 208 moveto 454 212 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 120 63 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 120 490 moveto 0 -6 rlineto 6 0 rlineto 0 6 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 286 492 moveto 290 492 lineto stroke
+newpath 290 492 moveto 290 488 lineto stroke
+newpath 290 488 moveto 286 488 lineto stroke
+newpath 286 488 moveto 286 492 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 455 491 moveto 457 491 lineto stroke
+newpath 457 491 moveto 457 489 lineto stroke
+newpath 457 489 moveto 455 489 lineto stroke
+newpath 455 489 moveto 455 491 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 116 347 moveto 124 347 lineto stroke
+newpath 124 347 moveto 124 339 lineto stroke
+newpath 124 339 moveto 116 339 lineto stroke
+newpath 116 339 moveto 116 347 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 454 345 moveto 458 345 lineto stroke
+newpath 458 345 moveto 458 341 lineto stroke
+newpath 458 341 moveto 454 341 lineto stroke
+newpath 454 341 moveto 454 345 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 118 198 moveto 122 198 lineto stroke
+newpath 122 198 moveto 122 194 lineto stroke
+newpath 122 194 moveto 118 194 lineto stroke
+newpath 118 194 moveto 118 198 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 288 196 moveto 0 -5 rlineto 5 0 rlineto 0 5 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 456 196 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 120 49 moveto 0 -6 rlineto 6 0 rlineto 0 6 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 286 331 moveto 290 331 lineto stroke
+newpath 290 331 moveto 290 327 lineto stroke
+newpath 290 327 moveto 286 327 lineto stroke
+newpath 286 327 moveto 286 331 lineto stroke
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 115 187 moveto 125 187 lineto stroke
+newpath 125 187 moveto 125 177 lineto stroke
+newpath 125 177 moveto 115 177 lineto stroke
+newpath 115 177 moveto 115 187 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 288 182 moveto 0 -5 rlineto 5 0 rlineto 0 5 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 120 35 moveto 0 -8 rlineto 8 0 rlineto 0 8 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 134 574 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 469 575 moveto 471 575 lineto stroke
+newpath 471 575 moveto 471 573 lineto stroke
+newpath 471 573 moveto 469 573 lineto stroke
+newpath 469 573 moveto 469 575 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 132 429 moveto 136 429 lineto stroke
+newpath 136 429 moveto 136 425 lineto stroke
+newpath 136 425 moveto 132 425 lineto stroke
+newpath 132 425 moveto 132 429 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 469 428 moveto 471 428 lineto stroke
+newpath 471 428 moveto 471 426 lineto stroke
+newpath 471 426 moveto 469 426 lineto stroke
+newpath 469 426 moveto 469 428 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 134 280 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 299 283 moveto 305 283 lineto stroke
+newpath 305 283 moveto 305 277 lineto stroke
+newpath 305 277 moveto 299 277 lineto stroke
+newpath 299 277 moveto 299 283 lineto stroke
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 470 280 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 133 134 moveto 135 134 lineto stroke
+newpath 135 134 moveto 135 132 lineto stroke
+newpath 135 132 moveto 133 132 lineto stroke
+newpath 133 132 moveto 133 134 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 134 560 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 298 564 moveto 306 564 lineto stroke
+newpath 306 564 moveto 306 556 lineto stroke
+newpath 306 556 moveto 298 556 lineto stroke
+newpath 298 556 moveto 298 564 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 133 414 moveto 135 414 lineto stroke
+newpath 135 414 moveto 135 412 lineto stroke
+newpath 135 412 moveto 133 412 lineto stroke
+newpath 133 412 moveto 133 414 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 470 413 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 301 547 moveto 303 547 lineto stroke
+newpath 303 547 moveto 303 545 lineto stroke
+newpath 303 545 moveto 301 545 lineto stroke
+newpath 301 545 moveto 301 547 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 470 546 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 130 403 moveto 138 403 lineto stroke
+newpath 138 403 moveto 138 395 lineto stroke
+newpath 138 395 moveto 130 395 lineto stroke
+newpath 130 395 moveto 130 403 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 302 399 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 467 402 moveto 473 402 lineto stroke
+newpath 473 402 moveto 473 396 lineto stroke
+newpath 473 396 moveto 467 396 lineto stroke
+newpath 467 396 moveto 467 402 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 134 252 moveto 0 -8 rlineto 8 0 rlineto 0 8 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 469 253 moveto 471 253 lineto stroke
+newpath 471 253 moveto 471 251 lineto stroke
+newpath 471 251 moveto 469 251 lineto stroke
+newpath 469 251 moveto 469 253 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 134 105 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 134 532 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 301 533 moveto 303 533 lineto stroke
+newpath 303 533 moveto 303 531 lineto stroke
+newpath 303 531 moveto 301 531 lineto stroke
+newpath 301 531 moveto 301 533 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 469 533 moveto 471 533 lineto stroke
+newpath 471 533 moveto 471 531 lineto stroke
+newpath 471 531 moveto 469 531 lineto stroke
+newpath 469 531 moveto 469 533 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 133 386 moveto 135 386 lineto stroke
+newpath 135 386 moveto 135 384 lineto stroke
+newpath 135 384 moveto 133 384 lineto stroke
+newpath 133 384 moveto 133 386 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 465 390 moveto 475 390 lineto stroke
+newpath 475 390 moveto 475 380 lineto stroke
+newpath 475 380 moveto 465 380 lineto stroke
+newpath 465 380 moveto 465 390 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 134 238 moveto 0 -5 rlineto 5 0 rlineto 0 5 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 302 238 moveto 0 -7 rlineto 7 0 rlineto 0 7 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 132 93 moveto 136 93 lineto stroke
+newpath 136 93 moveto 136 89 lineto stroke
+newpath 136 89 moveto 132 89 lineto stroke
+newpath 132 89 moveto 132 93 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 131 521 moveto 137 521 lineto stroke
+newpath 137 521 moveto 137 515 lineto stroke
+newpath 137 515 moveto 131 515 lineto stroke
+newpath 131 515 moveto 131 521 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 299 521 moveto 305 521 lineto stroke
+newpath 305 521 moveto 305 515 lineto stroke
+newpath 305 515 moveto 299 515 lineto stroke
+newpath 299 515 moveto 299 521 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 469 519 moveto 471 519 lineto stroke
+newpath 471 519 moveto 471 517 lineto stroke
+newpath 471 517 moveto 469 517 lineto stroke
+newpath 469 517 moveto 469 519 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 131 374 moveto 137 374 lineto stroke
+newpath 137 374 moveto 137 368 lineto stroke
+newpath 137 368 moveto 131 368 lineto stroke
+newpath 131 368 moveto 131 374 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 469 372 moveto 471 372 lineto stroke
+newpath 471 372 moveto 471 370 lineto stroke
+newpath 471 370 moveto 469 370 lineto stroke
+newpath 469 370 moveto 469 372 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 134 224 moveto 0 -7 rlineto 7 0 rlineto 0 7 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 302 224 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 470 224 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 134 77 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 134 504 moveto 0 -6 rlineto 6 0 rlineto 0 6 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 301 505 moveto 303 505 lineto stroke
+newpath 303 505 moveto 303 503 lineto stroke
+newpath 303 503 moveto 301 503 lineto stroke
+newpath 301 503 moveto 301 505 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 469 505 moveto 471 505 lineto stroke
+newpath 471 505 moveto 471 503 lineto stroke
+newpath 471 503 moveto 469 503 lineto stroke
+newpath 469 503 moveto 469 505 lineto stroke
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 130 361 moveto 138 361 lineto stroke
+newpath 138 361 moveto 138 353 lineto stroke
+newpath 138 353 moveto 130 353 lineto stroke
+newpath 130 353 moveto 130 361 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 468 359 moveto 472 359 lineto stroke
+newpath 472 359 moveto 472 355 lineto stroke
+newpath 472 355 moveto 468 355 lineto stroke
+newpath 468 355 moveto 468 359 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 132 212 moveto 136 212 lineto stroke
+newpath 136 212 moveto 136 208 lineto stroke
+newpath 136 208 moveto 132 208 lineto stroke
+newpath 132 208 moveto 132 212 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 302 210 moveto 0 -5 rlineto 5 0 rlineto 0 5 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 470 210 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 134 63 moveto 0 -6 rlineto 6 0 rlineto 0 6 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 134 490 moveto 0 -9 rlineto 9 0 rlineto 0 9 rlineto closepath fill
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 301 491 moveto 303 491 lineto stroke
+newpath 303 491 moveto 303 489 lineto stroke
+newpath 303 489 moveto 301 489 lineto stroke
+newpath 301 489 moveto 301 491 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 470 490 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 126 351 moveto 142 351 lineto stroke
+newpath 142 351 moveto 142 335 lineto stroke
+newpath 142 335 moveto 126 335 lineto stroke
+newpath 126 335 moveto 126 351 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 298 347 moveto 306 347 lineto stroke
+newpath 306 347 moveto 306 339 lineto stroke
+newpath 306 339 moveto 298 339 lineto stroke
+newpath 298 339 moveto 298 347 lineto stroke
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 466 347 moveto 474 347 lineto stroke
+newpath 474 347 moveto 474 339 lineto stroke
+newpath 474 339 moveto 466 339 lineto stroke
+newpath 466 339 moveto 466 347 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 134 196 moveto 0 -9 rlineto 9 0 rlineto 0 9 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 302 196 moveto 0 -6 rlineto 6 0 rlineto 0 6 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 468 198 moveto 472 198 lineto stroke
+newpath 472 198 moveto 472 194 lineto stroke
+newpath 472 194 moveto 468 194 lineto stroke
+newpath 468 194 moveto 468 198 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 132 51 moveto 136 51 lineto stroke
+newpath 136 51 moveto 136 47 lineto stroke
+newpath 136 47 moveto 132 47 lineto stroke
+newpath 132 47 moveto 132 51 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 301 477 moveto 303 477 lineto stroke
+newpath 303 477 moveto 303 475 lineto stroke
+newpath 303 475 moveto 301 475 lineto stroke
+newpath 301 475 moveto 301 477 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 470 476 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 133 330 moveto 135 330 lineto stroke
+newpath 135 330 moveto 135 328 lineto stroke
+newpath 135 328 moveto 133 328 lineto stroke
+newpath 133 328 moveto 133 330 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 299 332 moveto 305 332 lineto stroke
+newpath 305 332 moveto 305 326 lineto stroke
+newpath 305 326 moveto 299 326 lineto stroke
+newpath 299 326 moveto 299 332 lineto stroke
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 468 331 moveto 472 331 lineto stroke
+newpath 472 331 moveto 472 327 lineto stroke
+newpath 472 327 moveto 468 327 lineto stroke
+newpath 468 327 moveto 468 331 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 134 182 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 302 182 moveto 0 -5 rlineto 5 0 rlineto 0 5 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 470 182 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 134 35 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 146 576 moveto 150 576 lineto stroke
+newpath 150 576 moveto 150 572 lineto stroke
+newpath 150 572 moveto 146 572 lineto stroke
+newpath 146 572 moveto 146 576 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 316 574 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 148 427 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 313 430 moveto 319 430 lineto stroke
+newpath 319 430 moveto 319 424 lineto stroke
+newpath 319 424 moveto 313 424 lineto stroke
+newpath 313 424 moveto 313 430 lineto stroke
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 484 427 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 147 281 moveto 149 281 lineto stroke
+newpath 149 281 moveto 149 279 lineto stroke
+newpath 149 279 moveto 147 279 lineto stroke
+newpath 147 279 moveto 147 281 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 314 282 moveto 318 282 lineto stroke
+newpath 318 282 moveto 318 278 lineto stroke
+newpath 318 278 moveto 314 278 lineto stroke
+newpath 314 278 moveto 314 282 lineto stroke
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 484 280 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 147 561 moveto 149 561 lineto stroke
+newpath 149 561 moveto 149 559 lineto stroke
+newpath 149 559 moveto 147 559 lineto stroke
+newpath 147 559 moveto 147 561 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 313 563 moveto 319 563 lineto stroke
+newpath 319 563 moveto 319 557 lineto stroke
+newpath 319 557 moveto 313 557 lineto stroke
+newpath 313 557 moveto 313 563 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 484 560 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 148 413 moveto 0 -6 rlineto 6 0 rlineto 0 6 rlineto closepath fill
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 314 415 moveto 318 415 lineto stroke
+newpath 318 415 moveto 318 411 lineto stroke
+newpath 318 411 moveto 314 411 lineto stroke
+newpath 314 411 moveto 314 415 lineto stroke
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 484 413 moveto 0 -6 rlineto 6 0 rlineto 0 6 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 145 269 moveto 151 269 lineto stroke
+newpath 151 269 moveto 151 263 lineto stroke
+newpath 151 263 moveto 145 263 lineto stroke
+newpath 145 263 moveto 145 269 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 483 267 moveto 485 267 lineto stroke
+newpath 485 267 moveto 485 265 lineto stroke
+newpath 485 265 moveto 483 265 lineto stroke
+newpath 483 265 moveto 483 267 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 148 119 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 146 548 moveto 150 548 lineto stroke
+newpath 150 548 moveto 150 544 lineto stroke
+newpath 150 544 moveto 146 544 lineto stroke
+newpath 146 544 moveto 146 548 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 484 546 moveto 0 -6 rlineto 6 0 rlineto 0 6 rlineto closepath fill
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 315 400 moveto 317 400 lineto stroke
+newpath 317 400 moveto 317 398 lineto stroke
+newpath 317 398 moveto 315 398 lineto stroke
+newpath 315 398 moveto 315 400 lineto stroke
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 148 252 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 483 253 moveto 485 253 lineto stroke
+newpath 485 253 moveto 485 251 lineto stroke
+newpath 485 251 moveto 483 251 lineto stroke
+newpath 483 251 moveto 483 253 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 148 105 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 147 533 moveto 149 533 lineto stroke
+newpath 149 533 moveto 149 531 lineto stroke
+newpath 149 531 moveto 147 531 lineto stroke
+newpath 147 531 moveto 147 533 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 148 385 moveto 0 -6 rlineto 6 0 rlineto 0 6 rlineto closepath fill
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 314 387 moveto 318 387 lineto stroke
+newpath 318 387 moveto 318 383 lineto stroke
+newpath 318 383 moveto 314 383 lineto stroke
+newpath 314 383 moveto 314 387 lineto stroke
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 482 387 moveto 486 387 lineto stroke
+newpath 486 387 moveto 486 383 lineto stroke
+newpath 486 383 moveto 482 383 lineto stroke
+newpath 482 383 moveto 482 387 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 147 239 moveto 149 239 lineto stroke
+newpath 149 239 moveto 149 237 lineto stroke
+newpath 149 237 moveto 147 237 lineto stroke
+newpath 147 237 moveto 147 239 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 316 238 moveto 0 -7 rlineto 7 0 rlineto 0 7 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 147 92 moveto 149 92 lineto stroke
+newpath 149 92 moveto 149 90 lineto stroke
+newpath 149 90 moveto 147 90 lineto stroke
+newpath 147 90 moveto 147 92 lineto stroke
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 142 524 moveto 154 524 lineto stroke
+newpath 154 524 moveto 154 512 lineto stroke
+newpath 154 512 moveto 142 512 lineto stroke
+newpath 142 512 moveto 142 524 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 315 519 moveto 317 519 lineto stroke
+newpath 317 519 moveto 317 517 lineto stroke
+newpath 317 517 moveto 315 517 lineto stroke
+newpath 315 517 moveto 315 519 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 148 371 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 314 373 moveto 318 373 lineto stroke
+newpath 318 373 moveto 318 369 lineto stroke
+newpath 318 369 moveto 314 369 lineto stroke
+newpath 314 369 moveto 314 373 lineto stroke
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 484 371 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 316 224 moveto 0 -5 rlineto 5 0 rlineto 0 5 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 148 77 moveto 0 -6 rlineto 6 0 rlineto 0 6 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 314 359 moveto 318 359 lineto stroke
+newpath 318 359 moveto 318 355 lineto stroke
+newpath 318 355 moveto 314 355 lineto stroke
+newpath 314 355 moveto 314 359 lineto stroke
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 143 215 moveto 153 215 lineto stroke
+newpath 153 215 moveto 153 205 lineto stroke
+newpath 153 205 moveto 143 205 lineto stroke
+newpath 143 205 moveto 143 215 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 316 210 moveto 0 -5 rlineto 5 0 rlineto 0 5 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 148 63 moveto 0 -8 rlineto 8 0 rlineto 0 8 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 315 491 moveto 317 491 lineto stroke
+newpath 317 491 moveto 317 489 lineto stroke
+newpath 317 489 moveto 315 489 lineto stroke
+newpath 315 489 moveto 315 491 lineto stroke
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 484 490 moveto 0 -4 rlineto 4 0 rlineto 0 4 rlineto closepath fill
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 147 344 moveto 149 344 lineto stroke
+newpath 149 344 moveto 149 342 lineto stroke
+newpath 149 342 moveto 147 342 lineto stroke
+newpath 147 342 moveto 147 344 lineto stroke
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 313 346 moveto 319 346 lineto stroke
+newpath 319 346 moveto 319 340 lineto stroke
+newpath 319 340 moveto 313 340 lineto stroke
+newpath 313 340 moveto 313 346 lineto stroke
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 482 345 moveto 486 345 lineto stroke
+newpath 486 345 moveto 486 341 lineto stroke
+newpath 486 341 moveto 482 341 lineto stroke
+newpath 482 341 moveto 482 345 lineto stroke
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 148 196 moveto 0 -2 rlineto 2 0 rlineto 0 2 rlineto closepath fill
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 316 196 moveto 0 -5 rlineto 5 0 rlineto 0 5 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 484 196 moveto 0 -1 rlineto 1 0 rlineto 0 1 rlineto closepath fill
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 148 49 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+newpath 147 477 moveto 149 477 lineto stroke
+newpath 149 477 moveto 149 475 lineto stroke
+newpath 149 475 moveto 147 475 lineto stroke
+newpath 147 475 moveto 147 477 lineto stroke
+newpath 40 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 574 moveto (17) 12 scale_text
+newpath 316 476 moveto 0 -5 rlineto 5 0 rlineto 0 5 rlineto closepath fill
+newpath 208 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 574 moveto (18) 12 scale_text
+newpath 484 476 moveto 0 -7 rlineto 7 0 rlineto 0 7 rlineto closepath fill
+newpath 376 584 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 574 moveto (19) 12 scale_text
+newpath 40 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 427 moveto (20) 12 scale_text
+newpath 306 339 moveto 326 339 lineto stroke
+newpath 326 339 moveto 326 319 lineto stroke
+newpath 326 319 moveto 306 319 lineto stroke
+newpath 306 319 moveto 306 339 lineto stroke
+newpath 208 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 427 moveto (21) 12 scale_text
+newpath 484 329 moveto 0 -3 rlineto 3 0 rlineto 0 3 rlineto closepath fill
+newpath 376 437 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 427 moveto (22) 12 scale_text
+newpath 146 184 moveto 150 184 lineto stroke
+newpath 150 184 moveto 150 180 lineto stroke
+newpath 150 180 moveto 146 180 lineto stroke
+newpath 146 180 moveto 146 184 lineto stroke
+newpath 40 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 280 moveto (23) 12 scale_text
+newpath 316 182 moveto 0 -8 rlineto 8 0 rlineto 0 8 rlineto closepath fill
+newpath 208 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+186 280 moveto (24) 12 scale_text
+newpath 480 186 moveto 488 186 lineto stroke
+newpath 488 186 moveto 488 178 lineto stroke
+newpath 488 178 moveto 480 178 lineto stroke
+newpath 480 178 moveto 480 186 lineto stroke
+newpath 376 290 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+354 280 moveto (25) 12 scale_text
+newpath 40 143 moveto 0 -129 rlineto 126 0 rlineto 0 129 rlineto closepath stroke
+18 133 moveto (26) 12 scale_text
+
+showpage

@@ -1,0 +1,19 @@
+
+Friends and enemies effect in mental arithmetic
+===============================================
+
+During development, A given PROBLEM (and it's compliment) can have a
+number of:
+
+    - friends, those problmes that do NOT result in the
+      same product (answer), and
+
+    - enemies, those products that DO result in the same answer.
+
+Obviously there will be more enemies than friends, but the proportion of
+each will vary for each problem.
+
+We can check this by looking at the development of PSS over a number of
+epochs.   The same set of problems with large enemies/friends ratios
+should be hard to learn, resulting in slow RT.  We might expect differences
+due to the initial random weights.

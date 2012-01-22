@@ -1,0 +1,39 @@
+#   @(#.9/06/27 COGS
+
+source /local/global/login
+source /usr/local/global/login.useful
+if (-f $GROUP/login) source $GROUP/login
+
+setenv PRINTER spb
+
+source /usr/local/global/poplogin.new           # Set up Poplog
+
+source /usr/local/global/TeXlogin               # Set up TeX
+setenv TEXINPUTS $HOME/tex/inputs/new:$HOME/tex/inputs:/usr/local/lib/tex/inputs/beta:$TEXINPUTS
+
+source /usr/local/global/xlogin                 # Set up X11
+
+source /usr/local/global/GNUlogin               # Set up GNU
+
+# Include kavern paths (if tsunb is ok)
+if ( { anima -t 5 tsunb.ctn } ) then
+    if (-d ~kavern) then
+        setenv KAVERNHOME ~kavern
+        setenv kavernhome $KAVERNHOME
+        cat $kavernhome/etc/.motd
+        source $kavernhome/etc/.login.kavern
+        setenv XFILESEARCHPATH $kavernhome/X11/lib/X11/%T/%N%S:$XFILESEARCHPATH
+    else
+        echo Kavern not available---files not mounted
+    endif
+else
+    echo Kavern is not available---tsunb not responding
+endif
+
+
+set path = ($HOME/bin $HOME/bin/$HOST_TYPE $path)
+
+umask 022
+echo ""
+uptime
+echo ""

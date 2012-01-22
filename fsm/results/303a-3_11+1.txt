@@ -1,0 +1,17 @@
+t   op  eye  err   closest     input
+----------------------------------------------------------
+1   ZAC r1c-1 2.379 SAD 0.7979  ADD________________________
+2   SAD r1c1 2.347 TNC 0.7569  ADD________________________
+3   ADD r1c1 2.211 ZAC 0.7940  ADD____________NUM______RHT
+4   DWN r3c1 2.366 TNC 0.7568  ADD____________NUM______RHT
+5   ADD r3c1 2.295 ZAC 0.7845  ADD____________NUM______RHT
+6   DWN r5c1 2.340 UNI 0.7031  ADD____________NUM______RHT
+7   DWN r7c1 2.146 ZAC 0.7594  ADD_________RUL_________RHT
+8   UNI r7c1 2.550 RDC 0.6768  ADD______SPC____________RHT
+9   ZAC r7c1 2.410 TNC 0.6449  ADD______SPC____________RHT
+10  TNC r1c2 2.584 SAD 0.6388  ADD______SPC____________RHT
+11  ADD r1c2 2.329 DON 0.7471  ADD____________NUMuLFlLF___
+12  DWN r3c2 2.387 ADD 0.7446  ADD____________NUMuLFlLF___
+13  RDC r3c2 3.111 ADD 0.0343  ADD______SPC______uLFlLF___
+14  UNI r3c2 2.850 DWN 0.2805  ADD______SPC______uLFlLF___
+15  DON r3c2 2.647 ADD 0.5339  ADD______SPC______uLFlLF___

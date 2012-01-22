@@ -1,0 +1,873 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\BCAY{Ainsworth}{Ainsworth}{1991}]{shar}
+Ainsworth, S. \BBOP1991\BBCP.
+\newblock \BBOQ A model of children's multiplication skills\BBCQ\
+\newblock Unpublished project, Portsmouth Polytechnic, UK.
+
+\bibitem[\protect\BCAY{Allen}{Allen}{1988}]{alleconn}
+Allen, R.~B. \BBOP1988\BBCP.
+\newblock \BBOQ Connectionist state machines\BBCQ\
+\newblock \BTR\ ARA 88-300, Bellcore, Morristown, NJ.
+
+\bibitem[\protect\BCAY{Allen}{Allen}{1990}]{clues}
+Allen, R.~B. \BBOP1990\BBCP.
+\newblock \BBOQ Connectionist language users\BBCQ\
+\newblock {\Bem Connection Science}, {\Bem 2\/}(4), 279--311.
+
+\bibitem[\protect\BCAY{J.~A.~Anderson, Rossen, Viscuso \B\
+  Sereno}{J.~A.~Anderson, Rossen, Viscuso \B\ Sereno}{1990}]{andeexpe}
+Anderson, J.~A., Rossen, M.~L., Viscuso, S.~R.\ \B\ Sereno, M.~E.
+  \BBOP1990\BBCP.
+\newblock \BBOQ Experiments with representation in neural networks: object
+  motion, speech, and arithmetic (\uppercase{I}ncluding introduction by
+  \uppercase{A}nderson)\BBCQ\
+\newblock In Anderson, J.~A., Pellionisz, A.\ \B\ Rosenfeld, E.\BEDS, {\Bem
+  Neurocomputing 2: Directions For Research}, \BCH~14, \BPGS\ 704--716. MIT
+  Press, Cambridge, MA.
+\newblock First published in H. Haken and M. Stadler (Eds.) {\em Synergetics of
+  Cognition}, Springer, Berlin.
+
+\bibitem[\protect\BCAY{J.~A.~Anderson, Spoehr \B\ Bennett}{J.~A.~Anderson,
+  Spoehr \B\ Bennett}{1991}]{andestud}
+Anderson, J.~A., Spoehr, K.~T.\ \B\ Bennett, D.~J. \BBOP1991\BBCP.
+\newblock \BBOQ A study of numerical perversity: teaching arithmetic to a
+  neural network\BBCQ\
+\newblock \BTR\ 91--3, Department of Cognitive and Linguistic Sciences, Brown
+  University.
+\newblock To appear in Levine, D. S. and Aparicio, M. (eds) {\em Neural
+  Networks for Knowledge Representation and Inference}, Lawrence Erlbaum
+  Associates, Hillsdate, NJ.
+
+\bibitem[\protect\BCAY{J.~R.~Anderson}{J.~R.~Anderson}{1983}]{andearch}
+Anderson, J.~R. \BBOP1983\BBCP.
+\newblock {\Bem The Architecture of Cognition}.
+\newblock Harvard University Press, Cambridge, MA.
+
+\bibitem[\protect\BCAY{Ashcraft}{Ashcraft}{1982}]{ashcdeve}
+Ashcraft, M.~H. \BBOP1982\BBCP.
+\newblock \BBOQ The development of mental arithmetic: a chronometric
+  approach\BBCQ\
+\newblock {\Bem Developmental Review}, {\Bem 2}, 213--236.
+
+\bibitem[\protect\BCAY{Ashcroft}{Ashcroft}{1987}]{ashcchil}
+Ashcroft, M.~H. \BBOP1987\BBCP.
+\newblock \BBOQ Children's knowledge of simple arithmetic: a developmental
+  model and simulation\BBCQ\
+\newblock In Bisanz, J., Brainerd, C.~J.\ \B\ Kail, R.\BEDS, {\Bem Formal
+  Methods in Developmental Psychology}, \BCH~9, \BPGS\ 302--338.
+  Springer-Verlag, New York, NY.
+
+\bibitem[\protect\BCAY{Ashcroft \B\ Stazyk}{Ashcroft \B\
+  Stazyk}{1981}]{ashcment}
+Ashcroft, M.~H.\BBACOMMA\ \B\ Stazyk, E.~H. \BBOP1981\BBCP.
+\newblock \BBOQ Mental addition: a test of three verification models\BBCQ\
+\newblock {\Bem Memory and Cognition}, {\Bem 9\/}(2), 185--196.
+
+\bibitem[\protect\BCAY{Attisha}{Attisha}{1983}]{attimicr}
+Attisha, M.~G. \BBOP1983\BBCP.
+\newblock \BBOQ A microcomputer based tutoring system for self-improving and
+  teaching techniques in arithmetic skills\BBCQ\
+\newblock Master's thesis, Faculty of Science, University of Exeter.
+
+\bibitem[\protect\BCAY{Attisha \B\ Yazdani}{Attisha \B\
+  Yazdani}{1984}]{attiexpe}
+Attisha, M.~G.\BBACOMMA\ \B\ Yazdani, M. \BBOP1984\BBCP.
+\newblock \BBOQ An expert system for diagnosing children's multiplication
+  errors\BBCQ\
+\newblock {\Bem Instructional Science}, {\Bem 13}, 79--92.
+
+\bibitem[\protect\BCAY{Bates \B\ Elman}{Bates \B\ Elman}{1992}]{bateconn}
+Bates, E.~A.\BBACOMMA\ \B\ Elman, J.~L. \BBOP1992\BBCP.
+\newblock \BBOQ Connectionism and the study of change\BBCQ\
+\newblock \BTR\ CRL 9202, Center for Research in Language, University of
+  California, San Diego, La Jolla, CA.
+\newblock To appear in M. Johnson (Ed.) {\em Brain Development and Cognition: A
+  Reader.} Oxford: Blackwell Publishers.
+
+\bibitem[\protect\BCAY{Boden}{Boden}{1988}]{bodecomp}
+Boden, M.~A. \BBOP1988\BBCP.
+\newblock {\Bem Computer Models of Mind}.
+\newblock Cambridge University Press, Cambridge, UK.
+
+\bibitem[\protect\BCAY{Brown \B\ Burton}{Brown \B\ Burton}{1978}]{buggy}
+Brown, J.~S.\BBACOMMA\ \B\ Burton, R.~R. \BBOP1978\BBCP.
+\newblock \BBOQ Diagnostic models for procedural bugs in basic mathematical
+  skills\BBCQ\
+\newblock {\Bem Cognitive Science}, {\Bem 2}, 155--192.
+
+\bibitem[\protect\BCAY{Brown \B\ {VanLehn}}{Brown \B\ {VanLehn}}{1980}]{repair}
+Brown, J.~S.\BBACOMMA\ \B\ {VanLehn}, K. \BBOP1980\BBCP.
+\newblock \BBOQ Repair theory: a generative theory of bugs in procedural
+  knowledge\BBCQ\
+\newblock {\Bem Cognitive Science}, {\Bem 4}, 379--426.
+
+\bibitem[\protect\BCAY{Burton}{Burton}{1982}]{debuggy}
+Burton, R.~R. \BBOP1982\BBCP.
+\newblock \BBOQ Diagnosing bugs in a simple procedural skill\BBCQ\
+\newblock In Sleeman, D.~H.\BBACOMMA\ \B\ Brown, J.~S.\BEDS, {\Bem Intelligent
+  Tutoring Systems}, \BPGS\ 157--183. Academic Press, London.
+
+\bibitem[\protect\BCAY{Buswell}{Buswell}{1926}]{buswdiag}
+Buswell, G.~T. \BBOP1926\BBCP.
+\newblock {\Bem Diagnostic Studies in Arithemetic}.
+\newblock University of Chicago Press, Chicago, IL.
+
+\bibitem[\protect\BCAY{Campbell}{Campbell}{1987}]{camprole}
+Campbell, J. I.~D. \BBOP1987\BBCP.
+\newblock \BBOQ The role of associative interference in learning and retrieving
+  arithmetic facts\BBCQ\
+\newblock In Sloboda, J.~A.\BBACOMMA\ \B\ Rogers, D.\BEDS, {\Bem Cognitive
+  Processes in Mathematics}, \BPGS\ 107--122. Clarendon Press, Oxford.
+
+\bibitem[\protect\BCAY{Campbell \B\ Graham}{Campbell \B\ Graham}{1985}]{camp85}
+Campbell, J. I.~D.\BBACOMMA\ \B\ Graham, D.~J. \BBOP1985\BBCP.
+\newblock \BBOQ Mental multiplication skill: structure, process, and
+  acquisition\BBCQ\
+\newblock {\Bem Canadian Journal of Psychology}, {\Bem 39\/}(2), 338--366.
+
+\bibitem[\protect\BCAY{Chalmers}{Chalmers}{1990}]{chalsynt}
+Chalmers, D.~J. \BBOP1990\BBCP.
+\newblock \BBOQ Syntactic transformations of distributed representations\BBCQ\
+\newblock \BTR, Indiana University.
+\newblock To appear in {\em Connection Science}, volume 2.
+
+\bibitem[\protect\BCAY{Churchland \B\ Sejnowski}{Churchland \B\
+  Sejnowski}{1989}]{churneur}
+Churchland, P.~S.\BBACOMMA\ \B\ Sejnowski, T.~J. \BBOP1989\BBCP.
+\newblock \BBOQ Neural representation and neural computation\BBCQ\
+\newblock In Nadel, L., Copper, L.~A., Culicover, P.\ \B\ Harnish, R.~M.\BEDS,
+  {\Bem Neural Connections, Mental Computation}, \BCH~1, \BPGS\ 15--48. MIT
+  Press, Cambridge, MA.
+
+\bibitem[\protect\BCAY{Clark}{Clark}{1985}]{clararti}
+Clark, A. \BBOP1985\BBCP.
+\newblock \BBOQ Artificial intelligence and the biological factor\BBCQ\
+\newblock \BTR\ CSRP 49, School of Cognitive and Computing Sciences, University
+  of Sussex, Brighton, UK.
+
+\bibitem[\protect\BCAY{Clark}{Clark}{1986}]{clarbiol}
+Clark, A. \BBOP1986\BBCP.
+\newblock \BBOQ A biological metaphor\BBCQ\
+\newblock {\Bem Mind \& Language}, {\Bem 1\/}(1), 45--63.
+
+\bibitem[\protect\BCAY{Clark}{Clark}{1987a}]{clarconn}
+Clark, A. \BBOP1987a\BBCP.
+\newblock \BBOQ Connectionism and cognitive science\BBCQ\
+\newblock In Hallam, J.\BBACOMMA\ \B\ Mellish, C.\BEDS, {\Bem Advances in
+  Artificial Intelligence}, \BPGS\ 3--15. John Wiley and Sons, Chichester.
+
+\bibitem[\protect\BCAY{Clark}{Clark}{1987b}]{clarklud}
+Clark, A. \BBOP1987b\BBCP.
+\newblock \BBOQ The kludge in the machine\BBCQ\
+\newblock {\Bem Mind \& Language}, {\Bem 2\/}(4), 277--300.
+
+\bibitem[\protect\BCAY{Clark}{Clark}{1989}]{micro}
+Clark, A. \BBOP1989\BBCP.
+\newblock {\Bem Microcognition: Philosophy, Cognitive Science, and Parallel
+  Distributed Processing}.
+\newblock MIT Press, Cambridge, MA.
+
+\bibitem[\protect\BCAY{Clark}{Clark}{1993}]{clarasso}
+Clark, A. \BBOP1993\BBCP.
+\newblock {\Bem Associative Engines: Connectionism, Concepts and
+  Representational Change}.
+\newblock MIT Press, Cambridge, MA.
+\newblock To appear in 1993.
+
+\bibitem[\protect\BCAY{Cleeremans, Servan-Schreiber\  \B\
+  McClelland}{Cleeremans et~al.}{1988}]{cleefini}
+Cleeremans, A., Servan-Schreiber, D.\ \B\ McClelland, J.~L. \BBOP1988\BBCP.
+\newblock \BBOQ Finite state automata and simple recurrent networks\BBCQ\
+\newblock {\Bem Neural Computation}, {\Bem 1}, 372--381.
+
+\bibitem[\protect\BCAY{Cornet, Seron, Deloche\  \B\ Lories}{Cornet
+  et~al.}{1988}]{cornet}
+Cornet, J., Seron, X., Deloche, G.\ \B\ Lories, G. \BBOP1988\BBCP.
+\newblock \BBOQ Cognitive models of simple mental arithmetic: a critical
+  review\BBCQ\
+\newblock {\Bem Cahiers de Psychologie Cognitive}, {\Bem 8\/}(6), 551--571.
+
+\bibitem[\protect\BCAY{Cottrell \B\ Tsung}{Cottrell \B\ Tsung}{1989}]{cottlear}
+Cottrell, G.~W.\BBACOMMA\ \B\ Tsung, F. \BBOP1989\BBCP.
+\newblock \BBOQ Learning simple arithmetic procedures\BBCQ\
+\newblock In {\Bem Proceedings of the Eleventh Annual Conference of the
+  Cognitive Science Society}, \BPGS\ 58--65. Lawrence Erlbaum Associates,
+  Hillsdale, NJ.
+
+\bibitem[\protect\BCAY{Cox}{Cox}{1974}]{coxanal}
+Cox, L. \BBOP1974\BBCP.
+\newblock \BBOQ Analysis, classification, and frequency of systematic error
+  computational patterns in the addition, subtraction, multiplication, and
+  division vertical algorithms for grades 2--6 and special education
+  classes\BBCQ\
+\newblock \BTR\ ED 092 407, Kansas University Medical Center, Kansas City, KA.
+
+\bibitem[\protect\BCAY{Cummins}{Cummins}{1993}]{cummrepr}
+Cummins, F. \BBOP1993\BBCP.
+\newblock \BBOQ Representation of temporal patterns in recurrent networks\BBCQ\
+\newblock To appear in {\em The Fifteenth Annual Conference of the Cognitive
+  Science Society}.
+
+\bibitem[\protect\BCAY{Dagenbach \B\ McCloskey}{Dagenbach \B\
+  McCloskey}{1992}]{dageorga}
+Dagenbach, D.\BBACOMMA\ \B\ McCloskey, M. \BBOP1992\BBCP.
+\newblock \BBOQ The organization of arithmetic facts in memory: evidence from a
+  brain-damaged patient\BBCQ\
+\newblock Draft manuscript.
+
+\bibitem[\protect\BCAY{Dallaway}{Dallaway}{1992a}]{dallmemo}
+Dallaway, R.~Z. \BBOP1992a\BBCP.
+\newblock \BBOQ Memory for multiplication facts\BBCQ\
+\newblock In {\Bem Proceedings of the Fourteenth Annual Conference of the
+  Cognitive Science Society}, \BPGS\ 558--563. Lawrence Erlbaum Associates,
+  Hillsdale, NJ.
+
+\bibitem[\protect\BCAY{Dallaway}{Dallaway}{1992b}]{dallspee}
+Dallaway, R.~Z. \BBOP1992b\BBCP.
+\newblock \BBOQ The speed and slips of mental arithmetic\BBCQ\
+\newblock In Aleksander, I.\BBACOMMA\ \B\ Taylor, J.\BEDS, {\Bem Artificial
+  Neural Networks \uppercase{II}: \uppercase{P}roceedings of the International
+  Conference on Artificial Neural Networks}, \BPGS\ 1369--1372. Elsevier
+  Science Publishers B.V.
+
+\bibitem[\protect\BCAY{Dennett}{Dennett}{1984}]{denncogn}
+Dennett, D. \BBOP1984\BBCP.
+\newblock \BBOQ Cognitive wheels: the frame problem of \uppercase{AI}\BBCQ\
+\newblock In Hookway, C.\BED, {\Bem Minds, Machines and Evolution}. Cambridge
+  University Press, Cambridge, UK.
+
+\bibitem[\protect\BCAY{Dennis \B\ Phillips}{Dennis \B\
+  Phillips}{1991}]{dennanal}
+Dennis, S.\BBACOMMA\ \B\ Phillips, S. \BBOP1991\BBCP.
+\newblock \BBOQ Analysis tools for neural networks\BBCQ\
+\newblock \BTR, University of Queensland, Australia.
+
+\bibitem[\protect\BCAY{Donaldson}{Donaldson}{1978}]{donachil}
+Donaldson, M. \BBOP1978\BBCP.
+\newblock {\Bem Children's Minds}.
+\newblock Fontana Press, London, UK.
+
+\bibitem[\protect\BCAY{Elman}{Elman}{1988}]{elmafind}
+Elman, J.~L. \BBOP1988\BBCP.
+\newblock \BBOQ Finding structure in time\BBCQ\
+\newblock \BTR\ CRL-8801, Center for Research in Language, University of
+  California, San Diego, La Jolla, CA.
+
+\bibitem[\protect\BCAY{Elman}{Elman}{1989a}]{elmarepr}
+Elman, J.~L. \BBOP1989a\BBCP.
+\newblock \BBOQ Representation and structure in connectionist models\BBCQ\
+\newblock \BTR\ CRL 8903, Center for Research in Language, University of
+  California, San Diego, La Jolla, CA.
+
+\bibitem[\protect\BCAY{Elman}{Elman}{1989b}]{elmastru}
+Elman, J.~L. \BBOP1989b\BBCP.
+\newblock \BBOQ Structured representations and connectionist models\BBCQ\
+\newblock In {\Bem Proceedings of the Eleventh Annual Conference of the
+  Cognitive Science Society}, \BPGS\ 17--25. Lawrence Erlbaum Associates,
+  Hillsdale, NJ.
+
+\bibitem[\protect\BCAY{Elman}{Elman}{1991}]{elmaincr}
+Elman, J.~L. \BBOP1991\BBCP.
+\newblock \BBOQ Incremental learning, or {T}he importance of starting
+  small\BBCQ\
+\newblock \BTR\ CRL 9101, Center for Research in Language, University of
+  California, San Diego, La Jolla, CA.
+
+\bibitem[\protect\BCAY{Fahlman}{Fahlman}{1988}]{fahlempi}
+Fahlman, S.~E. \BBOP1988\BBCP.
+\newblock \BBOQ An empirical study of learning speed in back-propagation
+  networks\BBCQ\
+\newblock \BTR\ CMU-CS-88-162, School of Computer Science, Carnegie Mellon
+  University, Pittsburgh, PA.
+
+\bibitem[\protect\BCAY{Fahlman}{Fahlman}{1991}]{rcascor}
+Fahlman, S.~E. \BBOP1991\BBCP.
+\newblock \BBOQ The recurrent cascade-correlation architecture\BBCQ\
+\newblock \BTR\ CMU-CS-91-100, School of Computer Science, Carnegie Mellon
+  University, Pittsburgh, PA.
+
+\bibitem[\protect\BCAY{Fahlman \B\ Lebiere}{Fahlman \B\ Lebiere}{1990}]{cascor}
+Fahlman, S.~E.\BBACOMMA\ \B\ Lebiere, C. \BBOP1990\BBCP.
+\newblock \BBOQ The cascade-correlation learning architecture\BBCQ\
+\newblock \BTR\ CMU-CS-90-100, School of Computer Science, Carnegie Mellon
+  University, Pittsburgh, PA.
+
+\bibitem[\protect\BCAY{Giles, Miller, Chen, Chen, Sun\  \B\ Lee}{Giles
+  et~al.}{1992}]{gilelear}
+Giles, C.~L., Miller, C.~B., Chen, D., Chen, H.~H., Sun, G.~Z.\ \B\ Lee, Y.~C.
+  \BBOP1992\BBCP.
+\newblock \BBOQ Learning and extracting finite state automata with second-order
+  recurrent neural networks\BBCQ\
+\newblock Accepted for publication in {\em Neural Computation.}
+
+\bibitem[\protect\BCAY{Graham}{Graham}{1990}]{grahconn}
+Graham, D.~J. \BBOP1990\BBCP.
+\newblock \BBOQ Connectionist network models of cognitive arithmetic:
+  explorations in back-propagation architectures and training sequences\BBCQ\
+\newblock \BTR\ AIM-8-90-3, Artificial Intelligence Laboratory, Department of
+  Computer Science, University of Otago, New Zealand.
+
+\bibitem[\protect\BCAY{Groen \B\ Parkman}{Groen \B\ Parkman}{1972}]{groechron}
+Groen, G.~J.\BBACOMMA\ \B\ Parkman, J.~R. \BBOP1972\BBCP.
+\newblock \BBOQ A chronometric analysis of simple addition\BBCQ\
+\newblock {\Bem Psychological Review}, {\Bem 79\/}(4), 329--343.
+
+\bibitem[\protect\BCAY{Harley}{Harley}{1991}]{harlasso}
+Harley, W.~S. \BBOP1991\BBCP.
+\newblock {\Bem Associative Memory in Mental Arithmetic}.
+\newblock Ph.D.\ thesis, Johns Hopkins University, Baltimore, MD.
+
+\bibitem[\protect\BCAY{Hendler}{Hendler}{1989}]{hendneed}
+Hendler, J.~A. \BBOP1989\BBCP.
+\newblock \BBOQ Editorial: on the need for hybrid systems\BBCQ\
+\newblock {\Bem Connection Science}, {\Bem 1\/}(3), 227--229.
+
+\bibitem[\protect\BCAY{Hennessy}{Hennessy}{1990}]{hennwhy}
+Hennessy, S. \BBOP1990\BBCP.
+\newblock \BBOQ Why bugs are not enough\BBCQ\
+\newblock In Elsom-Cook, M.\BED, {\Bem Guided Discovery Tutoring: A Framework
+  for \uppercase{ICAI} Research}, \BCH~10. Paul Chapman Publishing, London.
+
+\bibitem[\protect\BCAY{Hertz, Krogh\  \B\ Palmer}{Hertz
+  et~al.}{1991}]{hertintr}
+Hertz, J., Krogh, A.\ \B\ Palmer, R.~G. \BBOP1991\BBCP.
+\newblock {\Bem Introduction to the Theory of Neural Computation}.
+\newblock Santa Fe Institute studies in the Sciences of Complexity.
+  Addison-Wesley, Redwood City, CA.
+
+\bibitem[\protect\BCAY{Hinton \B\ Sejnowski}{Hinton \B\
+  Sejnowski}{1986}]{pdp:7}
+Hinton, G.~E.\BBACOMMA\ \B\ Sejnowski, T.~J. \BBOP1986\BBCP.
+\newblock \BBOQ Learning and relearning in \uppercase{B}oltzmann machines\BBCQ\
+\newblock In Rumelhart, D.~E., McClelland, J.~L.\ \B\ {The PDP Research
+  Group}\BEDS, {\Bem Parallel Distributed Processing: Explorations in the
+  Microstructure of Cognition}, \lowercase{\BVOL}\ 1: Foundations, \BCH~7. MIT
+  Press, Cambridge, MA.
+
+\bibitem[\protect\BCAY{Howell, Walker\  \B\ Fletcher}{Howell
+  et~al.}{1979}]{howemath}
+Howell, A., Walker, R.\ \B\ Fletcher, H. \BBOP1979\BBCP.
+\newblock {\Bem Mathematics for Schools\/} (second \BEd), \lowercase{\BVOL}\ I
+  and II of Teacher's resource book.
+\newblock Addison-Wesley, London.
+
+\bibitem[\protect\BCAY{Hughes}{Hughes}{1983}]{hughwhat}
+Hughes, M. \BBOP1983\BBCP.
+\newblock \BBOQ What is difficult about learning arithmetic?\BBCQ\
+\newblock In Donaldson, M., Grieve, R.\ \B\ Pratt, C.\BEDS, {\Bem Early
+  Childhood Development and Education}, \BCH~15. Basil Blackwell Ltd, Oxford,
+  UK.
+
+\bibitem[\protect\BCAY{Jordan}{Jordan}{1986}]{jordattr}
+Jordan, M. \BBOP1986\BBCP.
+\newblock \BBOQ Attractor dynamics and parallelism in a connectionist
+  sequential machine\BBCQ\
+\newblock In {\Bem Proceedings of the Eight Annual Conference of the Cognitive
+  Science Society}, \BPGS\ 531--545.
+
+\bibitem[\protect\BCAY{Kirsh}{Kirsh}{1990}]{kirswhen}
+Kirsh, D. \BBOP1990\BBCP.
+\newblock \BBOQ When is information explicitly represented?\BBCQ\
+\newblock In Hanson, P.\BED, {\Bem Information, Thought and Content}. UBC
+  Press.
+
+\bibitem[\protect\BCAY{Klahr}{Klahr}{1992}]{klahinfo}
+Klahr, D. \BBOP1992\BBCP.
+\newblock \BBOQ Information-processing approaches\BBCQ\
+\newblock In Vasta, R.\BED, {\Bem Six Theories of Child Development}. Jessica
+  Kingsley Publishers, London.
+\newblock First published in {\em Annals of Child Development,} volume~6,
+  pp.~133--185.
+
+\bibitem[\protect\BCAY{Koza}{Koza}{1992}]{kozagp}
+Koza, J.~R. \BBOP1992\BBCP.
+\newblock {\Bem Genetic Programming: On the Programming of Computers by Natural
+  Selection}.
+\newblock MIT Press, Cambridge, MA.
+
+\bibitem[\protect\BCAY{Krueger}{Krueger}{1986}]{kruewhy}
+Krueger, L.~E. \BBOP1986\BBCP.
+\newblock \BBOQ Why $2\times2=5$ looks so wrong: on the odd-even rule in
+  product verification\BBCQ\
+\newblock {\Bem Memory and Cognition}, {\Bem 14\/}(2), 141--149.
+
+\bibitem[\protect\BCAY{Laird, Newell\  \B\ Rosenbloom}{Laird
+  et~al.}{1986}]{soar}
+Laird, J.~E., Newell, A.\ \B\ Rosenbloom, P.~S. \BBOP1986\BBCP.
+\newblock \BBOQ Soar: an architecure for general intelligence\BBCQ\
+\newblock \BTR\ STAN-CS-86-1140, Department of Computer Science, Stanford
+  University, Stanford, CA.
+
+\bibitem[\protect\BCAY{Marchman}{Marchman}{1992}]{marclang}
+Marchman, V.~A. \BBOP1992\BBCP.
+\newblock \BBOQ Language learning in children and neural networks: plasticity,
+  capacity and the critical period\BBCQ\
+\newblock \BTR\ 9201, Center for Research in Language, University of
+  California, San Diego, La Jolla, CA.
+
+\bibitem[\protect\BCAY{Mareschal \B\ Shultz}{Mareschal \B\
+  Shultz}{1993}]{mareconn}
+Mareschal, D.\BBACOMMA\ \B\ Shultz, T.~R. \BBOP1993\BBCP.
+\newblock \BBOQ A connectionist model of the development of seriation\BBCQ\
+\newblock To appear in the Proceedings of the Fifteenth Annual Conference of
+  the Cognitive Science Society.
+
+\bibitem[\protect\BCAY{Marr}{Marr}{1982}]{marrviso}
+Marr, D. \BBOP1982\BBCP.
+\newblock {\Bem Vision: A Computational Investigation into the Human
+  Representation and Processing of Visual Information}.
+\newblock W. H. Freeman and Company, San Francisco, CA.
+
+\bibitem[\protect\BCAY{Maskara \B\ Noetzel}{Maskara \B\
+  Noetzel}{1992}]{maskforc}
+Maskara, A.\BBACOMMA\ \B\ Noetzel, A. \BBOP1992\BBCP.
+\newblock \BBOQ Forcing simple recurrent neural networks to encode
+  context\BBCQ\
+\newblock To appear in {\em The Proceedings of the 1992 Long Island Conference
+  on Artificial Intelligence and Computer Graphics.}
+
+\bibitem[\protect\BCAY{McClelland}{McClelland}{1979}]{mccascade}
+McClelland, J.~L. \BBOP1979\BBCP.
+\newblock \BBOQ On the time relations of mental processes: an examination of
+  systems of processes in cascade\BBCQ\
+\newblock {\Bem Psychological Review}, {\Bem 86\/}(4), 287--330.
+
+\bibitem[\protect\BCAY{McClelland}{McClelland}{1990}]{mcclpara}
+McClelland, J.~L. \BBOP1990\BBCP.
+\newblock \BBOQ Parallel distributed processing: implications for cognition and
+  development\BBCQ\
+\newblock In Morris, R. G.~M.\BED, {\Bem Parallel Distributed Processing:
+  Implications for Psychology and Neurobiology}. Clarendon Press, Oxford.
+
+\bibitem[\protect\BCAY{McClelland \B\ Rumelhart}{McClelland \B\
+  Rumelhart}{1988}]{pdp3}
+McClelland, J.~L.\BBACOMMA\ \B\ Rumelhart, D.~E. \BBOP1988\BBCP.
+\newblock {\Bem Explorations in Parallel Distributed Processing: A Handbook of
+  Models, Programs, and Exercises}.
+\newblock MIT Press, Cambridge, MA.
+
+\bibitem[\protect\BCAY{McCloskey, Aliminosa\  \B\ Sokol}{McCloskey, Aliminosa\
+  \B\ Sokol}{1991}]{mcclfact}
+McCloskey, M., Aliminosa, D.\ \B\ Sokol, S.~M. \BBOP1991\BBCP.
+\newblock \BBOQ Facts, rules, and procedures in normal calculation: evidence
+  from multiple single-patient studies of impared arithmetic fact
+  retrieval\BBCQ\
+\newblock {\Bem Brain and Cognition}, {\Bem 17}, 154--203.
+
+\bibitem[\protect\BCAY{McCloskey \B\ Caramazza}{McCloskey \B\
+  Caramazza}{1985}]{mcclcogn}
+McCloskey, M.\BBACOMMA\ \B\ Caramazza, A. \BBOP1985\BBCP.
+\newblock \BBOQ Cognitive mechanisms in number processing and calculation:
+  evidence from dyscalculia\BBCQ\
+\newblock {\Bem Brain and Cognition}, {\Bem 4}, 171--196.
+
+\bibitem[\protect\BCAY{McCloskey \B\ Cohen}{McCloskey \B\
+  Cohen}{1989}]{mcclcata}
+McCloskey, M.\BBACOMMA\ \B\ Cohen, N.~J. \BBOP1989\BBCP.
+\newblock \BBOQ Catastrophic interference in connectionist networks: the
+  sequential learning problem\BBCQ\
+\newblock In Bower, G.~H.\BED, {\Bem The Psychology of Learning and
+  Motivation}, \lowercase{\BVOL}~24, \BPGS\ 109--165. Academic Press, New York.
+
+\bibitem[\protect\BCAY{McCloskey, Harley\  \B\ Sokol}{McCloskey, Harley\  \B\
+  Sokol}{1991}]{mcclmode}
+McCloskey, M., Harley, W.\ \B\ Sokol, S.~M. \BBOP1991\BBCP.
+\newblock \BBOQ Models of arithmetic fact retrieval: an evaluation in light of
+  findings from normal and brain-damaged subjects\BBCQ\
+\newblock {\Bem Journal of Experimental Psychology: Learning, Memory, and
+  Cognition}, {\Bem 17\/}(3), 377--397.
+
+\bibitem[\protect\BCAY{McCloskey \B\ Lindermann}{McCloskey \B\
+  Lindermann}{1992}]{mcclmath}
+McCloskey, M.\BBACOMMA\ \B\ Lindermann, A.~M. \BBOP1992\BBCP.
+\newblock \BBOQ \uppercase{MATHNET}: \uppercase{P}reliminary results from a
+  distributed model of arithmetic fact retrieval\BBCQ\
+\newblock In Campbell, J. I.~D.\BED, {\Bem The Nature and Origins of
+  Mathematical Skills}. Elsevier Science Publishers B.V.
+
+\bibitem[\protect\BCAY{McRae \B\ Hetherington}{McRae \B\
+  Hetherington}{1993}]{mcracata}
+McRae, K.\BBACOMMA\ \B\ Hetherington, P.~A. \BBOP1993\BBCP.
+\newblock \BBOQ Catastrophic interference is eliminated in pretrained
+  networks\BBCQ\
+\newblock To appear in {\em Proceedings of the Fifteenth Conference of the
+  Cognitive Science Society}.
+
+\bibitem[\protect\BCAY{Miller, Permutter\  \B\ Keating}{Miller
+  et~al.}{1984}]{millcogn}
+Miller, K., Permutter, M.\ \B\ Keating, D. \BBOP1984\BBCP.
+\newblock \BBOQ Cognitive arithmetic: comparison of operations\BBCQ\
+\newblock {\Bem Journal of Experimental Psychology}, {\Bem 10\/}(1), 46--60.
+
+\bibitem[\protect\BCAY{Mitchell}{Mitchell}{1977}]{mitcvers}
+Mitchell, T. \BBOP1977\BBCP.
+\newblock \BBOQ Version spaces: a candidate elimination approach to rule
+  learning\BBCQ\
+\newblock In {\Bem Proceedings of the Fifth International Joint Conference on
+  Artificial Intelligence}, \lowercase{\BVOL}~1, \BPGS\ 305--310. Morgan
+  Kaufmann Publishers.
+
+\bibitem[\protect\BCAY{Neches, Langley\  \B\ Klahr}{Neches
+  et~al.}{1987}]{nechlear}
+Neches, R., Langley, P.\ \B\ Klahr, D. \BBOP1987\BBCP.
+\newblock \BBOQ Learning, development, and production systems\BBCQ\
+\newblock In Klahr, D., Langley, P.\ \B\ Neches, R.\BEDS, {\Bem Production
+  Systems Models of Learning and Development}, \BCH~1, \BPGS\ 1--53. MIT Press,
+  Cambridge, MA.
+
+\bibitem[\protect\BCAY{Norman}{Norman}{1988}]{normpsyc}
+Norman, D.~A. \BBOP1988\BBCP.
+\newblock {\Bem The Psychology of Everyday Things}.
+\newblock Basic Books, New York, NY.
+
+\bibitem[\protect\BCAY{Ohlsson \B\ Rees}{Ohlsson \B\ Rees}{1991}]{ohlsfunc}
+Ohlsson, S.\BBACOMMA\ \B\ Rees, E. \BBOP1991\BBCP.
+\newblock \BBOQ The function of conceptual understanding in the learning of
+  arithmetic procedures\BBCQ\
+\newblock {\Bem Cognition and Instruction}, {\Bem 8\/}(2).
+
+\bibitem[\protect\BCAY{Payne \B\ Squibb}{Payne \B\ Squibb}{1990}]{paynalge}
+Payne, S.~J.\BBACOMMA\ \B\ Squibb, H.~R. \BBOP1990\BBCP.
+\newblock \BBOQ Algebra mal-rules and cognitive accounts of error\BBCQ\
+\newblock {\Bem Cognitive Science}, {\Bem 14}, 445--481.
+
+\bibitem[\protect\BCAY{Pirolli}{Pirolli}{1991}]{pirobook}
+Pirolli, P. \BBOP1991\BBCP.
+\newblock \BBOQ Book review: \uppercase{M}ind bugs\BBCQ\
+\newblock {\Bem Artificial Intelligence}, {\Bem 52}, 329--340.
+
+\bibitem[\protect\BCAY{Plunkett \B\ Marchman}{Plunkett \B\
+  Marchman}{1990}]{plunfrom}
+Plunkett, K.\BBACOMMA\ \B\ Marchman, V.~A. \BBOP1990\BBCP.
+\newblock \BBOQ From rote learning to system building\BBCQ\
+\newblock \BTR\ 9020, Center for Research in Language, University of
+  California, San Diego, La Jolla, CA.
+
+\bibitem[\protect\BCAY{Plunkett \B\ Sinha}{Plunkett \B\ Sinha}{1991}]{plunconn}
+Plunkett, K.\BBACOMMA\ \B\ Sinha, C. \BBOP1991\BBCP.
+\newblock \BBOQ Connectionism and developmental theory\BBCQ\
+\newblock {\Bem Psykologisk Skriftserie Aarhus}, {\Bem 16\/}(1).
+
+\bibitem[\protect\BCAY{Pollack}{Pollack}{1989a}]{pollimpl}
+Pollack, J.~B. \BBOP1989a\BBCP.
+\newblock \BBOQ Implications of recursive distributed representations\BBCQ\
+\newblock In Touretzkey, D.~S.\BED, {\Bem Advances in Neural Information
+  Processing Systems}, \lowercase{\BVOL}~1. Morgan Kaufmann Publishers, San
+  Mateo, CA.
+
+\bibitem[\protect\BCAY{Pollack}{Pollack}{1989b}]{pollrdr}
+Pollack, J.~B. \BBOP1989b\BBCP.
+\newblock \BBOQ Recursive distributed representations\BBCQ\
+\newblock \BTR, Ohio State University.
+\newblock Published in {\em Artificial Intelligence}, {\em 46}(1--2):77--106.
+
+\bibitem[\protect\BCAY{Pylyshyn}{Pylyshyn}{1984}]{zenon}
+Pylyshyn, Z.~W. \BBOP1984\BBCP.
+\newblock {\Bem Computation and Cognition: Towards a Foundation for Cognitive
+  Science}.
+\newblock MIT Press, Cambridge, MA.
+
+\bibitem[\protect\BCAY{Ratcliff}{Ratcliff}{1990}]{ratcconn}
+Ratcliff, R. \BBOP1990\BBCP.
+\newblock \BBOQ Connectionist models of recognition memory: constraints imposed
+  by learning and forgetting functions\BBCQ\
+\newblock {\Bem Psychological Review}, {\Bem 97\/}(2), 285--308.
+
+\bibitem[\protect\BCAY{Resnick \B\ Ford}{Resnick \B\ Ford}{1982}]{resnpsyc}
+Resnick, L.~B.\BBACOMMA\ \B\ Ford, W.~W. \BBOP1982\BBCP.
+\newblock {\Bem The Psychology of Mathematics for Instruction}.
+\newblock Lawrence Erlbaum Associates, Hillsdale, NJ.
+
+\bibitem[\protect\BCAY{Rickard, Mozer\  \B\ Bourne}{Rickard
+  et~al.}{1992}]{rickinte}
+Rickard, T.~C., Mozer, M.~C.\ \B\ Bourne, Jr., L.~E. \BBOP1992\BBCP.
+\newblock \BBOQ An interactive activation model of arithmetic fact
+  retrieval\BBCQ\
+\newblock \BTR\ 92-15, Institute of Cognitive Science, University of Colorado,
+  Boulder, CO.
+
+\bibitem[\protect\BCAY{Rose}{Rose}{1991}]{roseappr}
+Rose, D.~E. \BBOP1991\BBCP.
+\newblock \BBOQ Appropriate uses of hybrid systems\BBCQ\
+\newblock In Touretzky, D.~S., Elman, J.~L., Sejnowski, T.\ \B\ Hinton,
+  G.\BEDS, {\Bem Proceedings of the 1990 Connectionist Models Summer School},
+  \BPGS\ 265--276.  Morgan Kaufmann Publishers, San Mateo, CA.
+
+\bibitem[\protect\BCAY{Rosenbloom}{Rosenbloom}{1989}]{rosesymb}
+Rosenbloom, P.~S. \BBOP1989\BBCP.
+\newblock \BBOQ A symbolic goal-oriented perspective on connectionism
+and soar\BBCQ\
+\newblock In Pfeifer, R., Schreter, Z., Fogelman-Souli\'{e}, F.\ \B\ Steels,
+  L.\BEDS, {\Bem Connectionism in Perspective}. Elsevier Science Publishers
+  B.V.
+
+\bibitem[\protect\BCAY{Rumelhart, Hinton\  \B\ Williams}{Rumelhart, Hinton\
+  \B\ Williams}{1986}]{pdp:8}
+Rumelhart, D.~E., Hinton, G.~E.\ \B\ Williams, R.~J. \BBOP1986\BBCP.
+\newblock \BBOQ Learning internal representations by error propagation\BBCQ\
+\newblock In Rumelhart, D.~E., McClelland, J.~L.\ \B\ {The PDP Research
+  Group}\BEDS, {\Bem Parallel Distributed Processing: Explorations in the
+  Microstructure of Cognition}, \lowercase{\BVOL}\ 1: Foundations. MIT Press,
+  Cambridge, MA.
+
+\bibitem[\protect\BCAY{Rumelhart \B\ McClelland}{Rumelhart \B\
+  McClelland}{1986a}]{pdp:18}
+Rumelhart, D.~E.\BBACOMMA\ \B\ McClelland, J.~L. \BBOP1986a\BBCP.
+\newblock \BBOQ On learning the past tenses of \uppercase{E}nglish verbs\BBCQ\
+\newblock In Rumelhart, D.~E., McClelland, J.~L.\ \B\ {The PDP Research
+  Group}\BEDS, {\Bem Parallel Distributed Processing: Explorations in the
+  Microstructure of Cognition}, \lowercase{\BVOL}\ 2: Psychological and
+  biological models. MIT Press, Cambridge, MA.
+
+\bibitem[\protect\BCAY{Rumelhart \B\ McClelland}{Rumelhart \B\
+  McClelland}{1986b}]{pdp:4}
+Rumelhart, D.~E.\BBACOMMA\ \B\ McClelland, J.~L. \BBOP1986b\BBCP.
+\newblock \BBOQ \uppercase{PDP} models and general issues in cognitive
+  science\BBCQ\
+\newblock In Rumelhart, D.~E., McClelland, J.~L.\ \B\ {The PDP Research
+  Group}\BEDS, {\Bem Parallel Distributed Processing: Explorations in the
+  Microstructure of Cognition}, \lowercase{\BVOL}\ 1: Foundations. MIT Press,
+  Cambridge, MA.
+
+\bibitem[\protect\BCAY{Rumelhart, Smolensky, McClelland\  \B\
+  Hinton}{Rumelhart, Smolensky, McClelland\  \B\ Hinton}{1986}]{pdp:14}
+Rumelhart, D.~E., Smolensky, P., McClelland, J.~L.\ \B\ Hinton, G.~E.
+  \BBOP1986\BBCP.
+\newblock \BBOQ Schemata and sequential thought processes in \uppercase{PDP}
+  models\BBCQ\
+\newblock In Rumelhart, D.~E.\BBACOMMA\ \B\ McClelland, J.~L.\BEDS, {\Bem
+  Parallel Distributed Processing: Explorations in the Microstructure of
+  Cognition}, \lowercase{\BVOL}\ 2: Psychological and biological models. MIT
+  Press, Cambridge, MA.
+
+\bibitem[\protect\BCAY{Servan-Schreiber, Cleeremans\  \B\
+  McClelland}{Servan-Schreiber et~al.}{1988}]{servenco}
+Servan-Schreiber, D., Cleeremans, A.\ \B\ McClelland, J.~L. \BBOP1988\BBCP.
+\newblock \BBOQ Encoding sequential structure in simple recurrent
+  networks\BBCQ\
+\newblock \BTR\ CMU-CS-88-183, School of Computer Science, Carnegie Mellon
+  University, Pittsburgh, PA.
+
+\bibitem[\protect\BCAY{Servan-Schreiber, Cleeremans\  \B\
+  McClelland}{Servan-Schreiber et~al.}{1991}]{servgrad}
+Servan-Schreiber, D., Cleeremans, A.\ \B\ McClelland, J.~L. \BBOP1991\BBCP.
+\newblock \BBOQ Graded state machines: the representation of temporal
+  contingencies in simple recurrent networks\BBCQ\
+\newblock {\Bem Machine Learning}, {\Bem 7}, 161--193.
+
+\bibitem[\protect\BCAY{Shultz}{Shultz}{1991}]{shulsimu}
+Shultz, T.~R. \BBOP1991\BBCP.
+\newblock \BBOQ Simulating stages of human cognitive development with
+  connectionist models\BBCQ\
+\newblock In Birnbaum, L.\BBACOMMA\ \B\ Collins, G.\BEDS, {\Bem Machine
+  Learning: Proceedings of the Eighth International Workshop}, \BPGS\ 105--109.
+  Morgan Kaufmann Publishers, San Mateo, CA.
+
+\bibitem[\protect\BCAY{Shultz \B\ Schmidt}{Shultz \B\ Schmidt}{1991}]{shulcasc}
+Shultz, T.~R.\BBACOMMA\ \B\ Schmidt, W.~C. \BBOP1991\BBCP.
+\newblock \BBOQ A cascade-correlation model of balance scale phenomena\BBCQ\
+\newblock In {\Bem Proceedings of the Thirteenth Annual Conference of the
+  Cognitive Science Society}, \BPGS\ 635--640. Lawrence Erlbaum Associates,
+  Hillsdale, NJ.
+
+\bibitem[\protect\BCAY{Siegler}{Siegler}{1987}]{siegsub}
+Siegler, R.~S. \BBOP1987\BBCP.
+\newblock \BBOQ Strategy choices in subtraction\BBCQ\
+\newblock In Sloboda, J.~A.\BBACOMMA\ \B\ Rogers, D.\BEDS, {\Bem Cognitive
+  Processes in Mathematics}, \BPGS\ 81--106. Clarendon Press, Oxford.
+
+\bibitem[\protect\BCAY{Siegler}{Siegler}{1988}]{siegmult}
+Siegler, R.~S. \BBOP1988\BBCP.
+\newblock \BBOQ Strategy choice procedures and the development of
+  multiplication skill\BBCQ\
+\newblock {\Bem Journal of Experimental Psychology: General}, {\Bem 117\/}(3),
+  258--275.
+
+\bibitem[\protect\BCAY{Siegler \B\ Shrager}{Siegler \B\
+  Shrager}{1984}]{siegadd}
+Siegler, R.~S.\BBACOMMA\ \B\ Shrager, J. \BBOP1984\BBCP.
+\newblock \BBOQ Strategy choices in addition and subtraction: how do children
+  know what to do?\BBCQ\
+\newblock In Sophian, C.\BED, {\Bem Origins of Cognitive Skills: The Eighteenth
+  Annual Carnegie Symposium of Cognition}, \BPGS\ 229--293. Lawrence Erlbaum
+  Associates, Hillsdale, NJ.
+
+\bibitem[\protect\BCAY{Sleeman}{Sleeman}{1982}]{sleeasse}
+Sleeman, D.~H. \BBOP1982\BBCP.
+\newblock \BBOQ Assessing aspects of competence in basic algebra\BBCQ\
+\newblock In Sleeman, D.~H.\BBACOMMA\ \B\ Brown, J.~S.\BEDS, {\Bem Intelligent
+  Tutoring Systems}, \BCH~9. Academic Press, London.
+
+\bibitem[\protect\BCAY{Sloman}{Sloman}{1985}]{slomwhy}
+Sloman, A. \BBOP1985\BBCP.
+\newblock \BBOQ Why we need many knowledge representation formalisms\BBCQ\
+\newblock \BTR\ CSRP 52, School of Cognitive and Computing Sciences, University
+  of Sussex, Brighton, UK.
+
+\bibitem[\protect\BCAY{Smolensky}{Smolensky}{1986}]{pdp:6}
+Smolensky, P. \BBOP1986\BBCP.
+\newblock \BBOQ Information processing in dynamic systems: foundations of
+  harmony theory\BBCQ\
+\newblock In Rumelhart, D.~E., McClelland, J.~L.\ \B\ {The PDP Research
+  Group}\BEDS, {\Bem Parallel Distributed Processing: Explorations in the
+  Microstructure of Cognition}, \lowercase{\BVOL}\ 1: Foundations. MIT Press,
+  Cambridge, MA.
+
+\bibitem[\protect\BCAY{Sokol, McCloskey, Cohen\  \B\ Aliminosa}{Sokol
+  et~al.}{1991}]{sokocogn}
+Sokol, S.~M., McCloskey, M., Cohen, N.~J.\ \B\ Aliminosa, D. \BBOP1991\BBCP.
+\newblock \BBOQ Cognitive representations and processes in arithmetic:
+  inferences from the performance of brain-damaged subjects\BBCQ\
+\newblock {\Bem Journal of Experimental Psychology: Learning, Memory, and
+  Cognition}, {\Bem 17\/}(3), 355--376.
+
+\bibitem[\protect\BCAY{Stark}{Stark}{1992}]{starsymb}
+Stark, R.~J. \BBOP1992\BBCP.
+\newblock \BBOQ A symbolic/subsymbolic interface for variable
+  instantiation\BBCQ\
+\newblock In Aleksander, I.\BBACOMMA\ \B\ Taylor, J.\BEDS, {\Bem Artificial
+  Neural Networks \uppercase{II}: \uppercase{P}roceedings of the International
+  Conference on Artificial Neural Networks}, \BPGS\ 753--756. Elsevier Science
+  Publishers B.V.
+
+\bibitem[\protect\BCAY{Stazyk, Ashcraft\  \B\ Hamann}{Stazyk
+  et~al.}{1982}]{staznetw}
+Stazyk, E.~H., Ashcraft, M.~H.\ \B\ Hamann, M.~S. \BBOP1982\BBCP.
+\newblock \BBOQ A network approach to mental multiplication\BBCQ\
+\newblock {\Bem Journal of Experimental Psychology: Learning, Memory, and
+  Cognition}, {\Bem 8\/}(4), 320--335.
+
+\bibitem[\protect\BCAY{Suppes}{Suppes}{1990}]{suppread}
+Suppes, P. \BBOP1990\BBCP.
+\newblock \BBOQ Eye-movement models for arithmetic and reading
+  performance\BBCQ\
+\newblock In Kowler, E.\BED, {\Bem Eye Movements and their Role in Visual and
+  Cognitive Processes}, \BCH~10. Elsevier Science Publishers B.V.
+
+\bibitem[\protect\BCAY{Suppes, Cohen, Laddaga, Anliker\  \B\ Floyd}{Suppes
+  et~al.}{1983}]{suppproc}
+Suppes, P., Cohen, M., Laddaga, R., Anliker, J.\ \B\ Floyd, R. \BBOP1983\BBCP.
+\newblock \BBOQ A procedural theory of eye movements in doing arithmetic\BBCQ\
+\newblock {\Bem Journal of Mathematical Psychology}, {\Bem 27}, 341--369.
+
+\bibitem[\protect\BCAY{Thornton}{Thornton}{1991}]{thorstir}
+Thornton, C.~J. \BBOP1991\BBCP.
+\newblock \BBOQ Stirring shakes: introduction to the special issue on hybrid
+  systems\BBCQ\
+\newblock {\Bem Artificial Intelligence and the Simulation of Behaviour
+  Quarterly}, {\Bem 78}, 7.
+
+\bibitem[\protect\BCAY{Thornton}{Thornton}{1992a}]{thorhybr}
+Thornton, C.~J. \BBOP1992a\BBCP.
+\newblock \BBOQ Hybridism: a paradigm too many? (\uppercase{I}ntroduction to
+  part \uppercase{II} of the special issue on hybrid models)\BBCQ\
+\newblock {\Bem Artificial Intelligence and the Simulation of Behaviour
+  Quarterly}, {\Bem 79}, 9.
+
+\bibitem[\protect\BCAY{Thornton}{Thornton}{1992b}]{thortech}
+Thornton, C.~J. \BBOP1992b\BBCP.
+\newblock {\Bem Techniques in Computational Learning: An Introduction}.
+\newblock Chapman and Hall, London.
+
+\bibitem[\protect\BCAY{Touretzky \B\ Hinton}{Touretzky \B\ Hinton}{1988}]{dcps}
+Touretzky, D.~S.\BBACOMMA\ \B\ Hinton, G.~E. \BBOP1988\BBCP.
+\newblock \BBOQ A distributed connectionist production system\BBCQ\
+\newblock {\Bem Cognitive Science}, {\Bem 12}, 423--466.
+
+\bibitem[\protect\BCAY{van Gelder}{van Gelder}{1992}]{vangwhat}
+van Gelder, T. \BBOP1992\BBCP.
+\newblock \BBOQ What might cognition be if not computation?\BBCQ\
+\newblock \BTR~75, Cognitive Science Program, Indiana University, Bloomington,
+  IN.
+
+\bibitem[\protect\BCAY{VanLehn}{VanLehn}{1981}]{vanlbugs}
+VanLehn, K. \BBOP1981\BBCP.
+\newblock \BBOQ Bugs are not enough: empirical studies of bugs, impasses and
+  repairs in procedural skills\BBCQ\
+\newblock \BTR\ \uppercase{CIS}-11, Cognitive and Instructional Sciences Group,
+  Xerox Palo Alto Research Center, Palo Alto, CA.
+
+\bibitem[\protect\BCAY{{VanLehn}}{{VanLehn}}{1983}]{vanlfeli}
+{VanLehn}, K. \BBOP1983\BBCP.
+\newblock \BBOQ Felicity conditions for human skill acquisition: validating an
+  \uppercase{AI}-based theory\BBCQ\
+\newblock \BTR\ \uppercase{CIS}-21, Cognitive and Instructional Sciences Group,
+  Xerox Palo Alto Research Center, Palo Alto, CA.
+
+\bibitem[\protect\BCAY{VanLehn}{VanLehn}{1987}]{vanllear}
+VanLehn, K. \BBOP1987\BBCP.
+\newblock \BBOQ Learning one subprocedure per lesson\BBCQ\
+\newblock {\Bem Artificial Intelligence}, {\Bem 31}, 1--40.
+
+\bibitem[\protect\BCAY{VanLehn}{VanLehn}{1988}]{vanltowa}
+VanLehn, K. \BBOP1988\BBCP.
+\newblock \BBOQ Towards a theory of impasse-driven learning\BBCQ\
+\newblock In Mandi, H.\BBACOMMA\ \B\ Lesgold, A.\BEDS, {\Bem Learning Issues
+  for Intelligence Tutoring Systems}, \BCH~2, \BPGS\ 19--41. Springer-Verlag,
+  New York, NY.
+
+\bibitem[\protect\BCAY{{VanLehn}}{{VanLehn}}{1990}]{mindbugs}
+{VanLehn}, K. \BBOP1990\BBCP.
+\newblock {\Bem Mind Bugs: The Origins of Procedural Misconceptions}.
+\newblock MIT Press, Cambridge, MA.
+
+\bibitem[\protect\BCAY{VanLehn}{VanLehn}{1991a}]{vanlrule}
+VanLehn, K. \BBOP1991a\BBCP.
+\newblock \BBOQ Rule acquisition events in the discovery of problem-solving
+  strategies\BBCQ\
+\newblock {\Bem Cognitive Science}, {\Bem 15}, 1--47.
+
+\bibitem[\protect\BCAY{{VanLehn}}{{VanLehn}}{1991b}]{vanltwo}
+{VanLehn}, K. \BBOP1991b\BBCP.
+\newblock \BBOQ Two pseudo-students: applications of machine learning to
+  formative evaluation\BBCQ\
+\newblock In Lewis, R.\BBACOMMA\ \B\ Otsuki, S.\BEDS, {\Bem Advanced Research
+  on Computers in Education}, \BPGS\ 17--26. Elsevier Science Publishers.
+
+\bibitem[\protect\BCAY{Viscuso}{Viscuso}{1989}]{viscmemo}
+Viscuso, S.~R. \BBOP1989\BBCP.
+\newblock {\Bem Memory for Arithmetic Facts: A Perspective Gained from Two
+  Methodologies}.
+\newblock Ph.D.\ thesis, Department of Psychology, Brown University,
+  Providence, RI.
+
+\bibitem[\protect\BCAY{Viscuso, Anderson\  \B\ Spoehr}{Viscuso
+  et~al.}{1989}]{viscrepr}
+Viscuso, S.~R., Anderson, J.~A.\ \B\ Spoehr, K.~T. \BBOP1989\BBCP.
+\newblock \BBOQ Representing simple arithmetic in neural networks\BBCQ\
+\newblock In Tiberghien, G.\BED, {\Bem Advances in Cognitive Science},
+  \lowercase{\BVOL}~2. Ellis Horwood, Chichester, UK.
+
+\bibitem[\protect\BCAY{Williams \B\ Zipser}{Williams \B\
+  Zipser}{1989}]{willexpe}
+Williams, R.~J.\BBACOMMA\ \B\ Zipser, D. \BBOP1989\BBCP.
+\newblock \BBOQ Experimental analysis of the real-time recurrent learning
+  algorithm\BBCQ\
+\newblock {\Bem Connection Science}, {\Bem 1\/}(1), 87--111.
+
+\bibitem[\protect\BCAY{Winkerlman \B\ Schmidt}{Winkerlman \B\
+  Schmidt}{1974}]{winkasso}
+Winkerlman, J.~H.\BBACOMMA\ \B\ Schmidt, J. \BBOP1974\BBCP.
+\newblock \BBOQ Associative confusions in mental arithmetic\BBCQ\
+\newblock {\Bem Journal of Experimental Psychology}, {\Bem 102\/}(4), 734--736.
+
+\bibitem[\protect\BCAY{Young}{Young}{1974}]{younprod}
+Young, R.~M. \BBOP1974\BBCP.
+\newblock \BBOQ Production systems as models of cognitive development\BBCQ\
+\newblock In {\Bem Proceedings of the AISB Summer Conference}.
+
+\bibitem[\protect\BCAY{Young \B\ O'Shea}{Young \B\ O'Shea}{1981}]{younerro}
+Young, R.~M.\BBACOMMA\ \B\ O'Shea, T. \BBOP1981\BBCP.
+\newblock \BBOQ Errors in children's subtraction\BBCQ\
+\newblock {\Bem Cognitive Science}, {\Bem 5}, 153--177.
+
+\bibitem[\protect\BCAY{Zipser}{Zipser}{1990}]{zipssubg}
+Zipser, D. \BBOP1990\BBCP.
+\newblock \BBOQ Subgrouping reduces complexity and speeds up learning in
+  recurrent networks\BBCQ\
+\newblock In Touretzky, D.~S.\BED, {\Bem Advances in Neural Information
+  Processing Systems}, \lowercase{\BVOL}~1, \BPGS\ 638--641\ San Mateo, CA.
+  Morgan Kaufmann Publishers.
+
+\end{thebibliography}

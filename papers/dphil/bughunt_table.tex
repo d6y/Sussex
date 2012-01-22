@@ -1,0 +1,61 @@
+\documentstyle[a4,11pt,dectab,bugs,arithprob]{report}
+
+\makeatletter
+\def\bugitem#1#2{%
+    \if@filesw\immediate\write\@auxout{\string\bugdef{#1}{#2}}\fi%
+%    \noindent{\bf\capitalize{#2}.}%
+}
+\makeatother
+
+\def\x#1#2{}
+
+\begin{document}
+
+\setdec 000.00
+
+\begin{table}
+\begin{center}
+\begin{tabular}{lccc}
+Bug type     & 1          & 2          & 3\\
+\hline
+Correct      &\dec 24.00  &\dec 16.67  &\dec 14.29 \\
+Observed     &\dec 36.00  &\dec 35.42  &\dec 37.14 \\
+Unobserved   &\dec 40.00  &\dec 47.92  &\dec 48.57 \smallskip\\
+\cline{2-2}\cline{3-3}\cline{4-4}
+Totals       &\dec 100.00 &\dec 100.00 &\dec 100.00 \bigskip\\
+Star         &\dec 32.00  &\dec 31.25  &\dec 32.86 \\
+Plausible    &\dec 8.00   &\dec 10.42  &\dec 7.14 \\
+Combination  &\dec 0.00   &\dec  6.25  &\dec 8.57 \\
+\end{tabular}
+\end{center}
+\caption{Combinations
+are bugs which can be described by a combination of two bugs,
+of which at least on is unobserved but plausible. N1=25, N2=48, N3=70.}
+\end{table}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{lcccc}
+Bug name                & Rank & 1         & 2         & 3\\
+\hline
+\bug{ignore10s}         & 10   &\dec 22.22 &\dec 23.53 &\dec 19.23 \\
+\bug{nCAone}            & 1    &\dec 0.00  &\dec 5.88  &\dec 11.54 \\
+\bug{dnrecord100s}      & 16   &\dec 22.22 &\dec 11.76 &\dec  7.69 \\
+\bug{noraise}           & 9    &\dec 11.11 &\dec  5.88 &\dec  3.85 \\
+\bug{QafterfirstX}      & n/a  &\dec 22.22 &\dec 29.41 &\dec 30.77 \\
+\bug{Qafterfirstbottom} & 7    &\dec 22.22 &\dec 23.53 &\dec 26.92 \\
+\end{tabular}
+\end{center}
+\caption{Percentage of all observed bugs.  The rank number is from
+table~\protect\ref{f:freqlist}.}
+\end{table}
+
+total of 6 bugs is a pathetic 5.88 per cent of the 102 bugs recorded
+in the appendicies.  This, at a cost of generating (at least) 10
+different kinds of star bugs
+is clearly a poor model.
+
+\input /csuna/home/richardd/papers/dphil/addlist.tex
+\input /csuna/home/richardd/papers/dphil/multlist.tex
+
+\end{document}

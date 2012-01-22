@@ -1,0 +1,102 @@
+get net networks/fsm35.net
+
+do networks/fsm_param.str 1
+
+log output/335a.log
+
+set param lrate 0.01
+set param momentum 0.0
+
+set dl 1
+set sl 1
+set stepsize nepochs
+set nepochs 150
+
+set pcrit 101
+set ecrit 0.0
+
+get w weights/303a-13.wts
+get pat patterns/mult14.pat
+sttrain
+save w weights/335a-1.wts
+sttrain
+save w weights/335a-2.wts
+sttrain
+save w weights/335a-3.wts
+sttrain
+save w weights/335a-4.wts
+sttrain
+save w weights/335a-5.wts
+sttrain
+save w weights/335a-6.wts
+sttrain
+save w weights/335a-7.wts
+sttrain
+save w weights/335a-8.wts
+sttrain
+save w weights/335a-9.wts
+sttrain
+save w weights/335a-10.wts
+sttrain
+save w weights/335a-11.wts
+sttrain
+save w weights/335a-12.wts
+sttrain
+save w weights/335a-13.wts
+sttrain
+save w weights/335a-14.wts
+sttrain
+save w weights/335a-15.wts
+sttrain
+save w weights/335a-16.wts
+sttrain
+save w weights/335a-17.wts
+sttrain
+save w weights/335a-18.wts
+sttrain
+save w weights/335a-19.wts
+sttrain
+save w weights/335a-20.wts
+sttrain
+save w weights/335a-21.wts
+sttrain
+save w weights/335a-22.wts
+sttrain
+save w weights/335a-23.wts
+sttrain
+save w weights/335a-24.wts
+sttrain
+save w weights/335a-25.wts
+sttrain
+save w weights/335a-26.wts
+sttrain
+save w weights/335a-27.wts
+sttrain
+save w weights/335a-28.wts
+sttrain
+save w weights/335a-29.wts
+sttrain
+save w weights/335a-30.wts
+sttrain
+save w weights/335a-31.wts
+sttrain
+save w weights/335a-32.wts
+sttrain
+save w weights/335a-33.wts
+sttrain
+save w weights/335a-34.wts
+sttrain
+save w weights/335a-35.wts
+sttrain
+save w weights/335a-36.wts
+sttrain
+save w weights/335a-37.wts
+sttrain
+save w weights/335a-38.wts
+sttrain
+save w weights/335a-39.wts
+sttrain
+save w weights/335a-40.wts
+log -
+q
+y

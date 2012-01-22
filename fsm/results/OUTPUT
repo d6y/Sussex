@@ -1,0 +1,98 @@
+;;; LOADING programs.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3.p
+;;; Loading PDP3 utilities
+;;; LOADING /csuna/home/richardd/fsm/maths/unseen.p
+;;; LOADING /csuna/home/richardd/fsm/maths/primitives.p
+;;; LOADING /csuna/home/richardd/fsm/maths/n_column_addition/addition.p
+;;; LOADING /csuna/home/richardd/fsm/maths/n_column_multiplication/multiplicat
+	ion.p
+;;; LOADING /csuna/home/richardd/fsm/maths/n_column_multiplication/one_row_car
+	ry_raise.p
+;;; LOADING /csuna/home/richardd/fsm/maths/n_column_multiplication/n_row_carry
+	_raise.p
+;;; LOADING progs/run_net.p
+;;; LOADING progs/io_mapping.p
+;;; LOADING progs/record_net_solution.p
+** Wed May  5 19:51:56 BST 1993 
+** [Processing ~/fsm/weights/dev/350-1.wts]
+** [Processing ~/fsm/weights/dev/350-2.wts]
+** [Processing ~/fsm/weights/dev/350-3.wts]
+** [Processing ~/fsm/weights/dev/350-4.wts]
+** [Processing ~/fsm/weights/dev/350-5.wts]
+** [Processing ~/fsm/weights/dev/350-6.wts]
+** [Processing ~/fsm/weights/dev/350-7.wts]
+** [Processing ~/fsm/weights/dev/350-8.wts]
+** [Processing ~/fsm/weights/dev/350-9.wts]
+** [Processing ~/fsm/weights/dev/350-10.wts]
+** [Processing ~/fsm/weights/dev/350-11.wts]
+** [Processing ~/fsm/weights/dev/350-12.wts]
+** [Processing ~/fsm/weights/dev/350-13.wts]
+** [Processing ~/fsm/weights/dev/350-14.wts]
+** [Processing ~/fsm/weights/dev/350-15.wts]
+** [Processing ~/fsm/weights/dev/350-16.wts]
+** [Processing ~/fsm/weights/dev/350-17.wts]
+** [Processing ~/fsm/weights/dev/350-18.wts]
+** [Processing ~/fsm/weights/dev/350-19.wts]
+** [Processing ~/fsm/weights/dev/350-20.wts]
+** [Processing ~/fsm/weights/dev/350-21.wts]
+** [Processing ~/fsm/weights/dev/350-22.wts]
+** [Processing ~/fsm/weights/dev/350-23.wts]
+** [Processing ~/fsm/weights/dev/350-24.wts]
+** [Processing ~/fsm/weights/dev/350-25.wts]
+** [Processing ~/fsm/weights/dev/350-26.wts]
+** [Processing ~/fsm/weights/dev/350-27.wts]
+** [Processing ~/fsm/weights/dev/350-28.wts]
+** [Processing ~/fsm/weights/dev/350-29.wts]
+** [Processing ~/fsm/weights/dev/350-30.wts]
+** [Processing ~/fsm/weights/dev/350-31.wts]
+** [Processing ~/fsm/weights/dev/350-32.wts]
+** [Processing ~/fsm/weights/dev/350-33.wts]
+** [Processing ~/fsm/weights/dev/350-34.wts]
+** [Processing ~/fsm/weights/dev/350-35.wts]
+** [Processing ~/fsm/weights/dev/350-36.wts]
+** [Processing ~/fsm/weights/dev/350-37.wts]
+** [Processing ~/fsm/weights/dev/350-38.wts]
+** [Processing ~/fsm/weights/dev/350-39.wts]
+** [Processing ~/fsm/weights/dev/350-40.wts]
+** [Processing ~/fsm/weights/dev/350-41.wts]
+** [Processing ~/fsm/weights/dev/350-42.wts]
+** [Processing ~/fsm/weights/dev/350-43.wts]
+** [Processing ~/fsm/weights/dev/350-44.wts]
+** [Processing ~/fsm/weights/dev/350-45.wts]
+** [Processing ~/fsm/weights/dev/350-46.wts]
+** [Processing ~/fsm/weights/dev/350-47.wts]
+** [Processing ~/fsm/weights/dev/350-48.wts]
+** [Processing ~/fsm/weights/dev/350-49.wts]
+** [Processing ~/fsm/weights/dev/350-50.wts]
+** [Processing ~/fsm/weights/dev/350-51.wts]
+** [Processing ~/fsm/weights/dev/350-52.wts]
+** [Processing ~/fsm/weights/dev/350-53.wts]
+** [Processing ~/fsm/weights/dev/350-54.wts]
+** [Processing ~/fsm/weights/dev/350-55.wts]
+** [Processing ~/fsm/weights/dev/350-56.wts]
+** [Processing ~/fsm/weights/dev/350-57.wts]
+** [Processing ~/fsm/weights/dev/350-58.wts]
+** [Processing ~/fsm/weights/dev/350-59.wts]
+** [Processing ~/fsm/weights/dev/350-60.wts]
+** [Processing ~/fsm/weights/dev/350-61.wts]
+** [Processing ~/fsm/weights/dev/350-62.wts]
+** [Processing ~/fsm/weights/dev/350-63.wts]
+** [Processing ~/fsm/weights/dev/350-64.wts]
+** [Processing ~/fsm/weights/dev/350-65.wts]
+** [Processing ~/fsm/weights/dev/350-66.wts]
+** [Processing ~/fsm/weights/dev/350-67.wts]
+** [Processing ~/fsm/weights/dev/350-68.wts]
+** [Processing ~/fsm/weights/dev/350-69.wts]
+** [Processing ~/fsm/weights/dev/350-70.wts]
+** Wed May  5 20:01:09 BST 1993 
+** [FILES IN / tmp / pictures AND ~/pic350.lst] 
+;;; DECLARING VARIABLE set_addition
+;;; DECLARING VARIABLE set_multiplication
+;;; DECLARING VARIABLE mult_leftmost
+;;; DECLARING VARIABLE multiplication
+;;; DECLARING VARIABLE addition
+;;; DECLARING VARIABLE BOTTOM_COLUMN
+;;; DECLARING VARIABLE TOP_ROW
+;;; DECLARING VARIABLE BOTTOM_ROW
+;;; DECLARING VARIABLE register
+;;; DECLARING VARIABLE fsm_inputs

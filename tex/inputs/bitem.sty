@@ -1,0 +1,14 @@
+% File: bitem.sty
+% Author: Richard Dallaway
+% Purpose: Defines \bitem{arg} which is a stand alone version of the
+% "itemize" environment, i.e., putting a bullet before the "arg".
+%
+
+\newsavebox{\bitemmark}
+\savebox{\bitemmark}{$\bullet$\ \ }
+\newlength{\bitemwidth}
+\setlength{\bitemwidth}{\textwidth}
+\addtolength{\bitemwidth}{-\wd\bitemmark}
+
+\newcommand{\bitem}[1]{\noindent\usebox{\bitemmark}%
+    \parbox[t]{\bitemwidth}{#1}\par}

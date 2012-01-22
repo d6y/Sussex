@@ -1,0 +1,184 @@
+%% poster icann92poster.ps 22.5 30 | lpr
+%% magnification 2.647059
+\documentstyle[fontmix,psfig,multicol,spacebox]{article}
+
+%\psdraft
+%\spaceboxdraft
+
+\psfigurepath{../postscript/}
+
+\newcommand{\x}[2]{\mbox{$#1\times#2$}}
+\def\net{\mbox{net}}
+
+\columnseprule=0.4pt
+
+% text area
+\textwidth=8in
+\textheight=11.5in
+\oddsidemargin=-1in
+\topmargin=-1in
+\headheight=0pt
+\headsep=0pt
+\hoffset=5mm
+\voffset=0.5in
+\footheight=0pt
+\footskip=0pt
+\marginparwidth=0pt
+
+
+\newcommand{\mysection}[1]{%\section{#1}}
+    \bigskip\centerline{\changefont{\otherfont}\Large\bf#1}}
+%    \begin{center}\changefont{\otherfont}\Large\bf#1\end{center}}
+
+\newcommand{\figfile}[2]{\centerline{\psfig{file=#1.ps,#2}}}
+
+\raggedright
+
+\parskip=2mm
+\parindent=0cm
+
+
+\newcommand{\showtitle}{
+    \begin{center}
+       \changefont{\otherfont}\Huge
+       {\bf The Speed and Slips of Mental Arithmetic}\smallskip\\
+       \Large Richard Dallaway\\
+       School of Cognitive \& Computing Sciences\\
+       University of Sussex, Brighton UK.
+    \end{center}
+}
+
+\begin{document}
+\bibliographystyle{plain}
+
+\pagestyle{empty}
+\thispagestyle{empty}
+
+\begin{multicols}{3}[\showtitle]
+
+
+\mysection{Phenomena}
+
+
+When asked to recall multiplication facts (such as, $\x34=12$), adults
+exhibit a number of well documented behaviours.
+
+In general, response time (RT) increases across the
+multiplication table (\x23 is easier to answer than \x89).  Exceptions to
+this ``problem size effect'' include the 5 times table
+and ``tie'' problems (\x22, \x33, etc).\bigskip
+
+\spacebox{5.5cm}{5.5cm}{RT graph}
+
+Adults also make mistakes which can be classified into the following
+(overlapping) categories:
+\begin{enumerate}
+\item {\em Operand errors.}  Most of the mistakes (92\%)
+are multiples of one of the operands (so an incorrect answer to \x67 is
+likely to be in the 6 or 7 times table).
+\item {\em Close operand errors.} Operand errors are often close
+in magnitude to the correct
+answer.  For \x a b, the error will be correct
+for $(a\pm2)\times b$ or $a\times (b\pm2)$.
+\item {\em Table errors.} The erroneous product is correct for some
+problem, but does not share any digits with the presented problem (e.g.,
+\x65=16).
+\item {\em Frequent products.}  Certain products that occur often in
+the table also occur frequently as errors.
+\end{enumerate}
+
+
+In addition to the above observations, it is generally agreed that children
+do not experience multiplication problems with equal frequency.  The
+empirical findings on RT and errors were replicated by a
+multilayered network trained on the problems \x00 to \x99 using
+backpropagation.  A skew in problem frequency was found to be necessary to
+achieve these results.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mysection{Model}
+\vspace*{3mm}
+
+\figfile{x01net}{width=5.5cm,height=3.5cm}
+
+During training, the presentation frequency of each pattern was skewed
+according to the problem frequencies found in
+school textbooks~[3].%\cite{siegmult}.
+
+
+Although problems with small products do occur more frequently in
+textbooks, there is no reason to believe this skew continues into
+adulthood~[2]. Hence, after training on skewed data,
+training continued using  problems of
+equal frequency.  After training both the ``skewed'' and
+``equalized'' networks correctly recalled all the patterns in the
+training set.
+
+\vspace*{1mm}
+
+\spacebox{4.5cm}{4.5cm}{Problem freq}
+
+%\cite{pdp3}
+
+The ``cascade''
+equation~[1] was used to simulate the
+spread of activation in the network.  Each unit's activity builds
+up over time:
+\[ \net_i(t) = k \sum\limits_j w_{ij} a_j(t) + (1-k)\ \net_i(t-1)\]
+\noindent where $k$ determines the rate with
+which activation builds up (0.05).  The following is a plot of
+output unit activity
+for the problem \x44:
+
+\vspace*{1mm}
+
+\figfile{p4x4}{width=5.6cm}%,height=3.2cm}% {Activity plot}
+
+The size of each square represents the activity of an output unit, with
+time running left to right (70 cascade steps).
+
+\mysection{Simulation Results}
+
+For recall the network is started from a common ``don't know'' state for
+all problems.  The network is trained to switch on a ``don't know unit''
+when in this state. A random threshold is selected between 0.4 and 0.9, and
+cascade processing proceeds until an output (product) unit exceeds the
+threshold. Each of the 100 problems is presented 50 times, and the mean RT
+(number of cascade steps) is recorded.
+
+With a large threshold the correct product is reliably recalled, but
+occasionally the threshold will be low enough to accept an incorrect
+product. In the example run above, ``12'' would be a close operand error
+for \x44.  Presumably the mild time pressure of the experimental situation
+results in subjects ``lowering their thresholds''.  Incorrect answers
+that occur during recall are placed into the various error categories.
+
+\spacebox{4.2cm}{4.2cm}{Errors}
+
+The resulting simulated RTs show some of the features of, and correlates
+to, human data.  Also, the proportions of the various types of error match
+those reported for adults.  This was achieved without the additional
+assumptions suggested by other models.
+
+
+\mysection{A rule for zeros?}
+
+It has often been suggested that subjects use a rule $(\x0N=0)$ to answer
+problems involving a zero.  The evidence often cited to support this is the
+speed with which subjects answer zero problems.  The network described
+here also answers zeros problems quickly, suggesting that a rule is not
+required. However, because the zeros association is strong in the network,
+zero occurs as an error in unrealistic situations.  Also, human
+subjects display errors of the form $\x0N=N$, which is rarely observed in
+the network.
+
+These simulations, coupled with the observations of human zero errors,
+indicates that it is the errors, and not the RT, which identifies that
+there is something special about zero problems.
+
+%\nocite{pdp3}\nocite{siegmult}\nocite{mcclmode}
+%\bibliography{../wip/bib}
+\end{multicols}
+\end{document}

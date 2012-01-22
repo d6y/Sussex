@@ -1,0 +1,13 @@
+do mn20.str 1
+
+log mn_norm20-10.log
+
+get w mn_prob20-10.wts
+set ecrit 0.0
+get pat mn_norm.pat
+ptrain
+save w mn_norm20-10.wts
+
+log -
+q
+y

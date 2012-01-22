@@ -1,0 +1,93 @@
+% -- MY STYLE OPTIONS ---------------------------------------------------
+
+\input psfig.sty
+\input arithprob.sty
+\input bugs.sty
+\input psy.sty
+
+% -- OTHER PEOPLES STYLE OPTIONS ----------------------------------------
+
+\input rot.sty
+\input alltt.sty
+\input dectab.sty
+
+% -- MY DEFINITIONS -----------------------------------------------------
+
+% for multiplication \x34 produces 3x4 (only with a times sign)
+\newcommand{\x}[2]{\mbox{#1$\times$#2}}
+
+\newcommand{\xeq}[3]{\mbox{#1$\times$#2=#3}}
+
+\newcommand{\X}[1]{\mbox{$#1\times$}}
+
+
+% or if the mutiplication sign isn't bold enough:
+%\newcommand{\x}[2]{\mbox{#1\boldmath$\times$#2}}
+
+
+% A slightly-more-than-single spacing environment
+%\def\smtsinglespace{\spacing{0.7}}
+%\let\endsmtsinglespace=\endspacing
+
+\let\smtsinglespace=\singlespacing
+\let\endsmtsinglespace=\endsinglespace
+
+\newenvironment{sstabular}% Single spacing for a tabular
+% Stretch = 1.0 / double-space-factor
+    {\renewcommand{\arraystretch}{0.625}}%
+    {\medskip}
+
+\newcommand{\ssadjust}{\vspace{-\medskipamount}}
+
+\newcommand{\skipafterprob}{\medskip}
+
+\def\mysuper#1{\mbox{$^{\mbox{#1}}$}}
+\def\mysub#1{\mbox{$_{\mbox{#1}}$}}
+
+\let\spaceafterquote=\medskip
+
+\newcommand{\heading}[1]{\par\medskip\noindent{\em#1.}}
+
+\newcommand{\net}{{\rm net}}
+\newcommand{\bias}{\mbox{bias}}
+\newcommand{\aaclamped}{\mbox{${a_i a_j}^{\rm clamped}$}}
+\newcommand{\aafree}{\mbox{${a_i a_j}^{\rm free}$}}
+
+% Revert to single spacing, removing kludges
+\newcommand{\allsingle}{%
+    \setstretch{1}%
+    \renewenvironment{ssquote}{\begin{quote}\small}{\end{quote}}%
+    \renewenvironment{sstabular}{}{}%
+    \renewcommand{\ssadjust}{}%
+    \renewenvironment{arithprob}[1]%
+        {\medskip\bgroup\samepage\tabcolsep=1pt\begin{tabular}[t]{##1}}%
+        {\end{tabular}\egroup}
+    \renewenvironment{arithprobB}[1]%
+    {\medskip\bgroup\samepage\tabcolsep=1pt\begin{tabular}[t]{##1}}%
+    {\end{tabular}\egroup}
+}
+
+% -- REDEFINITIONS ------------------------------------------------------
+
+\parskip 0mm
+
+\renewcommand{\maketitle}{%
+    \input epsf.sty % For the crest
+    \begin{titlepage}\titlepagefont
+    \begin{center}
+        \vspace*{75pt}
+        {\Large The University of Sussex}
+        \par\vskip 40pt
+        {\Huge\rm%
+        Dynamics of Arithmetic\\
+        \vspace{2mm}
+        \huge\rm%
+        A Connectionist View of Arithmetic Skills
+        }\par\vskip 40pt
+        {\Large Richard Dallaway}\par\vskip 40pt
+        {\large\qualline}\par
+        {\large\@date}\par
+        \vspace{5.5cm}
+        {\epsfysize=40mm\centerline{\epsfbox{sussex.ps}}}
+    \end{center}
+\end{titlepage}}

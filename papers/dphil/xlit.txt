@@ -1,0 +1,57 @@
+
+When asked to recall answers to two digit multiplication problems ``as
+quickly and accurately as possible'' \cite{camp85}, both children and
+adults exhibit well documented patterns of behaviour. In general, response
+times (RTs) increase across the multiplication tables: problems in the nine
+times table tend to take longer to answer than problems in the two times
+table. However, this ``problem size effect'' has plenty of exceptions
+(e.g., the five times table is much faster than its position would
+suggest---see figure~\ref{f:rtplot}).  In addition, ``tie'' problems (\x22,
+\x33 etc.)\ are recalled relatively quickly.
+\citeA{camp85} found that adults under mild time pressure make errors at
+the rate of 7.65 per cent, and 92.6 per cent of those errors fall into the
+following five categories (after \citeA{mcclmode}):
+%%
+\begin{itemize}
+%%
+\item Operand errors, for which the erroneous product is correct for a
+problem that shares a digit (operand) with the presented problem
+(e.g., $\x64=36$, because the problem shares 4 with $\x94=36$).
+%%
+\item Close operand errors, a subclass of operand errors, where the
+erroneous product is also close in magnitude to the correct product. That
+is, for the problem \x{a}{b}, the error will often be correct for the
+problem ($a\pm2) \times b$ or $a \times (b\pm2)$ (e.g., $\x64=28$).  This
+phenomenon is referred to as the ``operand distance effect''.
+%%
+\item Frequent product errors, where the error is
+one of the five products 12, 16, 18, 24 or 36.
+%%
+\item Table errors, where the erroneous product is the correct answer to
+some problem in the range \x22 to \x99,
+but the problem does not share any digits with the presented
+problem (e.g., \x64=15).
+%%
+\item Operation errors, where the error to \x a b is correct for $a+b$.
+\end{itemize}
+
+\begin{fancyfigure}
+\centerline{\psfig{file=xrt.ps,width=\columnwidth}}
+\caption{Plot of mean correct RT per multiplication table collapsed over
+operand order for mean RT of: 60 adults \protect\cite[app.~A]{camp85}; 26
+children in grade 5, RT scaled down from a range of 1.19--2.97 seconds to
+fit graph [ibid. app.~B]; 20 networks trained on skewed frequencies; and,
+the same 20 networks after continued training on uniform frequencies. The
+RT for both networks has been scaled by the same amount.}
+\label{f:rtplot}
+\end{fancyfigure}
+
+Despite being drilled on the multiplication tables at school, children and
+adults make these systematic slips in recall. The problem is to produce a
+model which has correctly learnt the multiplication tables, yet can make
+slips when recalling answers. Given the observations on the types of
+erroneous responses, and the RT for correct responses, what assumptions
+must be made to account for these phenomena? The model presented here
+suggests that the initial skew in the frequency and order of presentation
+of multiplication facts \cite[p.~118]{camprole} is one of the important
+factors.

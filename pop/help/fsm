@@ -1,0 +1,67 @@
+HELP FSM                                                   Richard Dallaway
+                                                           April 1992
+
+
+              Routines for manipulating deterministic finite
+                         state machines in POP-11
+
+
+         CONTENTS - (Use <ENTER> g to access required sections)
+
+ -- Representation
+ -- Reading and saving FSMs as files
+ -- Minimizing FSMs
+ -- Running a machine
+
+
+-- Representation -----------------------------------------------------
+
+Notation: _M is a machine
+
+States are numbered from ZERO (the start state)
+
+The start state (zero) is not in fsm_states.
+
+The flag fsm_non_deterministic(M) is set <true> if:
+    - pdp3_extract_fsm attempts to add a arc from
+      state S on input I...
+    - and discovers a arc aready exists
+The first arc is discarded.
+
+The procedure fsm_map_inputs(M), if defined (e.g., in ~/fsm/lib/symmap.p)
+take a machine, and changes fsm_inputs for that machine.
+
+
+-- Reading and saving FSMs as files -----------------------------------
+
+By default the name of the file for saving a machine is the fsm_name of the
+file plus a '.fsm' extention.  This is overridden if an extention is
+supplied.
+
+Saving:
+
+    _M -> fsm_file ();
+    _M -> fsm_file (________filename);
+
+Reading:
+
+    fsm_file (________filename) -> _M;
+
+
+-- Minimizing FSMs ----------------------------------------------------
+
+    fsm_minimize (_M) -> _M';
+
+-- Running a machine --------------------------------------------------
+
+Runs a given machine, _M, on a list of input symbols.
+
+    fsm_run (_M, ____________input_stream) -> (______states, ___eoi, ________validity);
+
+    ______states is a list of states moved through after processing each input
+    symbol.
+
+    ___eoi is <true> if all symbols were consumed.
+
+    ________validity is <true> if all input symbols were consumed and the final
+    state was a terminal state.

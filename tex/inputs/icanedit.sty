@@ -1,0 +1,21 @@
+\typeout{Changes to ICANN'92 style}
+
+\def\thebibliography#1{%
+     \subsection*{References}
+     \list
+     {\relax}{\labelsep=0em
+     \setlength{\parsep}{0em}
+     \setlength{\itemsep}{0.0em}%was 0.5em
+              \leftmargin=\bibleftmargin
+       \itemindent=-\bibleftmargin}
+     \def\newblock{\hskip .11em plus .33em minus .07em}
+     \sloppy\clubpenalty4000\widowpenalty4000
+     \sfcode`\.=1000\relax\normalsize}
+
+\long\def\@makecaption#1#2{\vskip 10pt\def\next{#2}
+\ifx\next\empty\setbox\@tempboxa\hbox{{\bf#1}}\else
+ \setbox\@tempboxa\hbox{{\bf#1.\ } \ignorespaces\next}\fi
+ \ifdim \wd\@tempboxa >\hsize {\bf#1.\ }%
+\ignorespaces{\next\par }\else \hbox
+to\hsize{\hfil\box\@tempboxa\hfil}
+ \fi}

@@ -1,0 +1,112 @@
+;;; LOADING testerrrt.p
+** Sun Feb  9 23:08:38 GMT 1992 
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3.p
+;;; LOADING /csuna/home/richardd/pop/lib/stringtolist.p
+;;; LOADING /csuna/home/richardd/pop/lib/stringtovector.p
+;;; LOADING /csuna/home/richardd/pop/lib/sysio.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_utils.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_getweights.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_getpatterns.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_activate.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_cascade.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_recordunits.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_performance.p
+;;; LOADING response_mechanism.p
+;;; LOADING read_rt.p
+;;; LOADING product_code.p
+...?...4...6...8...9..10..12..14..15..16..18..20..21..24..25..27..28..30..32..
+	35..36..40..42..45..48..49..54..56..63..64..72..81
+;;; LOADING cascade_rt.p
+;;; LOADING threshold_errors.p
+;;; LOADING c_errrt.p
+;;; LOADING rt_cor.p
+
+
+** [eq-coar10- 1 - 10 min 0.4 Max 0.9 and 50 blocks]
+
+
+   ------------- WARNING ----------------
+142 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+
+
+   ------------- WARNING ----------------
+206 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+** [zeros in eq-coar10- 2]
+
+
+   ------------- WARNING ----------------
+225 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+
+
+   ------------- WARNING ----------------
+288 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+
+
+   ------------- WARNING ----------------
+194 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+
+
+   ------------- WARNING ----------------
+225 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+
+
+   ------------- WARNING ----------------
+247 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+
+
+   ------------- WARNING ----------------
+213 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+
+
+   ------------- WARNING ----------------
+135 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+
+
+   ------------- WARNING ----------------
+155 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+** [zeros in eq-coar10- 10]
+Total of 3892.0 errors (tokens), of which...
+Operand errors           1762.00  45.27%
+Operand distance effect  1746.00  44.86%
+High frequency            918.00  52.10%
+Table errors              100.00   2.57%
+Operation errors           14.00   0.36%
+Omission errors          2030.00  52.16%
+
+Campbell     r =   0.22296 p = 0.038288
+Miller       r =   0.22798 p = 0.035003
+Aiken        r =   0.07488 p = 0.278239
+Grade 3a     r =   0.16985 p = 0.161001
+Grade 3b     r =   0.16585 p = 0.166853
+Grade 3c     r =   0.22754 p = 0.090995
+Grade 4      r =   0.39579 p = 0.008438
+Grade 5      r =   0.28314 p = 0.047133
+plot_list([28.0989 32.7437 35.1268 29.12 40.2247 32.535 34.6226 36.5566
+	 32.9374 35.452 36.2516 44.6175 29.8023 36.5769 40.1 41.202 35.826
+	 36.3186 34.0281 33.3524 44.9815 38.0388 42.1258 35.0294 29.4546
+	 44.1304 33.4066 28.7454 30.6029 38.0804 36.594 31.0224 41.2078
+	 30.1447 44.3522 30.6683 32.5326 31.4414 36.9583 36.5246 32.3572
+	 37.3465 38.0291 37.4897 31.7523 30.1858 33.6028 36.1247 34.6227
+	 40.1384 38.1101 36.5754 36.2626 33.4315 32.4055 32.5351 36.5578
+	 42.3829 35.9627 30.459 36.6335 35.5245 32.4949 33.4719]);
+

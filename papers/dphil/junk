@@ -1,0 +1,19 @@
+
+\begin{ssquote}
+\ldots procedural nets and PSs differ in their view of the psychological
+nature of subtraction errors.  According to \citeA{buggy}, children make
+errors because they have a faulty version of certain components of the
+skill. According to PSs, the errors are made primarily because certain
+components are missing.
+
+\hfill\cite[p.~173]{younerro}
+\end{ssquote}
+
+These ``missing components'' could be skills that just haven't be learned
+yet (e.g., knowing what to do with the second multiplier); or they could
+just be a missing condition for trigereing a skill (e.g., not knowing how
+to add up the partial product of a multiplication).
+
+The connectionist account suggests that errors are due to incorrect
+state transitions.  This can be viewed as having a condition which triggers
+the wrong skill, or fails to trigger the correct skill.

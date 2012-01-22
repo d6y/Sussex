@@ -1,0 +1,30 @@
+t   op  eye  err   closest     input
+----------------------------------------------------------
+1   SMU r3c1 2.358 ZAC 0.7581  ___MUL_____________________
+2   PSH r3c1 2.333 SMU 0.7355  ___MUL_________NUM___lLFRHT
+3   JTR r1c1 2.272 SMU 0.7595  ___MUL_________NUM___lLFRHT
+4   MUL r1c1 2.257 SMU 0.7588  ___MUL_________NUM___lLFRHT
+5   JAS r7c1 2.277 MKC 0.7343  ___MUL_________NUM___lLFRHT
+6   UNI r7c1 2.153 IAC 0.7374  ___MUL___SPC_________lLFRHT
+7   IAC r7c1 2.602 ZAC 0.5819  ___MUL___SPC_________lLFRHT
+8   ITC r7c1 2.601 TNC 0.6433  ___MUL___SPC_________lLFRHT
+9   JTR r1c2 2.310 IAC 0.7178  ___MUL___SPC_________lLFRHT
+10  MUL r1c2 2.492 TNC 0.6486  ___MUL_________NUM_________
+11  JAS r7c2 2.344 PSH 0.6981  ___MUL_________NUM_________
+12  RDC r7c2 2.415 JTR 0.5624  ___MUL___SPC_______________
+13  UNI r7c2 2.798 IAC 0.2822  ___MUL___SPC_______________
+14  IAC r7c2 3.126 ITC 0.0036  ___MUL___SPC_______________
+15  JTR r1c2 2.912 ITC 0.2217  ___MUL___SPC_______________
+16  MUL r1c2 2.957 JTR 0.1275  ___MUL_________NUM_________
+17  DWN r3c2 3.308 MUL 0.1998  ___MUL_________NUM_________
+18  RDC r3c2 3.028 IAC 0.3075  ___MUL___SPC_______________
+19  RDC r3c2 2.579 TNC 0.4498  ___MUL___SPC_______________
+20  UNI r3c2 2.753 IAC 0.3718  ___MUL___SPC_______________
+21  ITC r3c2 3.362 RDC 0.0243  ___MUL___SPC_______________
+22  JTR r1c3 3.356 TNC 0.0597  ___MUL___SPC_______________
+23  MUL r1c3 2.877 JTR 0.0770  ___MUL_________NUMuLF______
+24  DWN r3c3 3.340 ZAC 0.2157  ___MUL_________NUMuLF______
+25  RDC r3c3 2.947 TNC 0.3537  ___MUL___SPC______uLF______
+26  RDC r3c3 2.747 UNI 0.2646  ___MUL___SPC______uLF______
+27  UNI r3c3 2.865 DON 0.3602  ___MUL___SPC______uLF______
+28  DON r3c3 2.521 ITC 0.5957  ___MUL___SPC______uLF______

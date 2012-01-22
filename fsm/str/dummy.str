@@ -1,0 +1,9 @@
+get net networks/fsm35.net
+do networks/fsm_param.str 1
+set param lrate 0.01
+set param momentum 0.0
+set dl 1
+set sl 1
+set pcrit 100
+set ecrit 0.0
+get p patterns/mult20.pat

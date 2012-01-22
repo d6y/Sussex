@@ -1,0 +1,124 @@
+\contentsline {chapter}{Acknowledgements}{v}
+\contentsline {chapter}{Declaration}{vi}
+\contentsline {chapter}{Abstract}{vii}
+\contentsline {chapter}{Chapter \numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {1.1}Part I---Mental arithmetic}{2}
+\contentsline {section}{\numberline {1.2}Part II---Multicolumn multiplication}{3}
+\contentsline {section}{\numberline {1.3}Structure of arithmetic skills}{4}
+\contentsline {section}{\numberline {1.4}Aims}{5}
+\contentsline {part}{\uppercase {i}\phspace {1em}Mental arithmetic}{7}
+\contentsline {chapter}{Chapter \numberline {2}Memory for arithmetic facts}{8}
+\contentsline {section}{\numberline {2.1}Phenomena}{8}
+\contentsline {subsection}{\numberline {2.1.1}The production task}{9}
+\contentsline {subsubsection}{Reaction time}{9}
+\contentsline {subsubsection}{Errors}{10}
+\contentsline {subsection}{\numberline {2.1.2}Neuropsychological constraints}{13}
+\contentsline {subsection}{\numberline {2.1.3}Rule based processing}{14}
+\contentsline {subsection}{\numberline {2.1.4}Summary}{16}
+\contentsline {section}{\numberline {2.2}Previous models}{17}
+\contentsline {subsection}{\numberline {2.2.1}Distribution of associations}{18}
+\contentsline {subsubsection}{Reaction time}{20}
+\contentsline {subsubsection}{Errors}{20}
+\contentsline {subsubsection}{Learning}{20}
+\contentsline {subsubsection}{Discussion}{21}
+\contentsline {subsection}{\numberline {2.2.2}Network interference}{22}
+\contentsline {subsubsection}{Learning}{24}
+\contentsline {subsubsection}{Errors}{24}
+\contentsline {subsubsection}{Retrieval}{25}
+\contentsline {subsubsection}{Discussion}{25}
+\contentsline {section}{\numberline {2.3}Previous connectionist models}{26}
+\contentsline {subsection}{\numberline {2.3.1}Brain-state-in-a-box}{26}
+\contentsline {subsubsection}{Recall}{28}
+\contentsline {subsubsection}{Reaction time}{29}
+\contentsline {subsubsection}{Verification}{29}
+\contentsline {subsubsection}{Errors}{29}
+\contentsline {subsubsection}{Discussion}{30}
+\contentsline {subsection}{\numberline {2.3.2}Backpropagation}{31}
+\contentsline {subsection}{\numberline {2.3.3}Interactive activation}{32}
+\contentsline {subsubsection}{Response times}{33}
+\contentsline {subsubsection}{Errors}{33}
+\contentsline {subsubsection}{Primed production and verification}{34}
+\contentsline {subsubsection}{Discussion}{35}
+\contentsline {subsection}{\numberline {2.3.4}Mean field theory}{37}
+\contentsline {subsubsection}{Recall}{37}
+\contentsline {subsubsection}{Learning}{38}
+\contentsline {subsubsection}{Reaction time and errors}{39}
+\contentsline {subsubsection}{Damage}{40}
+\contentsline {subsubsection}{Discussion}{41}
+\contentsline {section}{\numberline {2.4}Summary}{42}
+\contentsline {chapter}{Chapter \numberline {3}Cascade model of memory for multiplication facts}{44}
+\contentsline {section}{\numberline {3.1}Architecture of the model}{45}
+\contentsline {subsection}{\numberline {3.1.1}Recall}{47}
+\contentsline {subsection}{\numberline {3.1.2}Training}{49}
+\contentsline {section}{\numberline {3.2}Simulations for \unhbox \voidb@x \hbox {2$\times $2} to \unhbox \voidb@x \hbox {9$\times $9}}{51}
+\contentsline {subsection}{\numberline {3.2.1}Training}{51}
+\contentsline {subsection}{\numberline {3.2.2}Recall}{52}
+\contentsline {subsection}{\numberline {3.2.3}Results}{53}
+\contentsline {subsection}{\numberline {3.2.4}Comments}{56}
+\contentsline {section}{\numberline {3.3}Simulations for \unhbox \voidb@x \hbox {0$\times $0} to \unhbox \voidb@x \hbox {9$\times $9}}{58}
+\contentsline {subsection}{\numberline {3.3.1}Training}{58}
+\contentsline {subsection}{\numberline {3.3.2}Results}{60}
+\contentsline {subsection}{\numberline {3.3.3}Comments}{61}
+\contentsline {section}{\numberline {3.4}Further experiments}{65}
+\contentsline {subsection}{\numberline {3.4.1}One-of-N input encoding}{65}
+\contentsline {subsection}{\numberline {3.4.2}Training without a frequency skew}{67}
+\contentsline {subsection}{\numberline {3.4.3}\citeauthor {mcclmath}'s input encoding}{68}
+\contentsline {subsection}{\numberline {3.4.4}Predictions for the 10, 11 and 12 tables}{71}
+\contentsline {subsection}{\numberline {3.4.5}Damaging the network}{72}
+\contentsline {section}{\numberline {3.5}Discussion}{76}
+\contentsline {subsection}{\numberline {3.5.1}Choice of output representation}{77}
+\contentsline {subsection}{\numberline {3.5.2}Rule based processing}{78}
+\contentsline {subsection}{\numberline {3.5.3}Verification and primed production tasks}{80}
+\contentsline {section}{\numberline {3.6}Summary}{83}
+\contentsline {part}{\uppercase {ii}\phspace {1em}Multicolumn arithmetic}{85}
+\contentsline {chapter}{Chapter \numberline {4}Symbolic accounts of arithmetic}{86}
+\contentsline {section}{\numberline {4.1}Bug phenomena}{87}
+\contentsline {section}{\numberline {4.2}Models}{90}
+\contentsline {subsection}{\numberline {4.2.1}A production system for multiplication}{90}
+\contentsline {subsection}{\numberline {4.2.2}Modelling bugs---the Young \& O'Shea way}{92}
+\contentsline {subsection}{\numberline {4.2.3}Modelling bugs---the VanLehn way}{95}
+\contentsline {subsubsection}{Learning by induction}{97}
+\contentsline {subsubsection}{The impasse-repair process}{100}
+\contentsline {subsubsection}{Empirical adequacy}{102}
+\contentsline {subsection}{\numberline {4.2.4}Summary}{104}
+\contentsline {section}{\numberline {4.3}Why connectionism?}{105}
+\contentsline {subsection}{\numberline {4.3.1}Development}{105}
+\contentsline {subsection}{\numberline {4.3.2}Implementation and theory}{110}
+\contentsline {subsection}{\numberline {4.3.3}What is a symbol, anyway?}{114}
+\contentsline {subsection}{\numberline {4.3.4}Comments}{116}
+\contentsline {chapter}{Chapter \numberline {5}A connectionist model of multicolumn arithmetic}{117}
+\contentsline {section}{\numberline {5.1}Constraints on the model}{117}
+\contentsline {subsection}{\numberline {5.1.1}What we know about multicolumn arithmetic}{118}
+\contentsline {subsection}{\numberline {5.1.2}What we don't know about multicolumn arithmetic}{120}
+\contentsline {subsubsection}{The \citeauthor {suppproc}\ model of eye movements}{121}
+\contentsline {section}{\numberline {5.2}Architecture of the model}{123}
+\contentsline {subsection}{\numberline {5.2.1}Input and output representations}{126}
+\contentsline {subsection}{\numberline {5.2.2}Training}{130}
+\contentsline {section}{\numberline {5.3}Results}{133}
+\contentsline {subsubsection}{Correct behaviour}{136}
+\contentsline {subsubsection}{Star bugs}{137}
+\contentsline {subsubsection}{Plausible bugs}{137}
+\contentsline {subsubsection}{Plausible combinations}{137}
+\contentsline {subsubsection}{Observed bugs}{139}
+\contentsline {section}{\numberline {5.4}Analysis}{139}
+\contentsline {subsection}{\numberline {5.4.1}Finite state machines}{140}
+\contentsline {subsection}{\numberline {5.4.2}Graded state machines}{142}
+\contentsline {subsection}{\numberline {5.4.3}Repairs}{145}
+\contentsline {subsection}{\numberline {5.4.4}Accuracy of transitions}{147}
+\contentsline {subsection}{\numberline {5.4.5}Development of trajectories}{149}
+\contentsline {subsection}{\numberline {5.4.6}Summary}{151}
+\contentsline {section}{\numberline {5.5}Bug migration}{152}
+\contentsline {subsection}{\numberline {5.5.1}Bug migration as noise}{152}
+\contentsline {subsection}{\numberline {5.5.2}Bug migration as learning}{154}
+\contentsline {section}{\numberline {5.6}Impasses}{155}
+\contentsline {subsection}{\numberline {5.6.1}The importance of impasses}{158}
+\contentsline {section}{\numberline {5.7}Summary}{159}
+\contentsline {chapter}{Chapter \numberline {6}Summary}{162}
+\contentsline {section}{\numberline {6.1}Memory for arithmetic facts}{162}
+\contentsline {section}{\numberline {6.2}Multicolumn arithmetic}{163}
+\contentsline {section}{\numberline {6.3}Future work}{165}
+\contentsline {chapter}{Bibliography}{166}
+\contentsline {chapter}{Appendix \numberline {A}Addition bugs}{179}
+\contentsline {section}{\numberline {A.1}Sources}{179}
+\contentsline {section}{\numberline {A.2}Notes on the catalogue entries}{181}
+\contentsline {chapter}{Appendix \numberline {B}Multiplication bugs}{189}

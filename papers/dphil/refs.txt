@@ -1,0 +1,33 @@
+
+
+campnetw
+millcogn
+campretr
+campprod - primint
+ashcment - verification
+grahassoc
+restspee
+svenmemo
+winkasso
+
+brain:
+mcclfact,sokocogn,mcclcogn
+
+
+Siegler
+    siegmult
+    siegadd
+
+Me
+    dallmemo
+    dallspee
+
+Ashcraft
+    ashcchil
+    staznetw
+
+Anderson
+    andestud
+    viscrepr
+    viscmemo
+    andeexpe

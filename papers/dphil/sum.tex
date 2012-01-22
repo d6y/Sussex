@@ -1,0 +1,58 @@
+\documentstyle{richardd}
+
+\def\x#1#2{\mbox{#1$\times$#2}}
+
+\begin{document}
+
+\title{Dynamics of Arithmetic\\A Connectionist View of Arithmetic Skills}
+\author{Richard Dallaway}
+\date{6 July 1993}
+\maketitle
+\thispagestyle{empty}
+
+\noindent Arithmetic
+takes time.  Children need five or six years to master the one
+hundred multiplication facts (\x00 to \x99), and it takes adults
+approximately one second to recall an answer to a problem like \x78.
+Multicolumn arithmetic (e.g., \x{45}{67}) requires a sequence of actions,
+and children produce a host of systematic mistakes when solving such
+problems. This thesis models the time course and mistakes of people solving
+arithmetic problems.  Two models are presented, both of which are built
+from connectionist components.
+
+First, a model of memory for multiplication facts is described. Here a
+system is built to capture the response time and slips of adults recalling
+two digit multiplication facts. The phenomenon is thought of as spreading
+activation between problem nodes (such as ``7'' and ``8'') and product
+nodes (``56''). Results are presented from simulations designed to mimic
+experiments on adults' memory for single-digit multiplication. The details
+and assumptions of the model (response time measurement, learning
+assumptions) are examined, and the simulation results are compared to the
+results found in the psychological literature. It is found that a simple
+model can account for the phenomena, and the implications are discussed in
+light of a number of similar models.
+
+Second, an account is given of children's errors in multicolumn
+multiplication. To date, only production system models have been used in
+this domain. The aim is not to produce a detailed fit to the
+empirical observations of errors, but to demonstrate how a connectionist
+system can model the behaviour, and what advantages this brings. The style
+of the model moves away from the received wisdom of an impasse-repair
+process (when a child encounters a problem an impasse is said to have
+occurred, which is then repaired with general-purpose heuristics).  Rather,
+the view presented is of a system in which processing is similarity-based,
+invoking a ``processing trajectory'' style of explanation. That is,
+instead of strictly following rules to solve arithmetic problems, the
+system traverses states; rather than acquiring rules, the system's state
+space evolves.  The result is a {\em graded state machine}, a system with
+some of the properties of finite state machines, but with the additional
+flexibility of connectionist networks.  The analysis of the system shows
+that connectionist representations can be structured in ways that are
+useful for modelling procedural skills (such as arithmetic). It is
+suggested that
+one of the strengths of the model is its emphasis on development, rather
+than on ``snap-shot'' accounts. The system is compared to symbolic models,
+and the notions like ``impasse'' and ``repair'' are discussed
+from a connectionist perspective.
+
+\end{document}

@@ -1,0 +1,28 @@
+33 + nhidden*2 => nunits
+
+nunits 83       25 hidden
+nunits 93       30 hidden
+
+nunits 103      35 hidden
+nunits 113      40 hidden
+nunits 123      45 hidden
+nunits 133      50 hidden units
+
+nunits 143      55 hidden units
+nunits 153      60 hidden units
+nunits 163      65 hidden units
+nunits 173      70 hidden units
+
+
+nunits 233      100 hidden units
+
+define th(nh);
+vars nin = 8, nout = 24;
+(nh * (nin + nh) )
++
+(nout * nh)
++ nin+nout+nh+nh=>
+enddefine;
+
+th(25)=>
+th(50)=>

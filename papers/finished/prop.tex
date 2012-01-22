@@ -1,0 +1,954 @@
+%% PROP.TEX
+%% richardd@uk.ac.susx.cogs
+%% Thesis research proposal
+%% October 1990
+
+% Needs following postscript files: boltz.ps, rdr.ps, sps.ps,
+%                                       rulemem.ps
+% Run dvi through dvi2ps to print
+
+\documentstyle[mya4,richardd,ps-macros]{article}
+\author{Richard Dallaway}
+\date{Friday 12 October 1990}
+\title{Serial Processing in Parallel Networks\medskip\\Research
+Proposal}
+\maketitle
+
+\begin{abstract}
+
+A case is presented for viewing a connectionist production system as a
+good vehicle for exploring sequential aspects of cognition from within
+the connectionist framework.  By taking such an approach it becomes
+necessary to examine the issues surrounding the representation of
+structured knowledge, and the kinds of operations that can be
+performed on such representations.  That is, connectionist symbol
+processing becomes the focus of attention in this endeavour. The
+models proposed by classical artificial intelligence are taken as
+being appropriate for the study of some aspects the mind after
+revision (not rejection) by conectionism. It is appropriate,
+therefore, to ask how necessary symbol manipulation can be
+accommodated by a connectionist brain.
+
+\end{abstract}
+
+\pagethrow
+\tableofcontents
+\pagethrow
+
+\begin{document}
+\bibliographystyle{newapa}
+
+\sec{Introduction}
+
+This research is motivated by the tension between two notions:
+(1)~that the brain is in essence a connectionist device, and
+(2)~that some aspects of cognition are governed by the application
+of symbolic rules.  The success of production system (e.g., the
+ACT* model of \citeA{andearch}) coupled with the advantages of
+connectionist representations (see \citeA{pdp1}) should form the
+basis of a fruitful model of human sequential processing.  However,
+it is not clear how the idioms of classical artificial
+intelligence are to be regulated by a connectionist system.
+
+This is not in itself a new idea: there have already been a
+handful of connectionist production system implementations
+(reviewed in section~\ref{pwork}).  These systems are trained to
+perform some rule-like task, yet there is a suggestion (from
+\citeA{hadlconn}) that rules should be represented explicitly and
+acted upon by a general rule following mechanism.  This
+possibility is adopted in this proposal.
+
+It appears that humans can apply rules almost instantaneously.
+For example, ``sum every other number in this list'', or ``scan
+down the index until you find the word, then turn to the page
+number written alongside it''.  
+Such rules can be applied in other
+circumstances (i.e., different lists of numbers, or
+different books).  The argument is: such rules are not trained into
+a specialised network for each task, but are applied to data by a
+general mechanism.  That is, such rules are something like
+productions in a production system.
+
+Although it is not clear why humans should be able to follow rules
+(is the phenomena a side effect of some other mechanism? or is it
+innate? or is it something learned?), there is no obvious reason
+why the mechanism could not be widely utilised.
+\begin{quotation}\small
+Now, given that humans are clearly {\em capable} of internally
+representing explicit, complex arithmetic rules {\em before}
+applying them, the question naturally arises whether children
+commonly learn algorithms such as long multiplication and division
+by storing explicit representations of these algorithms.
+\flushright (\citeA{hadlconn}, page~11)
+\end{quotation}
+
+Consider long multiplication.  Children first have to learn simple
+sub-skills (e.g., adding columns and multiplying pairs of digits),
+and then they are given rules to follow.  It does takes practice to
+follow the rules accurately, but this practice appears to be
+unlike connectionist training. For example,
+the kinds of errors children make when learning long
+multiplication are not the kinds exhibited by a simple
+connectionist network being trained from scratch
+(see \citeA{cottlear}).  Children do not
+produce random behaviour; they make mistakes like (amongst others)
+missing steps or applying an inappropriate step---errors that
+point towards an established rule following system.
+
+This is not to deny that rules may also be followed in other ways.
+For example, for some aspects of cognition, the kind of rule
+following done by the \citeA{pdp:18} past tense model may be
+accurate.  Nor is it to deny the usefulness of rule
+``proceduralization'', where frequently applied rules become
+``compiled'' into networks.  The argument is simply that humans
+can apply novel rules very quickly, and that this phenomenon is
+different from the more usual approach of ``hardwiring'' networks
+to follow rules.
+
+The distinction between explicit and implicit rules seems to be
+related to the two modes of inference identified by
+\citeA{hintmapp}. The first is intuitive inference, and is the method
+common to current connectionist models.  It involves a single
+``perception'' by the network; one settling step.  The other method is
+rational inference, and is more common to classical artificial
+intelligence models.
+\begin{quotation}\small
+The defining characteristic of rational inference is the way in which
+entities in this domain are mapped into hardware changes during the
+course of the inference. (Page~6).
+\end{quotation}
+One of the assumptions made by this project is that some rational
+inference processes are governed by explicit rules. This accounts for
+the importance placed on connectionist symbol processing in the
+preceding discussion.
+
+
+Even without worrying about explicit rules, it should be made clear
+why the ability to follow rules is important. This is highlighted by
+\citeA{tourconn} in his call for research into ``dynamic inferencers''
+(pages~4--6). Dynamic inferencers side-step the problems inherent in
+training a network on a sizeable proportion of all possible inputs (to
+obtain a model of human performance) by exploiting compositionality.
+Special cognitive primitives need to be used to allow states to be
+combined (even when they have never been seen before).  There are no
+connectionist dynamic inferences yet, but DCPS (see
+section~\ref{pwork}) comes close.
+\begin{quotation}\small
+If this is beginning to look suspiciously like ordinary symbol
+processing, it may not be such a bad thing.  The compositionality
+issue {\em has} to be addressed; it will not go away.
+\flushright (\citeA{tourconn}, page~5)
+\end{quotation}
+
+It is worth pointing out where connectionism fits in to all this. What
+has been presented so far is an argument for at least two different
+styles of computation: connectionism for some tasks, and production
+systems for others.  The stance taken here is that of the subtle
+revisionist (in the terminology of \citeA{ptc}, page~61), or
+revisionist-symbol-processing connectionism (\citeA{pinklang},
+page~78). Although symbolic manipulation (as done in classical
+production systems) is a faithful model of some parts of cognition, it
+is not clear what the terms ``symbolic'' or ``manipulation'' entail.
+That is,
+\begin{quotation}\small
+\ldots our ideas about what it {\em means} to `operate on a
+symbol' are still heavily influenced by conventional AI
+implementations\ldots
+\flushright (\citeA{clarconn}, page~12)
+\end{quotation}
+
+The hope is that connectionism will provide some insight into
+the nature of human symbolic manipulation. (This optimism is
+shared by \citeA{tourbolt}, pages~1--3 and possibly
+\citeA{micro}). With this in mind it should be clear that it is
+appropriate to use connectionism to revise  production systems in an
+attempt to understand serial cognitive behaviour.  The established
+(successful) framework of production systems focuses attention on
+sequential control issues, which can be expanded upon with
+connectionist representations.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\sec{Problem outline}
+
+The problem to be studied comes in two parts (although they are not to
+be viewed as independent).  First there is the connectionist
+engineering problems.  This involves the construction of a production
+system from connectionist components (discussed in
+section~\ref{engine}).  The second part is the consideration of
+cognitive modelling (section~\ref{model}).  To some degree this second
+part determines the success or failure of the project. Having argued
+for a connectionist production system from a human cognition point of
+view, the project would be left wanting if it could not be deployed to
+usefully model rule governed behaviour. With this emphasis, the
+project could be directed towards a model of a small aspect of
+sequential cognition at the neglect of producing a full production
+system shell.  However, it is also clear that any advance in
+connectionist production system engineering would be valuable. An
+obvious candidate area for modelling is children's errors in
+subtraction.  This is an area which already has a classical AI
+production system implementation by \citeA{younerro}
+(a full discussion of the virtues of this area can be found in
+section~\ref{model}).  The engineering and modelling components are
+linked by the adoption of ideas from ACT* (in section~\ref{issue}).
+
+\sec{Connectionist engineering}\label{engine}
+
+The problems surrounding the construction of a connectionist
+production system are identified in this section, and some
+connectionist components that may play a part in a solution are
+noted.
+
+\subsec{Previous work}\label{pwork}
+
+In addition to work directed towards connectionist production systems,
+there is also other relevant work (e.g., on structured representations)
+that needs to be considered. In this section, only connectionist
+production systems are presented.  Other work will be introduced as
+appropriate in section~\ref{issue}.
+
+The distributed connectionist production system (DCPS) of
+\citeA{toursymb} provides a mechanism for pattern matching and
+variable binding.  Rules are of the form:
+\begin{center}
+(F A A)(F B B) $\rightarrow$ $+$(G A B)$-$(F A A)$-$(F B B )
+\end{center}
+which is interpreted as meaning: remove the triples (F A A) and (F B
+B) and add (G A B) if the triples (F A A) and (F B B) are in working
+memory.  For efficiency and plausibility a coarse coding
+representation is used for the working memory.  The memory contains
+2000 units, each having a receptive field of 6 symbols in each of the
+3 positions of a sequence.  With this scheme each of the possible
+triples will excite 28 different cells (on average).  A pull out
+network is implemented with two clause spaces which can be used to
+match the condition side of productions against working memory.  The
+2000 units in each clause space are in one-to-one correspondence with
+the units in the working memory.  Each production rule is represented
+by 40 rule units, each connected to the appropriate units in the
+clause space (i.e., connected to the rule conditions). The clause
+units receive input from working memory and from rule units, and also
+receive lateral inhibition to limit the number of active units to 28
+(the number needed to represent on triple).  In this way, rule
+conditions are matched against the contents of working memory by a
+relaxation process.
+
+The 40 units in the rule base are connected to the working memory with
+excitory connections (to add triples) or inhibitory connections (to
+remove triples).  Once a rule has matched, these connections are
+allowed to change working memory.  The whole recognise-act cycle can
+then start all over again.  Variable binding is accomplished by having
+an additional bind space which influences the two clause spaces during
+matching.
+
+DCPS is impressive in its use of distributed representations, and has
+shown that connectionism is not limited to just low-level tasks.
+However, there are a number of weaknesses in the project. Two that
+were identified by Touretzky and Hinton are the problems of local
+minima and multiple rule matching.  If good matches have deep minima,
+it is possible to detect bad matches by checking the final settling
+energy of the system (presumably by a mechanism external to the
+network).  However, this condition seems unlikely to be met as more
+variables are included.  The authors suggest that simulated annealing
+would ease the problem, but increase the computational expense.  There
+is no clear answer to the problem of conflict resolution.  This is an
+essential part to any production system, and has received much
+attention in the literature (see \citeA{nechlear} for a review).
+\citeA{tpps} have reimplemented DCPS using tensor products.  They use
+a more complicated units and implement best-match conflict resolution
+with a winner-take-all network.
+
+A more serious shortcoming of the DCPS architecture lies with the
+representation of rules. The rules are matched and acted upon by fixed
+weights to and from the various symbol spaces.  As it stands, the
+network would have to be re-wired to handle changes to the rule
+base---it is not the general mechanism that has been outlines above.
+However, some important ideas have been demonstrated by DCPS.  In
+particular, the notion of a pull out network may turn out to be
+invaluable in the representation of structured knowledge (see
+section~\ref{issue}).
+
+The weights for the rules in DCPS were handcrafted, but others have
+trained rules into networks. \citeA{gallconn} has built a connectionist
+expert system called MACIE (for Matrix Controlled Inference Engine).
+MACIE is intended as a practical knowledge engineering device, and
+makes no claims as a cognitive model. The system is a three layer
+network corresponding to symptoms, disease and treatment (of
+sarcophagal illness).  Gallant uses a variation on perception learning
+to train the network.   In a similar project, \citeA{saitmedi} used
+backpropagation to train a neural network to identify a disease from
+symptoms.  \citeA{yangbuil} use modified perceptrons to train rules
+into a network (this time for electrical engineering applications).
+Although usefully applying connectionist learning to expert system
+construction, these three projects provides little help in progress
+towards the general production system proposed here.
+
+Work has started on Neuro-SOAR. Paul Rosenbloom [1990, personal
+communications] has indicated that the goal of the project is to
+reimplement SOAR in connectionist technology.  The SOAR project (e.g.,
+\citeA{soar}) and the ACT* project of \citeA{andearch} are two examples
+of large scale models of cognition.  Although this project borrows
+from ACT* there is obviously a chance for a great deal of overlap with
+Neuro-SOAR.  Nothing is written on Neuro-SOAR at this time, but it
+appears that the project has two localist networks: one to represent
+production conditions and one for the actions.  The working memory is
+the active patterns in the second network, and this is matched against
+the first to fire rules.  The project is ``now moving towards the
+detection of impasses and the generation of subgoals.''
+
+The emphasis in this project is not the blind application of
+productions, but on the processing of structured knowledge (to be
+outlined in the next section).  As such, the Neuro-SOAR project should
+not limit the contribution made by this project. SOAR provides a
+general framework for addressing rule following behaviour (with
+uniform representation of knowledge, and an elaborate working memory).
+This is in contrast to ACT*, which although being general enough for
+many tasks, imposes numerous (psychologically inspired) limitations on
+the processes that may be performed (something that is missing from
+SOAR as of the December 1986 report).  What is proposed is certainly
+not a reimplementation of ACT* (or any other production system), but
+an investigation of sequential processes focused by the approach of
+production system models.
+
+
+\subsec{Issues}\label{issue}%bless you
+
+The issues surrounding production systems can be roughly divided into
+four categories: representation, matching, acting and learning.  This
+section draws heavily on ideas in ACT*.  Many of them stem from
+psychological observation, but the experimental evidence is not
+presented in this document. See \citeA{andearch} and \citeA{andecogn}
+for details.
+
+\subsubsec{Representations}
+
+ACT* contains three distinct data types. They are: temporal strings,
+spatial images and abstract propositions.   These structures are
+composed of further embedded structures or atoms (in effect being a
+fourth data type).  Although strictly speaking one data type will
+suffice for all computations (as it does in SOAR), \citeA{andearch}
+argues (page~26) that different representations have evolved to
+facilitate different computations.  (See also \citeA{slomwhy} for a
+discussion on the importance of having many representation schemes.)
+
+\headpar{Temporal strings.} These structures are similar to lists, but
+have other ``salient properties''.  The salient properties of any data
+type determine which primitive operations are available. With strings
+it seems that judging order is a salient property. (For example, it is
+easier to say that March is before June, than it is to retrieve the
+months in between).  Also, the retrieval of the next element of a
+string seems to be proportional to the position of the element in the
+string (as it is of Lisp lists). The situation becomes more complex
+for embedded structures, but it still holds true.  \citeA{andecogn}
+cites the hierarchical structure of the ``Alphabet Song'' (the
+alphabet set to the tune of ``Twinkle, Twinkle Little Star''). It
+seems that the time taken to recall the next letter in the alphabet
+from a given letter is related to the structure of the song
+(pages~97--99). Other string operations are insertion and deletion of
+constituents.
+
+Based on human behaviour, the salient properties of strings arise from
+primitive operations that are not apparent from, or primitive to, Lisp
+(the same is true of the other data types). In addition to the ability
+to compare two elements without retrieving the intervening elements,
+strings can also be indexed from a single member (for example: what
+list does February occur in?).  As I have mentioned, the experimental
+evidence for these claims are omitted here, but see \citeA{andearch},
+pages~53--55.
+
+Data types arrive in memory from two sources: external input or
+internal computation (i.e., the work of productions).  Examples of
+external input are sentences like {\em(Ernie put the duck on the
+bed)}. In actual fact that sentence would not be represented in ACT*
+in that way, because memory comes in ``cognitive units'' which can
+contain no more than five elements.  So, that sentence would be
+represented as an embedded structure with pointers (e.g., as the
+surface structure after parsing). Structures can be deposited in
+memory from internal computations.  For example, primes under 11 could
+be represented as ((1 2 3)(5 7)).
+
+The ability to construct and manipulate indirect representations
+(i.e., embedded structures like trees) is problematic for
+connectionism.  \citeA{pdp:3} note that:
+\begin{quotation}
+One central tenet of the sequential symbol processing approach is the
+ability to focus on any part of a structure and to expand that into a
+whole that is just as rich in content as the original whole of which
+it was a part. (Page~108)
+\end{quotation}
+
+\citeA{hintmapp} (page~34) notes that these ``reduced description''
+need to be
+compact enough for global constraints, but contain enough local
+detail for elaboration.  The hope (page~35) is that these structures
+can be learned.
+
+
+This notion of having pointer-like reduced descriptions has been
+addressed by
+\citeA{tourbolt} and \citeA{pollrdr}.  Touretzky used the pull out
+network shown in figure~\ref{boltz} to implement linked lists in
+connectionist technology.  His motivation for this was to implement
+low-level AI primitives from connectionist parts.  The details
+of BoltzCONS are omitted here, but they are more or less the same
+as DCPS.  
+
+\begin{figure}
+\centerfig{boltz.ps}[60]
+\vspace{2.5 in}
+\caption{The structure of BoltzCONS. (After figure~5, page~41 of
+\protect\citeA{tourbolt}.)}
+\label{boltz}
+\end{figure}
+
+Tuples like {\em(q Event37 p)} have a distributed representation in
+the tuple memory.  One-to-one connections from the tuple memory to the
+tuple buffer allow just one tuple to be selected from the memory (just
+like the clause spaces in DCPS).  Once in the tuple buffer, a tuple
+fills out the TAG, CAR and CDR slots.  So, for example, the TAG would
+contain a representation of ``q'', the CAR would be ``Event37'' (an
+atom), and the CDR would be ``p''.  Each tuple must have an unique tag
+for retrieval.  Lists can be searched by replacing the TAG slot with
+the contents of the CDR slot, and then allowing the network to settle
+into a new tuple.  (Issues of end of list markers and symbol/atom
+distinctions are also addressed.  These problems can be solved by
+having pre-set distinctions between atoms and symbols, and by having
+the end of a list point to itself.) In this way basic Lisp operations
+can be implemented in connectionist networks.
+
+It turns out that by building these operations from connectionist
+components a number of useful features emerge.  Immediately it is
+possible to follow a pointer backwards---something that needs extra
+machinery in Lisp.  More interestingly, when implementing tree
+structures and stacks it turns out that, for instance, you can
+consider an associative stack pop.  That is, the stack can be popped
+back to a point where a given item is on top, in constant time.  This
+seems to support the connectionist-revisionist hypothesis.
+
+Like DCPS, BoltzCONS was hand-wired.  \citeA{pollrdr} has devised a
+general method for forming reduced descriptions, which he calls
+recursive distributed representations.  Pollack uses an
+auto-associative simple recurrent network (\citeA{elmafind}), which he
+calls a recursive auto-associate memory (RAAM). Items in a structure
+can be individually compressed into the hidden layer of the network
+(see figure~\ref{rdr}). This compression includes the representation
+in the hidden layer from the previous time step, hence forming a
+fixed-width representation for the whole sequence.  The hidden layer
+is auto-associated with the input to ensure that the elements in the
+sequence can be reconstructed from their compact representation. RAAM
+is not used to save memory by compaction; the usefulness lies in the
+representation's manipulative properties:
+\begin{quotation}\small
+\noindent They combine aspects of several disparate representations.
+Like feature-vectors they are fixed-width, similarity based, and their
+content is easily accessible.  Like symbols, they combine only in
+syntactically well-formed ways. Like symbol-structures, they have
+constituency and compositionality. And, like pointers, they refer to
+larger symbol structures which can be efficiently retrieved. But,
+unlike feature-vectors, they compose. Unlike symbols, they can be
+compared. Unlike symbol-structures, they are fixed in size. And,
+unlike pointers, they have content.
+
+\hfill (\citeA{pollimpl}, page 529/530)
+\end{quotation}
+
+\citeA{pollrdr} has demonstrated that the RAAM has some
+form of generality, and is not simply memorising sequences.  A RAAM
+trained (with backpropagation) on tree structures generated with
+rules can be tested for generalisation in the following way.  Take two
+sub-tree patterns and form the reduced encoding for them (the first
+half of figure~\ref{rdr}).  If the reduced encoding can be recovered
+within some tolerance (the reconstruction step in figure~\ref{rdr}),
+then the whole tree can be considered well-formed.  Pollack's
+experiment (page~20) produced 31 well-formed trees (from a simple
+grammar), of which 12 are not grammatical, although 8 appear to
+conform to a rule. There is also an attraction process, in which novel
+trees are decoded to members of the training set.  This may be
+attributed to the representation of the input patterns (i.e., being
+too similar). More work is needed to fully understand the workings of
+the RAAM.
+
+\begin{figure}
+\centerfig{rdr.ps}[50]
+\vspace{2.6 in}
+\caption{Recursive auto-associative memory (sequential version).}
+\label{rdr}
+\end{figure}
+
+Pollack's reduced descriptions have been used
+for inferencing.  \citeA{pollimpl} describes training an associative
+network to transform reduced descriptions of structures
+like (LOVES X Y) into (LOVES Y X).  That is, a simple network can
+embody (note, implicitly) the
+rule ``if (LOVES X Y) then (LOVES Y X)''. This kind of
+inferencing involves variable binding and unification in classical
+AI.  Yet for this network (and for humans) it is no more effort than
+an association (but with the added risk of being the wrong
+association). \citeA{chalsynt} reports using the same methods to
+transform active sentences into passive form.
+
+\citeA{chalsynt} suggests that this form of computation (``holistic
+associative inferencing'') is something that is new, and not available
+to classical AI (page~9), and comments:
+\bssq
+It would be very interesting to see connectionist processes that are
+structure-sensitive which simultaneously utilizing the kind of
+content-dependent pattern association for which connectionist networks
+are re\-nown\-ed.
+\essq
+
+The suggestion is that there may be a connection between the ``salient
+properties'' of representations as suggested by \citeA{andearch} and
+the forms of computation suggested by connectionist representations
+(e.g., holistic associative inference and BoltzCONS primitives).
+
+It should be remembered that connectionist virtual symbol structures,
+are, at the end of the day, activity patterns and weight arrays.  It
+seems that the RAAM approach may be clinging to tightly to our current
+conception of a symbolic representation (i.e., a compact structure is
+{\em formed,} which can then be {\em used\/} in further computation).
+This view may turn out to be wholly inappropriate for large devices
+like the brain. It is argued that symbol-shoving is a good explanation
+for cognition, but the problem is to investigate ``who'' does the
+shoving (see \citeA{hofswho} and \citeA{hofswaki}). At a large scale
+(i.e., the brain), the options available for this kind of processing
+are likely to be different from those available on a small scale
+(i.e., current connectionist models).
+
+
+
+\headpar{Spatial images.} The second of Anderson's data types preserves
+information about relative position, but not distance or size. 
+Hierarchical structure are available (structure within objects). The
+salient properties include the ability to compute the distance and
+angle between two objects, and say whether they overlap.  Pattern
+matching can be accomplished on the basis of element configuration
+alone. (For example, the tendency to see faces in structures that have
+objects in the correct positions, regardless of what those objects are).
+Anderson uses this representation mainly for his production system 
+model of mental rotation (\citeA{andearch}, pages~81--85).
+
+\headpar{Abstract propositions.}  The observation that 
+subjects' memory for the gist is better than their memory for
+actual events is covered by the third data type.  
+The representation is of the form {\em(relation arg1 arg2)}.
+Note that the elements in an abstract proposition are highly
+constrained (implying defaults): {\em hit\/} takes two argument,
+{\em give} needs three,
+and so on.  It is not clear exactly what the representation for
+these propositions should be.
+\begin{quotation}\small
+Until the abstraction processes underlying the formation of
+perceptual and linguistic parsers are specified, there will be
+unwanted degrees of freedom in propositional representations, and
+they will remain as much of intuition as of principle.
+\flushright (\citeA{andearch}, page~71)
+\end{quotation}
+
+A typical use of propositions is to take a sentence, presented as
+a string, and apply a parsing processes to convert the string into a 
+number of propositions.   
+
+Like the other data types, propositions have a number of
+salient properties. For example, it appears that humans can
+quickly determine
+if the elements of a propositional representation are related without
+immediately detecting what the relation is (e.g., priming effects). 
+There is also thematic judgements (if a subject knows facts about
+``John at the circus'',  they
+can easily judge that {\em John watched the acrobats} is consistent
+before they can decide if they had studied that fact).
+
+Matching of propositions is not just structure driven as it is
+for strings.  Matching is based more on the closeness of proposition
+meanings.  This is related to the organisation of memory (spreading 
+activation---see below)
+
+Propositions play an import role in memory. The are efficient in the 
+sense that they take up less space in working memory, but more
+importantly they reduce the burden on the pattern matcher.  This
+enables the system to
+manipulate (that is, think about) abstract structures without
+worrying about the detail.  Rules may be applied to abstract
+relations without specifying the values of the arguments (essential,
+it seems, for dynamic inferencers).
+
+\headpar{Spread of activation.} The ACT* model has declarative
+knowledge represented as nodes in a semantic network. Activation of
+these nodes varies continuously to reflect the presence/absence of
+knowledge from working memory. (In ACT*, working memory is the active
+portion of long term memory. This is not an all-or-none memory;
+information presence varies because the activation value of the
+information varies continuously.)  A spreading activation mechanism is
+used so that concepts related to those currently  active ``come to
+mind''.  A distributed connectionist implementation of memory (e.g.,
+\citeA{pdp:17}) to replace the localist ACT* version will be a goal of
+this project.  As
+\citeA{pdp:3} point out: ``It is hard to make a clear distinction
+between systems that use local representations plus spreading 
+activation and systems that use distributed representations'' 
+(page~85).  However, there are differences.  In particular there 
+are a number of advantages in using a distributed representation 
+(e.g., automatic generalisation, content addressable memory, etc.) 
+which are not natural to localist spreading activation devices. 
+The cost of distributed representation lies in the difficulty in 
+analysing the representations and in the problems of dealing with
+structured knowledge.
+
+\headpar{Rules.}  Rules need to be represented explicitly, but that
+does not necessarily imply that they must be represented as activation
+values (as they are in the model presented in section~\ref{bits}).
+Sooner or later rules are going to have to be represented as weights.
+There are a number of possibilities.  First, the rules could be
+trained, one-shot, into a memory system (perhaps using the algorithms
+of \citeA{willshaw} or \citeA{hopf82}).  As one-shot learning methods
+tend to corrupt memory, there is the additional possibility that a
+fine-tuning learning algorithm may be needed.  Further, the function
+of the rule memory could be quite complex (along the lines of cascaded
+backpropagation, \citeA{pollcasc}). The memory could also incorporate
+the matching process. This arrangement is sketched in
+figure~\ref{rulemem}.  Note that even though the rules are now stored
+in weights, they are still explicit: the rules are still going to be
+``operated on'' by a general control mechanism---the rules themselves
+do not do the controlling.
+
+\begin{figure}
+\centerfig{rulemem.ps}[50]
+\vspace{2.7 in}
+\caption{Hypothetical rule memory incorporating rule selection.  The
+working memory is applied to the rule base, which computes an
+appropriate rule.}
+\label{rulemem}
+\end{figure}
+
+\subsubsec{Matching}
+
+Matching is the control of cognition in production systems.  The
+structures that have been presented above can only be effective if
+they match against the conditions of rules.  The salient features
+of each data type specify, to some degree, how this match
+is to take place.  However, there are some more general issues in
+matching that are presented here.
+
+\headpar{Variable binding.}  DCPS solved this problem with a special
+set of units to constrain the values in the clause spaces.  A more
+general methods is needed, and pointer techniques suggest themselves
+as useful (e.g., using BoltzCONS pointers to indicate shared
+variables). It may also be possible to get away without using variable
+binding in some situations, as is suggested by \citeA{pollimpl},
+page~530.
+
+\headpar{From bits to structures.}  Related to the variable binding
+problem is the problem of representing patterns containing wildcards.
+It is a stepping-stone towards the move from matching bit-patterns
+(see section~\ref{bits}) to matching against structures.  Again, the
+salient properties of the data type constrain this process.
+
+\headpar{Conflict resolution.}  This is an integral part of the
+production system, and not something that should be added on
+to the system at the end.  As in ACT*, the conflict resolution
+strategies in this project should be implemented with the pattern
+matcher. ACT* has five
+conflict resolution strategies (pages~132--137).
+
+\begin{enumerate}
+\item Degree of match. Patterns do not have to match exactly to be
+selected. (The details of the world change, but we can still
+recognise them.)  Better matches are preferred.
+
+\item Production strength. Production have an activation value that
+is based on their frequency of application.  More active production
+have more chance of being matched.
+
+\item Data refractoriness. The same data cannot be in two patterns
+at the same time. This constrain is apparent from the Necker cube, where
+one data item cannot take on both possible meanings in the human
+visual system.
+
+\item Specificity. Productions with more specific conditions
+are preferred. For example, P2 has priority over P1:
+\begin{center}
+\begin{tabular}{rl}
+P1: & IF the goal is to generate the plural of a noun\\
+    & THEN say noun+s\medskip\\
+
+P2: & IF the goal is to generate the plural of {\em man}\\
+    & THEN say {\em men}
+\end{tabular}
+\end{center}
+
+\item Goal dominance. Productions must be specific to the current
+goal in order to fire.  This condition aids the rule chunking process
+(next section).
+\end{enumerate}
+
+\subsubsec{Learning}
+
+\headpar{Rule acquisition.} Like ACT*, this project suggests that
+rules are first acquired declarativly, and only later compiled.
+In the language to ACT* this involves procduralization and rule
+composition (often referred to as chunking).
+
+Rule chunking combines rules that fire sequentially into one
+rule.  \citeA{tourchun} has studied chunking in a connectionist
+network.  A network is trained to follow a series of re-write rules
+(using backpropagation, although \citeA{tourrule} has implemented
+the same system with competitive learning).
+Note that again the rules are implicit in the weights of the network.
+However, the domain Touretzky is investigating is phonological rules,
+for which implicit rules may be a more appropriate model.  Touretzky
+notes (page~7) that variable binding problems may not be present
+in this domain: ``In phonology it is not too expensive to expand
+a variable-containing rule into a set of variable-free rules,
+because variables can take on only a few values.''
+
+Touretzky's network has two sets of weights from the input buffer. The
+$\alpha$ weights control the re-writes applied to the buffer, and are
+initially teacher trained. The $\beta$ connections learn the chunked
+rules.  The output of the $\alpha$ connections are monitored by the
+$\beta$ connections until no more rules apply.  The $\beta$
+connections are then trained to produce the final output of the
+$\alpha$ connections given the initial input.  Over time the
+confidence of the $\beta$ weights increases to replace the $\alpha$
+weights.
+
+In Touretzky's model chunking is a continual process.  This seems
+to be a little simple-minded for more general rule following.  In
+ACT* rules are compiled only if they share the same goal
+structure (so unrelated rules are not chunked).
+
+Proceduralization is the act of simplifying composite rules, 
+by removing any intermediate computations. \citeA{hintmapp} has
+suggested a connectionist proceduralization process 
+(page~8, and 36/37). The idea is this: a rational
+inference could be used to train an intuitive
+inference.  That is, structures could be attached to perceptual input
+with the assumption that the outcome of a serial task is the desired
+outcome.  With time, these structures will come to recognise certain
+input configurations and produce the desired response faster than the
+serial mechanism.
+
+\headpar{Tuning.}  A further method of learning in ACT* is by 
+tuning conditions of production to be more general or more 
+specific.  This not only increases the speed of rule application, 
+but is important when encountering novel situations.  If a given 
+rule is missapplied, it may be necessary to 
+either restrict or generalise it conditions.  The problem is to 
+detect which rule needs to be changed.  External feedback is one 
+option, but ACT* also has an internal mechanism for detecting 
+erroneous rule application.  This can be done by identifying that a 
+goal has failed, or that a fact is contradictory or that there has 
+been ``some other failure to meet internal norms''
+(\citeA{andearch}, page~249).
+
+\subsubsec{Acting}
+
+ACT* produces behaviour by changing the contents of working
+memory.  This is the intended method of acting for this project.
+Adding and removing items from a structured memory will be more
+complex than the mechanism used in DCPS to changing working
+memory.
+
+It is common in production systems to allow rules
+to perform learning operations on other rules.  This may be
+appropriate for some kinds of learning, but the proceduralization
+method of Hinton (described above) does not seem to be a process
+of this kind.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\sec{Cognitive modelling}\label{model}
+
+By implementing the observations of \citeA{andearch} with connectionist
+components, it is hoped that this project will serve as a useful
+cognitive model.  One reason for this belief is that the salient
+properties of the representations described for ACT* will be a result
+of natural properties of connectionist representations.  A further
+assumption is that a connectionist system will be better equipped to
+manipulate those representations. Hence, it will be important to
+consider the match between the salient properties of  human and
+connectionist representations.
+
+The area suggested for modelling is children's errors in subtraction
+(after the research of \citeA{younerro}).  This problem is appropriate
+because the errors children make seem to be of a ``symbol shuffling''
+kind.  That is, the errors are considered as errors in applying an
+explicit algorithm. (Recall the conjecture of \citeA{hadlconn}, that
+children learn arithmetic procedure by being told explicit rules.)
+For example, one common error is the ``ZERO $-$ N $=$ N'' error.
+
+The project would begin by modelling the correct algorithm for
+subtraction (from \citeA{younerro}---it has been implemented in POP-11
+and is available in the ``subtract'' teach file).  Errors are then
+introduced by adding or removing rules. In addition to subtraction
+rules, there is a need for an arithmetic fact store of some kind,
+capable of doing ``simple'' subtractions (where the minuend is greater
+than the subtrahend). \citeA{mcclcogn} have empirical evidence to
+suggest that the operation mechanisms in arithmetic (i.e., plus,
+minus, divide, multiply) are separate from the calculation procedures
+(the rules to say when to mark a carry, move on to the next column,
+and so on).
+
+Proceduralization is expected for some subtraction situations (e.g.,
+just being able to ``perceive'' the answer to problems like 14$-$7).
+It is not clear whether this will be a product of a new rule or as an
+addition to the arithmetic fact store (if there is a difference).
+Also, rule composition is expected in cases like ``N$-$ZERO=N'', where
+the arithmetic fact store can be by-passed.
+
+It is not clear what the production system will do if it
+has no rule to apply to a situation.  If the system if forced to
+complete its task it may produce errors reminiscent of those
+predicted by the repair theory of \citeA{repair}.
+
+The model is not necessarily in competition with the Young and
+O'Shea production system, although that is a possibility.  It
+is suggested primarily as a demonstration of connectionist
+symbol processing in cognitive science.  Any advantages it has
+over the classical production system model will become
+apparent as the model matures.
+
+\sec{Goals}
+
+The broad goal of the project can now be stated: a
+connectionist investigation in ACT*-style rule following behaviour.
+This constitutes a connectionist implementation of ACT* in the
+sense that the project is a re-working of ACT* notions like ``salient
+property''.  It is not a re-implementation in the sense that
+the control mechanisms and representations will not be
+a connectionist rendering of classical AI primitives.
+
+The emphasis is on an understanding of rule-governed
+movement of structured representations.  The types of
+operations possible will depend on the salient properties of
+connectionist representations (to be compared with the
+same notion in ACT*).
+
+To establish a firm link with cognitive modelling, children's
+errors in subtraction has been proposed as an area to model. This
+forces attention onto a concrete domain, so that questions
+can be asked about specific issues (e.g., ``How can a rule
+like `N $-$ ZERO = N' be represented?'', or ``How do we control
+attention on columns?'').
+
+The outcome of this project will be a program which demonstrates how
+structured connectionist representations can be manipulated by
+connectionist rules.  This may be as a connectionist production system
+model of children's errors in subtraction, or, more likely, as a model
+of a small part of such a serial process.
+
+\sec{Research agenda}
+
+This is a tentative timetable for research.  Dates include time
+to program models and produce papers.
+
+\def\headpar#1{\medskip\noindent{\bf#1}}
+\def\dur#1{{\em#1}\medskip}
+
+\headpar{Immediate future.}
+\dur{Three months: October--December 1990.}
+
+\begin{figure}
+\centerfig{sps.ps}[50]
+\vspace{2.9 in}
+\caption{A simple connectionist production system architecture. In
+this example, the network has produced the output (0 0 1 0 0)
+as specified in the THEN field, because
+the input pattern (IF) matches the contents of working memory.}
+\label{sps}
+\end{figure}
+
+Research is to continue with an investigation of the simple production
+system shown in figure~\ref{sps}. The approach is to ask: what's wrong
+with this model? The network has been trained with backpropagation to
+follow the rule ``A $\rightarrow$ B''.  That is, if the input pattern
+(A) matches the working memory, then produce (B). Otherwise, the
+network outputs zero.  The network uses a one-of-five encoding for
+rules and data. The limitations of this network will be viewed with
+the issues described in section~\ref{issue} in mind.  For example,
+only one rule can be given to the network at a time. How can a
+rule-base be supplied?  The output of the network simply overwrites
+the contents of the working memory.  How should it change working
+memory? Should more complicated neurons be used (in the style of
+\citeA{tpps})? Is a feedforward net of this kind appropriate?
+How can the system move from matching bits to matching
+structures?\label{bits} There is plenty of work to be done here in
+incrementally improving the architecture. It must be emphasised that
+this architecture is not the first version of the ideas
+presented above.  It is simply a toy used to identify the problems
+that need attention.
+
+\headpar{Structured knowledge.}
+\dur{Three months: January--March 1991.}
+
+The aim of this period is to study the representation of structured
+knowledge, in particular the representation of ACT*'s strings. This
+problem is an anticipated run-off from the simple production system.
+Problems with structured knowledge include: pointer-following, atomic
+representations, manipulation.  The project
+should be viewed with a mind
+to using the representation's salient properties, whilst considering
+how structures can be matched.
+
+\headpar{General production system.}
+\dur{Three months: April--June 1991.}
+
+Can the structures developed in the previous period be used
+with a rule-following mechanism to produce a general
+production system?  To test this it will be necessary
+to consider the mechanisms of rule representation and application.
+It is conceivable that the research will not progress beyond
+this point.  That is, I have mentioned earlier that the issues
+surrounding structured representations may in fact prove to
+be more interesting that building a production system
+shell. Hence, the dates attached are notional.
+
+\headpar{Learning mechanisms.}
+\dur{Three months: July--September 1991.}
+
+Consideration of learning mechanisms for production system and
+representation structures. How can rules by compiled (chunked and
+proceduralized) in this architecture?  Hinton's suggestion that
+rational inference can train intuitive inference looks promising.
+
+\headpar{Psychological considerations.}
+\dur{Two months: October--November 1991.}
+
+The constraints imposed on ACT* to make it a cognitive model
+need to be used in this project.  However, it is unlikely that
+this development will be conducted during a isolated two
+month period.  Rather, it is more likely that the work will
+be done alongside the other stages (sharing out this
+allocated time).  It is given a separate entry here to
+emphasis its importance.
+
+\headpar{Cognitive Model.}
+\dur{Four months: December 1991--March 1992.}
+
+Implementation and analysis of cognitive model as described in
+section~\ref{model}.
+
+\headpar{Submission.}\dur{}
+
+Six months write-up time, April to September 1992.
+
+\headpar{Resources}\dur{}
+
+The networks I have implemented to-date have
+been in either NeuralWorks,
+POPLOG-Neural, C, or the \citeA{pdp3} package.  My preference is
+to use POPLOG-Neural because of the flexibility it allows (interfacing
+with POP-11).  If I need to use other network types I may be
+forced to either write the appropriate code for POPLOG-Neural or
+learn the microcode in NeuralWorks.  I can foresee no computational
+resource problems.
+
+Connectionist symbol processing is emerging as the hot-topic at
+the moment.  It shouldn't be long before whole conferences and
+workshops are dedicated to this area.  I should certainly aim
+to attend them.
+
+%%
+\pagethrow
+\ontoc{References}
+\bibliography{bib}
+\end{document}

@@ -1,0 +1,13 @@
+t   op  eye  err   closest     input
+----------------------------------------------------------
+1   SMU r3c1 2.400 ADD 0.7151  ___MUL_____________________
+2   PSH r3c1 2.293 RHT 0.7119  ___MUL_________NUM___lLFRHT
+3   JTR r1c1 2.138 UNI 0.7760  ___MUL_________NUM___lLFRHT
+4   MUL r1c1 2.239 UNI 0.7573  ___MUL_________NUM___lLFRHT
+5   JAS r7c1 2.263 JTR 0.7590  ___MULTEN______NUM___lLFRHT
+6   LFT r7c2 2.716 MKC 0.4847  ___MULTENSPC_________lLFRHT
+7   LFT r7c3 3.238 TEN 0.0004  ___MULTENSPC______uLF______
+8   TEN r7c3 2.669 RHT 0.2836  ___MULTENSPC_______________
+9   RHT r7c2 2.798 UNI 0.3124  ___MULTENSPC_______________
+10  UNI r7c2 3.186 DON 0.2417  ___MULTENSPC______uLF______
+11  DON r7c2 2.613 MUL 0.4798  ___MULTENSPC______uLF______

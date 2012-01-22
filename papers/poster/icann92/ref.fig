@@ -1,0 +1,37 @@
+#FIG 2.1
+80 2
+6 538 171 716 188
+4 0 1 18 0 -1 0 0.000 4 17 178 538 188 Journal of Experimental
+-6
+6 78 229 771 246
+4 0 0 18 0 -1 0 0.000 4 17 630 78 246 R. S. Siegler.  Strategy choice procedures and the development of multiplication skill. 
+4 0 1 18 0 -1 0 0.000 4 13 60 711 246 Journal 
+-6
+6 78 249 359 266
+6 78 249 359 266
+4 0 1 18 0 -1 0 0.000 4 17 281 78 266 of Experimental Psychology: General,
+-6
+-6
+6 76 195 585 212
+4 0 1 18 0 -1 0 0.000 4 17 346 76 212 Psychology: Learning, Memory and Cognition,
+4 0 0 18 0 -1 0 0.000 4 17 158 427 212 17(3):377-397, 1991.
+-6
+6 78 86 729 103
+4 0 0 18 0 -1 0 0.000 4 13 268 78 103 J. L. McClelland & D. E. Rumelhart 
+4 0 1 18 0 -1 0 0.000 4 17 376 353 103 Explorations in Parallel Distributed Processing: A 
+-6
+6 77 109 700 126
+4 0 1 18 0 -1 0 0.000 4 17 361 77 126 Handbook of Models, Programs, and Excercises.
+4 0 0 18 0 -1 0 0.000 4 17 248 452 126 MIT Press, Cambrdige MA, 1988.
+-6
+6 51 90 64 246
+4 0 0 18 0 -1 0 0.000 4 13 13 51 103 1.
+4 0 0 18 0 -1 0 0.000 4 13 13 51 164 2.
+4 0 0 18 0 -1 0 0.000 4 13 13 51 246 3.
+-6
+2 2 0 2 -1 0 0 0 0.000 0 0 0
+	 800 279 40 279 40 40 800 40 800 279 9999 9999
+4 0 18 26 0 -1 0 0.000 4 25 177 327 71 References
+4 0 0 18 0 -1 0 0.000 4 17 675 79 163 M. McCloskey, W. Harley & S. M. Sokol. Models of arithmetic fact retrieval: An evaluation
+4 0 0 18 0 -1 0 0.000 4 17 454 79 188 in light of findings from normal and brain-damaged subjects.
+4 0 0 18 0 -1 0 0.000 4 17 167 363 266 117(3):258-275, 1988.

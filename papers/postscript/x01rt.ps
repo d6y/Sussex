@@ -1,0 +1,219 @@
+%! output.ps
+%%BoundingBox: 0 0 490 520
+
+% 36.0 36.0 translate
+% 0.72 0.72 scale
+
+/ellipsedict 8 dict def
+ellipsedict /mtrx matrix put
+/positive_ellipse
+  { ellipsedict begin
+    /endangle exch def
+    /startangle exch def
+    /yrad exch def
+    /xrad exch def
+    /y exch def
+    /x exch def
+    /savematrix mtrx currentmatrix def
+    x y translate
+    xrad yrad scale
+    0 0 1 startangle endangle arc
+    savematrix setmatrix
+    end
+  } def
+/negative_ellipse
+  { ellipsedict begin
+    /endangle exch def
+    /startangle exch def
+    /yrad exch def
+    /xrad exch def
+    /y exch def
+    /x exch def
+    /savematrix mtrx currentmatrix def
+    x y translate
+    xrad yrad scale
+    0 0 1 startangle endangle arcn
+    savematrix setmatrix
+    end
+  } def
+/scaletextdict 8 dict def
+scaletextdict /mtrx matrix put
+/scale_text
+  { scaletextdict begin
+    /thesize exch def
+    /savematrix mtrx currentmatrix def
+    dup stringwidth pop thesize exch div 1 scale show
+    savematrix setmatrix
+    end
+  } def
+
+
+0.1 setlinewidth
+
+[] 0 setdash
+
+newpath 50 50 moveto 410 50 lineto stroke
+newpath 50 50 moveto 50 58 lineto stroke
+newpath 90 50 moveto 90 58 lineto stroke
+newpath 130 50 moveto 130 58 lineto stroke
+newpath 170 50 moveto 170 58 lineto stroke
+newpath 210 50 moveto 210 58 lineto stroke
+newpath 250 50 moveto 250 58 lineto stroke
+newpath 290 50 moveto 290 58 lineto stroke
+newpath 330 50 moveto 330 58 lineto stroke
+newpath 370 50 moveto 370 58 lineto stroke
+newpath 410 50 moveto 410 58 lineto stroke
+
+/Helvetica findfont 24 scalefont setfont
+47 28 moveto (0) 13 scale_text
+87 28 moveto (1) 13 scale_text
+127 28 moveto (2) 13 scale_text
+167 28 moveto (3) 13 scale_text
+207 28 moveto (4) 13 scale_text
+247 28 moveto (5) 13 scale_text
+287 28 moveto (6) 13 scale_text
+327 28 moveto (7) 13 scale_text
+367 28 moveto (8) 13 scale_text
+407 28 moveto (9) 13 scale_text
+newpath 50 50 moveto 50 54 lineto stroke
+newpath 90 50 moveto 90 54 lineto stroke
+newpath 130 50 moveto 130 54 lineto stroke
+newpath 170 50 moveto 170 54 lineto stroke
+newpath 210 50 moveto 210 54 lineto stroke
+newpath 250 50 moveto 250 54 lineto stroke
+newpath 290 50 moveto 290 54 lineto stroke
+newpath 330 50 moveto 330 54 lineto stroke
+newpath 370 50 moveto 370 54 lineto stroke
+newpath 410 50 moveto 410 54 lineto stroke
+407 14 moveto ( ) 6 scale_text
+newpath 50 50 moveto 50 450 lineto stroke
+newpath 50 88 moveto 58 88 lineto stroke
+newpath 50 165 moveto 58 165 lineto stroke
+newpath 50 242 moveto 58 242 lineto stroke
+newpath 50 319 moveto 58 319 lineto stroke
+newpath 50 396 moveto 58 396 lineto stroke
+6 85 moveto (150) 39 scale_text
+6 162 moveto (200) 39 scale_text
+6 239 moveto (250) 39 scale_text
+6 316 moveto (300) 39 scale_text
+6 393 moveto (350) 39 scale_text
+newpath 50 88 moveto 54 88 lineto stroke
+newpath 50 165 moveto 54 165 lineto stroke
+newpath 50 242 moveto 54 242 lineto stroke
+newpath 50 319 moveto 54 319 lineto stroke
+newpath 50 396 moveto 54 396 lineto stroke
+17 460 moveto (  ) 12 scale_text
+newpath 50 70 moveto 90 81 lineto stroke
+newpath 90 81 moveto 130 224 lineto stroke
+newpath 130 224 moveto 170 263 lineto stroke
+newpath 170 263 moveto 210 247 lineto stroke
+newpath 210 247 moveto 250 231 lineto stroke
+newpath 250 231 moveto 290 279 lineto stroke
+newpath 290 279 moveto 330 242 lineto stroke
+newpath 330 242 moveto 370 376 lineto stroke
+newpath 370 376 moveto 410 374 lineto stroke
+newpath 50.0 70.0 4.0 4.0 0.0 360.0 positive_ellipse fill
+newpath 90.0 81.0 4.0 4.0 0.0 360.0 positive_ellipse fill
+newpath 130.0 224.0 4.0 4.0 0.0 360.0 positive_ellipse fill
+newpath 170.0 263.0 4.0 4.0 0.0 360.0 positive_ellipse fill
+newpath 210.0 247.0 4.0 4.0 0.0 360.0 positive_ellipse fill
+newpath 250.0 231.0 4.0 4.0 0.0 360.0 positive_ellipse fill
+newpath 290.0 279.0 4.0 4.0 0.0 360.0 positive_ellipse fill
+newpath 330.0 242.0 4.0 4.0 0.0 360.0 positive_ellipse fill
+newpath 370.0 376.0 4.0 4.0 0.0 360.0 positive_ellipse fill
+newpath 410.0 374.0 4.0 4.0 0.0 360.0 positive_ellipse fill
+[3] 0 setdash
+
+newpath 50 181 moveto 90 159 lineto stroke
+newpath 90 159 moveto 130 268 lineto stroke
+newpath 130 268 moveto 170 272 lineto stroke
+newpath 170 272 moveto 210 315 lineto stroke
+newpath 210 315 moveto 250 267 lineto stroke
+newpath 250 267 moveto 290 354 lineto stroke
+newpath 290 354 moveto 330 355 lineto stroke
+newpath 330 355 moveto 370 378 lineto stroke
+newpath 370 378 moveto 410 408 lineto stroke
+[] 0 setdash
+
+newpath 50 221 moveto 90 428 lineto stroke
+newpath 90 428 moveto 130 369 lineto stroke
+newpath 130 369 moveto 170 349 lineto stroke
+newpath 170 349 moveto 210 385 lineto stroke
+newpath 210 385 moveto 250 346 lineto stroke
+newpath 250 346 moveto 290 363 lineto stroke
+newpath 290 363 moveto 330 382 lineto stroke
+newpath 330 382 moveto 370 401 lineto stroke
+newpath 370 401 moveto 410 360 lineto stroke
+newpath 50 221 moveto 54 217 lineto stroke
+newpath 50 221 moveto 54 225 lineto stroke
+newpath 86 432 moveto 94 424 lineto stroke
+newpath 86 424 moveto 94 432 lineto stroke
+newpath 126 373 moveto 134 365 lineto stroke
+newpath 126 365 moveto 134 373 lineto stroke
+newpath 166 353 moveto 174 345 lineto stroke
+newpath 166 345 moveto 174 353 lineto stroke
+newpath 206 389 moveto 214 381 lineto stroke
+newpath 206 381 moveto 214 389 lineto stroke
+newpath 246 350 moveto 254 342 lineto stroke
+newpath 246 342 moveto 254 350 lineto stroke
+newpath 286 367 moveto 294 359 lineto stroke
+newpath 286 359 moveto 294 367 lineto stroke
+newpath 326 386 moveto 334 378 lineto stroke
+newpath 326 378 moveto 334 386 lineto stroke
+newpath 366 405 moveto 374 397 lineto stroke
+newpath 366 397 moveto 374 405 lineto stroke
+newpath 406 364 moveto 414 356 lineto stroke
+newpath 406 356 moveto 414 364 lineto stroke
+newpath 50 158 moveto 90 359 lineto stroke
+newpath 90 359 moveto 130 351 lineto stroke
+newpath 130 351 moveto 170 327 lineto stroke
+newpath 170 327 moveto 210 356 lineto stroke
+newpath 210 356 moveto 250 325 lineto stroke
+newpath 250 325 moveto 290 332 lineto stroke
+newpath 290 332 moveto 330 360 lineto stroke
+newpath 330 360 moveto 370 365 lineto stroke
+newpath 370 365 moveto 410 325 lineto stroke
+newpath 410 58 moveto 410 442 lineto stroke
+newpath 410 127 moveto 402 127 lineto stroke
+418 122 moveto (568) 39 scale_text
+newpath 410 170 moveto 402 170 lineto stroke
+418 165 moveto (603) 39 scale_text
+newpath 410 213 moveto 402 213 lineto stroke
+418 208 moveto (638) 39 scale_text
+newpath 410 256 moveto 402 256 lineto stroke
+418 252 moveto (673) 39 scale_text
+newpath 410 299 moveto 402 299 lineto stroke
+418 295 moveto (708) 39 scale_text
+newpath 410 342 moveto 402 342 lineto stroke
+418 338 moveto (743) 39 scale_text
+newpath 410 385 moveto 402 385 lineto stroke
+418 381 moveto (778) 39 scale_text
+newpath 410 428 moveto 402 428 lineto stroke
+418 424 moveto (813) 39 scale_text
+10 472 moveto (RT (msec)) 112 scale_text
+10 450 moveto (Miller et al.) 119 scale_text
+410 450 moveto (Harley) 72 scale_text
+270 165 moveto (Skewed) 86 scale_text
+270 141 moveto (Equalized) 108 scale_text
+270 116 moveto (Harley) 72 scale_text
+270 92 moveto (Miller et al.) 119 scale_text
+newpath 222 172 moveto 262 172 lineto stroke
+newpath 218 176 moveto 226 168 lineto stroke
+newpath 218 168 moveto 226 176 lineto stroke
+newpath 238 176 moveto 246 168 lineto stroke
+newpath 238 168 moveto 246 176 lineto stroke
+newpath 258 176 moveto 266 168 lineto stroke
+newpath 258 168 moveto 266 176 lineto stroke
+newpath 222 147 moveto 262 147 lineto stroke
+[3] 0 setdash
+
+newpath 222 122 moveto 262 122 lineto stroke
+[] 0 setdash
+
+newpath 222 98 moveto 262 98 lineto stroke
+newpath 222.0 98.0 4.0 4.0 0.0 360.0 positive_ellipse fill
+newpath 242.0 98.0 4.0 4.0 0.0 360.0 positive_ellipse fill
+newpath 262.0 98.0 4.0 4.0 0.0 360.0 positive_ellipse fill
+210 7 moveto (Table) 62 scale_text
+
+showpage

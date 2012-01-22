@@ -1,0 +1,458 @@
+VanLehn's Wager: A Connectionist Account of Children's Arithmetic
+
+Richard Dallaway
+
+School of Cognitive & Computing Sciences
+University of Sussex at Brighton
+
+ABSTRACT
+
+When children solve multicolumn arithmetic problems, such as 23x12, they
+make many kinds of mistakes.  Of particular interest are the mistakes that
+arise from the systematic application of a faulty procedure.  These "bugs"
+have previously been modelled with production systems. Building a
+connectionist account (i) is an engineering task; and (ii) changes the
+style of the model from rule impasse/repair driven, to a similarity-based,
+"dynamic trajectory" style of explanation (i.e., you don't follow rules to
+solve arithmetic problems, you traverse states). Despite being
+superficially very different, the PDP and the production system model have
+many similarities.
+
+--------------------------------------------------------------------------
+
+I'm going to have to spend a little bit of time telling you all how
+wonderful production systems are.  The kinds of behaviour I'm interested in
+-- arithmetic -- has been modelled by production systems (by which I simply
+mean the various systems that use condition-actions patterns to change a
+working ememory).  I really like these PS accounts of arithmetic, BUT I
+don't really understand what PSs are.  What does it mean to say that you
+can model an individual by a set of productions?  Which bits of the PS are
+literal, and which are "implementational detail"?  Do we strictly follow
+these rules, or would a more fluid, flexible model be more appropriate?
+
+This all stems from something Zennon Pylisyn once wrote: he said something
+like, the operations used in a PS were chosen for reasons of economy given
+the computers they run on.  The operations of the mind, however, are to be
+discovered empirically.
+
+I've no doubt that we do PS-style things, but which ones?
+
+--------------------------------------------------------------------------
+                                                            [ERRORS SLIDE]
+
+
+Most PSs are applied to subtraction.  I'm looking at multiplication and
+addition.  Here are some of the mistakes children make when solving
+multiplication problems.  These errors were found in a trawl of the
+literature.  In the first, the child has managed to multiply the digits but
+used the addition pattern to do so.  In the next, the subject has
+multiplied by 8, but then quit.  Here, the child has just repeated a
+multiplication.  Finally, the first multiplication, 1x4 was correct. Then
+the 2 was multiplied by the top 4 to get 8.  You wouldn't guess the pattern
+behind the errors from single examples -- these errors were classified only
+after the pattern had emerged from looking at many errors.  The process of
+classifying a mistake as being an example of a particular kind of bug is
+subjective.  However, I'm not particually interested in that aspect of it
+all; all we have to note here is that children produce mistakes, and they
+are systematic.
+
+--------------------------------------------------------------------------
+                                                                [PS SLIDE]
+
+
+In the early 80s, Richard Young and Tim O'Shea built a PS to capture bugs
+in subtraction.  Rather than talk about that one, I'll describe this PS for
+multiplication.  This was built by Shar, and MSc student here last year.
+There are lots of differences between this an the Y&O model, but it'll do
+us.
+
+Normal-ish PS, start with various goals, [processmult], which calls this
+procedure readintandb.  That looks at the problem and deposits the digits
+into working memory.  This in turn fires the do_calc routine which places
+this kind of a structure in WM.  Next top is called, to process the next
+digit, and so on, until shift_top_left deposits [no_more_top] into the WM,
+and then the machine goes off and processes the other multiplicands.
+
+Throughout this process various kinds of structures get deposited in WM.
+Here's an example. [WORK EXAMPLE -- remember that the top and bot digit
+counters refer to positions in the list!]
+
+To account for the errors, you can just tweek the production set in various
+ways.  For example, you can delete the AZ rule, and no leading zeros would
+be inserted.  Or edit the conditions or actions in various ways, perhaps
+removing [startadd] from NB.
+
+And that's more or less what Y&O did (but for subtraction), and it worked
+pretty well.  One thing that it didn't account for the where the rules came
+from in the first place.
+
+They also didn't account for "bug migration". This is the phenomena that
+children do not really produce the same bug on every test.  Rather, a
+child's bugs can change over very short intervals -- during a single test.
+
+--------------------------------------------------------------------------
+                                                            [REPAIR SLIDE]
+
+Repair theory, and it's more recent variation Sierra theory, overcome these
+problems, by including the notion of impasses and repairs in the theory.
+
+Again there are faulty core produces, just like in the Y&O account.
+However, these faulty rules are now said to lead to impasses, where a
+rule cannot fire for some reason.
+
+VanLehn suggests that there are three kinds of impasses:
+    decision -
+    reference - something beign referred to is not uniquely specified
+    primitive - a primitive action cannot be carried out
+
+For each of these possible impasses, any of these three repairs could be
+applied:
+    barge on - relax the specification
+    no op    - skip the step
+    backup   - go back and try something else
+
+Children use these different repairs, and VanLehn says the pattern isn't
+random, but he doesn't know how we select a particular repair.
+
+The actual patterns and rules are learned in this system (Sierra) by a
+symbolic induction engine.
+
+--------------------------------------------------------------------------
+                                                     [ALWAYS-BORROWS-LEFT]
+
+Give example. Describe bug, indicate that it makes sense in the context of
+two column problems.  Describe the rule.  SHow how it can be relaxed in two
+ways. Note why it comes about.
+Describe the inductive learner -- (p0,L1) -> P1 etc "snapshots"
+
+
+--------------------------------------------------------------------------
+                                                                 [WHY PDP]
+
+
+This seems to be a success story -- there's more work to be done, but
+plenty has already been sorted out.  It all sounds reasonable, and it even
+fits a lot of data on subtraction.  And VanLehn insists it'll apply to
+other domains (not just arithmetic).  So why bother with a PDP account?
+
+1. Because of the reasons given at the start of the talk about production
+systems in general.
+
+2. Because of this quote from VanLehn.  (Read). No connectionist can resist
+that kind of a challange! But..He's actually quite right. PSs do seem much
+more plausible.  BUT...the two sentences are not independent.  The reason
+PSs seem more plausible is because no-one's really thought much about the
+problem from a PDP point of view.
+
+3. More importantly is the analogy behind Sierra theory - from computers
+that something happens which activates a back-up process to repair the
+problem.  (READ QUOTE).  Neural nets also do not just halt...if you give
+them input, no matter how silly that input is, you still get output.
+If you do something stupid while solving a multiplication problem, the
+network will just carry on processing; it won't even register an "impasse"
+as such (of which more later).
+
+The question is: will this kind of processing -- similarity based -- be
+useful for modelling behaviour like arithemtic?
+
+--------------------------------------------------------------------------
+                                                            [WHAT WE KNOW]
+
+Here are some of the things you need to think abour if you're going to
+build a model.  Whoe bunch of iterrelated points.
+
+UNDERSTANDING
+    - you'd expect justifications
+    - repair correctly
+    - syntactic rule following
+    - actually have quite a lot of number knowledge
+
+TIME
+    - don't just perceive answers
+
+LENGTH
+    - cannot build a net with fixed inputs
+
+EYES
+    - Pat Suppes. Your eyes follow the algorithm you're taught at school
+    - no surprise there
+    - totally different from reading
+    - Transition network with registers
+
+MARK
+    - question of grain size
+    - clearly some actions we take do not involve marking the page
+    - need a memory
+
+EXAMPLES
+    - Skewed cirriculum (as in left-most example)
+    - textbooks and lessions are the same (snapshots of problems)
+
+BUGS AND SLIPS
+    - to different things
+
+TESTING
+    - VanLehn says that that bugs shown themselves when you are working
+    on slightly harder problems (again, left-most example).
+
+Of course there are hundreds of things we don't know about arithmetic, but
+these three, broad, problems stand out.
+
+READ
+    - eyes move, but what is read?
+    - that is, more than one digit, but what's important?
+
+DONE
+    - modelling details again.
+    - operations do we perform
+    - virtual machine
+
+NAVIGATION
+    - how do we move around the problem?
+    - scanning?
+    - pointers/counters (everyone uses them)?
+
+--------------------------------------------------------------------------
+                                                            [REAL SYMBOLS]
+
+Usually have to slip this slide.
+
+Rumelhart et al asked how a PDP system could solve long extended sequential
+problems.  Used multiplication as an example.
+
+Turn the problem into repreated associations.  Vauge set of suggestions.
+BUT..we'll take the basic idea.
+
+--------------------------------------------------------------------------
+                                                      [FOCUS OF ATTENTION]
+
+
+Details of the input to the network.  There is the notion of a focus of
+attention (dotted circle), and the properties of that point in the problem
+are described with 9 bits.  I actually use a lot of machinery outside the
+network, to simplify the task as much as possible.
+
+- Task, when facing a page of, say four numbers, you need to know if you're
+to add or multiply.
+
+- Carry needed.  An external accumulator is used to build up results.
+
+- Blank, line, digit.  The only things that matter.  These determin your
+behaviour (it doesn't matter what the digit is...we're not going to look at
+slips).  Calculation is done externally.
+
+- Right most, lower registers.  It's important to know when you're in these
+position, so you know when to stop.
+
+On the page, four points are special: top, bottom and answer positions (for
+multiplication).  Also, the position on the focus of attention.  The output
+of the network moves the focus around, and directs associated actions.
+
+Note, could use less pointers, and scan the problem, but this creates
+longer sequences. And everybody uses counters.
+
+--------------------------------------------------------------------------
+                                                              [OPERATIONS]
+
+Describe the operations.
+
+--------------------------------------------------------------------------
+                                                             [ARCHITECTURE]
+
+Explain the net.
+    inputs - 9 bit predicate describing the problem
+    outputs - one of N for each of the 24 operations
+    hidden (35 hidden units)
+
+External accumulator, accessable as tens and units.
+
+Run through example training sequence.
+
+--------------------------------------------------------------------------
+                                                                     [BPTT]
+
+BPTT - never time to explain this.  Just mention that we use it because it
+works.
+
+--------------------------------------------------------------------------
+                                                                [TRAINING]
+
+
+Look through maths textbook you see that problems are introduces in stages.
+E.g., transp.
+
+--------------------------------------------------------------------------
+                                                                  [ERRORS]
+
+Train the net, and after learning a given problem, test the network on
+harder problems.  Examples.
+
+12x15=60 example, quit too soon.
+12x50=50 example, 0x2=0, 1x0=0, jump into addition 0+5=5.
+
+59x12 = correct partial product, but gets the addition wrong (forgets
+carry).  Yet can add correctly when ot part of an addition.
+
+However, too many star bugs.
+
+--------------------------------------------------------------------------
+                                                [PROCESSSING TRAJECTORIES]
+
+
+To understand what is happening here, it's best to look at the hidden unit
+activations of the network.  As the network solves a problem, the hidden
+units are activated, and if you plot these activations you strike out a
+trajectory in hidden unit space. 3d graph is for problems 12x5 11x1.
+
+EXPLAIN ABOUT PCA HERE
+
+This is just one way to look at what the network is doing -- you can also
+look at it in terms of FSMs, and there are algorithms for extracting FSMs
+from networks.  However, I think this is the most interesting way to
+understand what's going on.
+
+No using this way of looking at the system, we'll see that although the
+model is wrong in detail (i.e., produces too many unrealistic bugs), it is
+at least doing the right kinds of things.
+
+For example, you can see operations deletetion...etc.
+
+
+--------------------------------------------------------------------------
+                                                  [ACTIVATION INTO ACTION]
+
+
+(Briefly on the problem of turning activation into action)
+
+For any step in the problem, the output units will be active to varying
+degrees.  One problem is deciding which output unit should actually be
+used.  The obvious solution I used was to select the most active unit.
+However, there are lots of variations you can use.  For example, you might
+want to ignore all the outputs if they're all below some threshold.  This
+is relevant in my case because the outputs were trained to be 0.1 or 0.9,
+not 1 or zero.
+
+In this 12x56 case, this is the result you get with a threshold set less
+than 0.3.  At 0.3, the net quits after the first multiplication -- which is
+a multiplication bug described in the literature.  This bug here, isn't
+described in the literature.
+
+Anyway, that aside, we'll use this unlikely bug as an example of the
+kinds of problem solving you see with these networks.
+
+The actual behaviour of this bug is as follows:
+    1.  correct up to 1x6.
+    2.  writes units twice -- should have Inc answer column
+    3.  Next Jumps top row, pushes, JTR, multiplies
+    4.  JAS...but there is a number here, so...
+    5.  ..ADDS, goes down and Writes units.
+    6.  Inc answer, Inc top, Jtr
+    7.  Mult, down, Add JAS
+    8.  Read carry, adds JAS writes units DONE
+
+
+"Displaced trajectories"
+
+    Should have stuck to this inner loop here.
+
+
+--------------------------------------------------------------------------
+                                                  [ERRORS DURING LEARNING]
+
+Assuming that learning is a continuous process, then we can see how the
+network changes it's behaviour for a particular problem over time.
+
+SO we assume that impasse-repair processes isn't an add-on feature of the
+system, but an inherent part of the architecture.  Nb without learning
+you'd get the same bug everytime. One of the important, unanswered
+questions is "when does learning happen?"
+
+So we record the network as it learns, every 1500 epochs in this case.
+
+This little graph here is supposed to showe how the network switches
+between errors, and how long each error persisted for.
+
+As an example, we'll look at the network learning this problem, 111x1.
+We'll look in at the point where it's got the first multiplication correct.
+This list here, sorry about the pseudo machine code, shows what the outputs
+should have been.  This is what this particular network actually did.
+
+First it skipped a step - IAC - so everything is displaced. It then
+substituted a step DWN for JAS.  These operations play a similar role, in
+addition DOWN is primarily the operation used to move around the problem,
+and to get to the answer space. For multiplcation, JUMPS are mostly used,
+JAS to take you to the answer.
+
+--------------------------------------------------------------------------
+                                    [Insert trans 16a - 2d trajectory graph]
+
+Things went wrong at step 14...it did ITC and should have done IAC. It
+should have followed this inner loop rather than the outer one.
+
+You'll see why DWN was substituted for JAS on the video.
+
+--------------------------------------------------------------------------
+                                                                [TRANS 17]
+
+Latter in processing the following behaviours were recorded.
+
+
+--------------------------------------------------------------------------
+                                                                [TRANS 18]
+
+--------------------------------------------------------------------------
+                                                                [DEV TRAJ]
+
+Read trans
+
+We can see this learning happening....
+
+
+--------------------------------------------------------------------------
+                                                           --VIDEO NOTES--
+
+recorded hidden unit activations every 156 000 patterns, for a selection of
+addition and multiplciation problems.  Computed PCs, and projected to the
+last PC space.
+
+Looking at a net which has started to learn 101+899 and ends with it
+learning 11x11 (has learned 1x11).  That's the time interval from a net
+that has seen 3 118 700 patterns to 15 437 565 patterns. (The sequences
+vary in length from 9 to 120).
+
+(15437565-3118700)/200.0=> 61594.3
+
+79 frames in all.
+
+--------------------------------------------------------------------------
+                                                              [CONCLUSIONS]
+
+Although the details are wrong, the model shows some interesting behaviour.
+ Some of these behaviours are the kinds of things you see when you go
+delete rules from PSs.  Vacuous statement, but the point of all this is to
+show VanLehn that there is an althernative to thinking in term of Pss for a
+complex "symbolic" domain like arithmetic.
+
+
+Clearly not an implementation of a Ps -- missing all the general
+behvaiours.  Although it could be thought of as an implementation of a
+particular production system.  Not the shell, though.
+
+If you're goinig to take this seriously, the centeral point seems to be the
+psychological importance of impasses, and the question of where learning
+occurs.  VanLehn thinks that impasses are very real events (you see them in
+protocols), but and hints that impasses is where learning is at, but
+doesn't have much to say on the subject. (Unlike SOAR which uses impasses
+for chunking, but the impasses are micro-impasses compared to the ones
+we've looked at).
+
+Note: Bringing impasses back in via error score...which is correlated to RT
+measure.  Take as confidence measure. etc etc hand wave hand wave.
+
+How does this effect models of arithmetc.
+    1. assume that this stuff is the arcitecture of the PS
+    2. say it's all PDP, and to get the rules out ou need RRH.
+
+Demonstrator of the concept of a PDP model of arithmetic.
+
+--------------------------------------------------------------------------

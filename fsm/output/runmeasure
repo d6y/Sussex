@@ -1,0 +1,8 @@
+#!/bin/csh
+set base = $1
+colex $base.log $base.clx 2
+loglines < $base.clx > $base.ll
+set nlines = `wc -l $base.ll`
+paste seqnums $base.ll | head -$nlines[1] > $base.pc
+echo "See $base.pc"
+rm -f $base.ll $base.clx

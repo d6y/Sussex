@@ -1,0 +1,268 @@
+\documentstyle[11pt,richardd,shadow,ps-macros,a4]{article}
+
+\begin{document}
+\bibliographystyle{theapa}
+\author{Richard Dallaway}
+\date{\today}
+\title{A Connectionist Account of Arithmetic Skills\\Year Two
+Progress Report}
+\maketitle
+
+
+\sec{Review}
+
+Work this year has focussing
+on connectionist models of human arithmetic
+skills.
+Figure~\ref{train} is a bird's-eye view of work since last November.
+Initially the focus was on how connectionism could be useful in modelling
+sequential tasks, and in particular those tasks suited to production system
+accounts \cite{iot90}.  Various types of recurrent networks were
+implemented, and multicolumn arithmetic was selected as a specific domain
+to study \cite{iot91}.  The first network considered for this task included
+a subnetwork that computed answers to single-digit problems. On closer
+examination it was found that the subnetwork captured some of the
+properties of adults memory for arithmetic facts. This resulted in the
+attached paper which describes a model of adult memory for multiplication
+facts (submitted to Annual Meeting of the Cognitive Science Society; a
+version of the paper has been accepted for ICANN'92).
+
+The rest of this document outlines work remaining to be done on the
+original problem of modelling multicolumn arithmetic.
+
+\begin{fancyfigure}
+\centerfig{../postscript/train.ps}[50]\vspace{8cm}
+\caption{The top left-hand corner to the bottom right represents the
+focus of attention over the last year.}
+\label{train}
+\end{fancyfigure}
+
+\sec{Multicolumn arithmetic}
+
+There is a growing body of research applying connectionism to
+problems in developmental
+psychology \cite{bateconn,elmaincr,balance,shulcasc,shulsimu}. Indeed, some
+authors assert that ``\ldots PDP models provide a superior account of
+developmental phenomena than that offered by cognitivist (symbolic)
+computational theories'' \cite[p.~1]{plunconn}.  It is therefore natural
+that connectionism should develop an account of learning multicolumn
+arithmetic---a domain dominated by symbolic models.
+
+Modelling arithmetic is also an  engineering challenge: a
+long multiplication problem requires many steps, including subprocedures
+for long addition, and it's not obvious how to best train such a network.
+Kurt VanLehn, an influential figure in models of long arithmetic, notes
+that ``\ldots is not easy to see how a connection system could possibly
+generate the kind of extended, sequential problem-solving behaviour that
+characterizes students solving subtraction problems''
+\citeyear[p.~69]{mindbugs}.
+VanLehn believes a production system account to be
+more plausible.
+
+Two examples of the kinds of phenomena being studied are shown in
+figure~\ref{multeg}.  Before acquiring proficiency in long multiplication,
+children display a variety of systematic errors. How and why these ``bugs''
+develop has been the focus of almost fifteen years of research.
+
+VanLehn's theory of learning arithmetic is the most detailed account of
+learning arithmetic to date.  He focuses on long subtraction, but asserts
+that the principles should apply not only across the other three arithmetic
+procedures, but also to other domains.  Three elements of his account stand
+out:
+
+\begin{enumerate}
+\item Children's mistakes are syntactic changes to rules.
+\item Such changes are due to the skew in the curricula.
+\item Learning is from examples (not verbal recipes).
+\end{enumerate}
+
+The first item is construed as a challenge to connectionism.  When children
+make mistakes in arithmetic it appears that the mistakes result from
+following a faulty rule.  Such mistakes are usually referred to as bugs.
+The term ``bug'' means different things to different people, and has been
+used inconsistently in the arithmetic literature \cite{hennwhy}. In
+computer science a bug is the {\em cause} of some deviant behaviour.
+However, the ``bugs'' in figure~\ref{multeg} are surface errors and are
+only suggestive of the underlying cause.  I shall adopt the computer
+science usage of ``bug.''
+
+Unlike the connectionist tradition of training on a wide sample of
+problems, arithmetic is taught in hierarchically structured lessons
+\cite{resnpsyc}. Children learn how to do one column addition; two column;
+two column with carry; columns with blanks; and so on before the
+long multiplication sequence is introduced in a similar way.  It's
+interesting to note that certain sequential connectionist systems benefit
+from incremental training \cite{elmaincr}.
+
+The first and third points are behind the assumption that students do not
+understand the operations they are performing: they are symbol-pushing
+\cite[pp.~38--40]{mindbugs}.  There is now work considering the role of the
+semantics of arithmetic \cite{hennwhy,paynalge,ohlsfunc} but the consensus
+is that children exhibiting the kinds of behaviour in figure~\ref{multeg}
+are blindly following procedures.  This should come as no surprise given
+the way arithmetic is taught. \citeA[p.~82]{vanlfeli} points out that
+arithmetic texts are nothing like cookbooks or other kinds of manuals: they
+consist mostly of worked examples and exercises. It seems that children
+learn arithmetic algorithms by example.
+
+These three points come together to form the core explanation of buggy
+arithmetic.  Children, the story goes, learn by inducing the rules of
+arithmetic from examples.  The examples they see are only a particular
+subset suitable for learning a subskill.  Depending on the skew they will
+construct over-general or over-specific rules which will be exposed in new
+situations (the next lesson).
+
+The question of interest becomes: what happens when the system (production
+system, human or network) encounters a new situation?  In VanLehn's
+account, when no rules can be fired, an {\em impasse} is said to have
+occurred, and to get past it a {\em repair} must be made to the procedure.
+Depending on the cause of the impasse the system may try one of three
+things: skip the operation, try an alternative operation or relax the rule
+and apply it.  What can we expect of a connectionist model?
+
+\begin{fancyfigure}
+\centerfig{../postscript/multeg.ps}[70]\vspace{1.5cm}
+\caption{Two multiplication errors.  In (a) the multiplication is carried
+out as if it were an addition problem ($\x24=8$, $\x23=6$).  The student
+exhibiting (b) only completed the first part of the multiplication
+($\x13=3$, $\x12=2$). From \protect\citeA[p.~15]{shar}. }
+\label{multeg}
+\end{fancyfigure}
+
+\sec{Proposal}
+
+Most of the work on multicolumn arithmetic has been on long subtraction.
+There are few bug catalogues for addition or multiplication. An
+unpublished undergraduate project by \citeA{shar} found twenty-six types
+of error in multiplication.  \citeA{nicodesi} suggested nineteen but listed
+only the eight most frequent mistakes (and noted that multiplication
+and addition were the least bug-prone operations).  Despite the
+comparatively poor empirical data,  addition and multiplication make an
+interesting study because the one algorithm is nested inside the other. The
+lack of empirical data is not such a serious problem as it may first
+appear.  The proposal is not to try and rival the empirical adequacy of a
+large model like VanLehn's {\em Sierra}.  Rather, the idea is to offer an
+alternative framework for the phenomena.
+
+\subsec{Finite state machines}
+
+We can view the problem of learning arithmetic algorithms as
+learning to be a finite state machine (FSM).
+\citeA{suppproc} supply a listing of a register machine for long addition.
+Figure~\ref{addtrans} shows their machine rendered as a state transition
+diagram (\citeA{mindbugs}
+also found it useful to described long subtraction
+in terms of transition networks). The \citeA{suppproc} study showed that
+subjects do tend to follow the normative algorithms taught in schools.
+
+\begin{fancyfigure}
+\centerfig{ ../postscript/addtrans.ps }[50]\vspace{2.1in}
+\caption{Transition network for long addition (based on routines in
+\protect\citeA{suppproc}).  Digits in the problem are represented in a
+coordinate system (row,column), relative to a top-right origin (1,1).
+A movement is denoted ($\pm$ row,$\pm$ column).
+Attending to a digit implies reading the
+digit. It is assumed that there are a number of registers in the
+system (to accumulating answers) which can be accessed by their right-most
+digits.  Subprocedures are used for
+vertically scanning a column and for outputting
+a number right-first.}
+\label{addtrans}
+\end{fancyfigure}
+
+There are plenty of connectionist models that can learn to be FSMs
+\cite{pdp:8,elmafind,servenco,cottlear,clues,willexpe,rcascor}. I
+choose to use backpropagation through time (BPTT), as proposed by
+\citeA[pp.~354--361]{pdp:8}.  BPTT involves stacking-up a copy of a
+feedforward network for each step in a sequence, and then ``rewinding'' at
+the end, backpropagation error to the very first pattern in the sequence.
+Although it seems to be an unpopular algorithm, it has distinct advantages
+over other candidates: it can learn things that simple recurrent networks
+find difficult \cite{maskforc}; it shows better performance (generalization
+and learning success) that real-time recurrent learning \cite{zipssubg};
+and backpropagation is better understood than more recent constructive
+algorithms, such as cascade correlation.
+
+\subsec{Problem representation}
+
+Few people do long multiplication ``in the head'', preferring instead to
+use an external representation on paper.  Figure~\ref{probrep} shows a
+general frame for representing long multiplication.  To solve a problem
+represented in this way three types of primitive operations need to be
+supplied:
+
+\begin{itemize}
+\item Attention: Attending to particular areas of the problem to
+read digits. A kind of finger following the problem.
+\item Computation: It is assumed that simple arithmetic facts are recalled
+(cf. attached paper).  In addition, other predicates are computed (such as
+left-most-column, zero?, less-than) which will form the bases for
+over-generalization.  These facts are presented as input to the FSM.
+\item Action: Writing digits and placing marks; moving the focus of
+attention (e.g., next-column, mark-carry, write-digit, and so on).
+\end{itemize}
+
+\begin{fancyfigure}
+\centerfig{ ../postscript/probrep.ps }[50]\vspace{1.8in}
+\caption{Representation of a problem on paper.  Note that a
+multiplication problem containing at most a row of $n$
+digits will result in $n$ rows of additions.  The number of columns in a
+problem and answer may vary.}
+\label{probrep}
+\end{fancyfigure}
+
+The resulting architecture is shown in figure~\ref{longxnet}.  It consists
+of two networks: one computing answers to addition or multiplication
+problems; the other learning to be a FSM for long addition
+and long multiplication.
+
+\begin{fancyfigure}
+\centerfig{ ../postscript/longxnet.ps }[75]\vspace{2.6in}
+\caption{A network for long arithmetic.  External
+input from the column currently in focus, plus computed predicates, define
+the input layer.  The output layer consists of actions nodes which effect
+the paper.  The network can be trained with BPTT but runs as a simple
+recurrent network, copying the hidden layer into a section of the input
+layer.}
+\label{longxnet}
+\end{fancyfigure}
+
+\subsec{Running and learning}
+
+Learning an algorithm for long multiplication involves learning procedures
+made up of the primitives mentioned in the previous section.  The network
+will be trained incrementally in ``lessons'', and tested after each lesson
+on both problems taught and problems that are slightly more difficult.
+\citeA[p.~28]{mindbugs} claims that ``\ldots many bugs are caused by
+testing beyond training\ldots''.  It is because the system is learning and
+being tested that a network's bug set will change, as is observed in humans
+\cite{nicodesi}.
+
+Hence, we can expect that the network will learn behaviour that is either
+too specific or too general.  These are the ``bugs'' in the system.  Such
+bugs will show themselves in the testing stage, as VanLehn supposes.
+
+One of the strongest criticisms against current models of bug acquisition
+is that they are ``snap-shot'' models \cite{hennwhy}, which do not specify
+how rules are changed during learning.  A conectionist model would be
+expected to change gradually as it learns.
+
+\sec{Agenda}
+
+The following needs to be done:
+
+\begin{enumerate}
+\item Determine exactly which primitive operations are required.
+\item Develop an appropriate ``curriculum'' for the network to follow.
+\item Perform the training and testing experiments.
+\item Write the thesis.
+\end{enumerate}
+
+For this to be done in six months (to the end of September) means
+allocating two months to the first three items and four months for the
+write up.  In essence the thesis will contain a connectionist model of
+arithmetic memory (work done) and the proposed model of arithmetic
+procedures.
+
+\bibliography{bib}
+\end{document}

@@ -1,0 +1,188 @@
+
+Experimental - let me know what you think of it, especially if you can
+think of a better way to get these characters from the keyboard.
+
+
+HELP VEDLATIN1KEYS                                  Richard Dallaway
+                                                    January 1993
+
+  POP-11 procedures and VED interface for producing Latin-1 characters.
+
+         CONTENTS - (Use <ENTER> g to access required sections)
+
+ -- Introduction
+ -- Long sequences
+ -- Shorter sequences
+ -- Printing
+ -- Producing Latin-1 characters in programs
+ -- Creating your own key sequences
+ -- Customization
+ -- KNOWN BUGS
+ -- RELATED DOCUMENTATION
+
+-- Introduction -------------------------------------------------------
+
+This document describes the "vedlatin1keys" library for producing
+certain Latin-1 characters that are not normally found on keyboards
+(e.g., accented letters like, ç or â, and special symols like « or ÷ or
+©).
+
+To use it load the library with the following command (either on the VED
+command line or in POP-11)
+
+load ~richardd/pop/lib/vedlatin1keys.p
+
+(you can add this to your init.p file if you like).
+
+By default ESC-a activates the procedure that produces Latin-1
+characters.  (See the "Customization" section for ways to change this).
+
+After Pressing ESC-a (press the "escape" key once, then press the "a"
+key), VED waits for you to press another key (or possibly two keys).
+This is how you select Latin-1 characters.
+
+For example:
+
+    ESC-a followed by "c" produces ç
+
+    ESC-a followed by "^" followed by "e" produces ê
+    ESC-a followed by "^" followed by "E" produces Ê
+
+-- Long sequences -----------------------------------------------------
+
+This section lists two letter sequences:
+
+ESC-a ^ followed by a letter: Â Ê Î Ô Û â ê î ô û
+
+ESC-a ' followed by a letter: Á É Í Ó Ú Ý á é í ó ú ý
+        also "n" for ´ (nothing under it)
+
+ESC-a ~ followed by a letter: Ã Ñ Õ ã ñ õ
+
+ESC-a ` followed by a letter: À È Ì Ò Ù à è ì ò ù
+
+ESC-a " followed by a letter: Ä Ë Ï Ö Ü ä ë ï ö ü ÿ
+        also "n" for ¨ (nothing under it).
+
+
+ESC-a s followed by a letter:   (s for symbol?)
+
+    c for ©     r for ®     s for §     p for ¶
+
+
+ESC-a f followed by a letter:   (f for fraction?)
+
+    h for ½     q for ¼     t for ¾
+
+
+ESC-a m followed by a letter:   (m for money?)
+
+    c for ¤     p for £     y for ¥     s for ¢
+
+
+ESC-a u followed by a letter:   (u for underlined?)
+
+    o for º     a for ª
+
+
+-- Shorter sequences --------------------------------------------------
+
+These are one letter sequences:
+
+ESC-a A produces Å    ESC-a C produces Ç  ESC-a E produces Æ
+ESC-a a produces å    ESC-a c produces ç  ESC-a e produces æ
+                      ESC-a k produces ¸
+
+ESC-a O produces Ø    ESC-a T produces Þ  ESC-a D produces Ð
+ESC-a o produces ø    ESC-a t produces þ  ESC-a B produces ß
+                      ESC-a h produces ð
+
+ESC-a x produces ×    ESC-a 1 produces ¹  ESC-a 3 produces ³
+ESC-a / produces ÷    ESC-a 2 produces ²  ESC-a 0 produces °
+ESC-a . produces ·
+
+ESC-a ! produces ¡    ESC-a < produces «
+ESC-a ? produces ¿    ESC-a > produces »
+
+ESC-a | produces ¦    ESC-a - produces ¯
+ESC-a \ produces ¬    ESC-a _ produces ­
+
+
+-- Printing -----------------------------------------------------------
+
+Print on spa or spb.
+
+
+-- Producing Latin-1 characters in programs ---------------------------
+
+The library defines a POP-11 procedure which you can use to produce
+Latin-1 characters in your programs.  It uses the keyboard sequences
+listed above to select a characters.
+
+    latin1_character(<string>, <words>) -> <latin1_string>
+
+where
+
+    <string> is the first key press,
+    <word> is the second (for <false> for short sequences), and
+    <latin1_string> is the corresponding Latin-1 character, or <false>
+
+
+
+For example:
+
+    latin1_character('^',"A") =>
+    ** Â
+
+    ;;; A sequence that does not exist
+    latin1_character('d',"A") =>
+    ** <false>
+
+    ;;; A short sequence
+    latin1_character('E',false) =>
+    ** Æ
+
+-- Creating your own key sequences ------------------------------------
+
+Using -latin1_character- and * VEDSETKEY, you can create your own key
+sequences for Latin-1 characters that you use frequently.
+
+For example, if you wanted to define ESC-c to insert the copyright
+symbol and the string '1993' , you could do the following:
+
+    define copyright;
+        vedinsertstring(latin1_character('s',"c"));
+        vedinsertstring(' 1993');
+    enddefine;
+
+    vedsetkey('\^[c', copyright);
+
+-- Customization ------------------------------------------------------
+
+By default -vedlatin1key- attaches itself to ESC-a.  You can change this
+by assigning another value to the variable "vedlatin1key" BEFORE loading
+"vedlatin1keys.p".
+
+If you assign a string to vedlatin1key, that string will be used to
+insert Latin-1 characters.  For example, my init.p file might look like
+this...
+
+    vars vedlatin1key;
+    '\^l' -> vedlatin1key;
+    load ~richardd/pop/lib/vedlatin1keys.p
+
+...in which case, CTR-l would be used rather than ESC-a.
+
+If vedlatin1key is <false> no keyboard assignment is made (handy if you
+just want to use the -latin1_character- procedure in a program without
+changing the keyboard mappings).
+
+
+-- KNOWN BUGS ---------------------------------------------------------
+
+The most frequently used characters (â, ë, etc) require the largest
+number of key presses.
+
+-- RELATED DOCUMENTATION ----------------------------------------------
+
+    HELP * VEDSETKEY - changes VED's character tables

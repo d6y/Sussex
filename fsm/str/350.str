@@ -1,0 +1,161 @@
+get net networks/fsm35.net
+
+do networks/fsm_param.str 1
+
+set param lrate 0.01
+set param momentum 0.0
+
+set dl 1
+set sl 1
+set stepsize nepochs
+set nepochs 30
+
+set pcrit 101
+set ecrit 0.0
+
+log output/350.log
+get p patterns/mult4.pat
+get w weights/303a-3.wts
+sttrain
+save w weights/dev/350-1.wts
+sttrain
+save w weights/dev/350-2.wts
+sttrain
+save w weights/dev/350-3.wts
+sttrain
+save w weights/dev/350-4.wts
+sttrain
+save w weights/dev/350-5.wts
+sttrain
+save w weights/dev/350-6.wts
+sttrain
+save w weights/dev/350-7.wts
+sttrain
+save w weights/dev/350-8.wts
+sttrain
+save w weights/dev/350-9.wts
+sttrain
+save w weights/dev/350-10.wts
+sttrain
+save w weights/dev/350-11.wts
+sttrain
+save w weights/dev/350-12.wts
+sttrain
+save w weights/dev/350-13.wts
+sttrain
+save w weights/dev/350-14.wts
+sttrain
+save w weights/dev/350-15.wts
+sttrain
+save w weights/dev/350-16.wts
+sttrain
+save w weights/dev/350-17.wts
+sttrain
+save w weights/dev/350-18.wts
+sttrain
+save w weights/dev/350-19.wts
+sttrain
+save w weights/dev/350-20.wts
+sttrain
+save w weights/dev/350-21.wts
+sttrain
+save w weights/dev/350-22.wts
+sttrain
+save w weights/dev/350-23.wts
+sttrain
+save w weights/dev/350-24.wts
+sttrain
+save w weights/dev/350-25.wts
+sttrain
+save w weights/dev/350-26.wts
+sttrain
+save w weights/dev/350-27.wts
+sttrain
+save w weights/dev/350-28.wts
+sttrain
+save w weights/dev/350-29.wts
+sttrain
+save w weights/dev/350-30.wts
+sttrain
+save w weights/dev/350-31.wts
+sttrain
+save w weights/dev/350-32.wts
+sttrain
+save w weights/dev/350-33.wts
+sttrain
+save w weights/dev/350-34.wts
+sttrain
+save w weights/dev/350-35.wts
+sttrain
+save w weights/dev/350-36.wts
+sttrain
+save w weights/dev/350-37.wts
+sttrain
+save w weights/dev/350-38.wts
+sttrain
+save w weights/dev/350-39.wts
+sttrain
+save w weights/dev/350-40.wts
+sttrain
+save w weights/dev/350-41.wts
+sttrain
+save w weights/dev/350-42.wts
+sttrain
+save w weights/dev/350-43.wts
+sttrain
+save w weights/dev/350-44.wts
+sttrain
+save w weights/dev/350-45.wts
+sttrain
+save w weights/dev/350-46.wts
+sttrain
+save w weights/dev/350-47.wts
+sttrain
+save w weights/dev/350-48.wts
+sttrain
+save w weights/dev/350-49.wts
+sttrain
+save w weights/dev/350-50.wts
+sttrain
+save w weights/dev/350-51.wts
+sttrain
+save w weights/dev/350-52.wts
+sttrain
+save w weights/dev/350-53.wts
+sttrain
+save w weights/dev/350-54.wts
+sttrain
+save w weights/dev/350-55.wts
+sttrain
+save w weights/dev/350-56.wts
+sttrain
+save w weights/dev/350-57.wts
+sttrain
+save w weights/dev/350-58.wts
+sttrain
+save w weights/dev/350-59.wts
+sttrain
+save w weights/dev/350-60.wts
+sttrain
+save w weights/dev/350-61.wts
+sttrain
+save w weights/dev/350-62.wts
+sttrain
+save w weights/dev/350-63.wts
+sttrain
+save w weights/dev/350-64.wts
+sttrain
+save w weights/dev/350-65.wts
+sttrain
+save w weights/dev/350-66.wts
+sttrain
+save w weights/dev/350-67.wts
+sttrain
+save w weights/dev/350-68.wts
+sttrain
+save w weights/dev/350-69.wts
+sttrain
+save w weights/dev/350-70.wts
+log -
+q
+y

@@ -1,0 +1,3 @@
+ld.so: warning: /usr/lib/libc.so.1.5 has older revision than expected 7
+      Welcome to bp, a PDP program (Version 1.1s COGS, 15 Dec 1992).
+Copyright 1987 by J. L. McClelland and D. E. Rumelhart.

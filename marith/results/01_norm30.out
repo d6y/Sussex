@@ -1,0 +1,85 @@
+;;; LOADING product_ZERO.p
+...?...0...1...2...3...4...5...6...7...8...9..10..12..14..15..16..18..20..21..
+	24..25..27..28..30..32..35..36..40..42..45..48..49..54..56..63..64..72
+	..81
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3.p
+;;; LOADING /csuna/home/richardd/pop/lib/stringtolist.p
+;;; LOADING /csuna/home/richardd/pop/lib/stringtovector.p
+;;; LOADING /csuna/home/richardd/pop/lib/sysio.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_utils.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_getweights.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_getpatterns.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_activate.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_cascade.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_recordunits.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_performance.p
+;;; LOADING read_rt.p
+;;; LOADING threshold_errors.p
+;;; LOADING latex_matrix.p
+;;; LOADING c_errrt.p
+;;; LOADING Structured_variables.p
+
+
+** [/tmp/richardd/01_norm30- 1 - 20 min 0.4 Max 0.9 and 25 blocks]
+** [now starting 1]
+** [zeros in /tmp/richardd/01_norm30- 1]
+** [now starting 2]
+** [zeros in /tmp/richardd/01_norm30- 2]
+** [now starting 3]
+** [zeros in /tmp/richardd/01_norm30- 3]
+** [now starting 4]
+** [zeros in /tmp/richardd/01_norm30- 4]
+** [now starting 5]
+** [zeros in /tmp/richardd/01_norm30- 5]
+** [now starting 6]
+** [zeros in /tmp/richardd/01_norm30- 6]
+** [now starting 7]
+** [zeros in /tmp/richardd/01_norm30- 7]
+** [now starting 8]
+** [zeros in /tmp/richardd/01_norm30- 8]
+** [now starting 9]
+** [zeros in /tmp/richardd/01_norm30- 9]
+** [now starting 10]
+** [zeros in /tmp/richardd/01_norm30- 10]
+** [now starting 11]
+** [zeros in /tmp/richardd/01_norm30- 11]
+** [now starting 12]
+** [zeros in /tmp/richardd/01_norm30- 12]
+** [now starting 13]
+** [zeros in /tmp/richardd/01_norm30- 13]
+** [now starting 14]
+** [zeros in /tmp/richardd/01_norm30- 14]
+** [now starting 15]
+** [zeros in /tmp/richardd/01_norm30- 15]
+** [now starting 16]
+** [zeros in /tmp/richardd/01_norm30- 16]
+** [now starting 17]
+** [zeros in /tmp/richardd/01_norm30- 17]
+** [now starting 18]
+** [zeros in /tmp/richardd/01_norm30- 18]
+** [now starting 19]
+** [zeros in /tmp/richardd/01_norm30- 19]
+** [now starting 20]
+** [zeros in /tmp/richardd/01_norm30- 20]
+Total of 7740 errors (tokens),  41.84% of which...
+Operand errors           7225.00  93.35%
+Operand distance effect  5783.00  74.72%
+High frequency           1394.00  19.29%
+Table errors              515.00   6.65%
+Operation errors          148.00   1.91%
+Omission errors             0.00   0.00%
+0xN = N                     0.00   0.00%
+Tie error                  80.00   1.03%
+
+** [product and prob . err . count]
+** [r= 0.014598 p( 98 )= 0.442689]
+;;; LOADING product_code.p
+...?...4...6...8...9..10..12..14..15..16..18..20..21..24..25..27..28..30..32..
+	35..36..40..42..45..48..49..54..56..63..64..72..81
+;;; DECLARING VARIABLE epc
+;;; DECLARING VARIABLE pec
+
+;;; MISHAP - PDP3_GETPATTERNS: Can't open file
+;;; INVOLVING:  'NORMAL.pat' 
+;;; FILE     :  /csuna/home/richardd/marith/retest.p   LINE NUMBER:  88
+;;; DOING    :  pdp3_getpatterns vars compile trycompile 

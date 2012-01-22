@@ -1,0 +1,105 @@
+get net networks/fsm35.net
+
+do networks/fsm_param.str 1
+
+set param outputtolerance 0.1
+log output/307a.log
+
+set param lrate 0.01
+set param momentum 0.0
+
+set dl 1
+set sl 1
+set stepsize nepochs
+set nepochs 20000
+
+get pat patterns/mult1.pat
+sttrain
+save w weights/307a-1.wts
+get pat patterns/mult2.pat
+sttrain
+save w weights/307a-2.wts
+get pat patterns/mult3.pat
+sttrain
+save w weights/307a-3.wts
+get pat patterns/mult4.pat
+sttrain
+save w weights/307a-4.wts
+get pat patterns/mult5.pat
+sttrain
+save w weights/307a-5.wts
+get pat patterns/mult6.pat
+sttrain
+save w weights/307a-6.wts
+get pat patterns/mult7.pat
+sttrain
+save w weights/307a-7.wts
+get pat patterns/mult8.pat
+sttrain
+save w weights/307a-8.wts
+get pat patterns/mult9.pat
+sttrain
+save w weights/307a-9.wts
+get pat patterns/mult10.pat
+sttrain
+save w weights/307a-10.wts
+get pat patterns/mult11.pat
+sttrain
+save w weights/307a-11.wts
+get pat patterns/mult12.pat
+sttrain
+save w weights/307a-12.wts
+get pat patterns/mult13.pat
+sttrain
+save w weights/307a-13.wts
+get pat patterns/mult14.pat
+sttrain
+save w weights/307a-14.wts
+get pat patterns/mult15.pat
+sttrain
+save w weights/307a-15.wts
+get pat patterns/mult16.pat
+sttrain
+save w weights/307a-16.wts
+get pat patterns/mult17.pat
+sttrain
+save w weights/307a-17.wts
+get pat patterns/mult18.pat
+sttrain
+save w weights/307a-18.wts
+get pat patterns/mult19.pat
+sttrain
+save w weights/307a-19.wts
+get pat patterns/mult20.pat
+sttrain
+save w weights/307a-20.wts
+get pat patterns/mult21.pat
+sttrain
+save w weights/307a-21.wts
+get pat patterns/mult22.pat
+sttrain
+save w weights/307a-22.wts
+get pat patterns/mult23.pat
+sttrain
+save w weights/307a-23.wts
+get pat patterns/mult24.pat
+sttrain
+save w weights/307a-24.wts
+get pat patterns/mult25.pat
+sttrain
+save w weights/307a-25.wts
+get pat patterns/mult26.pat
+sttrain
+save w weights/307a-26.wts
+get pat patterns/mult27.pat
+sttrain
+save w weights/307a-27.wts
+get pat patterns/mult28.pat
+sttrain
+save w weights/307a-28.wts
+get pat patterns/mult29.pat
+sttrain
+save w weights/307a-29.wts
+log -
+q
+y

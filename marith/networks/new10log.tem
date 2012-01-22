@@ -1,0 +1,5 @@
+define: layout
+$           $
+end
+epochno variable    1   $   n   epochno 6   1.0
+tss floatvar    1   $       n       tss 8   1.0

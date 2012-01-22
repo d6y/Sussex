@@ -1,0 +1,12 @@
+get net mn10.net
+set lflag 1
+set mode lgrain epoch
+set dlevel 1
+set stepsize nepochs
+set slevel 2
+set param offset 0.1
+
+set nepochs 35000
+set param lrate 0.01
+set param momentum 0.9
+set mode patp 1

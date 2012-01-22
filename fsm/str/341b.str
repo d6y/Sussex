@@ -1,0 +1,55 @@
+get net networks/fsm35.net
+
+do networks/fsm_param.str 1
+
+log output/341b3.log
+
+set param lrate 0.01
+set param momentum 0.0
+
+set dl 1
+set sl 1
+set stepsize nepochs
+set nepochs 60
+
+set pcrit 101
+set ecrit 0.0
+
+get p patterns/mult20.pat
+get w weights/dev/341b-54.wts
+sttrain
+save w weights/dev/341b-55.wts
+sttrain
+save w weights/dev/341b-56.wts
+sttrain
+save w weights/dev/341b-57.wts
+sttrain
+save w weights/dev/341b-58.wts
+sttrain
+save w weights/dev/341b-59.wts
+sttrain
+save w weights/dev/341b-60.wts
+sttrain
+save w weights/dev/341b-61.wts
+sttrain
+save w weights/dev/341b-62.wts
+sttrain
+save w weights/dev/341b-63.wts
+sttrain
+save w weights/dev/341b-64.wts
+sttrain
+save w weights/dev/341b-65.wts
+sttrain
+save w weights/dev/341b-66.wts
+sttrain
+save w weights/dev/341b-67.wts
+sttrain
+save w weights/dev/341b-68.wts
+sttrain
+save w weights/dev/341b-69.wts
+sttrain
+save w weights/dev/341b-70.wts
+log -
+run compress weights/dev/341b* end
+q
+y

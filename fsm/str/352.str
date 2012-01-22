@@ -1,0 +1,63 @@
+
+get net networks/fsm35.net
+
+do networks/fsm_param.str 1
+
+log output/352.log
+
+set param lrate 0.01
+set param momentum 0.0
+
+set dl 1
+set sl 1
+set stepsize nepochs
+set nepochs 1000
+
+set pcrit 101
+set ecrit 0.0
+
+get pat patterns/mult13.pat
+get w weights/303a-12.wts
+sttrain
+save w weights/303a-12-1.wts
+sttrain
+save w weights/303a-12-2.wts
+sttrain
+save w weights/303a-12-3.wts
+sttrain
+save w weights/303a-12-4.wts
+sttrain
+save w weights/303a-12-5.wts
+sttrain
+save w weights/303a-12-6.wts
+sttrain
+save w weights/303a-12-7.wts
+sttrain
+save w weights/303a-12-8.wts
+sttrain
+save w weights/303a-12-9.wts
+sttrain
+save w weights/303a-12-10.wts
+sttrain
+save w weights/303a-12-11.wts
+sttrain
+save w weights/303a-12-12.wts
+sttrain
+save w weights/303a-12-13.wts
+sttrain
+save w weights/303a-12-14.wts
+sttrain
+save w weights/303a-12-15.wts
+sttrain
+save w weights/303a-12-16.wts
+sttrain
+save w weights/303a-12-17.wts
+sttrain
+save w weights/303a-12-18.wts
+sttrain
+save w weights/303a-12-19.wts
+sttrain
+save w weights/303a-12-20.wts
+log -
+q
+y

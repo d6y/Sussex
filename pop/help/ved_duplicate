@@ -1,0 +1,34 @@
+HELP VED_DUPLICATE                                         Richard Dallaway
+                                                           January 1992
+
+<ENTER> duplicate START to END
+<ENTER> duplicate START by STEP to END
+<ENTER> duplicate ITEM1 ITEM2 ... ITEMn
+<ENTER> duplicate PAD zeros START to END
+
+This procedure duplicates the marked range, but replaces the dollar sign
+($) with a different value each time.  For example, if the following were
+the marked range:
+
+    Dear $, How are you?
+
+And the command was: <ENTER> duplicate Julia Ayala Simon
+The following would be inserted into the file:
+
+    Dear Julia, How are you?
+    Dear Ayala, How are you?
+    Dear Simon, How are you?
+
+Dupliacte recognizes the word "to" and "by" as special to allow you to
+specify numerical values for $
+
+    <ENTER> duplicate 1 to 10
+
+will replcae $ with 1, then 2, then 3...to 10.
+
+    <ENTER> duplicate 1 by 3 to 10
+will act like the usual FOR-BY-TO POP11 loop.
+
+    <ENTER> duplicate 3 zeros 45 to 49
+acts like other numeric duplicates, but pads the number to be 3 digits
+long (in this case).  E.g., 045 046 047 048 049.

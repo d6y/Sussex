@@ -1,0 +1,105 @@
+%% IOT91.STY
+%% richardd@cogs.susx.ac.uk
+%% Style file for Isle of Thorns papers (1991)
+%% Each paper should begin:
+%%      \documentstyle[..others..,iot91]{article}
+%%  \author{} \title{} \email{}
+
+%% PAGE SIZE
+\textheight 24cm
+\textwidth  6.3in
+\oddsidemargin -0.05in
+\evensidemargin -0.05in
+%\topmargin -0.05in
+\topmargin -0.5in % RZD -- is the printer offset??
+
+\parskip 0mm    %  vertical space between paragraphs
+
+%% SIMPLE BIBLIOGRAPHY ENTRIES
+\def\bibentry#1{\noindent\hangindent=0.5 cm\hangafter=1 #1\medskip}
+
+% HEADING FOR FIRST PAGE SHOWING WHERE PUBLISHED
+
+\def\wheretext{\scriptsize\noindent%
+Dallaway, Del Soldato \& Moser, eds. (1991) {\em The Fourth White House
+Papers: Graduate Research in the Cognitive \& Computing Sciences at Sussex.}
+University of Sussex, School of Cognitive \& Computing Sciences, Brighton, UK.
+Research Paper CSRP 200.}
+
+\def\where{\hspace{-0.0in}%
+\raisebox{15mm}[0pt][0pt]{\parbox[t]{4in}{\wheretext}}}
+
+%% MAKETITLE
+
+%\def\myf{\sf}   % font for sections, abstract and title
+\def\myf{\bf}
+
+\def\email#1{\gdef\@email{#1}}
+\email{} % default is no email address
+
+\def\maketitle{\par
+ \begingroup
+ \def\thefootnote{\fnsymbol{footnote}}
+ \def\@makefnmark{\hbox
+ to 0pt{$^{\@thefnmark}$\hss}}
+ \newpage\global\@topnum\z@ %
+\@maketitle
+%\thispagestyle{plain}
+\@thanks
+ \endgroup
+ \setcounter{footnote}{0}
+ \let\maketitle\relax
+ \let\@maketitle\relax
+ \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\thanks\relax}
+\def\@maketitle{\newpage
+ \null
+\rightmark{\where} %% WHERE TEXT
+\pagestyle{myheadings}                      %% WHERE TEXT
+ \vskip 2em \begin{center}
+ {\Large\myf \@title \par} \vskip 0.8em {\large %\lineskip .5em
+\begin{tabular}[t]{c}\@author\\\def\nxt{\@email}%
+\ifx\@email\empty % produce no email entry for \email{}
+ \else\normalsize email: \nxt\fi
+\end{tabular}\par}
+% \vskip 1em {\large \@date}
+\end{center}
+% \par
+% \vskip 1.0em}
+}
+
+%% ABSTRACT ENVIRONMENT
+
+\renewenvironment{abstract}
+    { \begin{center}
+    { \small\bf Abstract\vspace{-.5em}\vspace{0pt}}
+      \end{center}\small
+      \begin{quotation}\noindent\ignorespaces}{\end{quotation}}
+
+
+
+%% SECTIONING
+
+\def\section{\@startsection{section}{1}{\z@}{-1.5ex plus -1ex minus
+ -.2ex}{1.3ex plus .2ex}{\Large\myf}}
+
+\def\subsection{\@startsection{subsection}{2}{\z@}{-1.25ex plus -1ex minus
+ -.2ex}{1.3ex plus .2ex}{\large\myf}}
+
+\def\subsubsection{\@startsection{subsubsection}{3}{\z@}{-1.25ex plus
+-1ex minus -.2ex}{1.3ex plus .2ex}{\normalsize\myf}}
+
+
+\long\def\@caption#1[#2]#3{\par\addcontentsline{\csname
+  ext@#1\endcsname}{#1}{\protect\numberline{\csname
+  the#1\endcsname}{\ignorespaces #2}}\begingroup
+    \@parboxrestore
+    \normalsize
+    \@makecaption{\csname fnum@#1\endcsname}{#3}\par
+  \endgroup}
+
+\long\def\@makecaption#1#2{\vskip 10pt\def\next{#2}
+\ifx\next\empty\setbox\@tempboxa\hbox{{\bf#1}}\else
+ \setbox\@tempboxa\hbox{{\bf#1:} \ignorespaces\next}\fi
+ \ifdim \wd\@tempboxa >\hsize {\bf#1:} \ignorespaces\next\par \else \hbox
+to\hsize{\hfil\box\@tempboxa\hfil}
+ \fi}

@@ -1,0 +1,25 @@
+
+CYBERTAPE
+=========
+
+All tapes were created with
+unix% find . -print | cpio -o > /dev/nrst8
+and were tested with
+unix% cpio -it < /dev/rst8
+
+-- PAULB ------------------------------------------------------------
+
+This is a tar archive of your syma account, cpio'd onto tape.
+So, first get the archive off the tape, with something
+like:
+unix% cpio -idv < /dev/rst8
+and then un-tar the resulting "paulb" file with,
+unix% tar xvf paulb
+
+-- XPD --------------------------------------------------------------
+
+X-Windows games source found under /usr/local/src/Xpd.
+
+xdbx, xgremlin
+and xbgsun were protected, so you haven't got them
+on the tape.  Sorry.

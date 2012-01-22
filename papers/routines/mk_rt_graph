@@ -1,0 +1,9 @@
+#!/bin/csh
+echo "Generating RT graphs"
+echo "Using aiken.dat"
+echo "      campbellrt.dat"
+echo "      miller.dat"
+
+# xgraph -tk -bb -P -t "Multiplication response time" -y "RT (sec)" -x "Table" -lf "helvetica-10" -tf "helvetica-12"  aiken.dat campbellrt.dat miller.dat ~/arith/grade_3a.dat ~/arith/grade_3b.dat ~/arith/grade_3c.dat ~/arith/grade_4.dat ~/arith/grade_5.dat    ~/arith/probs.dat ~/arith/norms.dat
+# xgraph -tk -bb -P -t "Multiplication response time" -y "RT (sec)" -x "Table" -lf "helvetica-10" -tf "helvetica-12"  aiken.dat campbellrt.dat miller.dat  ~/arith/probs.dat ~/arith/norms.dat
+xgraph -tk -bb -P -t "Multiplication response time" -y "RT (sec)" -x "Table" -lf "helvetica-10" -tf "helvetica-12"  campbellrt.dat  ~/arith/probs.dat ~/arith/norms.dat

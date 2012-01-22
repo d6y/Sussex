@@ -1,0 +1,525 @@
+HELP PDP3_LOCAL                                   Richard Dallaway
+                                                  Updated: 14 July 1993
+
+This file details local changes to the M&R backpropagation (bp) code.
+
+
+         CONTENTS - (Use <ENTER> g to access required sections)
+
+ -- Sigmoid prime offset
+ -- Pattern probability/frequency
+ -- Sequence recognition
+ -- Backpropagation through time (BPTT)
+ -- Negative input values
+ -- Negative targets
+ -- Autoassociation
+ -- Classification performance
+ -- Permuted sequence training
+ -- Output functions
+ -- Relative network definitions
+ -- Network styles
+ -- The "vectormax" template
+ -- Autowriting weights
+ -- Recording unit activations
+ -- Response time
+
+-- Sigmoid prime offset -----------------------------------------------
+
+set/ param/ offset [default 0.0]
+
+    This value is added to the sigmoid prime function.  It was suggested by
+    Fahlman, and stops units getting stuck on the edges of the derivative.
+    Very handy for skewed frequency training sets, or sequential nets.
+    May cause problems with "ttrain" (below).
+
+-- Pattern probability/frequency --------------------------------------
+
+set/ mode/ patp [default 0]
+
+    When set to 1, pattern files are expected to contain a number after the
+    pattern name which defines the frequency  of occurrence for that
+    pattern.
+
+    When non-zero, the deltas are multiplied by this value.
+
+    The idea is that the value associated with each pattern reflects
+    that patterns frequency of occurrence, or probability of occurrence.
+
+
+-- Sequence recognition -----------------------------------------------
+
+set/ env/ seqstart     [int *]
+set/ env/ nseq         [int]
+set/ env/ maxseq       [int]
+
+    Crude attempt to recognize sequences in the input set.  When a
+    recurrent connection is identified (i.e., a -ve value for an input),
+    the next pattern with no -ve values is taken to be the start of
+    a sequence.  This may be wrong sometimes, but the user can
+    modify the start points by changing set/ env/ seqstart
+    (indexed from zero to nseq-1).  Patterns are numbered from
+    zero.
+
+tseq
+
+    Test a sequence.  E.g., tseq 2 will run rather like the "tall" command,
+    but for sequence number 2 (as defined by the "seqstart" array).
+
+
+-- Backpropagation through time (BPTT) --------------------------------
+
+pttrain
+sttrain
+set/ env/ maxseqlen           [int]
+set/ state/ stack_target      [int *] maxseqlen
+set/ state/ stack_activation  [float **] maxseqlen by nunits
+set/ state/ error_gap         [float *] nunits
+
+    Implementation of full backpropagation through time.
+    Uses usual -ve input pattern values to denote recurrence, and stacks
+    up a network for the length of a sequence before back-propagating
+    the error.  It appears the sigmoid prime offset must be zero for
+    this to work.
+
+    Note that lgrain has a special interpretation for ttrain. "Pattern"
+    training means changing the weights after each sequence. "Epoch" training
+    has its usual meaning.
+
+    pttrain() permutes (randomizes) the order in which sequences are
+    presented (like ttrain).  pttrain means Permuted Temporal Training.
+
+    sttrain() steps through each sequence in order (like strain).
+    strain means Sequential Temporal Training.
+
+    NOTE: pttrain and sttrain apply to the order in which SEQUENCES are
+    presented, not PATTERNS.
+
+
+-- Negative input values ----------------------------------------------
+
+set/ mode/ neginput <input_unit or all> <0 or 1> [default 0]
+
+    To allow inputs to really be negative, a new flag array has
+    been introduced: neginput [default 0].  set/ mode/ neginput 3 1  will
+    make the system interpret negative input values for input unit 3 as
+    that value rather than a recurrent connection.  This can be reset with:
+    set/ mode/ neginput 3 0.
+
+    set/ mode/ neginput all <0 or 1> assigns the <0 or 1> to all the
+    input units.
+
+-- Negative targets ---------------------------------------------------
+
+set/ mode/ negoutput <target_unit or all> <0 or 1> [default 0]
+
+    Line "neginput", this command allows output units to be trained to
+    produce negative values (obviously with a output function that allows
+    negative values).  set/ mode/ negoutput 3 1 will allow target unit 3 to
+    produce negative values; by default, negative targets are ignored,
+    setting the error to zero.
+
+    set/ mode/ negoutput all <0 or 1> assignes the <0 or 1> to all the
+    output units.
+
+-- Autoassociation ----------------------------------------------------
+
+set/ mode/ autoassoc <0 or 1> [default 0]
+
+    This flag allow the backprop net to autoassociate its inputs to outputs.
+    Note that this was a problem for recurrent nets, because there was no
+    way to specify auto-association to a "context" layer (the -ve input
+    values could not be part of the target specification because -ve values
+    are interpreted as "don't cares" for the targets).
+
+    When autoassoc is 1, the system assumes that the first ninput output
+    units are to autoassociate to the input.  Hence, the user must specify
+    the output units in the .pat file, but may give them any value.  The
+    suggested value is -1 because when autoassoc is zero, the auto
+    associative output units will be ignored.
+
+-- Classification performance -----------------------------------------
+
+set/ pcrit <number 0 to 100>    [default 101.0]
+set/ param/ outputtolerance <number 0 to 1> [default 0.25]
+set/ mode/ allcrit <0 or 1> [default 0]
+set/ state/ performance [template floatvar]
+
+    Like ecrit, pcrit is a measure of error.  The "performance" of the
+    network is the measure of the number of "correct" classifications.
+    A correct classification occurs when the all the output bits for a
+    given network output vector is within "output tolerance".
+
+    The parameter "outputtolerance" can be set to decide if any given
+    output bit is acceptable.  For example, set/ param/ outputtolerance 0.1
+    will accept any output which is + or - 0.1 from the desired (target)
+    output.
+
+    When "pcrit" is not zero, the training set is tested against the output
+    tolerance.  The variable "performance" is the percentage of the
+    training set that is classified as correct under the output tolerance.
+
+    This works in conjunction with the usual ecrit (and patience). By
+    default, learning will stop if the ecrit is met OR the tss is met.
+    However, if the user sets "allcrit" to 1, learning will only stop when
+    BOTH ecrit and pcrit are met.
+
+    The maximum number of epochs, nepochs, always overrides ecrit and
+    pcrit.
+
+    By having pcrit default to 101 per cent, the network will only respond
+    to ecrit and nepochs (hence keeping the behaviour of the system
+    compatible with the original pdp3 code).
+
+-- Permuted sequence training -----------------------------------------
+
+pstrain
+
+    When training simple recurrent networks (SRNs, or Elman networks),
+    you have to use the strain command to ensure that all the training
+    sequences (and hence patterns) are run in the correct order.
+    However, it would be useful to permute the order of the SEQUENCES,
+    but run through each pattern in the sequence in the correct order.
+    This is what pstrain does (permuted sequence training).  It works
+    like pttrain but does not do BPTT.
+
+    The order of the sequences is permuted, and then each pattern in
+    the sequence is presented, and the weight change is computed then
+    (networks are not stacked up as for BPTT).
+
+    NB, there will be no performance difference between pstrain and
+    strain if batch updating is being used.
+
+    This makes a total of five difference training commands.
+
+    Summary of training commands:
+
+    1. strain   Runs through the training set in strict sequential
+                order, computing weight changes for each pattern.
+
+    2. ptrain   Permutes the order of each pattern in the training
+                set, computing the weight changes for each pattern.
+
+    3. sttrain  Runs through each SEQUENCE in strict sequential order,
+                (in effect identical to strain), but stacks the
+                network until the end of the SEQUENCE, and then
+                rewinds the net, computing the error (backpropagation
+                through time).
+
+    4. pttrain  Works like sttrain, but permutes the order of the
+                SEQUENCES that are presented.
+
+    5. pstrain  Permutes the order of the SEQUENCES like pttrain,
+                but calculates the weight changes for each PATTERN
+                like strain or ptrain.  Does not do BPTT.
+
+                                          SEQUENTIAL   PERMUTED
+                                          (PATTERNS)   (PATTERNS)
+    For feed-forward networks, use          strain  or ptrain.
+
+                                           SEQUENTIAL  PERMUTED
+                                          (SEQUENCES)  (SEQUENCES)
+    For backpropagation through time, use   sttrain or pttrain
+    For SRNs (Jordan, Elman, etc), use      strain  or pstrain
+
+
+-- Output functions ---------------------------------------------------
+
+set/ mode/ outputfn/ UNIT FUNCTION      [default "all" "cs"]
+
+This command allows the user to change the output function associated with
+a unit or group of units.  Possible output functions are: linear and cs
+(continuous sigmoid, aka logistic).  Typically the user will want only to
+change the output function for the output layer of units.  To do this, say:
+
+    set mode outputfn outputs linear
+
+for linear output units, but all other units cs.  This change also changes
+the derivative of the output function, so learning can proceed as normal.
+
+Possible values for UNIT are:
+
+    <number>        to specify a particular unit
+    "output"        for all output units
+    "all"           for all units
+
+Possible values for FUNCTION are:
+
+    "linear"        Activation is the netinput.
+    "cs"            The default logistic function.
+
+Others functions may be added in future.
+
+
+
+-- Relative network definitions ---------------------------------------
+
+exam/ config/ nhidden
+exam/ config/ ncontext
+exam/ config/ firstinput
+exam/ config/ lastinput
+exam/ config/ firstcontext
+exam/ config/ lastcontext
+exam/ config/ firsthidden
+exam/ config/ lasthidden
+exam/ config/ firstoutput
+exam/ config/ lastoutput
+exam/ config/ nexternalinputs
+exam/ config/ nexternaloutputs
+
+One big pain with the bp system is the number of files you have to manage,
+and the interdependencies between variables.  For example, if you wish to
+change the number of hidden units in your network, you have to change the
+network description file, the template file, and the patterns file (if you
+use recurrence).  The above variables have been introduced so you can
+specify things in terms of them.  For example...
+
+     network:
+     %r firsthidden nhidden firstinput ninputs
+     %r firstoutput noutputs firsthidden nhidden
+     end
+
+The above works for biases, sigmas and template variables. Hence you need
+only change, say "nunits", to increase the number of hidden units, and
+your templates and weights will take care of themselves.  Of course, you
+can always go back to using numbers if you wish, or you can use any
+variables that are defined in the bp system (e.g., noutputs).
+
+
+-- Network styles -----------------------------------------------------
+
+In addition to the above, a number of default network styles have been
+created for one hidden unit networks, simple recurrent networks
+(SRNs) and Jordan networks.  For example, to build a SRN with 4 inputs,
+outputs, hidden and context units, you could say:
+
+        definitions:
+        nunits 16
+        ninputs 4
+        noutputs 4
+        end
+        network:
+        style srn
+        end
+        biases:
+        end
+
+Note that the biases section is empty, but the "srn" style does create
+biases.  You have to have the section name there if you want biases.
+
+The other styles are "jordan", "onehidden" and "aasrn".
+
+The user must ensure that "nunits" is large enough to include the context
+units.  When the SRN is created, the context units are taken from the
+nunits variable (so use ninputs and noutputs to determine the true number
+of external units, rather than including the context units as part of the
+input units).  However, the feedback (context) units should be part of the
+input layer, so the variable ninputs will be automatically incremented to
+cover these units.  Variables firstinput and lastinput will still cover
+only the external inputs, though, and will NOT cover the context units.
+If you wish to refer to ninputs, but want only the number of external
+input numbers, use the variable "nexternalinputs".
+
+Example template file:
+
+define: layout 32 700
+.
+.
+.
+end
+
+epochno variable  1 $ n   epochno     6   1.0
+tss     floatvar  1 $ n   tss         8   1.0
+targets vector    2 $ n   target      h 4 100.0 0 noutputs
+output  vector    2 $ n   activation  h 4 100.0 firstoutput noutputs
+hidden  vector    2 $ n   activation  h 3 100.0 firsthidden nhidden
+input   vector    2 $ n   activation  h 4 100.0 firstinput nexternalinputs
+context vector    2 $ n   activation  h 3 100.0 firstcontext ncontext
+
+nexternaloutputs is the output layer equivalent of nexternalinputs.
+
+For autoassocaitive networks (aasrn), the following variables may also be
+useful:
+
+exam/ config/ firstaacontext
+exam/ config/ firstaainput
+
+which indicates the starting units form the first autoassociated context
+and input layers.  This connectivity diagram may help explain all this...
+
+ o o o o o o o o o o   o o o o o o o o o o    o o o o o o o o o o o o
+ firstaainput          firstaacontext         firstoutput   lastoutput
+ <-nexternalinputs->   <----ncontext------>   <---nexternaloutputs--->
+ <-----------------------------noutputs------------------------------>
+
+                            ^
+                            |
+                            |
+
+                o o o o o o o o o o o o o
+                firsthidden    lasthidden
+                <-------nhidden--------->
+
+                            ^
+                            |
+                            |
+  o o o o o o o o o o o o    o o o o o o o o o o o o o o
+  firstinput    lastinput    firstcontext     lastcontext
+  <---nexternalinputs--->    <---------ncontext--------->
+  <----------------------ninputs------------------------>
+
+
+The "aasrn" style also sets "autoassoc" mode, allocates space in the target
+vector and fills it (no need to include extra values in the pattern
+file).
+
+
+set/ param/ initialcontext [default 0.0]
+
+When the styles "srn" and "jordan" are used, pattern files need not contain
+explicit negative values for feedback.  Rather, the symbol "*" may occur
+for patterns at the start of a sequence, and ":" for subsequent patterns.
+For example:
+
+    p1  0 1     *       1 0 0 0
+    p2  0 1     :       0 1 0 0
+    p3  0 1     :       0 0 1 0
+    p4  0 1     :       0 0 0 1
+    p5  1 0     *       0 0 0 1
+    p6  1 0     :       0 0 1 0
+    p7  1 0     :       0 1 0 0
+    p8  1 0     :       1 0 0 0
+
+The above 8 patterns constitude two sequences.  The sequence starting
+at pattern p1 (because of the *) shifts a bit from left to right across
+the output vector.  The sequcence from p5 to p8 shifts it the other way.
+The : symbols tell the system to include the approriate negative values as
+part of the input vector.  The * symbol inserts the value of the variable
+"initialcontext" into the input vector.
+
+NOTE:  initialcontext is inserted when the patterns are read (with get
+pattern), so changing initialcontext will NOT effect the patterns already
+loaded, nut will effect the next patterns loaded.
+
+To ensure the patterns are backwardly compatable, a * must be in the
+first pattern for this scheme to work.
+
+-- The "vectormax" template -------------------------------------------
+
+A new template type for .tem files has been created.  "Vectormax" is
+similar to "vector", but only displays the largest element(s) of the vector
+(with *s).  Other fields are left blank.  This works for integer or
+floating point vectors (and not matrices).  The format is the same as
+"vector" but without a scale value:
+
+E.g.,
+
+    winner  2 $ n target h 4 0 nexternaloutputs
+
+to highlight the largest output target, using 4 *s on the screen.
+
+
+-- Autowriting weights ------------------------------------------------
+
+set/ mode/ autowrite <string>       [default "off"]
+set/ param/ autothreshold <float>   [default 0.0]
+set/ param/ autoprefix <string>     [default "aw-"]
+set/ state/ totalpatno              [int]
+set/ state/ lapcounter              [int]
+
+Sometimes you'll want the let "bp" get on with training, but automatically
+save the weights when there is an improvement in the networks performance.
+The "autowrite" mode allows you to do this, by measuring changes in the
+"performance" variable.
+
+There are four autowrite modes:
+
+    "off"       disables autowrite (default)
+
+    "change"    any change in performance greater than the autowrite
+                threshold causes the weights to be saved.
+
+    "improve"   any improvement (positive change) in performance above the
+                autowrite threshold causes the weights to change.
+
+*SPECIAL*
+
+    "elapse"    measures the number of PATTERNS precented to the network
+                and saves every autothreshold number of patterns.  HOWEVER,
+                checking is only done at the end of an EPOCH, so this is
+                only an approximate measure.
+
+By default the autowrite threshold is zero, so ANY change/improvement in
+performance causes the weights to be saved.
+
+The weights are saved to a file, and the name of the file is made up
+from a file-prefix (defaults to "aw-"), then the number of epochs, and then
+the performance value (three places before and after the decimal point).
+
+So, if the weights were autowritten after 3745 epochs after reaching a
+performance of 45.88 per cent, the weights would be written to a file
+called "aw-3745-045.88.wts"
+
+However, for "elapse", the filename is constructed from the file-prefix
+and a counter (starting at 1). The counter is reset to 1 everytime the
+autowrite mode is changed (so is the pattern counter, totalpatno).
+
+Note, when you give a training command, it is assumed that the performance
+of the system is zero.  So, if you stop training at some performance level
+(say 47 per cent), and then restart training, weights will probably be
+instantly autowritten (because as far as autowrite is consered the network
+will have jumped from 0 per cent to 47 per cent performance).
+
+
+-- Recording unit activations -----------------------------------------
+
+In addition to the general "log" system used by BP, a new command,
+"rall" can be used to record activations of various units for each of the
+patterns in the training set.  The usage is:
+
+    rall <file> <first unit> <last unit>
+
+For example:
+
+    rall foo.ra firstoutput lastoutput
+
+...will record the activations of the output units for all patterns in the
+file "foo.ra"
+
+    rall act 1 5
+
+...will record the activation values of units 1, 2, 3, 4 and 5 to the file
+"act".
+
+The output file will contain one line for each pattern.  If the output file
+exists, new output will be appended to it.
+
+This function is handy for running PCA.  E.g. after doing:
+
+    bp: rall hid.act firsthidden lasthidden
+
+you can do:
+
+    unix% pca -f hid.act -x 0 -y 1 | xgraph
+
+-- Response time ------------------------------------------------------
+
+castest
+set/ state/ rt                  [int]
+set/ param/ rt_threshold        [float, default 0.9]
+set/ env/ firstrtunit           [int]
+set/ ev/ firstrtpat             [int, default 0]
+
+The "castest" commands runs all the patterns with the cascade equation,
+reporting the number of cycles needed to reach the given threshold (up
+to a maximum of ncycles cycles).  Any output unit exceeding the
+threshold stops the process for any given pattern. The RT is stored in
+the variable rt.  castest reports the rt after every pattern if single is set.
+
+
+Because you may wish to ignore some of the output units when collecting RT
+information, only units after and including the unit numbered "firstrtunit"
+are considered.  By default this is set to be the first outputunit.
+
+Likewise, you may wish to ignore certain patterns.  The variable firstrtpat
+is the first pattern that is processed in castest mode. Setting it higher
+than zero causes the first pattern(s) to be ignored.

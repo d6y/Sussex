@@ -1,0 +1,93 @@
+
+get net networks/fsm35.net
+
+do networks/fsm_param.str 1
+
+log output/334.log
+
+set param lrate 0.01
+set param momentum 0.0
+
+set dl 1
+set sl 1
+set stepsize nepochs
+set nepochs 10000
+set mode autowrite elapse
+set param autothreshold 155935
+set param autoprefix weights/dev/
+
+get pat patterns/mult1.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult2.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult3.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult4.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult5.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult6.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult7.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult8.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult9.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult10.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult11.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult12.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult13.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult14.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult15.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult16.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult17.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult18.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult19.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult20.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult21.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult22.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult23.pat
+sttrain
+run compress weights/dev/* end
+get pat patterns/mult24.pat
+sttrain
+run compress weights/dev/* end
+log -
+q
+y

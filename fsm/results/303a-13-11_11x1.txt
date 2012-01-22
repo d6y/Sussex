@@ -1,0 +1,16 @@
+t   op  eye  err   closest     input
+----------------------------------------------------------
+1   SMU r3c1 2.384 MKC 0.7734  ___MUL_____________________
+2   PSH r3c1 2.358 SMU 0.7482  ___MUL_________NUM___lLFRHT
+3   JTR r1c1 2.323 SMU 0.7740  ___MUL_________NUM___lLFRHT
+4   MUL r1c1 2.303 SMU 0.7585  ___MUL_________NUM___lLFRHT
+5   JAS r7c1 2.323 MKC 0.7437  ___MUL_________NUM___lLFRHT
+6   UNI r7c1 2.222 DWN 0.7509  ___MUL___SPC_________lLFRHT
+7   IAC r7c1 2.550 ZAC 0.6341  ___MUL___SPC_________lLFRHT
+8   ITC r7c1 2.475 IAC 0.6885  ___MUL___SPC_________lLFRHT
+9   JTR r1c2 2.292 RDC 0.7535  ___MUL___SPC_________lLFRHT
+10  MUL r1c2 2.440 MKC 0.7410  ___MUL_________NUMuLF______
+11  JAS r7c2 2.516 ZAC 0.7463  ___MUL_________NUMuLF______
+12  RDC r7c2 2.365 MKC 0.7398  ___MUL___SPC______uLF______
+13  UNI r7c2 2.391 IAC 0.7545  ___MUL___SPC______uLF______
+14  DON r7c2 2.471 ZAC 0.7564  ___MUL___SPC______uLF______

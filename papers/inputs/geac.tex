@@ -1,0 +1,79 @@
+
+Finding the right bug
+
+Bugs describe behaviour, and are only suggestive of the underlying
+process.
+<subjective bug description comments here>
+
+The real question of interest is not ``what bugs occur?'' but ``what
+causes the observed bugs?''.
+
+Processes that cause bugs
+
+The library at Sussex, like many other libraries, has an on-line catalogue
+of books.  When you search for a book the computer will display the
+availability of all the copies of that book on screen.  The screen can
+display five copies at a time, and if there are more than five copies of a
+book, you can press a key to display the other copies.
+
+One day I discovered a bug in the system.  The library had exactly five
+copies of the book I was looking for (Minskey's Semantic Information
+Processing). Although all five copies appeared on the screen, I was told
+that there were ``more copies to come'', and when I pressed the button I
+was shown a blank screen.
+
+Clearly there was a simple logical error in the software.  Any one of the
+following could be responsible for the behaviour:
+
+  1.  if n > 4 then more copies       (the 4 should be 5)
+
+  2.  if n < 5 then no more copies    (the < should be <= or 5 should be 6)
+
+  3.  if n=1 or n=2 or n=3 or n=4 or
+        n=5 then more copies        (last or should be omitted)
+
+In fact there is an infinite list of possible causes, all consistent with
+the behaviour, but only one being the ``true'' bug in the program.  Which
+is the real cause?
+
+
+``Bug'' means different things to different people.
+
+In the context of computer programming, a bug is something that causes the
+wrong behaviour.  In the context of student modelling, a bug is the
+behaviour.
+
+
+Will the real bug please step forward.
+
+We can use various tools to strengthen the case for a particular
+cause for a given bug:
+
+    (a) Apply Occam's razor: choose the least complex cause
+
+    (b) Select between possibilities based on our knowledge of the
+        structure of the system. For example, we may be able decide between
+        the three alternatives above if we knew that we were in a ``while''
+        or an ``until'' loop.
+
+    (c) Ignore computationally ``unlikely'' causes (such as possibility (3)
+        in the library computer example).  For humans, such a decision
+        might be based on general rules like the ``100-steps'' constraint
+        [Hofstdater].
+
+    (d) Make more observations.  Perhaps we could measure the computer's
+        response time to see if there was a difference between various
+        operations (equals, not equals, greater-than, greater-than or
+        equals, etc.) Or perhaps the bug occurs in other situations.
+
+Certainly these considerations can constrain the causes for a bug, but we
+still will not be sure we have the correct process.  But does it matter? We
+will have identified the algorithmic element of the system that is
+responsible, but leave the implementation details. The only way to do
+beyond this level of detail is by either:
+
+    (a) looking at the source code (not an option when looking at the bugs
+        humans have), or
+
+    (b) reverse-engineering the object code (which in the context of humans
+        is called computational neurobiology).

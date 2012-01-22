@@ -1,0 +1,164 @@
+\chapter{Summary}
+
+There were two main aims in writing this thesis:
+
+\begin{enumerate}
+
+\item To build an explicitly specified model of adult memory for
+multiplication facts.
+
+\item To demonstrate an alternative view of children's multicolumn
+arithmetic, and show that such an approach is useful.
+
+\end{enumerate}
+
+%---------------------------------------------------------------------
+
+\section{Memory for arithmetic facts}
+
+Chapter~\ref{c:xlit} contains a review
+of the literature and previous models of adult
+memory for multiplication facts.  It was noted that RTs tend to be lower
+for smaller problems than larger problems, although there are exceptions to
+this rule.  Most errors are operand errors---answers that are correct for a
+problem that shares an operand with the presented problem.  With the
+exception of \citeauthor{mcclmath}'s MATHNET model, previous models lack
+details about learning, response mechanisms or the spread of activation.
+
+The cascade model presented in chapter~\ref{c:xnet} was trained on the
+multiplication facts and captures the main aspects of the phenomena. Recall
+from the network is based on a build up of activation in the hidden and
+output units.  The RT is measured as the number of processing cycles
+required before a
+product unit exceeds some randomly selected threshold.  When the threshold
+is low, incorrect products can be selected as the answer.  These errors are
+mostly operand errors.
+
+Earlier experiments used different assumptions about representation of
+operands and the frequency with which problems occurred.  These experiments,
+together with an analysis of the networks, suggest that the following
+factors contribute towards the problem-size effect and error distribution:
+variations in input representation, especially the relative ``sharpness''
+of the encoding; how frequently each problem occurs in the training set;
+and the nature of the arithmetic facts themselves.
+It also was noted that coarse encoding is equivalent to training on false
+associations.  Some models assume that false associations are learned,
+and some do not.  This thesis indicates that the question of interest is
+not whether or not false associations are formed, but by which method they
+are formed.
+
+Preliminary simulations were presented of network damage and
+recall of zero and ones problems.  Finally, possible accounts of
+verification and priming were discussed.
+
+The various network
+models show some degree of consensus regarding the phenomena
+associated with recall of arithmetic facts.  For example, the problem is
+considered as the spread of activation between operand units and answer
+units.  However, there are many interesting differences between the models,
+including: input and output representation, intermediate representations,
+activation rules, training assumptions.  The importance of these
+differences remains to be explored.  For example, one of the assumptions in
+the cascade model is that the presence
+of a tie problem is made explicit in the input to the
+network.  For adults tie problems are solved quickly, but for the network,
+this is only achieved by the use of a tie flag. At the moment it appears
+that tie problems are difficult for network models to account for without a
+measure equivalent to the tie flag.
+
+
+%---------------------------------------------------------------------
+\section{Multicolumn arithmetic}
+
+Chapter~\ref{c:bugs} described children's errors in multicolumn
+multiplication.  Previous accounts of buggy behaviour were
+considered---especially VanLehn's Sierra model. Sierra is an extension to
+repair theory and includes an inductive learning mechanism.  VanLehn's
+model predicts that when children reach impasses, general purpose repairs
+are made to the local problem solver. The errors that are observed depend
+on what kind of impasse occurred and which repair was carried out.
+
+A number of observations were made of why connectionism can contribute to
+this domain.  It was noted that the notion of a impasse does not directly
+apply to connectionist networks: given an input, the network will produce
+an output.  Networks may be able to automatically repair undefined
+situations because of such properties as similarity-based processing and
+automatic generalization.
+
+Using some of the assumptions of VanLehn, and taking ideas from
+\citeauthor{suppproc}'s model of eye-movement, a connectionist model of
+multicolumn multiplication was built (chapter~\ref{c:fsm}).  To study bugs,
+rather than slips, the network was trained to activate procedures to carry
+out the details of multiplication, such as adding, multiplying, and keeping
+track of registers.  The recurrent network was trained on problems of
+ever-increasing difficulty, from 1+1 to \x{12}{99}.    During training, the
+network was tested on unseen problems from the curriculum, and errors
+occurred at this point.
+
+The errors made by the system do not match the empirical observations very
+well, although there are difficulties in comparing the errors to children's
+errors.  The set of output operations, although sufficient for solving
+multiplication problems, requires
+further work to capture children's errors
+in detail. An analysis of the errors made by the network shows some
+interesting results.  The system is behaving as a graded state machine: it
+has many of the properties of finite state machines, but does not ``get
+stuck'' when encountering novel inputs.  Errors were characterized as
+perturbations to the desired trajectory, rather than perturbations to a
+rule set. The errors are a result of unlearned state transitions, and the
+details of a particular error depends on its similarity to previous
+experienced problems.
+
+The state of the network was visualized by plotting the principal
+components of the hidden unit activations.  Although it is not obvious that
+this reduction in dimensions (from 35 hidden units to 2 axis) will provide
+any interesting information about the system, in practice it does.
+The mistakes made by the system are capture errors: the system is
+temporarily attracted into a region of state space which
+represents an arithmetic subroutine. This is clearly visible with the PCA
+trajectory diagrams.
+
+The representations learned by the system have a great deal of structure.
+The model suggests that this may be exploited to account for errors without
+reference to explicit impasses or repairs. It was noted that the output
+layer of the network exhibits an increase in residual error at moments that
+correspond to impasses. If the processing details of the network were
+changed, this increase in residual error could
+be observed as an increase in
+RT\@. This raises the question of whether impasses are important moments
+for the learner, or simply a by-product of the processing mechanisms.  The
+model requires more work before this suggestion can be more thoroughly
+explored and tested.
+
+This is, of course, just one of many possible connectionist views of
+impasses.  From the point of view of Soar, for example, \citeA{rosesymb}
+suggests that connectionist impasses may occur when a number of output
+units are above threshold---meaning that there is no uniquely specified
+course of action to take.
+
+
+
+%---------------------------------------------------------------------
+\section{Future work}
+
+Specific future work, in the short- and mid-term, was outlined at the end
+of chapters~\ref{c:xnet} and \ref{c:fsm}.  More general comments are
+made here.
+
+Our understanding of the representation of number and of the training
+environment is poor. In both models the training environment---frequency or
+order of problems---is important.  Empirical evidence needs to be
+accumulated to understand what problems children actually encounter.
+
+Experiments in part~\ref{c:mental} showed that changes in the ``sharpness''
+of operand representation changed the results of the simulation.  In
+part~\ref{c:mult}, emphasis was placed on arithmetic perceptual skills, and
+in particular on eye-movements. Without an understanding of these details
+it will be difficult to build an appropriate operation set for the
+multicolumn model. It seems that more study is needed of preschool number
+abilities and foundational skills, such as number comparison and counting.
+The representation of number assumed and developed by the recall network
+should be applied to these other number skills.  In this way it may be
+possible to determine the validity of the various representations, and
+evaluate the plausibility of a product level of representation and a tens
+and units level.

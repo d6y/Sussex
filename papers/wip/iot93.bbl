@@ -1,0 +1,56 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\BCAY{Angeline \BBA\ Pollack}{Angeline \BBA\
+  Pollack}{1992}]{angeevol}
+Angeline, P.~J.\BBACOMMA\  \BBA\ Pollack, J.~B. \BBOP1992\BBCP.
+\newblock \BBOQ The evolutionary induction of subroutines\BBCQ\
+\newblock In {\Bem Proceedings of the Fourteenth Annual Conference of the
+  Cognitive Science Society}, \BPGS\ 236--241. Lawrence Erlbaum Associates,
+  Hillsdale, NJ.
+
+\bibitem[\protect\BCAY{Harvey}{Harvey}{1992}]{harvspec}
+Harvey, I. \BBOP1992\BBCP.
+\newblock \BBOQ Species adaptation genetic algorithms: a basis for a continuing
+  \uppercase{SAGA}\BBCQ\
+\newblock In Varela, F.~J.\BBACOMMA\  \BBA\ Bourgine, P.\BEDS, {\Bem Towards A
+  Practive of Autonomous Systems: Proceedings of the First European Conference
+  on Artificial life}, \BPGS\ 346--354. MIT Press, Cambridge, MA.
+
+\bibitem[\protect\BCAY{Holland}{Holland}{1975}]{holladap}
+Holland, J.~H. \BBOP1975\BBCP.
+\newblock {\Bem Adaptation in Natural and Artificial Systems: An
+  Introductionary Analysis with Applications to Biology, Control and Artificial
+  Intelligence}.
+\newblock University of Michigan Press.
+
+\bibitem[\protect\BCAY{Jones}{Jones}{1993}]{jonesche}
+Jones, A.~J. \BBOP1993\BBCP.
+\newblock \BBOQ A schemata theorem for trees\BBCQ\
+\newblock Manuscript accepted for {\em The Fifth International Conference on
+  Genetic Algorithms}.
+
+\bibitem[\protect\BCAY{Kinnear}{Kinnear}{1993}]{kinngene}
+Kinnear, Jr., K.~E. \BBOP1993\BBCP.
+\newblock \BBOQ Generality and difficulty in genetic programming: evolving a
+  sort\BBCQ\
+\newblock To appear in {\em The Fifth International Conference on Genetic
+  Algorithms}.
+
+\bibitem[\protect\BCAY{Koza}{Koza}{1992}]{kozagp}
+Koza, J.~R. \BBOP1992\BBCP.
+\newblock {\Bem Genetic Programming: On the Programming of Computers by Natural
+  Selection}.
+\newblock MIT Press, Cambridge, MA.
+
+\bibitem[\protect\BCAY{McCloskey}{McCloskey}{1991}]{mcclnetw}
+McCloskey, M. \BBOP1991\BBCP.
+\newblock \BBOQ Networks and theories: the place of connectionism in cognitive
+  science\BBCQ\
+\newblock {\Bem Psychological Science}, {\Bem 2\/}(6), 387--395.
+
+\bibitem[\protect\BCAY{Montana}{Montana}{1993}]{montstro}
+Montana, D.~J. \BBOP1993\BBCP.
+\newblock \BBOQ Strongly typed genetic programming\BBCQ\
+\newblock \BTR\ 7866, Bolt, Bernek and Newman Inc., Cambridge, MA.
+
+\end{thebibliography}

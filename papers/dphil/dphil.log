@@ -1,0 +1,2131 @@
+This is TeX, C Version 3.14t3 (format=lplain 92.3.12)  29 AUG 1993 17:43
+**dphil
+(dphil.tex
+LaTeX Version 2.09 <14 January 1992>
+(/csuna/home/richardd/tex/inputs/new/rzdthesis.sty
+RZDTHESIS.STY, 11 Dec 1992
+(/usr/local/lib/tex/inputs/report.sty
+Standard Document Style `report' <14 Jan 92>.
+(/usr/local/lib/tex/inputs/rep11.sty)
+\descriptionmargin=\dimen99
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+ (/usr/local/lib/tex/inputs/titlepag.sty
+Document Style Option `titlepage' -- Released 16 June 1991.
+)) (/csuna/home/richardd/tex/inputs/new/doublespace.sty)
+(/usr/local/lib/tex/inputs/pspalat.sty (/usr/local/lib/tex/inputs/psfont.sty
+\main@font@x@height=\dimen100
+\aadimen=\dimen101
+)
+(palatino scaled 1002)) (/usr/local/lib/tex/inputs/pstimesm.sty
+\atcatcode=\count88
+
+(/usr/local/lib/tex/inputs/mtmacs.tex) (/usr/local/lib/tex/inputs/pstimes.sty
+(times scaled 1046))
+\cal@group=\mathgroup11
+) (/usr/local/lib/tex/inputs/a4.sty
+\mainfontsize=\dimen102
+)
+(/csuna/home/richardd/tex/inputs/new/fancyboxlib.sty
+Fancy box library -- some sections commented-out
+(/usr/local/lib/tex/inputs/fancybox.sty
+Style option: `fancybox' v1.0 <93/02/10> (tvz)
+\@fancybox=\box25
+\@tempdimc=\dimen103
+\shadowsize=\dimen104
+\@Sbox=\box26
+\do@VerbBox=\toks14
+\the@fancyput=\toks15
+\this@fancyput=\toks16
+\EndVerbatimTokens=\toks17
+\Verbatim@Outfile=\write3
+\Verbatim@Infile=\read0
+)
+\ftmpbox=\box27
+\ftmpwd=\skip41
+) (/csuna/home/richardd/tex/inputs/new/rzdthesis.con
+(/usr/local/lib/tex/inputs/psfig.sty
+\@unused=\write4
+
+psfig/tex 1.9
+\ps@stream=\read1
+\p@intvaluex=\dimen105
+\p@intvaluey=\dimen106
+) (/csuna/home/richardd/tex/inputs/arithprob.sty)
+(/csuna/home/richardd/tex/inputs/bugs.sty
+BUGS
+) (/csuna/home/richardd/tex/inputs/psy.sty
+PSY Optional Style, Version 1.1 (11/92)
+(/usr/local/lib/tex/inputs/theapa.sty
+APA Citation (& Optional APA Heading) Style - Version 2.5.1 (5/92)
+\bibleftmargin=\skip42
+\b@level@one@skip=\skip43
+\e@level@one@skip=\skip44
+\b@level@two@skip=\skip45
+\e@level@two@skip=\skip46
+\b@level@three@skip=\skip47
+\e@level@three@skip=\skip48
+\b@level@four@skip=\skip49
+\e@level@four@skip=\skip50
+\b@level@five@skip=\skip51
+\e@level@five@skip=\skip52
+\c@APAenum=\count89
+\@text@par@indent=\skip53
+\UL@hyphenbox=\box28
+\UL@box=\box29
+\UL@spfactor=\count90
+\UL@penalty=\count91
+\UL@skip=\skip54
+\UL@lht=\dimen107
+\UL@ldp=\dimen108
+\UL@pixel=\dimen109
+)) (/usr/local/lib/tex/inputs/rot.sty
+\@rotdimen=\dimen110
+) (/usr/local/lib/tex/inputs/alltt.sty)
+(/usr/local/lib/tex/inputs/dectab.sty
+Document Style Option `dectab', version April 27, 1991
+\@Ldec=\dimen111
+\@Rdec=\dimen112
+)))
+-----------------------------------------------------------------
+(dphil.aux (ack.aux) (abs.aux) (intro.aux) (xlit.aux) (xnet.aux) (bugs.aux)
+(fsm.aux) (conc.aux) (addapp.aux) (multapp.aux)) (title.tex)
+(/usr/local/lib/tex/inputs/epsf.sty
+\epsffilein=\read2
+\epsfxsize=\dimen113
+\epsfysize=\dimen114
+\epsftsize=\dimen115
+\epsfrsize=\dimen116
+\epsftmp=\dimen117
+\pspoints=\dimen118
+) [0
+
+] (dphil.toc [1
+
+] [2] [3])
+\tf@toc=\write5
+ [4] (ack.tex
+[5
+
+
+]) [6
+
+
+] (abs.tex [7
+
+]) (intro.tex
+Chapter 1.
+[1
+
+
+
+] [2]
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 90--90
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(15.23198+6.52809)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 96--96
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(15.23198+6.52809)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+[3] [4]
+psfig: searching /csuna/home/richardd/papers/postscript/structure.ps for boundi
+ng box
+psfig: including /csuna/home/richardd/papers/postscript/structure.ps 
+) [5] [6] (xlit.tex [7
+
+
+
+]
+Chapter 2.
+[8
+
+]
+psfig: searching /csuna/home/richardd/papers/postscript/humanrt.ps for bounding
+ box
+psfig: including /csuna/home/richardd/papers/postscript/humanrt.ps 
+[9] [10]
+Overfull \vbox (1.44633pt too high) has occurred while \output is active
+\vbox(649.86082+0.0)x426.79134, glue set - 1.0
+.\vbox(602.54707+0.0)x426.79134
+..\hbox(602.54707+0.0)x426.79134
+...\hbox(0.0+0.0)x0.0
+...\vbox(602.54707+0.0)x427.19133 []
+...\penalty 10000
+...\glue(\parfillskip) 0.0 plus 1.0fil
+...\glue(\rightskip) 0.0
+..\glue 0.0
+.\glue 12.0 plus 2.0 minus 2.0
+.\glue -12.0 plus -2.0 minus -2.0
+.\glue 20.0 plus 2.0 minus 4.0
+.\glue(\topskip) 3.11807
+.etc.
+
+
+[11]
+psfig: searching /csuna/home/richardd/papers/postscript/xtable.ps for bounding 
+box
+psfig: including /csuna/home/richardd/papers/postscript/xtable.ps 
+[12] [13] [14]
+psfig: searching /csuna/home/richardd/papers/postscript/humanrt01.ps for boundi
+ng box
+psfig: including /csuna/home/richardd/papers/postscript/humanrt01.ps 
+[15] [16] [17]
+psfig: searching /csuna/home/richardd/papers/postscript/doa.ps for bounding box
+
+psfig: including /csuna/home/richardd/papers/postscript/doa.ps 
+[18] [19] [20] [21]
+psfig: searching /csuna/home/richardd/papers/postscript/candg.ps for bounding b
+ox
+psfig: including /csuna/home/richardd/papers/postscript/candg.ps 
+[22] [23] [24] [25]
+psfig: searching /csuna/home/richardd/papers/postscript/bsb.ps for bounding box
+
+psfig: including /csuna/home/richardd/papers/postscript/bsb.ps 
+[26] [27] [28] [29] [30]
+psfig: searching /csuna/home/richardd/papers/postscript/ia.ps for bounding box
+psfig: including /csuna/home/richardd/papers/postscript/ia.ps 
+[31] [32] [33] [34] [35]
+psfig: searching /csuna/home/richardd/papers/postscript/mathnet.ps for bounding
+ box
+psfig: including /csuna/home/richardd/papers/postscript/mathnet.ps 
+[36] [37] [38] [39] [40] [41] [42]) [43] (xnet.tex
+Chapter 3.
+[44
+
+
+
+]
+psfig: searching /csuna/home/richardd/papers/postscript/xnet.ps for bounding bo
+x
+psfig: including /csuna/home/richardd/papers/postscript/xnet.ps 
+[45] [46]
+psfig: searching /csuna/home/richardd/papers/postscript/cascade.ps for bounding
+ box
+psfig: including /csuna/home/richardd/papers/postscript/cascade.ps 
+[47] [48] [49] [50]
+psfig: searching /csuna/home/richardd/papers/postscript/p3x8.ps for bounding bo
+x
+psfig: including /csuna/home/richardd/papers/postscript/p3x8.ps 
+[51] [52]
+psfig: searching /csuna/home/richardd/papers/postscript/29.ps for bounding box
+psfig: including /csuna/home/richardd/papers/postscript/29.ps 
+(29emat.tex) [53] [54] [55] [56]
+psfig: searching /csuna/home/richardd/papers/postscript/xact.ps for bounding bo
+x
+psfig: including /csuna/home/richardd/papers/postscript/xact.ps 
+[57]
+psfig: searching /csuna/home/richardd/papers/postscript/freq3d.ps for bounding 
+box
+psfig: including /csuna/home/richardd/papers/postscript/freq3d.ps 
+[58]
+psfig: searching /csuna/home/richardd/papers/postscript/01.ps for bounding box
+psfig: including /csuna/home/richardd/papers/postscript/01.ps 
+[59] [60] (01emat.tex) [61] [62]
+psfig: searching /csuna/home/richardd/papers/postscript/resipsieg.ps for boundi
+ng box
+psfig: including /csuna/home/richardd/papers/postscript/resipsieg.ps 
+[63]
+psfig: searching /csuna/home/richardd/papers/postscript/wtd01sum.ps for boundin
+g box
+psfig: including /csuna/home/richardd/papers/postscript/wtd01sum.ps 
+[64]
+psfig: searching /csuna/home/richardd/papers/postscript/oneofn.ps for bounding 
+box
+psfig: including /csuna/home/richardd/papers/postscript/oneofn.ps 
+[65] [66]
+psfig: searching /csuna/home/richardd/papers/postscript/oneofnwts.ps for boundi
+ng box
+psfig: including /csuna/home/richardd/papers/postscript/oneofnwts.ps 
+psfig: searching /csuna/home/richardd/papers/postscript/noskew.ps for bounding 
+box
+psfig: including /csuna/home/richardd/papers/postscript/noskew.ps 
+[67]
+psfig: searching /csuna/home/richardd/papers/postscript/mn-rep-rt.ps for boundi
+ng box
+psfig: including /csuna/home/richardd/papers/postscript/mn-rep-rt.ps 
+[68] [69] [70] [71]
+psfig: searching /csuna/home/richardd/papers/postscript/predict.ps for bounding
+ box
+psfig: including /csuna/home/richardd/papers/postscript/predict.ps 
+[72] [73] [74] [75] [76] [77] [78]
+psfig: searching /csuna/home/richardd/papers/postscript/poss-verify.ps for boun
+ding box
+psfig: including /csuna/home/richardd/papers/postscript/poss-verify.ps 
+[79] [80]
+psfig: searching /csuna/home/richardd/papers/postscript/chain1.ps for bounding 
+box
+psfig: including /csuna/home/richardd/papers/postscript/chain1.ps 
+[81]
+psfig: searching /csuna/home/richardd/papers/postscript/chain2.ps for bounding 
+box
+psfig: including /csuna/home/richardd/papers/postscript/chain2.ps 
+[82] [83]) [84] (bugs.tex [85
+
+
+
+]
+Chapter 4.
+[86
+
+] [87] [88] (totals.tex
+TOTALS.TEX x 63-9, + 39-11 = 102
+)
+psfig: searching /csuna/home/richardd/papers/postscript/xterms.ps for bounding 
+box
+psfig: including /csuna/home/richardd/papers/postscript/xterms.ps 
+[89] [90] [91] [92] [93] [94] [95] [96] [97]
+psfig: searching /csuna/home/richardd/papers/postscript/parse.ps for bounding b
+ox
+psfig: including /csuna/home/richardd/papers/postscript/parse.ps 
+[98] [99] [100] [101]
+psfig: searching /csuna/home/richardd/papers/postscript/abl.ps for bounding box
+
+psfig: including /csuna/home/richardd/papers/postscript/abl.ps 
+[102] [103] [104] [105] [106]
+Overfull \hbox (7.23682pt too wide) in paragraph at lines 1001--1006
+[] [][]\palatino/m/it/11 Hidden unit re-cruit-ment. \palatino/m/n/11 Con-struc-
+tion al-go-rithm, such as cas-cade cor-re-la-tion (Fahlman
+
+\hbox(8.06293+3.10449)x399.41628, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\glue 0.0
+.\hbox(7.55283+0.07678)x0.0
+..\glue 0.0
+..\glue -21.90005
+..\glue -5.475
+..\hbox(7.55283+0.07678)x21.90005, glue set 21.90005fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+...\hbox(7.55283+0.07678)x0.0, glue set - 8.22748fil []
+..\glue 5.475
+.\penalty 0
+.\setlanguage1 (hyphenmin 2,3)
+.etc.
+
+[107]
+psfig: searching /csuna/home/richardd/papers/postscript/srn.ps for bounding box
+
+psfig: including /csuna/home/richardd/papers/postscript/srn.ps 
+[108] [109] [110] [111] [112]
+Overfull \hbox (9.29692pt too wide) in paragraph at lines 1261--1265
+[] [][]\palatino/m/n/11 When com-put-ers reach an im-passe, they do not just tu
+rn them-selves off^^bcInstead
+
+\hbox(7.88193+3.10449)x372.04121, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\glue 0.0
+.\hbox(0.0+0.0)x0.0
+..\glue 0.0
+..\glue -21.90005
+..\glue -5.475
+..\hbox(0.0+0.0)x21.90005, glue set 21.90005fil
+...\glue 0.0 plus 1.0fil
+..\glue 5.475
+.\penalty 0
+.\setlanguage1 (hyphenmin 2,3)
+.etc.
+
+[113] [114]
+psfig: searching /csuna/home/richardd/papers/postscript/rdr.ps for bounding box
+
+psfig: including /csuna/home/richardd/papers/postscript/rdr.ps 
+[115]) [116] (fsm.tex
+Chapter 5.
+[117
+
+
+
+] [118] [119] [120]
+psfig: searching /csuna/home/richardd/papers/postscript/addtrans.ps for boundin
+g box
+psfig: including /csuna/home/richardd/papers/postscript/addtrans.ps 
+[121] [122]
+psfig: searching /csuna/home/richardd/papers/postscript/longxnet2.ps for boundi
+ng box
+psfig: including /csuna/home/richardd/papers/postscript/longxnet2.ps 
+[123]
+psfig: searching /csuna/home/richardd/papers/postscript/bptt.ps for bounding bo
+x
+psfig: including /csuna/home/richardd/papers/postscript/bptt.ps 
+[124]
+psfig: searching /csuna/home/richardd/papers/postscript/grammar.ps for bounding
+ box
+psfig: including /csuna/home/richardd/papers/postscript/grammar.ps 
+[125]
+psfig: searching /csuna/home/richardd/papers/postscript/eye.ps for bounding box
+
+psfig: including /csuna/home/richardd/papers/postscript/eye.ps 
+[126] [127] [128]
+psfig: searching /csuna/home/richardd/papers/postscript/longinrep.ps for boundi
+ng box
+psfig: including /csuna/home/richardd/papers/postscript/longinrep.ps 
+[129] [130] [131]
+Overfull \hbox (2.53694pt too wide) in paragraph at lines 665--665
+[][]\palatino/m/n/11 1:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 1
+.\palatino/m/n/11 :
+.\rule(9.51996+4.08003)x0.0
+.etc.
+
+
+Overfull \hbox (2.53694pt too wide) in paragraph at lines 665--665
+[][]\palatino/m/n/11 8:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 8
+.\palatino/m/n/11 :
+.\rule(9.51996+4.08003)x0.0
+.etc.
+
+
+Overfull \hbox (8.02193pt too wide) in paragraph at lines 665--665
+[][]\palatino/m/n/11 15:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 1
+.\palatino/m/n/11 5
+.\palatino/m/n/11 :
+.etc.
+
+
+Overfull \hbox (8.02193pt too wide) in paragraph at lines 665--665
+[][]\palatino/m/n/11 22:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 2
+.\palatino/m/n/11 2
+.\palatino/m/n/11 :
+.etc.
+
+
+Overfull \hbox (2.53694pt too wide) in paragraph at lines 666--666
+[][]\palatino/m/n/11 2:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 2
+.\palatino/m/n/11 :
+.\rule(9.51996+4.08003)x0.0
+.etc.
+
+
+Overfull \hbox (2.53694pt too wide) in paragraph at lines 666--666
+[][]\palatino/m/n/11 9:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 9
+.\palatino/m/n/11 :
+.\rule(9.51996+4.08003)x0.0
+.etc.
+
+
+Overfull \hbox (8.02193pt too wide) in paragraph at lines 666--666
+[][]\palatino/m/n/11 16:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 1
+.\palatino/m/n/11 6
+.\palatino/m/n/11 :
+.etc.
+
+
+Overfull \hbox (8.02193pt too wide) in paragraph at lines 666--666
+[][]\palatino/m/n/11 23:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 2
+.\palatino/m/n/11 3
+.\palatino/m/n/11 :
+.etc.
+
+
+Overfull \hbox (2.53694pt too wide) in paragraph at lines 667--667
+[][]\palatino/m/n/11 3:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 3
+.\palatino/m/n/11 :
+.\rule(9.51996+4.08003)x0.0
+.etc.
+
+
+Overfull \hbox (8.02193pt too wide) in paragraph at lines 667--667
+[][]\palatino/m/n/11 10:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 1
+.\palatino/m/n/11 0
+.\palatino/m/n/11 :
+.etc.
+
+
+Overfull \hbox (8.02193pt too wide) in paragraph at lines 667--667
+[][]\palatino/m/n/11 17:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 1
+.\palatino/m/n/11 7
+.\palatino/m/n/11 :
+.etc.
+
+
+Overfull \hbox (8.02193pt too wide) in paragraph at lines 667--667
+[][]\palatino/m/n/11 24:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 2
+.\palatino/m/n/11 4
+.\palatino/m/n/11 :
+.etc.
+
+
+Overfull \hbox (2.53694pt too wide) in paragraph at lines 668--668
+[][]\palatino/m/n/11 4:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 4
+.\palatino/m/n/11 :
+.\rule(9.51996+4.08003)x0.0
+.etc.
+
+
+Overfull \hbox (8.02193pt too wide) in paragraph at lines 668--668
+[][]\palatino/m/n/11 11:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 1
+.\palatino/m/n/11 1
+.\palatino/m/n/11 :
+.etc.
+
+
+Overfull \hbox (8.02193pt too wide) in paragraph at lines 668--668
+[][]\palatino/m/n/11 18:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 1
+.\palatino/m/n/11 8
+.\palatino/m/n/11 :
+.etc.
+
+
+Overfull \hbox (8.02193pt too wide) in paragraph at lines 668--668
+[][]\palatino/m/n/11 25:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 2
+.\palatino/m/n/11 5
+.\palatino/m/n/11 :
+.etc.
+
+
+Overfull \hbox (2.53694pt too wide) in paragraph at lines 669--669
+[][]\palatino/m/n/11 5:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 5
+.\palatino/m/n/11 :
+.\rule(9.51996+4.08003)x0.0
+.etc.
+
+
+Overfull \hbox (8.02193pt too wide) in paragraph at lines 669--669
+[][]\palatino/m/n/11 12:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 1
+.\palatino/m/n/11 2
+.\palatino/m/n/11 :
+.etc.
+
+
+Overfull \hbox (8.02193pt too wide) in paragraph at lines 669--669
+[][]\palatino/m/n/11 19:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 1
+.\palatino/m/n/11 9
+.\palatino/m/n/11 :
+.etc.
+
+
+Overfull \hbox (8.02193pt too wide) in paragraph at lines 669--669
+[][]\palatino/m/n/11 26:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 2
+.\palatino/m/n/11 6
+.\palatino/m/n/11 :
+.etc.
+
+
+Overfull \hbox (2.53694pt too wide) in paragraph at lines 670--670
+[][]\palatino/m/n/11 6:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 6
+.\palatino/m/n/11 :
+.\rule(9.51996+4.08003)x0.0
+.etc.
+
+
+Overfull \hbox (8.02193pt too wide) in paragraph at lines 670--670
+[][]\palatino/m/n/11 13:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 1
+.\palatino/m/n/11 3
+.\palatino/m/n/11 :
+.etc.
+
+
+Overfull \hbox (8.02193pt too wide) in paragraph at lines 670--670
+[][]\palatino/m/n/11 20:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 2
+.\palatino/m/n/11 0
+.\palatino/m/n/11 :
+.etc.
+
+
+Overfull \hbox (8.02193pt too wide) in paragraph at lines 670--670
+[][]\palatino/m/n/11 27:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 2
+.\palatino/m/n/11 7
+.\palatino/m/n/11 :
+.etc.
+
+
+Overfull \hbox (2.53694pt too wide) in paragraph at lines 671--671
+[][]\palatino/m/n/11 7:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 7
+.\palatino/m/n/11 :
+.\rule(9.51996+4.08003)x0.0
+.etc.
+
+
+Overfull \hbox (8.02193pt too wide) in paragraph at lines 671--671
+[][]\palatino/m/n/11 14:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 1
+.\palatino/m/n/11 4
+.\palatino/m/n/11 :
+.etc.
+
+
+Overfull \hbox (8.02193pt too wide) in paragraph at lines 671--671
+[][]\palatino/m/n/11 21:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 2
+.\palatino/m/n/11 1
+.\palatino/m/n/11 :
+.etc.
+
+
+Overfull \hbox (8.02193pt too wide) in paragraph at lines 671--671
+[][]\palatino/m/n/11 28:| 
+
+\hbox(9.51996+4.08003)x5.69054
+.\hbox(0.0+0.0)x0.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 2
+.\palatino/m/n/11 8
+.\palatino/m/n/11 :
+.etc.
+
+[132]
+psfig: searching /csuna/home/richardd/papers/postscript/ltime.ps for bounding b
+ox
+psfig: including /csuna/home/richardd/papers/postscript/ltime.ps 
+[133] [134] [135] [136] [137] [138] [139]
+psfig: searching /csuna/home/richardd/papers/postscript/fsmgraph.ps for boundin
+g box
+psfig: including /csuna/home/richardd/papers/postscript/fsmgraph.ps 
+[140] [141]
+psfig: searching /csuna/home/richardd/papers/postscript/303a-1-fsm.ps for bound
+ing box
+(clip)
+psfig: including /csuna/home/richardd/papers/postscript/303a-1-fsm.ps 
+[142] [143]
+psfig: searching /csuna/home/richardd/papers/postscript/303a-1-zoom.ps for boun
+ding box
+(clip)
+psfig: including /csuna/home/richardd/papers/postscript/303a-1-zoom.ps 
+[144]
+psfig: searching /csuna/home/richardd/papers/postscript/303a-16-11x11.ps for bo
+unding box
+(clip)
+psfig: including /csuna/home/richardd/papers/postscript/303a-16-11x11.ps 
+[145] [146]
+Overfull \hbox (1.30077pt too wide) in paragraph at lines 1322--1331
+[]\palatino/m/n/11 When train-ing se-quen-tial net-works, one usu-ally thinks o
+f hav-ing to learn the in-put/output
+
+\hbox(7.88193+3.10449)x426.79134, glue set - 1.0
+.\setlanguage1 (hyphenmin 2,3)
+.\palatino/m/n/11 W
+.\palatino/m/n/11 h
+.\palatino/m/n/11 e
+.\palatino/m/n/11 n
+.etc.
+
+[147]
+psfig: searching /csuna/home/richardd/papers/postscript/303a-6-3.ps for boundin
+g box
+(clip)
+psfig: including /csuna/home/richardd/papers/postscript/303a-6-3.ps 
+psfig: searching /csuna/home/richardd/papers/postscript/303a-7-3.ps for boundin
+g box
+(clip)
+psfig: including /csuna/home/richardd/papers/postscript/303a-7-3.ps 
+[148] [149] [150] [151] [152] [153]
+psfig: searching /csuna/home/richardd/papers/postscript/bugmig.ps for bounding 
+box
+psfig: including /csuna/home/richardd/papers/postscript/bugmig.ps 
+[154] [155]
+psfig: searching /csuna/home/richardd/papers/postscript/303a-3-rt.ps for boundi
+ng box
+psfig: including /csuna/home/richardd/papers/postscript/303a-3-rt.ps 
+[156]
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 1744--1744
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(15.23198+6.52809)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 1749--1749
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(15.23198+6.52809)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+psfig: searching /csuna/home/richardd/papers/postscript/303a-21-rt.ps for bound
+ing box
+psfig: including /csuna/home/richardd/papers/postscript/303a-21-rt.ps 
+[157] [158] [159] [160]) [161] (conc.tex
+Chapter 6.
+[162
+
+
+
+] [163] [164]) [165] (dphil.bbl [166
+
+
+] [167] [168] [169] [170] [171]
+[172] [173] [174] [175] [176] [177]) [178] (addapp.tex
+Appendix A.
+\tcb=\box30
+[179
+
+
+] [180] [181] (/csuna/home/richardd/papers/dphil/freqlist.tex)
+LaTeX Warning: Float larger than \textheight on input line 152.
+(/csuna/home/richardd/papers/dphil/addlist.tex
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 4--4
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 11--11
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 17--17
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+[182]
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 24--24
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 31--31
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 37--37
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 43--43
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 49--49
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 55--55
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 62--62
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 68--68
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 75--75
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 81--81
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+[183]
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 89--89
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 96--96
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 103--103
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 110--110
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 116--116
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 123--123
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 129--129
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 136--136
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+[184]
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 142--142
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 147--147
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 155--155
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 162--162
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 168--168
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 173--173
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 175--175
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 181--181
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 187--187
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 193--193
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 199--199
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+[185]
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 206--206
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 213--213
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 220--220
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 226--226
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 234--234
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 242--242
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 248--248
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 254--254
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+[186])) [187] [188] (multapp.tex
+Appendix B.
+(/csuna/home/richardd/papers/dphil/multlist.tex
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 5--5
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 13--13
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 20--20
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 28--28
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 35--35
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 42--42
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 44--44
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+[189
+
+
+
+]
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 50--50
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 57--57
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 63--63
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 76--76
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 82--82
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 89--89
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 96--96
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+[190]
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 106--106
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 113--113
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 115--115
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 122--122
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (3.76648pt too wide) in paragraph at lines 124--124
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 130--130
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 137--137
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 144--144
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+[191]
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 151--151
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 159--159
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 165--165
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 171--171
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 178--178
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 186--186
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 193--193
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+[192]
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 201--201
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 209--209
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 216--216
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 223--223
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 229--229
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 236--236
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 238--238
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 245--245
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 252--252
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+[193]
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 262--262
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 268--268
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 270--270
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 277--277
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 284--284
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 291--291
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 299--299
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 307--307
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+[194]
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 314--314
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 321--321
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 329--329
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 336--336
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 343--343
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 358--358
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 360--360
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+[195]
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 366--366
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 368--368
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 375--375
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 383--383
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 389--389
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 395--395
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 402--402
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 410--410
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+[196]
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 416--416
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 424--424
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 433--433
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 440--440
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 447--447
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.89479pt too wide) in paragraph at lines 454--454
+[]$\MTSY/m/n/11 ^^B$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 ^^B
+.\mathoff
+.\mathon
+.etc.
+
+
+Overfull \hbox (2.84898pt too wide) in paragraph at lines 456--456
+[]$\MTSY/m/n/11 C$$ []$| 
+
+\hbox(9.51996+4.08003)x10.96999, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\mathon
+.\MTSY/m/n/11 C
+.\mathoff
+.\mathon
+.etc.
+
+)) [197] (dphil.aux (ack.aux) (abs.aux) (intro.aux) (xlit.aux) (xnet.aux)
+(bugs.aux) (fsm.aux) (conc.aux) (addapp.aux) (multapp.aux)) ) 
+Here is how much of TeX's memory you used:
+ 2654 strings out of 4213
+ 32043 string characters out of 53072
+ 246614 words of memory out of 262141
+ 3873 multiletter control sequences out of 9500
+ 59874 words of font info for 139 fonts, out of 72000 for 255
+ 16 hyphenation exceptions out of 607
+ 18i,13n,25p,782b,574s stack positions out of 300i,40n,60p,3000b,4000s
+
+Output written on dphil.dvi (205 pages, 546680 bytes).

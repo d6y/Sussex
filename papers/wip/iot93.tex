@@ -1,0 +1,317 @@
+\documentstyle[psfig,theapa,pstimesm]{iot}
+
+% Changes to theapa.sty
+\def\refname{References}
+\NoCommaBetweenTwoAuthors
+\citepunct{(}{\&}{\&}{~}{; }{, }{)}{}{.}
+\def\BTR{Technical report}
+
+\begin{document}
+\bibliographystyle{theapa}
+
+\author{Richard Dallaway}
+\email{richardd@cogs.susx.ac.uk}
+\title{Genetic programming and cognitive models}
+
+\maketitle
+
+\begin{abstract}
+Genetic programming (GP) is a general purpose method for
+evolving symbolic computer programs (e.g. Lisp code). Concepts from
+genetic algorithms are used to evolve a population of initially random
+programs so that they are able to solve the problem at hand.  This paper
+describes genetic programming and discuss the usefulness of the method for
+building cognitive models.  Although it appears that an
+arbitrary fit to the training examples will be evolved, it is shown that GP
+can be constrained to produce small, general programs.
+\end{abstract}
+
+\section*{Introduction to GP}
+
+\citeA{kozagp} has developed a general method for the induction of symbolic
+computer programs.  The method can be applied to any problem for which a
+``fitness function'' can be defined.  This function determines how good a
+particular program is at solving a given task.  Using techniques from
+genetic algorithms \cite{holladap}, GP discovers solutions without the need
+for pre-specifying the size or structure of the program.
+
+As an example of GP, consider the problem of {\em symbolic regression:}
+given a set of data points, find the underlying function in symbolic terms.
+More specifically, suppose a learner is given 20 $(x,y)$ pairs from the
+function $y=2.719x^2+3.1416x$, randomly selected from the interval
+$x=[-1,+1]$.  The learner should return the symbolic
+expression $2.719x^2+3.1416x$. A program fragment that implements this
+function is:
+\begin{verbatim}
+    2.719 * x * x + 3.1416 * x
+\end{verbatim}
+In Lisp it would be written as:
+\begin{verbatim}
+    (+ (* 2.719 (* x x)) (* 3.1416 x))
+\end{verbatim}
+The Lisp version has the property that the function can easily be
+visualized as a tree (see the lower left-hand tree in
+figure~\ref{crossover}, the ``first child''). Most languages can or do
+represent programs in a structure similar to a tree at some stage (e.g., to
+ensure correct operator precedence).  The power of GP comes from the way
+it manipulates tree structures:  the crossover function takes two parent
+trees, and exchanges subtrees to create two children (see
+figure~\ref{crossover}).
+
+\begin{figure}
+\centerline{\psfig{file=gpx.ps,width=7.5cm}}
+\caption{An example of crossover. A branch is selected for crossover in
+each of the parent trees. In this example, the
+first left branch from the first
+parent is exchanged with the first right branch of the second parent. This
+creates two new trees.}\label{crossover}
+\end{figure}
+
+GP evolves tree structures defined over a set of functions and terminals,
+which must be supplied
+by the modeller. For the $y=2.719x^2+3.1416x$ task, the
+function set will be:
+\begin{verbatim}
+    F = {+, -, DIV, *}
+\end{verbatim}
+
+The function \verb|DIV| works just like division, except it arbitrarily
+returns 1.0 when there is an attempt to divide by zero.  All the functions
+used by GP must have this property of ``closure'': that is, the functions
+must be able to produce sensible results over all the inputs they could
+possibly receive.
+This ensures that programs, even randomly generated programs, can be
+executed without error. As symbolic regression works with real
+numbers, it is likely that \verb|DIV| will receive zero as a second
+argument.  Note that if
+crossover is limited to subtrees of the same type, then there
+is no need for closure \cite{montstro}.  However, is strongly typed GP is
+not used here.
+
+The terminals set for the experiment will be:
+\begin{verbatim}
+    T = {x, R}
+\end{verbatim}
+
+The special symbol \verb|R| generates a random floating point number
+between $-1$
+and $+1$ when it is inserted into the initial population.  That is,
+the initial population is created by randomly selecting a function. For
+each of the arguments to the function, either a terminal or another
+function is created. If the terminal is \verb|R|, then a random number is
+inserted into the tree.  This process continues until a maximum
+pre-specified depth
+is reached (17 in these simulations),
+or all the slots of the functions have been filled.  The
+terminal
+\verb|x| is set when testing a tree on a particular value of $x$.
+
+For this task the fitness of a program is the sum of the differences
+between the actual values of $y$ and the predicted values for the 20 values
+of $x$.  The smaller the fitness, the better.  Hence the aim is to evolve a
+program with a fitness of zero (perfect fit to the 20 data points), or one
+with an acceptably low fitness.
+Trees are selected for crossover on the basis of their fitnesses.  The
+trees that are most fit have a greater chance of being selected for
+crossover.
+
+Having defined the terminal set, function set, and fitness measure, the
+whole process becomes:
+
+\begin{enumerate}
+\item Randomly select 20 $x$ points between $[-1,+1]$, and record the
+corresponding values for $y$.
+\item Create 500 programs (trees) from a set of primitive functions and
+terminals.
+\item Measure the fitness of each tree.
+\item Until a program scores a good (low) fitness, do:
+\begin{enumerate}
+\item Randomly select two trees.
+\item The one with the lowest fitness value (the best program) is selected
+for crossover, and the other one is removed from the population.
+\item Repeat the previous two steps to get a second winner and a
+second loser.
+\item Crossover the two winners as described in figure~\ref{crossover}.
+\item Measure the fitness of the offspring and insert them into the
+population in place of the losers.
+\end{enumerate}
+\end{enumerate}
+
+Using the above process, the population increases in fitness until a
+program is found which solves the current problem.  This particular problem
+is relatively simple, and can be solved using standard regression
+techniques. However, with normal regression the form of the function must
+be specified ($y=ax^2+bx$) and the method returns the coefficients of the
+function. With GP only
+the terminals symbols and functions are specified, not
+the size or structure of the solution---although for practical purposes a
+maximum depth is usually set.
+
+\section*{Evolving cognitive models}
+
+Koza has shown that GP is effective on a wide range of problems, not just
+symbolic regression.  Using function sets which include typical
+programming commands (such as \verb|IF|, and \verb|DO-UNTIL|), Koza has
+evolved programs in many domains, including: optimal control, sequence
+induction,
+game playing strategies, induction of decision trees, economic prediction,
+and others.  Could GP be used to evolve models of cognitive processes?
+
+One possible problem is that GP may evolve an arbitrary program to fit the
+data implied by the fitness function.  This was the case for the example of
+discovering $y=2.719x^2+3.1416x$.  Although the programs that GP produced
+had very low fitness scores, they also contained over 500 symbols and
+generalized poorly.  Remember that the fitness measure was only defined
+over values of $x$ between $\pm1$. When tested on other values (e.g.,
+$x=-5$) the programs predicted value for $y$ was nowhere near the actual
+value of $y$. See figure~\ref{symbreg} for an example.
+
+\begin{figure}
+\centerline{\psfig%
+{file=/csuna/home/richardd/papers/postscript/gpsymbreg.ps,width=7.5cm}}
+\caption{Graph of $y=2.719x^2+3.1416x$ (solid curve).  Twenty $(x,y)$
+pairs were randomly selected from the training area.  The dashed curve
+is the resulting function evolved with GP.  This function contained 293
+symbols.}\label{symbreg}
+\end{figure}
+
+\section*{Parsimony}
+
+If GP does just produce arbitrarily complex programs to fit the target
+function, then it seems that it will be of little use for cognitive
+science. As Koza notes: ``Like the genome of living things, the results of
+genetic programming are rarely the minimal structures for performing the
+task at hand'' \citeyear[p.~7]{kozagp}. Humans favour simple, powerful
+explanations, even at the expense of some empirical validity.  Nature may
+not favour such parsimonious structures, but they are preferred as
+explanations of a phenomenon.
+
+\citeA[chapter~18]{kozagp} suggests a number of secondary factors
+to penalize an individual for excessive size or time. So in addition to
+evolving correct solutions it is possible to evolve solutions that are
+efficient and parsimonious (the smallest structure possible to solve the
+problem).  The symbolic regression problem, and the concept of a parsimony
+measure were both introduced by \citeA{kozagp}.
+Here I show, by simulation, that a parsimony term can increase the
+generalization capabilities of the programs produced by GP.
+
+For the problem of inducing $y=2.719x^2+3.1416x$ from 20 random points, two
+experiments were performed.  In the first, 10 simulations were run
+(different 20 $(x,y)$ pairs, different initial population) with the
+normal fitness function as described above.  The second experiment was the
+same as the first, except that the fitness function included a term to
+limit the length of the resulting program.  Specifically, the fitness
+function was the sum of the errors plus 1/300th the length of the program.
+So as the program included more and more symbols, the fitness score
+increased (remember that the smaller the fitness, the better the program).
+
+The results (table~\ref{results}) show much better generalization, and much
+smaller (but not minimal) programs when a parsimony measure is used.
+A typical best-of-run individual from the parsimony experiment is:
+\begin{verbatim}
+ (+ (* (+ (+ x x ) (* (- 0.089180 -0.268689) (- (+ x x) -0.397293))) x)
+    (+ x (+ x x)))
+\end{verbatim}
+This program contains 21 symbols, has a fitness of 0.083, and was arrived
+at after 14~000 crossovers.  As the expression is small, it is possible to
+simplify it, automatically, to: $2.715738x^2+3.142178849x$. This kind of
+expression was found on 8 out of the 10 runs.  The other 2 expressions
+involved third and fourth powers, but were both parabolas.
+
+In contrast, the runs without a parsimony measure produced programs with
+good fitness scores, but they contained over 500 symbols, and showed poor
+generalization. Only 3 of the 10 runs were even parabolas. For example, the
+evolved function shown in figure~\ref{symbreg} contained 294 symbols,
+and could be simplified to:
+\[\begin{array}{l}
+2.607285632x^{2}+ 0.1363108980x^{4}- 0.01133044530x^{7}-
+ 0.006133984185x^{8}+\\ 0.00007232668424x^{9}- 0.0003337912349x^{12}-
+ 0.00005271529387x^{15}- 0.00002148197702x^{14}-\\ 0.001120258988x^{11}-
+ 0.00007223488799x^{10}+ 0.0008986832733x^{3}+ 0.006378820199x^{6}+\\
+ 0.0001780514783x^{13}- 0.00001461361073x^{16}+ 0.005889481765x^{5}+
+ 3.127084x
+\end{array}\]
+Note that this function contains $2.607285632x^{2}$ and $3.127084x$,
+which are close to the terms in the target function. The other coefficients
+of the evolved function are small, but on test cases, as $x$ grows larger,
+they begin to dominate and distort the function.
+
+Of course the function underlying a sample of points may be more complex
+than the simplest function that fits the sample.  As noted above, the
+desire for parsimonious solutions is just a human preference; ignoring a
+complex but ``true'' description of a function is not a problem with GP,
+but a problem with our intuitions.
+
+
+\begin{table}
+\begin{tabular}{l|cccc}
+                &Fitness&Length&Crossovers&Test $x=-5$\\
+\hline
+With parsimony& 0.25 (0.09)& 35.6 (3.77)& 10600 (1034.94)& 1.075 (0.76)\\
+Without&        0.18 (0.07)& 579 (103.92)& 13200 (800)& 15412900 (15174500)
+\end{tabular}
+\caption{Mean (and standard error) of the best-of-run individuals
+from 10 runs of GP on the symbolic
+regression problem, with and without the parsimony measure on the length
+of the functions.
+The ``test'' column is the mean error the function produces when tested
+with $x=-5$.  The large standard error in the test column for the
+solution without the parsimony measure is due to 2 function having an error
+less than 2.0, and 2 less than 12.  The other 8 were all above 150. For
+the functions with parsimony, only 2 were above 1.0 (7.6 and 2.3).
+}\label{results}
+\end{table}
+
+
+\section*{Conclusions}
+
+Although it appears that GP will produce an arbitrary fit to a fitness
+function, it is possible to constrain it to produce parsimonious solutions.
+\citeA{kinngene} found a similar result when evolving sorting algorithms: a
+general sorting algorithm was more likely to be evolved with a parsimony
+function than without. This suggests that GP may be useful in building
+cognitive models: the evolved programs will not necessarily be an ad hoc
+fit to the data. Given empirical observations about some phenomena
+(reaction time data, errors, strategy preferences, development sequences)
+the modeller would have to select a set of functions and terminals
+appropriate for the domain. GP, with parsimony measures, could then evolve
+a model.  One could even turn the ``parsimony dial'' up to produce a
+simplified model. GP with a parsimony dial can produce models with fit the
+data with varying degrees precision. Hence, it may be possible to reduce
+the tension between explanatory adequacy and empirical validity.
+
+GP is not restricted to quantitative models.  Any form of computational
+model can be evolved, providing the modeller can invent a fitness measure
+for the problem.  Also, it may turn out that the parsimony measure is not
+useful for some problems. In this case, what would be needed is a method
+to increasing the generalization powers of programs evolved with GP.
+
+This GP approach has a number of problems.  For many interesting cognitive
+models, it will no doubt take a great deal of effort to determine the
+terminals, functions and fitness measure.  It will take a large amount of
+CPU time to evolve a model, and then more time to analyse the resulting
+programs---although analysing connectionist models is also difficult
+\cite<see>{mcclnetw}.
+There is also the question of how well GP scales-up to
+larger problems; this will probably require a method for automatically
+building subprocedures \cite{angeevol}. Finally, nobody knows why GP works:
+there is no schema theorem for programs represented as trees, although this
+area is under development \cite{harvspec,jonesche}.  Harvey comments that a
+schema for Koza's variable-length trees will only be achieved if some
+restrictions are placed on the trees.  He suggests, as one possibility,
+that a schema could be defined as a subtree occurring in programs of a
+limited size.  Crossover will then need to preserve approximate tree sizes,
+which at present it does not. Nevertheless, Koza has empirically shown that
+GP does work in many domains, and it may be a useful tool for the cognitive
+scientist.
+
+
+\section*{Acknowledgements}
+
+Thanks to Julian Budd for assistance and suggestions, and to
+Inman Harvey and Harry Barrow for comments. The simulations were performed
+with a modified version of William
+C.~Archibald's GP library.
+
+\bibliography{bib}
+\end{document}

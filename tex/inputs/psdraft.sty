@@ -1,0 +1,12 @@
+% when this file is input in a LaTeX document, it will print a large
+% DRAFT message in light grey at an angle across each page.
+%
+% assumes DVI file will be converted to PostScript by the dvips driver.
+%
+% taken from example posted to the net.
+
+\special{! userdict begin /bop-hook{
+gsave 200 30 translate
+65 rotate /Times-Roman findfont 220 scalefont setfont
+0 0 moveto 0.99 setgray (DRAFT) show grestore
+}def end}

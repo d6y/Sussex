@@ -1,0 +1,188 @@
+\chapter[Addition bugs]{Addition Bugs}\label{c:aa}
+
+
+In comparison to the research on subtraction, there have been few studies
+which attempt to pin down multiplication and addition bugs. This lack of
+data is an obvious problem, although as pointed out in
+chapter~\ref{c:fsm}, it is not such a serious problem for this particular
+project. Nevertheless, it is
+important to know, at least roughly, what kinds
+of bugs can occur and how frequent they are likely to be.
+
+
+These appendices list the multiplication and addition bugs found in a
+search of the literature.  All of the studies looked at have problems, and
+the lists presented here do not remove the need for a large, modern study
+of multiplication and addition.
+
+\section{Sources}
+
+\newbox\tcb
+\setbox\tcb\hbox{\citeay{attiexpe}}
+
+The first source of bugs comes from \citeA[also \unhbox\tcb]{attimicr}.
+Attisha built a tutoring system for all four operations, and surveyed the
+literature for bugs. Although a large number of bugs were listed, Attisha
+failed to indicate their frequency or give examples with working marks.
+Without working marks it is difficult to interpret the definitions of
+certain bugs, namely
+those which involve carrying.  Those definitions that
+could be interpreted are included here, and working marks have been added
+where it aids understanding of the bug.
+
+One of the sources used by Attisha was the bug catalogue produced by
+\citeA{coxanal}.  She studied the literature on arithmetic bugs from 1900
+to 1973, and also conducted a study of bugs found in 564 subjects in grades
+two to six.   The study demanded that the subjects be close to 100
+per cent accurate on their number facts, and bugs
+were only accepted if they
+occurred at least three out of five times on a given type of problem.
+
+Cox tested children on the four multicolumn tasks by having them complete
+tests which were based around a number of levels.  For addition there were
+eight levels, starting from addition of two digits to one digit without
+renaming. Each level became increasingly difficult, up to addition of three
+two-digit numbers with renaming. For multiplication there were ten levels.
+Cox listed the bugs found at each level, and then over the levels produced
+a categorization of the bugs.  As can be seen from table~\ref{f:coxcat},
+Cox classified the bugs according to the kind of faulty knowledge that
+caused the error. The meaning behind Cox's labels is obvious, except for
+``concept'', which is the case when the child seem to be lacking a basic
+understanding of the concept of multiplication or addition.
+
+\begin{fancytable}
+\begin{tabular}{lr@{\hspace{0.75in}}lr}
+\multicolumn{2}{c}{Addition}&\multicolumn{2}{c}{Multiplication}\\
+Renaming        & 23 &  Concept         & 19\\
+Concept         & 17 &  Partial product & 13\\
+Wrong operation & 6  & $\times$ after renaming & 10\\
+Place value     & 5  & + after renaming & 7\\
+& & Renaming        & 6\\
+& & $\times$ by zero & 6\\
+& & Wrong operation & 4\\
+& & Reversal of digits & 2\\
+\end{tabular}
+\caption{Categories of bugs reported by \protect\citeA{coxanal},
+and the number of different bugs that
+fell under each category heading.}
+\label{f:coxcat}
+\end{fancytable}
+
+Cox's analysis and method of testing makes it impossible to know exactly
+how general or specific a particular bug is.  For example, for level 2
+problems (adding a one digit number to a two digit number, renaming needed)
+if the subject does not carry, is he or she exhibiting the bug \bug{nCAone}
+or \bug{nCA}?  That is, if the subject was given a problem involving more
+digits, would they fail to carry just in the first (ones) column, or in all
+columns? In these appendices the most specific bugs are listed. Perhaps
+this complication is why Cox lists the global bug frequencies based on bug
+categories, rather than on specific bugs.
+
+In her literature survey Cox missed the large arithmetic study undertaken
+by \citeA{buswdiag}.  Using verbal protocols, Buswell described behaviours
+for all four operations. The study lists the number of occurrences of
+various ``habits''---consistent behaviours, but not necessarily behaviours
+that could be classed as ``buggy''.  For example, one particular habit,
+``added carried number last'', describes a subject who always added the
+carry digit {\em after} adding up a column, rather than {\em before}
+starting on the column. Buswell notes that occasionally the subject would
+forget to add the carry, and this could be avoided if the subject added the
+carry first (ibid., p.~160). This kind of behaviour does not fit with the
+modern notion of a bug. However,
+many of the habits described do appear to be bugs, and are included here.
+Whereas Cox's descriptions may be over specific, Buswell suffers the
+opposite problem. For example, Buswell describes the general bug
+\bug{wrongop}, when other authors give more specific bugs like \bug{XforA}
+or \bug{SforA}.
+
+The final source of bugs comes from a small, unpublished undergraduate
+project \cite{shar}. It is included here because it builds upon the work of
+\citeA{younerro} and presents a production system model of multiplication,
+as well as bug frequency information.   As such it is the
+only study to date which can be easily compared to the computational
+studies of subtraction.
+
+\section{Notes on the catalogue entries}
+
+%\input totals.tex
+These two appendices list \Tbgs{} bugs. There are \Tx{} multiplication
+bugs, of which \Txw{} do not have frequency information. For addition, the
+total is \Tp{}, \Tpw{} without frequency data.
+
+Each entry in the catalogue is laid out as follows. The bug name, given in
+bold, is followed by a short description of the bug.  Most bugs have one or
+more examples to clarify the description. The source of the bug is
+indicated by showing the name of one of the authors mentioned in the
+previous section.  If that author gave frequency information, it is shown
+as a percentage of all the bugs taken from that author. Note that this will
+not be a percentage of all
+the bugs listed by that author: bugs were not included either
+because they were not clearly described, or because they were not relevant
+(e.g., number fact errors).  For addition, 116 bug occurrences were
+used from Cox, and 484 from Buswell.  A total of 113 occurrences of
+multiplication bugs were used from Cox, 512 from Buswell, and 76 from
+Ainsworth.
+
+The catalogue is listed in alphabetical order, but
+table~\ref{f:freqlist} (on page~\pageref{f:freqlist}) lists
+the most frequent bugs in order of
+frequency---or an approximation to that given that many bugs have frequency
+values from two or three authors.
+
+Some of the bugs listed produce results that look identical to other bugs.
+For example, the bugs \bug{dnRsum} and \bug{dnRP} both result in the
+subject writing carry digits in the answer row. However, these bugs qualify
+as separate bugs because they have been observed independently of each
+other. That is, a subject can fail to rename a partial product, yet
+correctly rename when adding the partial product.
+
+\begin{table}[t]\small
+\begin{rotate}\vbox{%
+\begin{center}
+\begin{sstabular}
+\input /csuna/home/richardd/papers/dphil/freqlist.tex
+\caption{%
+The 28 most frequent addition and multiplication bugs. {\figfont
+Key:} Values are percentages from three authors,
+A=\protect\citeA{shar}, N=76;
+B=\protect\citeA{buswdiag}, N=512 for multiplication, N=484 for addition;
+C=\protect\citeA{coxanal}, N=113 for multiplication, N=116 for addition.}
+\label{f:freqlist}
+\end{sstabular}\end{center}}\end{rotate}
+\end{table}
+
+
+
+%It should be remembered that bugs can and do occur together in one
+%subject.
+%Cox noted a number of bugs that are really combinations of bugs.  For
+%example, she describes a bug in which the subject subtracts rather than
+%add, but subtracts the smaller number from the larger number.  In this
+%list, the bug is classified under \bug{SforA}.
+
+%Cox listed some bugs which appeared to be a combination of two
+%other bugs.  For example, one bug given was a combination of the bug
+%\bug{Rtowrongcolumn} with \bug{onetoomany} (or possibly \bug{CAtoN}). In
+%this particular case, as the bug only occurred once, I incremented the
+%frequency could for \bug{Rtowrongcolumn} {\em and\/} \bug{onetoomany} by a
+%half.
+
+
+The Buswell frequencies are based on the total frequencies made by 263
+subjects, spread over grades 3 to 6 \citeyear[tables XXXV to~XXXVII,
+pp.~136--139]{buswdiag}.  From the Ainsworth study, the frequencies are
+summed over two sets of 10--11 year olds and one group of 8-9 year olds
+\cite[table~2, p.~32]{shar}.
+
+The model described in chapter~\ref{c:fsm} does not attempt to model
+certain kinds of errors, and for this reason some space-saving liberties
+have been taken in these appendices. In particular, pattern errors, like
+\bug{nXZEn}, are only given one way round (i.e., \x0N=N
+is not shown). In the Cox, Ainsworth and Buswell studies, they are given
+both ways as they can occur independently.
+
+\section*{Addition bugs}
+
+\begin{singlespace}
+\input /csuna/home/richardd/papers/dphil/addlist.tex
+\end{singlespace}

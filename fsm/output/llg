@@ -1,0 +1,22 @@
+#!/bin/csh
+set base = $4
+set numfile = $1
+set suf = $2
+set xlab = $3
+shift
+shift
+shift
+shift
+echo -n "colex->"
+colex $base.log $base.clx 0
+echo -n "loglines->"
+loglines < $base.clx > $base.ll
+set nlines = `wc -l $base.ll`
+echo -n "paste->"
+paste $numfile $base.ll | head -$nlines[1] > $base.$suf
+echo -n "graph->"
+xgraph -P -x $xlab -y "Epochs" -t "Learning time" $* $base.$suf
+echo -n "tidy->"
+rm $base.ll $base.clx
+echo -n "done. New file: $base.$suf"
+echo " "

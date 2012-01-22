@@ -1,0 +1,107 @@
+do mn10.str 1
+
+log mn10.log
+
+set ecrit 0.05
+get pat mn_prob.pat
+ptrain
+save w mn_prob10-1.wts
+set ecrit 0.0
+get pat mn_norm.pat
+ptrain
+save w mn_norm10-1.wts
+newstart
+
+set ecrit 0.05
+get pat mn_prob.pat
+ptrain
+save w mn_prob10-2.wts
+set ecrit 0.0
+get pat mn_norm.pat
+ptrain
+save w mn_norm10-2.wts
+newstart
+
+set ecrit 0.05
+get pat mn_prob.pat
+ptrain
+save w mn_prob10-3.wts
+set ecrit 0.0
+get pat mn_norm.pat
+ptrain
+save w mn_norm10-3.wts
+newstart
+
+set ecrit 0.05
+get pat mn_prob.pat
+ptrain
+save w mn_prob10-4.wts
+set ecrit 0.0
+get pat mn_norm.pat
+ptrain
+save w mn_norm10-4.wts
+newstart
+
+set ecrit 0.05
+get pat mn_prob.pat
+ptrain
+save w mn_prob10-5.wts
+set ecrit 0.0
+get pat mn_norm.pat
+ptrain
+save w mn_norm10-5.wts
+newstart
+
+set ecrit 0.05
+get pat mn_prob.pat
+ptrain
+save w mn_prob10-6.wts
+set ecrit 0.0
+get pat mn_norm.pat
+ptrain
+save w mn_norm10-6.wts
+newstart
+
+set ecrit 0.05
+get pat mn_prob.pat
+ptrain
+save w mn_prob10-7.wts
+set ecrit 0.0
+get pat mn_norm.pat
+ptrain
+save w mn_norm10-7.wts
+newstart
+
+set ecrit 0.05
+get pat mn_prob.pat
+ptrain
+save w mn_prob10-8.wts
+set ecrit 0.0
+get pat mn_norm.pat
+ptrain
+save w mn_norm10-8.wts
+newstart
+
+set ecrit 0.05
+get pat mn_prob.pat
+ptrain
+save w mn_prob10-9.wts
+set ecrit 0.0
+get pat mn_norm.pat
+ptrain
+save w mn_norm10-9.wts
+newstart
+
+set ecrit 0.05
+get pat mn_prob.pat
+ptrain
+save w mn_prob10-10.wts
+set ecrit 0.0
+get pat mn_norm.pat
+ptrain
+save w mn_norm10-10.wts
+
+log -
+
+q
+y

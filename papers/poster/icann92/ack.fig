@@ -1,0 +1,14 @@
+#FIG 2.1
+80 2
+6 104 203 738 245
+4 0 0 18 0 -1 0 0.000 4 17 634 104 220 Simulations were performed using a modified version of the McClelland & Rumelhart
+4 0 0 18 0 -1 0 0.000 4 17 305 104 245 `bp' program [1], and POPLOG POP-11.
+-6
+6 104 105 679 147
+4 0 0 18 0 -1 0 0.000 4 17 575 104 122 Funded by the Science and Engineering Research Council in conjunction with
+4 0 0 18 0 -1 0 0.000 4 17 182 104 147 Integral Solutions, Ltd.   
+-6
+2 2 0 2 -1 0 0 0 0.000 0 0 0
+	 800 279 40 279 40 40 800 40 800 279 9999 9999
+4 0 18 26 0 -1 0 0.000 4 32 309 281 79 Acknowledgements
+4 0 0 18 0 -1 0 0.000 4 17 416 104 182 Thanks to Harry Barrow, David Young and Julian Budd.

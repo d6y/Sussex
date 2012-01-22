@@ -1,0 +1,11 @@
+% File:     iot.con
+% Author:   Richard Dallaway <richardd@cogs.susx.ac.uk>
+% Date:     June 1993
+% Purpose:  Configuration file for iot.sty
+
+%-- 1993 ---------------------------------------------------------------
+
+\publishedin{4.2in}{\footnotesize In: Arvanitis, Brook \& O'Connor, eds.,
+1993 {\em The Sixth White House Papers: Graduate Research in the Cognitive
+\& Computing Sciences at Sussex.} University of Sussex, School of Cognitive
+\& Computing Sciences, Brighton, UK. Research Paper CSRP~xxx.}

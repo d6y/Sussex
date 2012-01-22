@@ -1,0 +1,438 @@
+%% IOT90.TEX
+%% SERIAL PROCESSES IN PARALLEL NETWORKS: MOTIVES
+%% Talk presented at IOT90
+%% The 3rd White House COGS PG Workshop
+%% Isle of Thorns Conference Centre
+%% July 23rd -- 25th 1990
+%%
+
+\documentstyle[newapa,iot90]{article}
+\setcounter{page}{30}
+\begin{document}
+\author{Richard Dallaway}
+\title{Serial Processing in Parallel Networks: Motives}
+\date{July 1990}
+\maketitle
+
+\def\bssq{\begin{quote}\small}
+\def\essq{\def\baselinestretch{1}\small\normalsize\end{quote}}
+\def\headpar#1{\medskip\noindent{\em#1}}
+\def\sec#1{\section{#1}}
+\def\subsec#1{\subsection{#1}}
+\def\subsubsec#1{\subsubsection{#1}}
+\citepunct{[}{and}{ }{; }{, }{]}
+\def\citeA{\shortcite}
+\def\citeA{\shortciteA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+If connectionist networks are to model such high-level cognitive
+skills as problem solving, planning, language, game playing, and so
+on, they must be able to exhibit rich sequential behaviour. To date
+these skills have been best modelled by classical AI for good
+reason: order is implicit in classical models (e.g., production
+systems). However, connectionist methods have now started to emerge
+for dealing with sequences, and although not the final word on the
+subject, they make it appropriate to consider how connectionism can
+embody the clumsy serial behaviour prevalent in human performance. The
+problems and importance of serial order are examined, along with
+connectionism's role in the understanding of human ordered behaviour.
+Certain notions (notably, reduced descriptions and explicit
+representation) are proposed as useful components in this venture.
+\end{abstract}
+\bibliographystyle{newapa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\sec{Types of serial behaviour}
+
+The human information processor displays a diversity of ordered,
+serial behaviour. This behaviour ranges from motor abilities, through
+to conscious reasoning. Along this continuum a distinction can be
+drawn between motor sequences and ``cognitive'' sequences.  The first
+case involves such behaviour as reaching, tracking and walking.  Motor
+skills are different from cognitive skills in both their demands
+(fast, dynamic feedback) and hardware (the cerebellum).  Cognitive
+skills are not so time dependent and are reminiscent of relaxation
+networks (e.g., \citeB{hopf82,hopf84}). There is, of course, some
+overlap.  For example, learning to juggle requires only the modest
+skills of being able to toss and catch a ball and the ability to track
+a ball in motion.  Yet very few people learn to juggle without
+explicit instruction \cite[page 3/4]{austcomp}. The sequence of
+actions can be explicitly stated (cognitive), and then executed by the
+motor system. Most telling is the observation that much practice is
+needed to master the skill, and that with time the skill becomes
+``sub-conscious''. Exactly how explicit knowledge represented in a
+connectionist network can be ``compiled'' or ``proceduralized''
+\cite[page~34]{andearch} into motor behaviour is an open question
+(more on this later). But even the notion of an explicit connectionist
+representation is hazy.
+
+The point to note here is that juggling has a separable cognitive
+element which manifests itself clearly in juggling methods (showering
+vs. cascading) and in juggling bugs (e.g., the ``can't release'' bug
+\cite[page~20]{austcomp} in which a subject cannot make the
+fourth toss after an early successful three-ball cycle).  It is this
+kind of cognitive sequence that is addressed by this paper, not the
+motor kind.
+
+In what follows, an argument is presented for connectionism to face
+the need for explicit representations (as opposed to the more usual
+implicit training), noting that production systems are a good model
+of serial cognition.  Section~\ref{poss} outlines some possible
+components of a connectionist response to these suggestions.  The
+importance of connectionism in understanding serial cognition is
+presented in section~\ref{connect}.  The thought is that connectionism
+can revise our notions of what a ``symbol'' is, and the kinds of
+operations that can be performed on such entities.
+
+\sec{The need for explicit representations}
+
+\citeA{toursymb} have demonstrated a connectionist production
+system.  In their network the productions are
+implicitly represented in the system's weights.  Their project has
+shown one way in which some symbolic reasoning (pattern matching
+and variable binding) can be implemented within the connectionist
+framework.  Although this
+kind of implicit rule following is important for some kinds of
+behaviour, \citeA{hadlconn} argues that there is a need for a
+general mechanism for processing explicit rules.  That is, rather
+than train a network to follow a rule (as Touretzky and Hinton do),
+there is a need to have a network which can take as input an
+explicit representation of a rule, and then act upon it. (Cf. the
+conscious rule interpreter, \citeA{ptc}.)
+
+Hadley notes that humans can apply rules (almost) instantaneously.
+(The period between being told a rule and acting on it---warranting
+the ``almost''---is of greatest interest here.) For example, the
+phrase ``love ever keeps trying'' can be used along with the rule
+``take every second letter'' to form the word ``over''
+\cite[page 2]{hadlconn}. Accepting that human cognitive processes
+are the product of connectionist networks, then there must be a
+connectionist general rule interpreter.
+
+Hadley further argues that this general ability to follow rules is not
+a rare phenomenon (if the mechanism is innate, surely it cannot be
+insignificant; if it is learned, it must be used frequently; even
+if it is a side-effect of some other ability, there is no reason to
+believe it to be limited). Just how pervasive is this mechanism?
+\bssq
+Now, given that humans are clearly {\em capable} of internally
+representing explicit, complex arithmetic rules {\em before} applying
+them, the question naturally arises whether children commonly learn
+algorithms such as long multiplication and division by storing
+explicit representations of these algorithms.
+
+\hfill \cite[page 11]{hadlconn}
+\essq
+Hadley notes that
+the following are indicative of a general rule following
+mechanism:
+\begin{enumerate}
+\item Children learn simpler sub-skills before learning, say, long
+multiplication.  Examples include adding a column of digits and
+multiplying single pairs of digits.
+\item Children are told explicit rules for long multiplication.  It
+may, of course, take practice to remember such rules.
+\end{enumerate}
+This throws a new light on the validity of production system models of
+mind (e.g., ACT* \cite{andearch}, or the model of
+children's errors in subtraction by \citeA{younerro}). That is,
+although the mechanisms and representations of production systems need
+revision, the general approach may be accurate.
+
+
+\sec{Serial processes in parallel networks}\label{poss}
+
+It is not yet clear what a connectionist rule following system would
+look like, but candidate components are sketched in this
+section.
+
+\subsec{Rational and intuitive thought}
+
+\citeA{hintmapp} has identified two inferencing schemes for
+connectionism. First there is ``intuitive'' inference.  This is the
+method common to connectionism at the moment and is represented by a
+single settling of a network.  \citeA{pdp:6} has noted ``emergent
+seriality'' within one intuitive inference (page 247).  During a
+relaxation step many soft constrains jostle (microdecisions)
+producing a sequence of macrodecisions. \citeA{ptc} points out that
+``these macrodecisions are approximately like the firing of production
+rules.  In fact, these productions fire in essentially the same order
+as in a symbolic forward-chaining inference system'' (page 19/20).
+However, although this phenomenon is fascinating (and no doubt
+illuminating for some aspects of cognition), it is different from the
+conscious rule following described by Hadley. (Similar
+points are noted by
+\citeA{ptc} in footnote 15, and \citeA{micro}, pages 114--118.)  In
+the words of \citeA{hintmapp}:
+\bssq
+The defining characteristic of rational inference is the way in which
+entities in this domain are mapped into hardware changes during the
+course of the inference. (Page~6).
+\essq
+
+It looks like this ``rational'' inference is going to involve a
+sequence of relaxations.  Roughly, the approach is that described by
+\citeA{pdp:14}.  Connectionist networks are good at ``perceiving''
+solutions to problems.  Yet it is not possible to just ``see'' the
+answer to a problem like long multiplication.  A series of state
+transitions occur (the steps in the solution to the problem) involving
+connectionist-style operations (e.g., settling into a state
+representing the product of two digits, writing that down, moving on
+to the next column and settling on the product of those digits, and
+so on).
+
+\subsec{Serial order}
+
+In order to do any of this rule following, a network must first be
+able to traverse states. Some work has been done on the comprehension
+and production of sequences (e.g., \citeA{elmafind},
+\citeA{jordattr} and \citeA{kleisequ}). The mechanisms
+alone will not do; sequences need to be represented explicitly.  Work
+using simple recurrent networks (e.g.,
+\citeA{servenco}) and Jordan networks (e.g., \citeA{toddsequ}) has
+shown how sequences can be represented implicitly in the weights of a
+network.  What is needed is a mechanism for forming representations of
+sequences (e.g., as you hear words) and acting on them (e.g.,
+reasoning) and a mechanism for executing remembered sequences (e.g.,
+following a rule).  Relevant here is the work on serial order in human
+memory \cite{lewamemo}.  The ability to remember, say, a list of
+numbers, has certain characteristics (e.g., on this task a U-shaped
+performance profile).  Experimental evidence from serial order studies
+will guide an understanding of the representation of order in
+connectionist networks.
+
+As a prelude to this, a number of mechanisms and representational
+schemes need to be elaborated.  Consider the blocks microworld. It is
+possible to form a compact representation (see below) of an
+instruction like ``put the big red block on the small green block''.
+Taking this representation and a description of the world, it is
+conceivable that something like a backpropagation network could be
+trained to output the updated representation of the world. However,
+this would not be a good model of human experience in this domain.
+
+How could a sequential network ``plan'' the moves needed to follow an
+instruction?  (Where do notions of back-tracking and look-ahead fit
+in?) When will the network ``decide'' on an appropriate solution, and
+how will the sequence of moves be represented and acted upon?
+
+\citeA{pdp:14} argue for the construction of mental models under the
+banner of ``thought as mental simulation'' (page~49). This seems
+reasonable enough, but the example they give (building a model of an
+opponent in a noughts and crosses game) is simply a pattern matching
+exercise on the model. There seems to be more to planning than that.
+Certainly there is a need to focus attention of different structures
+over time, and this is Hinton's notion of ``rational thought''
+described above.
+
+Accepting that the contents of consciousness are stable states of
+a system, and that conscious reasoning is a sequence of such states
+\cite[page~39]{pdp:14}, it seems that conscious planning and
+explicit representations come together in game playing.  That is, for
+a game (e.g., a board game like draughts) the playing rules can be
+explicitly stated.  It is then up to the player to follow those rules,
+and also to use them for planning moves.
+
+The notion of knowledge compilation is relevant here.  How do the
+rules of the game become embedded in a system, such that the system
+can begin to ``perceive'' good moves, or good
+board configurations? One interesting possibility is
+suggested by \citeA{hintmapp} (page~8, and page~36/7).  The idea is
+this: a rational inference could be used to train an intuitive
+inference.  I.e., structures could be attached  to perceptual input
+with the assumption that the outcome of a serial task is the desired
+outcome.  With time, these structures will come to recognize certain
+input configurations and produce the desired response faster than the
+serial mechanism.
+
+\subsec{Reduced descriptions}
+
+Reduced descriptions (attributed to Hinton) are just the kind of
+representation needed for this project.  \citeA{pdp:3} notes:
+\bssq
+One central tenet of the sequential symbol processing approach is the
+ability to focus on any part of a structure and to expand that into a
+whole that is just as rich in content as the original whole of which
+it was a part. (Page~108)
+\essq
+Reduced descriptions allow this.  \citeA{pollrecu} describes one method
+for forming a kind of reduced description (which he calls ``recursive
+distributed representations'').  The network he
+uses is an auto-associative Elman net.  Items from a sequence are
+compressed together into a hidden unit vector, resulting in a
+fixed-width encoding of the sequence.  These representations seems to
+have useful properties:
+\bssq
+They combine aspects of several disparate representations. Like
+feature-vectors they are fixed-width, similarity based, and their
+content is easily accessible.  Like symbols, they combine only in
+syntactically well-formed ways. Like symbol-structures, they have
+constituency and compositionality. And, like pointers, they refer to
+larger symbol structures which can be efficiently retrieved. But,
+unlike feature-vectors, they compose. Unlike symbols, they can be
+compared. Unlike symbol-structures, they are fixed in size. And,
+unlike pointers, they have content.
+
+\hfill \cite[page 529/530]{pollimpl}
+\essq
+
+Furthermore, these reduced descriptions can be used
+for inferencing.  \citeA{pollimpl} describes training an associative
+network to transform reduced descriptions of structures
+like (LOVES X Y) into (LOVES Y X).  That is, a simple network can
+embody (note, implicitly) the
+rule ``if (LOVES X Y) then (LOVES Y X)''. This kind of
+inferencing involves variable binding and unification in classical
+AI.  Yet for this network (and for humans) it is no more effort than
+an association (but with the added risk of being the wrong
+association). \citeA{chalsynt} reports on using the same methods to
+transform active sentences into passive form.
+
+\citeA{chalsynt} suggests that this form of computation (``holistic
+associative inferencing'') is something that is new, and not available
+to classical AI (page~9), and comments:
+\bssq
+It would be very interesting to see connectionist processes that are
+structure-sensitive which simultaneously utilizing the kind of
+content-dependent pattern association for which connectionist networks
+are renowned.
+\essq
+
+Reduced descriptions may also offer a way out of the problem
+of planning a sequence of actions.
+\citeA{hintmapp} suggests that it may be possible to settle on a rough
+plan of actions and later expand on the details.  As noted, reduced
+descriptions act like pointers to large structures, but also have
+content.  Hence, reduced descriptions may be used to sketch out one
+possible sequence of actions.  The same representations may then be
+expanded to reveil the detail of the operation.  At this stage it may
+turn out that the plan is inappropriate, and some other option needs
+to be considered. Hinton points out (page~34) that the descriptions
+need to be compact enough for global constraints, but detailed enough
+for local details to be examined.  The hope (page~35)  is that these
+structures can be learned. Indeed, the success of the recursive
+distributed representations of \citeA{pollrdr} suggests that it is
+possible to learn to form reduced descriptions that have the necessary
+properties.
+
+
+\sec{What connectionism has to offer}\label{connect}
+
+\citeA{clarconn} rejects the Newtonian analogy in connectionism
+(that classical AI is an approximation to the true nature of
+cognition---see \citeA{pdp:4}, pages 124--127).
+Some aspects of cognition, it is argued, are fully described at the
+level of classical AI.   Or, put another way, \citeA{bodecomp} notes
+that:
+\bssq
+It is not clear that processes of relaxation using multiple
+constraints, powerful though they may be for pattern matching, are
+well suited to modelling conscious planning or cryptarithmetic---or
+even mere arithmetic, for that matter. (Page~167).
+\essq
+
+So why bother with connectionism for the study of serial cognition?
+Surely classical-style production systems will do.
+Connectionist networks exhibit many mind-like properties (for
+example, graceful degradation, content-addressable memory, and so
+on). Although certain cognitive functions may best be explained
+at the level associated with classical AI, there seems to be a
+case for investigating these processes from a connectionist
+point of view.  A couple of quotations allude to this:
+
+\bssq
+Truly expert human performance may depend on mapping a problem
+into structures originally constructed for perceptual and motor
+tasks---so it can be internally visualized, felt, heard or
+perhaps smelled and tasted.
+
+\hfill \cite[page 177]{morahuma}
+\essq
+
+\bssq
+Whatever the basic principles of language representation, they
+are not likely to be utterly unrelated to the way or ways that
+the nervous system generates visual representations or auditory
+representations, or represents spatial maps or motor planning.
+
+\hfill \cite[page 42]{churneur}
+\essq
+
+The notion is something like this: the exact nature of cognitive
+processing is biased by the nature of the brain.  Likewise, the
+brain-style computation and representations of
+connectionism will bias (hopefully in a
+useful way) the nature of cognitive modelling.
+
+Even though an explanation of some cognitive skills may be best suited
+to the language to classical AI (i.e., operations on symbols), the
+nature of those symbols and operations are subject to revision. For
+example,
+\bssq
+\ldots our ideas about what is {\em means} to `operate on a symbol'
+are still heavily influenced by conventional AI implementations in
+which a symbol is a discrete internal state, manipulable (copyable,
+moveable) by a processor.
+
+\hfill \cite[page 12]{clarconn}
+\essq
+
+An example of such revisions may be holistic associative inference.
+Classical AI has not yet played itself out, and what is called
+connectionism today may be deemed (neo-)classical AI tomorrow.
+
+\sec{Summary}
+
+Some of the themes running through the above discussion are
+highlighted here. These notions need to be elaborated for an
+understanding of connectionist serial processing.
+
+\headpar{Explicit and implicit rules.} Explicit rules may have an
+advantage over implicit rules in terms of generality.  For example,
+\citeA{cottlear} trained a network to perform multi-column addition.
+The authors claim good generalization to longer sums, but an
+explicit rule for addition could be followed indefinitely. More
+importantly, the reasons why explicit rules are not followed with
+complete precision are likely to be very different from the equivalent
+performance in an implicit representation.
+
+\headpar{Procedural and declarative knowledge.} Explicit rules do
+become implicit.  This is the old procedural vs. declarative
+distinction from classical AI.  The suggestion is that connectionist
+processing can reallocate tasks from the serial mechanism to the
+parallel.
+
+\headpar{New styles of inference.} Studying cognition within the
+connectionist framework may provide new methods for use within
+classical AI, and refine and expound classical mechanisms.  This is
+not the same as the Newtonian
+analogy.  The idea is that for some aspects of
+cognition ``symbol shoving'' is a good model, but the problem is we
+don't have a good understanding of the properties of natural symbols
+or the kinds of shoving that can be done.
+
+\headpar{Sub-skills.} The account given above suggests that there
+needs to be a degree of (at least functional) modularity in
+connectionism.  That is, skills need to be learned before they are
+applied in a broader context.
+
+\headpar{Sequential behaviour.} It is not just the processing and
+representation of sequential phenomena (like language) that needs to
+be considered.  The
+fact that such behaviour is time orientated has strong connotations
+for learning in connectionism.  Most evident is
+the credit assignment problem for sequential behaviour. In learning
+to follow a rule step-by-step, it is not obvious which step to blame
+when something goes wrong (reinforcement learning). This problem is
+being tacked for implicit sequences (e.g., \citeA{bartneur}), but it
+may be very different for explicit sequences.
+\medskip
+
+The view presented here is of a connectionist production system as a
+model of serial cognition.  That's not to be read as either a
+connectionist implementation of a classical production system, or as
+an alternative to symbolic systems.  Rather, the idea is a mix of the
+two: classical-style operations on connectionist-style
+representations.
+
+\bibliography{bib}
+\end{document}

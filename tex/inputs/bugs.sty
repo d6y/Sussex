@@ -1,0 +1,30 @@
+
+\typeout{BUGS}
+
+% Just like \cite, \bug is used with a key to reference the name in
+% the buglist list.
+
+% By convention, \u@FOO is the full name of \bug{FOO}
+
+\let\bugcite\@gobble
+
+\def\bug#1{%
+    \if@filesw\immediate\write\@auxout{\string\bugcite{#1}}\fi%
+    \@ifundefined{u@#1}{{\bf ?#1?}\@warning%
+        {Bug `#1' on page \thepage \space undefined}}%
+    {\csname u@#1\endcsname}%
+}
+
+
+\def\bugdef#1#2{\global\@namedef{u@#1}{#2}}
+
+% For setting the bug's name in the appendix
+% #1 = key, #2 = bug name
+
+\def\@capitalizeone#1{\uppercase{#1}}
+\def\capitalize#1{\@capitalizeone#1}
+
+\def\bugitem#1#2{%
+    \if@filesw\immediate\write\@auxout{\string\bugdef{#1}{#2}}\fi%
+    \noindent{\bf\capitalize{#2}.}%
+}

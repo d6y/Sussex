@@ -1,0 +1,49 @@
+
+\ifx\@optionlist\empty\def\@optionlist{11pt}\else%
+    \xdef\@optionlist{\@optionlist,11pt}\fi
+
+\input article.sty
+
+\input a4.sty
+
+\parskip 0mm
+
+\input pstimesm.sty
+\input psgill.sty
+
+\def\section{\@startsection {section}{1}{\z@}{-3.5ex plus-1ex minus
+    -.2ex}{1.5ex plus.2ex}{\reset@font\large\sf}}
+
+\def\subsection{\@startsection{subsection}{2}{\z@}{-3.25ex plus-1ex
+    minus-.2ex}{0.5ex plus.2ex}{\reset@font\large\sf}}
+
+\def\subsubsection{\@startsection{subsubsection}{3}{\z@}{-1ex plus
+    -0.5ex minus-.1ex}{0.25ex plus.1ex}{\reset@font\normalsize\sf}}
+
+\renewenvironment{abstract}%
+    {\begin{trivlist}\setlength{\labelsep}{0mm}
+    \item[{\sf Abstract\hskip 0.75em}]}%
+    {\end{trivlist}\par}
+
+\def\today{\number\day\space\ifcase\month\or
+ January\or February\or March\or April\or May\or June\or
+ July\or August\or September\or October\or November\or December\fi
+ \space\number\year}
+
+%\newcommand{\dontindentnextpar}{\par%
+%    \everypar={\hskip -\parindent\everypar={}}}
+
+%
+%\def\@maketitle{\newpage
+% \null
+% \vskip 2em
+% \begin{flushleft}%
+%   {\Large\sf\@title\par}%
+%   \vskip 1.5em{\large\sf\lineskip .5em%
+%     \begin{tabular}[t]{c}\@author
+%    \end{tabular}\par}%
+%   \vskip 1em
+%   {\large\sf\@date}%
+%  \end{flushleft}%
+%  \par
+%  \vskip 1.5em}

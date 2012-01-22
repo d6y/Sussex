@@ -1,0 +1,1267 @@
+HELP PDP3                                                 Richard Dallaway
+                                                          30 September 1991
+
+             Utilities for manipulating McClelland & Rumelhart
+                format weights and pattern files in POP-11
+
+
+         CONTENTS - (Use <ENTER> g to access required sections)
+
+ -- Introduction
+ -- Example usage
+ -- Data structures
+ -- -- Networks
+ -- -- -- PDP3_FIRSTOUTPUTUNIT
+ -- -- -- PDP3_SETPOINTS
+ -- -- Patterns
+ -- WEIGHTS
+ -- -- PDP3_GETWEIGHTS
+ -- -- -- Mishap messages
+ -- -- PDP3_PRINTWEIGHTS
+ -- -- PDP3_FANIN
+ -- -- PD3_FANOUT
+ -- -- PDP3_PUTWEIGHTS
+ -- PATTERNS
+ -- -- PDP3_GETPATTERNS
+ -- -- -- Mishap messages
+ -- -- PDP3_PRINTPATTERNS
+ -- -- PDP3_SELECTPATTERN
+ -- -- PDP3_PATTERNNUMBER
+ -- -- PDP3_SAVESTIMNAMES
+ -- ACTIVITY
+ -- -- PDP3_ACTIVATE
+ -- -- PDP3_ACTIVITIES
+ -- -- PDP3_RESPONSE
+ -- -- PDP3_RESPONSES
+ -- -- PDP3_OUTPUT
+ -- -- PDP3_HIDDEN
+ -- -- PDP3_ACTIVATEOUTPUT
+ -- -- PDP3_MULTIPLY
+ -- RECURRENCE
+ -- -- PDP3_MU
+ -- -- PDP3_SEQSTART
+ -- -- PDP3_SEQEND
+ -- -- PDP3_SETINPUT
+ -- -- PDP3_INPUTACTIVATION
+ -- POST PROCESSING
+ -- -- PDP3_SUMOUTPUTS
+ -- -- PDP3_NORMALIZEOUTPUTS
+ -- -- PDP3_LARGESTNORMALIZEDOUTPUT
+ -- -- PDP3_THRESHOLD
+ -- -- PDP3_NETINPUTVALUE
+ -- -- PDP3_ACTIVEBIT
+ -- -- PDP3_LARGEST
+ -- CASCADING
+ -- -- PDP3_CASCADE_START
+ -- -- PDP3_CASCADE_STEP
+ -- -- PDP3_CASCADE_PRIME
+ -- TRACING
+ -- -- PDP3_RECORDUNITS
+ -- -- PDP3_RECORDHIDDEN
+ -- -- PDP3_RECORDCASCADE
+ -- -- PDP3_RECORDCASCADE_HIDDEN
+ -- -- PDP3_GETRECORDEDUNITS
+ -- PDP3_PERFORMANCE
+ -- -- PDP3_TMAX
+ -- NETWORK DAMAGE
+ -- -- PDP3_PERTURB
+ -- -- PDP3_DESTROY
+ -- -- PDP3_APPLY_DAMAGE
+ -- POPLOG-Neural
+ -- -- NN_BPNET_TO_PDP3
+ -- -- PDP3_PATS_TO_NN
+ -- Other utilities
+ -- -- PDP3_COPYNET
+ -- -- PDP3_ADDDOT
+ -- -- CHECK_FOR_REMAINS
+ -- -- LOGISTIC
+ -- -- PDP3_READFILESECTION
+ -- -- PDP3_HEADLABEL
+ -- PDP3 Programs
+
+-- Introduction -------------------------------------------------------
+
+The backpropagation ("bp") program from...
+
+Rumelhart & McClelland [1988] Explorations in Parallel Distributed
+    Processing: A Handbook of Models, Programs, and Exercises.
+    MIT Press.
+
+...uses pattern files (.pat) and produces weight files (.wts).  This help
+file describes a set of procedures which can read in these files and then
+act on them within POP-11.
+
+To use,
+
+    load ~richardd/pop/pdp3/pdp3.p
+
+Note: The library is named "pdp3" because they deal with files from the
+third Rumelhart & McClelland PDP volumes.
+
+
+-- Example usage ------------------------------------------------------
+
+Here's a small example of the things you can do with the
+PDP3 utilities:
+
+;;; read in weights from net1.wts in the format defined in spec.net
+pdp3_getweights('spec','net1') -> network;
+
+;;; print the weights
+pdp3_printweights(network);
+
+;;; read test.pat file (65 patterns of 17 inputs and 32 output)
+pdp3_getpatterns('test',65,17,32) -> patterns;
+
+;;; Test the performance of the network
+patterns -> pdp3_performance(network,0.49) -> (tss,percentage,errors,pss);
+
+;;; Record the hidden unit activations to 'hidden.dat' (handy for PCA)
+pdp3_recordhidden(network,patterns,'hidden.dat') -> vector;
+
+;;; Select the pattern 'eg1'
+pdp3_selectpattern('eg1',patterns) -> (stimulus, target);
+
+;;; Look at the activation for pattern 'eg1'
+stimulus -> pdp3_response(network) -> response;
+
+;;; Examine the fan-in weights for unit 7
+pdp3_fanin(network, 7) -> vector
+
+-- Data structures ----------------------------------------------------
+
+Networks and patterns are represented by record classes.
+
+-- -- Networks -------------------------------------------------------
+
+For storing networks, the following fields are used by PDP3_NET_RECORD
+class:
+
+    pdp3_wtsfile            string, the name of the weights file
+
+    pdp3_nunits             int, number of units in the network
+
+    pdp3_nin                int, number of input units
+
+    pdp3_nout               int, number of output units
+
+    pdp3_netinput           array, one value for each unit which records
+                            the net input to that unit (for use when
+                            cascading, see below).
+
+    pdp3_activity           array, as netinput, but for activation.
+
+    pdp3_mu                 float, MU for recurrent nets [default 0.5]
+
+    pdp3_tmax               float, the value used for target values of
+                            1.0.  1-tmax is used for target values of
+                            0.0 [default 1.0].
+
+    pdp3_biases             array, same structure as pdp3_netinput, but
+                            records the bias to each unit.
+
+    pdp3_weights            array, nunits by nunits, indexed (sender,
+                            receiver).
+
+    pdp3_connectivity       vector, containing a vector for each block for
+                            weights. See example in section on
+                            pdp3_getweights.
+
+    pdp3_senders            array, containing a vector for each unit which
+                            lists the units sending to each unit.  Possibly
+                            none, {}.
+
+
+-- -- -- PDP3_FIRSTOUTPUTUNIT ------------------------------------------
+
+    pdp3_firstoutputunit(network) -> number
+
+returns the unit number corresponding to the first output unit.
+
+     First input unit is 0
+     Last input unit is pdp3_nin(net)-1
+     First hidden unit is pdp3_nin(net)
+     Last hidden unit is first_output-1
+     First output is pdp3_nunits(net)-pdp3_nout(net)
+     The last output unit is nunits-1
+
+-- -- -- PDP3_SETPOINTS -------------------------------------------------
+
+    pdp3_setpoints(network);
+
+This procedure sets the following variables:
+
+     First_input_unit   (also First_unit)
+     Last_input_unit
+     First_hidden_unit
+     Last_hidden_unit
+     First_output_unit
+     Last_output_unit   (also Last_unit)
+
+The procedure is called by -pdp3_getweights- for your convenience, unless
+pdp3_dont_auto_setpoints is <true> [default value is <false>].
+
+These variables are not used by any of the PDP3 procedures.
+
+
+-- -- Patterns ---------------------------------------------------------
+
+Patterns are stored in a PDP3_PATS_RECORD:
+
+    pdp3_patsfile           string, the name of the pattern file.
+
+    pdp3_stims              array, containing the inputs.  stims(1,4) is
+                             the fourth input value for the first pattern.
+
+    pdp3_targs              array, containing the targets. targs(3,5) is
+                            the fifth output target unit's value for the
+                            third pattern.
+
+    pdp3_stimnames          array, containing words which are the names of
+                            the input patterns.  stimnames(4) is the name
+                            of the fourth pattern.
+
+    pdp3_seqstart           vector, containing the start points of
+                            each sequence in a recurrent net's patterns.
+
+    pdp3_npats              int, the number of patterns.
+
+    pdp3_inlines            int, the number of input lines.
+
+    pdp3_outlines           int, the number of output units.
+
+
+-- WEIGHTS ------------------------------------------------------------
+
+This section contains procedures concerned with the weights of a network.
+
+-- -- PDP3_GETWEIGHTS --------------------------------------------------
+
+To read in a network:
+
+    pdp3_getweights(netfile, wtsfile) -> network;
+
+where NETFILE is the name of the network specification file, and WTSFILE is
+the name of the weights file. ('.net' and '.wts' extensions are added if
+needed).  Only the "block" structure is recognized from the .net file (see
+example at the end of this section).
+
+OR
+
+    pdp3_getweights(nunits,nin,nout,connectivity, wtsfile) -> network;
+
+where
+
+    NUNITS  total number of units in the network (input+hidden+output)
+    NIN     number of units which are inputs
+    NOUT    number of units which are outputs
+
+    CONNECTIVITY defines how the units are connected together.  This is a
+similar format to that used by the network specification file. CONNECTIVITY
+is a vector containing a vector for each block of connections.  Each block
+specifies the first receiving unit and and the length of the receiving
+block, and the first sending unit and the length of the sending block.
+
+For example,  { {8 2 5 3}
+                {5 3 0 5} }
+
+defines the following network:
+
+               8 9    2 OUTPUT
+
+              5 6 7    3 HIDDEN
+
+            0 1 2 3 4  5 INPUTS
+
+
+which would be written like this in the .net file:
+
+     definitions:
+     nunits 10
+     ninputs 5
+     noutputs 2
+     end
+     network:
+     %r 5 3 0 5
+     %r 8 2 5 3
+     end
+     biases:
+     %r 5 5
+     end
+
+(The %r (random) initialization is of no consequence here because we are
+only concerned with reading weights files, not initializing a network).
+
+NOTE: PDP3 and BP allocate space for biases to all units (even input
+units!).  The last section of a weights file is NUNITs values for the
+biases.
+
+-- -- -- Mishap messages
+
+When reading in a set of weights, you may encounter some of the following
+mishap messages:
+
+    PDP3_READFILESECTION: End of file before definitions:
+    PDP3_READFILESECTION: End of file before network:
+
+Either the definitions section or network section of the .net file was not
+found.
+
+    PDP3_GETWEIGHTS: End of file not reached in filename
+
+There were more values in the weights file than specified in the call to
+-pdp3_getweights-.
+
+-- -- PDP3_PRINTWEIGHTS ------------------------------------------------
+
+To print out the network:
+
+    pdp3_printweights(network);
+
+The print out is based on the blocks defined in the connectivity vector.
+
+OR
+
+    pdp3_printweights(network,naming);
+
+This prints out the NETWORK weights as above, but uses the procedure NAMING
+to place labels on the units.  For example, the following procedure names
+the input and output layers, but just returns the unit number for the
+hidden layer:
+
+    define naming(unit,net) -> label;
+       vars out1 = pdp3_firstoutputunit(net);
+       if unit < pdp3_nin(net) then ;;; input layer
+          [hair fur walks flies swims](1+unit) -> label;
+       elseif unit < out1 then ;;; hidden
+           unit -> label;
+       else ;;; output
+           [giraffe elephant anteater](1+unit-out1) -> label;
+        endif;
+    enddefine;
+
+    Remember that units are numbered from zero.
+
+The amount of space given to each number (and between each column label) is
+determined by:
+
+    pdp3_printweights_d1                [default 3]
+    pdp3_printweights_d2                [default 3]
+
+Where D1 is the maximum number of digits before the decimal point, and D2 is
+the number of digits allowed after the decimal point (including the decimal
+point). See HELP * PRNUM
+
+The amount of space for row labels is given by:
+
+    pdp3_printweights_rowspace          [default 2]
+
+
+-- -- PDP3_FANIN -------------------------------------------------------
+
+    pdp3_fanin(network, unit) -> vector
+
+Returns a VECTOR containing the weights feeding into unit number UNIT in
+the given NETWORK.
+
+You can access the unit's bias with:
+
+    pdp3_biases(network)(unit) -> bias
+
+
+-- -- PD3_FANOUT -------------------------------------------------------
+
+    pdp3_fanout(network, unit) -> vector
+
+Like -pdp3_fanin- but for the weights leaving a unit
+
+
+
+-- -- PDP3_PUTWEIGHTS --------------------------------------------------
+
+If changes are made to a network's weights, it may be useful to save the
+network in a file.
+
+    pdp3_putweights(network,filename);
+
+    Saves the NETWORK as FILENAME, but does not change the name of the
+network (pdp3_wtsfile).
+
+    pdp3_putweights(network);
+
+    If you omit the FILENAME, the NETWORK will be saved under it's current
+name: pdp3_wtsfile(NETWORK).
+
+
+
+-- PATTERNS -----------------------------------------------------------
+
+The set of procedures to deal with loading and accessing pattern files.
+
+-- -- PDP3_GETPATTERNS -------------------------------------------------
+
+To read in a set of patterns:
+
+    pdp3_getpatterns(file,npats,ninlines,noutlines) -> patterns;
+
+where FILE is the filename containing the patterns. The extension '.pat'
+is appended to the filename unless it already contains a '.' NPATS is
+the number of patterns; NINLINES is the number of input units; and
+NOUTLINES is the number of outputs.
+
+Note: this procedure is inefficient and may take some time to load large
+sets of patterns.
+
+
+I have changed my version of the "bp" program to allow a special meaning to
+be assigned to the number after the pattern name in certain pattern files.
+I use this to assign frequency of occurrence to each pattern.  This
+value is of no use to the PDP3 routines, and is skipped over when <true> is
+given as an additional option to a call to pdp3_getpatterns.  I.e.,
+
+    pdp3_getpatterns('mypats',65,17,32,true);
+
+
+Unless pdp3_dont_auto_setpoints is <true>, then the following variables are
+set by -pdp3_getpatterns-
+
+    First_pattern
+    Last_pattern
+    Number_of_patterns
+
+These may be used in loops to count through each pattern, but they are not
+used by any of the PDP3 procedures. (See section on -pdp3_setpoints-).
+
+-- -- -- Mishap messages
+
+When loading a pattern file, -pdp3_getpatterns- may mishap with the
+following messages:
+
+    PDP3_GETPATTERNS: Pattern too long
+    PDP3_GETPATTERNS: Pattern too short
+
+This means that the line in question (from the pattern file) does not
+contain the correct number of elements (missing pattern name? too many/few
+inputs/outputs...etc)
+
+
+    PDP3_GETPATTERNS: End of file not reached in filename
+
+This means that PDP3 read all the patterns you asked, but still found some
+lines in the file.
+
+It would be possible to write a version of PDP3_GETPATTERNS which just
+reads patterns until the end of file.  This has not been done to safeguard
+against accidently reading in the wrong pattern file.  Specifying the
+number of patterns is an extra constraint which helps ensure that you end
+up with the pattern file you want.
+
+    PDP3_GETPATTERNS: Unexpected end of file in filename
+
+The flip-side to the last error message, where the pattern file contained
+less patterns than requested.
+
+
+The variable pdp3_maximum_pattern_size defines the largest pattern that can
+be read from disk (in terms of string characters). By default it is set to
+20 000, but the user may set this to any value s/he wishes.  Note, that
+there will be a MISHAP if the value is smaller than the longest pattern.
+
+
+-- -- PDP3_PRINTPATTERNS -----------------------------------------------
+
+Procedure to print a table of input/target pairs.
+
+    pdp3_printpatterns(patterns);
+
+An alternative form is:
+
+    pdp3_printpatterns(patterns,naming);
+
+where NAMING is a procedure used to name the input/target labels. The
+procedure is given a number PAT (1...number of input/target units) and
+TYPE, which is either the word "target" or "input".
+E.g.,
+
+    define naming(pat, type) -> label;
+        if type = "input" then
+            [dog cat fish](pat) -> label;
+        elseif type = "target" then
+            [runs runs swims](pat) -> label;
+        endif;
+    enddefine;
+
+There are a number of variables which control the way the printout is
+displayed:-
+
+   pdp3_printpats_d0    Space for pattern name            [default 5]
+   pdp3_printpats_d1    Space before decimal point        [default 3]
+   pdp3_printpats_d2    Space after (and including) point [default 3]
+
+    If pdp3_printpats_numbers is <true> [default true] then values will be
+printed out as numbers, otherwise numbers will be printed except:
+
+    * printed for number = 1.0
+    = printed for 0.5 <= number < 1.0
+    - printed for 0.5 > number >= 0.05
+    space printed for number < 0.05
+
+The procedure -pdp3_printpatsnum- can be redefined to change the above
+default number printing style.
+
+    The inputs are headed with the string  |---Inputs---|
+    The targets are headed with the string |--Targets---|
+
+This can be changed:
+
+    pdp3_printpats_inputstr         [default 'Inputs']
+    pdp3_printpats_targetstr        [default 'Targets']
+
+
+-- -- PDP3_SELECTPATTERN -----------------------------------------------
+
+This procedure returns the stimulus and target vector for one pattern from
+the pattern set (read with pdp3_getpatterns).
+
+    pdp3_selectpatterns(p,patterns) -> (stim, targ);
+
+where P is either the pattern number (from 1 to npats) or the name of the
+pattern. STIM and TARG are both vectors.
+
+-- -- PDP3_PATTERNNUMBER -----------------------------------------------
+
+Each pattern has a name (the first field in the .pat file) and a number
+(the position in the .pat file).  This procedure takes a pattern name and
+returns its corresponding number:
+
+    pdp3_patternnumber(NAME, PATTERNS) -> NUMBER
+
+When given a pattern number as NAME, the procedure checks that the number
+is within bounds.  Mishaps occur when the name is not found or the number
+is out of range.
+
+-- -- PDP3_SAVESTIMNAMES -----------------------------------------------
+
+This procedure simply writes the name of each pattern into the named file.
+It can be useful when using software which asks for a separate file
+containing pattern names.
+
+    pdp3_savestimnames(patterns);
+or
+    pdp3_savestimnames(patterns,file);
+
+
+If FILE isn't specified then the filename is based on the name of the
+patterns file, but with the extension '.nms'
+
+
+
+-- ACTIVITY -----------------------------------------------------------
+
+Once a network and a set of patterns are loaded, the following procedures
+may be used to propagate activity through the network.
+
+-- -- PDP3_ACTIVATE ----------------------------------------------------
+
+To do one forward pass:
+
+    pattern -> pdp3_activate(network) -> activity;
+
+where PATTERN is a vector (perhaps selected with pdp3_selectpattern). The
+ACTIVITY array contains one element for each unit.
+
+NB: there are no backpropagation routines with these utilities.  If you
+wish to train these networks then you will need to convert the pdp3_
+structures to POPLOG-Neural backprop nets.  See HELP * NEURAL.
+
+-- -- PDP3_ACTIVITIES --------------------------------------------------
+
+As pdp3_activate but applied to all patterns.
+
+    patterns -> pdp3_activities(network) -> activities;
+
+where PATTERNS are the set to patterns (perhaps loaded with
+pdp3_getpatterns).  ACTIVITIES is a vector containing an array of activity
+for each pattern.
+
+The more general form is:
+
+    patterns -> pdp3_activities(network, first_pattern,
+            last_pattern) -> activities;
+
+Where FIRST_PATTERN and LAST_PATTERN specify which patterns to use.
+Patterns are numbered from one.
+
+When working with sequences (see section on recurrence, below), this
+procedure can be called with a SINGLE digit:
+
+    patterns -> pdp3_activities(network, sequence_number) -> activities
+
+where SEQUENCE_NUMBER specifies the sequence of patterns you wish to run.
+Users should call -pdp3_inputactivation- to reset input activity before
+using this procedure on sequences.
+
+
+-- -- PDP3_RESPONSE ----------------------------------------------------
+
+    pattern -> pdp3_response(network) -> response;
+
+Returns the output vector which is the RESPONSE of the NETWORK to the given
+PATTERN vector.  Defined as a call to -pdp3_activate- and then a call to
+-pdp3_output-.
+
+-- -- PDP3_RESPONSES ---------------------------------------------------
+
+    patterns -> pdp3_responses(network) -> responses;
+
+Applies all the PATTERNS to the NETWORK and returns a vector of RESPONSES
+(outputs) of the network.  Defined in terms of -pdp3_response-.
+
+Again, the more general form allows you to specify a sub-set of the
+patterns:
+
+    patterns -> pdp3_responses(network,first_pattern,
+            last_pattern) -> responses;
+
+
+and for sequences:
+
+    patterns -> pdp3_responses(network, sequence_number) -> responses;
+
+-- -- PDP3_OUTPUT ------------------------------------------------------
+
+    activations -> pdp3_output(network) -> vector
+
+where VECTOR is the output layer from an activation array (as produced by
+-pdp3_activate-).
+
+-- -- PDP3_HIDDEN ------------------------------------------------------
+
+    activations -> pdp3_hidden(network) -> vector
+
+Returns a VECTOR containing the activation values of the hidden units for
+NETWORK.
+
+
+
+-- -- PDP3_ACTIVATEOUTPUT ---------------------------------------------
+
+Given a vector containing the HIDDEN layer activities,
+
+    hidden -> pdp3_activateoutput(network) -> output;
+
+activates the OUTPUT layer for the given NETWORK.
+
+-- -- PDP3_MULTIPLY ---------------------------------------------------
+
+This procedure is used by the various activity routines to multiply the
+activation flowing into a unit by a weight.  By default it is defined
+as something like:
+
+    define pdp3_multiply(activity,weight) -> netinput;
+        activity * weight -> netinput;
+    enddefine;
+
+The user may redefine this (e.g., to incorporate noise).
+
+-- RECURRENCE ---------------------------------------------------------
+
+Recurrent connections in the BP package are identified by negative input
+values in the pattern file.  For example, an input value for -8 indicates
+that the input unit in question should receive a input value that is unit
+8's activation at the previous time step.   In addition to this, the input
+unit has self feedback, the value of the weight being MU.
+
+This is automatically handled by PDP3.  A call to -pdp3_responses-
+or -pdp3_activities- will sequentially step through the training set (same
+as the BP packages "tall" command).
+
+This section contains details that may be of use if you work with
+sequential networks.
+
+Note that -1 and -1.0 are different things to POP (integer and ddecimal).
+This is used to an advantage my PDP3.  In a stimulus pattern the integer -1
+is a reference to the activation of unit 1 at the previous time step; but
+the ddecimal -1.0 is taken as an input value of -1.
+
+-- -- PDP3_MU ---------------------------------------------------------
+
+This value determines the contribution fed back from an input unit to itself
+when it receives recurrent connection. By default the value of MU for a
+network is 0.5 (as it is in the bp software).
+
+Examine NETWORK's mu value with...
+
+    pdp3_mu(NETWORK) =>
+
+...and set MU with...
+
+    VALUE -> pdp3_mu(NETWORK);
+
+Use a VALUE of zero for Elman networks.
+
+-- -- PDP3_SEQSTART ---------------------------------------------------
+
+When reading a pattern file containing recurrent connections,
+-pdp3_getpatterns- attempts to identify the start patterns for each
+sequence.  It attempts this in the following way: if a recurrent pattern
+has been found, the next pattern with no recurrent connections is the start
+of the next sequence.
+
+You can look at the sequence start points by doing:-
+
+    pdp3_seqstart(patterns) =>
+
+where PATTERNS is the structure returned by -pdp3_getpatterns-.
+If the procedure has got it wrong, you can assign a list of start points
+with:
+
+    [start points] -> pdp3_seqstart(patterns);
+
+See the section on -pdp3_responses- and pdp3_activities- for
+how sequence numbers can be used.  Sequence numbers start from 1.
+
+-- -- PDP3_SEQEND -----------------------------------------------------
+
+    pdp3_seqend(pats) -> list;
+
+This is a procedure (unlike the *list* pdp3_seqstart), which returns
+a list of ending points for sequences.  This may be useful if you
+wish to select each pattern within a sequence, e.g.,
+
+    length(pdp3_seqend(pats)) -> nseq;          ;;; how many seqeunces?
+    pdp3_seqend(pats) -> seqend;                ;;; find end points
+
+    random(nseq) -> seq;                        ;;; pick a sequence
+    pdp3_seqend(pats)(seq) -> first_pattern;    ;;; find the first...
+    seqend(seq) -> last_pattern;                ;;; ...and last pattern
+
+    for p from first_pattern to last_pattern do
+        ...whatever...
+    endfor;
+
+
+-- -- PDP3_SETINPUT ---------------------------------------------------
+
+    PATTERN -> pdp3_setinput(NETWORK) -> ACTIVITY;
+
+This procedure sets the PATTERN of activity in to the ACTIVITY
+vector for the given NETWORK.  It handles all the feedback, so if you wish
+to set input explicitly, use this procedure.
+
+-- -- PDP3_INPUTACTIVATION --------------------------------------------
+
+    VALUE -> pdp3_inputactivation(NETWORK)
+
+Sets the input units for the given NETWORK to the given VALUE.  May be
+useful to set the input layer to ZERO if you are messing around with
+sequences.
+
+
+-- POST PROCESSING ----------------------------------------------------
+
+Once an activity vector is set, the following procedures may be used to
+modify/examine the activity.
+
+-- -- PDP3_SUMOUTPUTS ------------------------------------------------
+
+    activation -> pdp3_sumoutputs(net) -> sum
+
+Takes an activation vector and a network and returns the sum of the output
+activations.
+
+-- -- PDP3_NORMALIZEOUTPUTS --------------------------------------------
+
+    activity -> pdp3_normalizeoutputs(net) -> activity
+
+Makes outputs sum to 1.0
+
+
+-- -- PDP3_LARGESTNORMALIZEDOUTPUT ------------------------------------
+
+This procedure is a combination of some of the other PDP3_ procedures,
+handy for speeding-up programs:
+
+    activity -> pdp3_largestnormalizedoutput(net) -> (outputs, largest)
+
+Given an ACTIVITY vector, this procedure returns a vector of normalized
+OUTPUTS, and the value of the largest normalized output.
+
+The same effect is given (more slowly) by:
+
+    activity -> pdp3_normalizeoutputs(network) -> activity;
+    activity -> pdp3_output(net) -> output;
+    pdp3_largest(output) ->largest;
+
+However, pdp3_largestnormalizedoutput does not change the values in
+ACTIVITY, unlike pdp3_normalizedoutputs.
+
+-- -- PDP3_THRESHOLD ---------------------------------------------------
+
+    activity -> pdp3_threshold(net,threshold) -> vector
+
+Looks at the output units in ACTIVITY for NET.  For each output unit that is
+greater than THRESHOLD, there is a 1 in VECTOR, otherwise there is a zero.
+
+-- -- PDP3_NETINPUTVALUE -----------------------------------------------
+
+    value -> pdp3_netinputvalue(network);
+
+Sets each units' net input to VALUE.
+
+-- -- PDP3_ACTIVEBIT ---------------------------------------------------
+
+Given a vector, array or list...
+
+    pdp3_activebit(vector) -> bit;
+
+...returns the position in the structure of the first '1'.
+
+Useful for finding out which output unit *should* be active by scanning the
+target vector.
+
+-- -- PDP3_LARGEST -----------------------------------------------------
+
+Given a vector, array or list...
+
+    pdp3_largest(vector) -> bit;
+
+...returns the position in the structure of the largest value.
+
+-- CASCADING ----------------------------------------------------------
+
+This is a method of allowing activation to build up over time.
+
+-- -- PDP3_CASCADE_START ----------------------------------------------
+
+    pdp3_cascade_start(pat, network) -> activity;
+
+This sets the network ready for stepping activation according to the
+"cascade model".  This sets the network by applying the zero vector to the
+input, and then setting the input layer of the network to contain the
+pattern PAT (perhaps selected with pdp3_selectpattern).  Most importantly,
+the netinput to the network is set, and reused by repeated calls to...
+
+-- -- PDP3_CASCADE_STEP -----------------------------------------------
+
+    activity -> pdp3_cascade_step(network,crate) -> activity;
+
+The ACTIVITY array returned from pdp3_cascade_start is the "bootstrapping"
+vector used to start cascading.  CRATE is the cascade rate, and ACTIVITY is
+the usual array (as returned by pdp3_activate). This procedure modifies
+pdp3_netinput.
+
+Example usage:
+
+    pdp3_cascade_start(pat,net) -> activity;
+    repeat 100 times    ;;; run for 100 time steps
+        activity -> pdp3_cascade_step(net,0.05) -> activity;
+    endrepeat;
+
+NB, if you wish to cascade with a recurrent network (?!) then you should
+call -pdp3_setinput- after -pdp3_cascade_step-, or set
+pdp3_recurrent_cascade to <true> [default false] which does it for you.
+This is important because -pdp3_cascade_step- does not, by default,
+recompute the activation of context units.  -pdp3_cascade_start- copies
+the pattern input vector into the variable pdp3_cascade_external_stim,
+and this is used to determin which inputs need to be updated.
+
+-- -- PDP3_CASCADE_PRIME ----------------------------------------------
+
+    prime -> pdp3_cascade_prime(pat,net) -> activity;
+
+Use just as -pdp3_cascade_start-, but rather than putting network in the
+the 'zero' state, the net is primed with the PRIME pattern first.
+
+
+-- TRACING ------------------------------------------------------------
+
+This section contains procedures for tracing the behaviour of th network.
+
+-- -- PDP3_RECORDUNITS -------------------------------------------------
+
+This procedure records the activations of selected units for each pattern.
+(Handy for doing something like PCA.)
+
+    pdp3_recordunits(network,patterns,units) -> vector;
+
+VECTOR is a vector containing one vector for each pattern, and each of
+these vectors contains an entry for each unit. E.g., vector(1)(2) is the
+second selected unit for the first pattern.
+
+The activities are recorded in a file based on the name of the network with
+a '.clx' extension added. Optionally, FILE maye be specified:
+
+     pdp3_recordunits(network,patterns,units,file) -> vector;
+
+where FILE can be either:
+
+    (a) a string, naming the file to save hidden activity to (but adding
+        the extension '.clx' if no extension is found)
+    (b) <false>, meaning no saving will occur.
+
+
+-- -- PDP3_RECORDHIDDEN ------------------------------------------------
+
+    pdp3_recordhidden(network,patterns) -> vector;
+    pdp3_recordhidden(network,patterns,file) -> vector;
+
+As for pdp3_recordunits, but saves for the hidden units.
+
+
+-- -- PDP3_RECORDCASCADE -----------------------------------------------
+
+This allows you to record the build up of activity under the cascade
+equations.
+
+    pdp3_recordcascade(network, patterns, units, start_pattern,
+        pattern, duration, rate) -> vector;
+
+    pdp3_recordcascade(network, patterns, units, start_pattern,
+        pattern, duration, rate, file) -> vector;
+
+The procedure is similar to -pdp3_recordunits- but works for a specific
+PATTERN and runs for DURATION time-steps.  The variables are as for
+-pdp3_recordunits- with the addition of:
+
+    PRIME - the pattern name used to start processing.  This is usually
+        the all-ZEROs pattern, but other patterns may be used (see
+        -pdp3_cascade_prime-).
+
+    PATTERN - the pattern name (singular) to test
+
+    DURATION - number of cascading time-steps to run for
+
+    RATE - the cascade rate (see the section on CASCADING, above)
+
+E.g.,
+
+    pdp3_recordcascade(net1, testpats, {13 14 15 16}, 'zero', 'eg45',
+        50, 0.05, 'act3') -> v;
+
+will record 50 time-steps of cascaded activation for pattern 'eg45' into
+the file 'act3.cas' for units 13 to 16.
+
+Note that the file extension for cascaded recording is CAS and not CLX.
+
+If the FILE name is not specified, one will be constructed based on the
+PRIME pattern and the PATTERN.  For this above example the file name would
+be: zero-eg45.cas
+
+NB, if you wish to cascade with a recurrent network then you should set
+pdp3_recurrent_cascade to <true> [default false] .
+
+-- -- PDP3_RECORDCASCADE_HIDDEN ----------------------------------------
+
+    pdp3_recordcascade_hidden(network, patterns, prime, pattern,
+            duration, rate) -> vector;
+
+    pdp3_recordcascade_hidden(network, patterns, prime, pattern, file,
+            duration, rate, file) -> vector;
+
+As for -pdp3_recordcascade- but saves for the hidden units.
+
+-- -- PDP3_GETRECORDEDUNITS --------------------------------------------
+
+A file created with any of the pdp3_record* procedures can be read with
+this procedure.  The return value is the same as that for the pdp3_record
+procedures.
+
+    pdp3_getrecordedunits(file) -> vector;
+
+
+
+-- PDP3_PERFORMANCE ---------------------------------------------------
+
+If you used BP to train a network off-line, it's a good idea to check that
+network does perform the task you set it.
+
+    patterns -> pdp3_performance(network, region)
+                    -> (tss, percentage, errorlist, psslist)
+
+Assuming PATTERNS and NETWORK can from the usual PDP3_GET routines, this
+procedure returns:
+
+    TSS         - sum of the square of the error across all output units
+                  and all patterns (changes to pdp3_tmax(netowrk) will
+                  change this value).
+
+    PERCENTAGE  - percentage performance at classification.
+
+    ERRORLIST   - names of the patterns the network failed on.
+
+    PSSLIST     - list of lists containing the name of an input pattern and
+                  the associated sum squared error for that single pattern.
+
+
+    REGION is the error that you will permit an output unit to have and
+still be classified as correct.  For example, a REGION of 0.2 means you
+will accept output values between  -0.2 and 0.2 as 0.0 and 1.2 and 0.8 as
+1.0.  (Not that you'll get activations less than zero or greater than one).
+REGION values of 0.5 or greater don't make much sense.
+
+
+    If REGION is "largest" then it is assumed that the output encoding
+is one-of-N, and the actual output is taken to be correct if the largest
+output unit is the unit corresponding to the target bit that is 1.0.
+If this is used with a non-one-of-N encoding for the target, the first
+1.0 target is taken to be the correct target.
+
+-- -- PDP3_TMAX -------------------------------------------------------
+
+The tmax value of a network is used as the actual target value for training
+pattern of 1.0.   For training patterns of 0.0, the value used is (1-tmax).
+By default, tmax is 1.0, so the target values in the pattern file are the
+values used.
+
+    value -> pdp3_tmax(network);
+    pdp3_tmax(network) =>
+
+
+-- NETWORK DAMAGE -----------------------------------------------------
+
+The file pdp3_perturb.p contains procedures for damaging networks in various
+ways.
+
+-- -- PDP3_PERTURB -----------------------------------------------------
+
+    pdp3_perturb(network, extent, type) -> damaged_network;
+
+Copies the NETWORK and then returns a damaged version.  EXTENT controls how
+much of the net is damaged. The following TYPEs of damage may occur:
+
+    "destroy"   - sets weight to zero if random(1.0) <= EXTENT
+    "absolute"  - randomly adds +/- EXTENT/2 to a weight
+    "relative"  - like "absolute" but multiplies change by the magnitude of
+                  the weight.
+
+-- -- PDP3_DESTROY ----------------------------------------------------
+
+    pdp3_destroy(network, unit) -> damaged_network;
+
+Copies NETWORK to DAMAGED_NETWORK but unit number UNIT will have all its
+connections deleted.
+
+-- -- PDP3_APPLY_DAMAGE -----------------------------------------------
+
+    pdp3_apply_damage(network, damage) -> damaged_network;
+
+Applyies the procedure DAMAGE to each weight in the NETWORK, returning the
+damaged network.
+
+    DAMAGE should expect to receive a number representing either a bias
+value or a weight value, and should return the damaged version of that
+number.
+
+    For example, if you wanted to randomly set 50 per cent of the weights
+to zero, you could say:
+
+    define zap_weight(w) -> w;
+        if random(100) < 50 then
+            0 -> w;
+        endif;
+    enddefine;
+
+
+    pdp3_apply_damage(network, zap_weights) -> zapped_network;
+
+-- POPLOG-Neural ------------------------------------------------------
+
+The following procedures convert networks and patterns between the
+POPLOG-Neural format and the PDP3 format.
+
+pdp3_neural.p loads the POPLOG-Neural "bp" package if it is not already
+loaded.
+
+The main difference between PATTERN formats is that the indexing is
+opposite between the two packages.
+
+Note that the error measure returned by POPLOG-Neural backprop is the MEAN
+of half the sum of the squares of the errors.  PDP3 returns the sum of the
+squares (not halved and not averaged).
+
+-- -- NN_BPNET_TO_PDP3 ------------------------------------------------
+
+Takes a POPLOG-Neural backprop network and returns a PDP3 network.
+
+    nn_bpnet_to_pdp3(bpnetwork) -> pdp3network;
+
+
+-- -- PDP3_PATS_TO_NN -------------------------------------------------
+
+Takes a set of PDP3 patterns and converts them into a POPLOG-Neural format.
+
+    pdp3_pats_to_nn(patterns) -> (inputs, targets);
+
+Remember to call PDP_MAKEDATA on the resulting INPUTS and TARGETS vectors.
+
+E.g.,
+
+    pdp_makedata(inputs) -> inputs;
+    pdp_makedata(targets, presentations, random) -> targets;
+
+-- Other utilities ----------------------------------------------------
+
+The following section contains procedures that have been defined to be used
+by the procedures described above.  They may be of use.
+
+-- -- PDP3_COPYNET ----------------------------------------------------
+
+    pdp3_copynet(network) -> new_network;
+
+copies a given network, changing the network's name to "pdp3net".
+
+-- -- PDP3_ADDDOT -----------------------------------------------------
+
+    pdp3_adddot(file, ext) -> file;
+
+    The procedure is used to add a "dot extension" to filenames,
+
+    e.g., to add the '.wts' part to 'foo' to produce 'foo.wts'.
+
+        pdp3_adddot('foo','wts') =>
+        ** foo.wts
+
+    Many of the PDP3 procedure can be given arguments which can be:
+
+    Strings - if no '.' is found in the name, the EXT is appended
+
+    PDP3_NET_RECORD - a network, in which case the name of the network is
+    used as the root part of a filename, and the EXT replaces any existing
+    EXT. For example, when recording unit activity to a file, the procedure
+    -pdp3_recordunits- can be called with a NETWORK as its argument.  If the
+    network's name is 'test.wts' then the resulting activations file will be
+    called 'test.clx'
+
+    PDP3_PATS_RECORD - like PDP3_NET_RECORD but for patterns.
+
+    If EXT is <false> then no extension is added (sounds odd, but handy if
+    you want a string from a FILE which can be either a network,
+    pattern or a string).  Specifying EXT as an empty string will add a '.'
+    to the string.
+
+
+-- -- CHECK_FOR_REMAINS ------------------------------------------------
+
+    check_for_remains(device) -> result;
+
+    The procedure takes an active DEVICE and returns:
+
+    <false> is there is no more data to be read from the device, or
+    a string containing the next 20 characters read.  This string will
+    contain: periods if the EOF is encounter reading the next 20 characters
+    and slashes if any control characters are read.
+
+-- -- LOGISTIC --------------------------------------------------------
+
+    logistic(n) -> x;
+
+    The logistic squashing (sigmoid) function.  Takes a number and returns
+    a number.
+
+
+-- -- PDP3_READFILESECTION --------------------------------------------
+
+    Used to read sections from the McClelland and Rumelhart format files.
+
+    pdp3_readfilesection(device, start_string, end_string) -> list;
+
+    Given an active DEVICE, the procedure searches for the START_STRING
+    (e.g., 'definitions:').  When found, it reads every line until the
+    END_STRING (e.g., 'end') is found.  Each line read is returned as a
+    sublist in LIST.
+
+    The procedure mishaps if the START_ or END_STRING are not found.
+
+    The procedure does not return the file pointer after processing, so
+    multiple calls to must be in the correct order.  I.e., if you expect
+    to find 'definitions:' before 'biases:' then you must call
+    pdp3_readfilesection with those arguments in that order.
+
+-- -- PDP3_HEADLABEL --------------------------------------------------
+
+    pdp3_headlabel(width,string);
+
+    Used by -pdp3_printpatterns- to print out a centered line of text,
+    e.g.,
+
+    pdp3_headlabel(30,'Inputs');    |------------Inputs------------|
+
+    Does not print a newline after being called.
+
+-- PDP3 Programs ------------------------------------------------------
+
+The file ~richardd/pop/pdp3/pdp3.p loads the following programs:
+
+pdp3_utils.p
+
+    pdp3_adddot         add "dot extension" to file name
+    check_for_remains   any data not read from file?
+    logistic            sigmoid activation function
+    pdp3_copynet        makes a copy of a network
+
+pdp3_getweights.p
+
+    pdp3_getweights     reads weights file
+    pdp3_printweights   prints out weights
+    pdp3_firstoutputunit number of the 1st output
+    pdp3_putweights     save weights to file
+    pdp3_fanin          returns weights into unit
+    pdp3_fanout         returns weights leaving unit
+    pdp3_setpoints      identifies layers in a net
+    pdp3_inputactivation sets input units to given value
+
+pdp3_getpatterns.p
+
+    pdp3_getpatterns    reads patterns file
+    pdp3_selectpattern  select one pattern from set
+    pdp3_activebit      find the position of a 1 in a vector
+    pdp3_printpatterns  print table of input/target pairs
+    pdp3_headlabel      prints centered string
+    pdp3_seqend         list of sequence end points
+
+pdp3_activate.p
+
+    pdp3_setinput       activates input units with pattern
+    pdp3_activate       forward propagation
+    pdp3_output         returns output vector
+    pdp3_hidden         hidden units activity vector
+    pdp3_sumoutputs     given activity, returns sum of outputs
+    pdp3_threshold      thresholds the output layer
+    pdp3_normalizeoutputs normalizes the output layer
+    pdp3_largestnormalizedoutput    normalize, but return output
+            vector and value of largest output unit.
+    pdp3_zeronetinput   set netinput for all units to zero
+    pdp3_response       response to an input (the output)
+    pdp3_responses      as pdp3_response but for all patterns
+    pdp3_activities     forward propagation on all patterns
+    pdp3_activateoutput forward prop from given hidden activities
+
+pdp3_cascade.p
+
+    pdp3_cascade_start  initiates cascade activation
+    pdp3_cascade_step   one time step of cascade activation
+    pdp3_cascade_prime  initiates to position other than zero.
+
+pdp3_recordunits.p
+
+    pdp3_recordunits    saves any unit activations to a file
+    pdp3_recordhidden   saves hidden vectors to file
+    pdp3_savestimnames  saves the names of the patterns to a file
+
+pdp3_performance.p
+
+    pdp3_performance    measures performance of a net on test data
+
+
+The following may be additionally loaded:
+
+pdp3_neural.p
+
+    nn_bpnet_to_pdp3    convert backprop net to pdp3 format
+    pdp3_pats_to_nn     convert pdp3 patters to Neural format
+
+pdp3_perturb.p
+
+    pdp3_perturb         randomly damage weights
+    pdp3_destroy        removes unit from a network

@@ -1,0 +1,327 @@
+REF CASCOR                                            Richard Dallaway
+                                                      May 1991
+
+       Reference information for Cascade Corrlation (CASCOR) Code
+
+         CONTENTS - (Use <ENTER> g to access required sections)
+
+ -- Introduction
+ -- Recurrance
+ -- CC_NET_RECORD
+ -- CC_HIDDEN_RECORD
+ -- CC_MAKENET
+ -- CC_PRINTWEIGHTS
+ -- CC_RESPONSE
+ -- CC_RAW_ERROR
+ -- CC_ERROR_VALUE
+ -- CC_2DIFY_VECTOR
+ -- CC_TEST
+ -- CC_CLASSIFY
+ -- CC_INPUTS_TO_OUTPUTS
+ -- CC_TRAIN_OUTPUT
+ -- CC_TENURE
+ -- CC_TRAIN_POOL
+ -- CC_ADJUST_POOL
+ -- CC_FILE
+
+-- Introduction -------------------------------------------------------
+
+CASCOR uses calls to David's version of POPLOG-Neural backpropagation
+(see HELP * POPNEURAL).  Hence, $pdproot needs to be set at login to:
+
+    setenv pdproot ~davidy/pdp
+
+However, to work, CASCOR needs to use sigmoid-prime offset (adding 0.1 to
+f').  So, cascor.p adds a search path of ~richardd/pop/neural/mybp which
+changes the backpropagation code to use sigmoid prime-offset. It also adds
+a search path of ~richardd/pop/lib for some fast dot product procedures.
+
+The CASCOR code can be loaded with:
+
+    load ~richardd/pop/neural/cascor.p
+
+Two (un-annotated) example files:
+
+    ~richardd/pop/neural/r_xor.p        recurrent xor problem
+    ~richardd/pop/neural/xor.p          normal xor
+
+-- Recurrance -------------------------------------------------------
+
+CASCOR identifies that the recurrent algorithm is to be used when the
+input patters consist of sequences.  That is, for non-recurrent
+CASCOR, the input set is a vector containing one vector for each
+pattern.  For recurrent CASCOR, the input set is a vector for each
+sequence, containing a vector for each pattern.
+
+e.g., for xor,
+
+    non-recurrent: vars stims = { {0 0} {0 1} {1 0} {1 1} };
+
+    recurrent:     vars stims = {   { {0} {0} }
+                                    { {0} {1} }
+                                    { {1} {0} }
+                                    { {1} {1} } };
+
+
+-- CC_NET_RECORD ----------------------------------------------------
+
+Each network is an instance of a CC_NET_RECORD which contains the
+following fields:
+
+    CC_NAME             a string
+
+    CC_WTRANGE          a decimal used to set the rangem of the random
+                        weights.
+
+    CC_ETA, CC_ALPHA    learning and momentum rates used with calls to
+                        pop-neural backprop.
+
+    CC_EPSILON, CC_BETA learning and momentum rates used to update the
+                        candidate units.
+
+    CC_NINPUTS          integer, number of external input lines.
+
+    CC_NOUTPUTS         integer, number of output units.
+
+    CC_OWEIGHTS         array(o), for each output unit there is a
+                        vector containing the weights to that unit.
+
+    The vector is ordered so that the first CC_NINPUT values are the
+weights from the input lines. After that, there is one weight for each
+of the hidden units (if any).  The first weight after the input
+weights is for the first (lowest) hidden unit.
+
+    CC_OBIAS            array(o), bias value for each output unit.
+
+    CC_OEPOCHS          integer, number of training epochs on output
+                        layer.
+
+    CC_HIDDEN           vector containing one CC_HIDDEN_RECORD for
+                        each hidden unit.
+
+    This vector is ordered so that the first record is for the first
+(lowest) hidden unit.  Initially it is {}.
+
+    CC_OUTPUTS          array(o), activation value of the output
+                        units.
+
+
+-- CC_HIDDEN_RECORD -------------------------------------------------
+
+Each hidden unit is represented in the vector CC_HIDDEN as an instance
+of a CC_HIDDEN_RECORD.  The fields are:
+
+    CC_HWEIGHTS         array(input+nhidden), containing the weights
+                        feeding into this hidden unit.
+
+    The first CC_NINPUT values are for the external input lines. The
+rest are for the hidden units, starting from the first (lowest) hidden
+unit.
+
+    CC_HBIAS            decimal, the bias value for this unit.
+
+    CC_HOUTPUT          decimal, the output value for this unit.
+
+    CC_PREV_HOUTPUT     decimal, the output at t-1.
+
+    CC_SELF_WEIGHT      decimal, recurrent weight.
+
+    CC_HEPOCHS          integer, the number of training epochs
+                        performed on this unit.
+
+-- CC_MAKENET -------------------------------------------------------
+
+Returns a CC_NET_RECORD, with no hidden units, and random input/output
+weights.
+
+   cc_makenet(NAME,NIN,NOUT,WTRANGE,ETA,ALPHA,EPSILON,BETA) -> net;
+
+    NAME                string
+    NIN, NOUT           integers, number of input and output units
+    WTRANGE             decimal, as above.
+    ETA, ALPHA          decimals, for bp net, as above.
+    EPSILON, BETA       decimals, for CC_ADJUST_POOL
+
+
+
+-- CC_PRINTWEIGHTS --------------------------------------------------
+
+Prints out the weights of a network.
+
+    cc_printweights(NETWORK);
+
+-- CC_RESPONSE ------------------------------------------------------
+
+Takes a vector of input values, and propagates activation through the
+network.  Updates the output values for each unit, and returns the
+activation values for the hidden units, and the output units.
+
+    INPUTS -> cc_response(NETWORK) -> (HIDDEN, OUTPUT);
+
+INPUTS must be a vector.  HIDDEN and OUTPUT are also vectors.
+
+For recurrent cascade correlation, INPUTS must be a vector of vectors.
+The network's previous output values are reset to zero, and each
+vector in INPUTS is presented, one at a time, to the network.  HIDDEN
+and OUTPUT contain one vector for each time setp. I.e., OUTPUT(1) is
+the network's output at the end of time step 1.
+
+-- CC_RAW_ERROR -----------------------------------------------------
+
+If this variable is set <true> then the error returned by
+CC_ERROR_VALUE will the the difference between the target and the
+output.  If <false> the difference is multiplied by the derivative of
+the output value.  The default is <true>.
+
+-- CC_ERROR_VALUE ---------------------------------------------------
+
+Returns the error value given the target and output.  Depends on the
+setting of CC_RAW_ERROR.  Used by CC_TEST and CC_TENURE.
+
+    cc_error_value(TARGET, OUTPUT) -> ERROR;
+
+
+-- CC_2DIFY_VECTOR ------------------------------------------------
+
+Takes a 3 deep embedded vector (i.e., data for recurrent CASCOR) and
+converts it into a 2-D array suitable for use by POP-Neural backprop.
+
+    cc_2Dify_vector(VECTOR, SIZE, NITEMS) -> 2DARRAY;
+
+
+-- CC_TEST ----------------------------------------------------------
+
+Takes and input set, an output set and a network.  Run the set over
+the network and returns a vector of errors for each output unit (t-o)
+and a performance score [0,1] (where a correct classification is when
+the output is "close" to the desired output.  The procedure
+CC_CLASSIFY defines how close the output is to the target.
+
+ INPUT_SET, TARGET_SET -> cc_test(NETWORK) -> (ERR_VECT, PERFORMANCE);
+
+-- CC_CLASSIFY ------------------------------------------------------
+
+Take a vector of targets, a vector of current output units, and an
+integer indicating the current output unit, and returns <true> if they
+are considered to be close enough.  Default setting is that the
+absolute differnce should be less than 0.3.
+
+     TARGETS, OUTPUTS -> cc_classify(O_UNIT) -> TRUE_OR_FALSE;
+
+-- CC_INPUTS_TO_OUTPUTS ---------------------------------------------
+
+Takes an array of external input values, runs the network forward to
+find the hidden unit activations.  These values are placed into a
+larger array, ALL_INPUTS, which stores the values used as input to the
+output layer.  The OUTPUT fields of the HIDDEN units are updated.
+
+If INPUT_SET is sequential, then SEQ_START will contain a number which
+is the index into ALL_INPUTS and ALL_OUTPUTS for each sequence.
+SEQ_START(1) = 0 but ALL_INPUTS and ALL_OUTPUTS is indexed from 1.
+
+    INPUT_SET -> cc_inputs_to_outputs(NETWORK)
+            -> (ALL_INPUTS, ALL_OUTPUTS, SEQ_START);
+
+-- CC_TRAIN_OUTPUT --------------------------------------------------
+
+Trains the output units to total-sum-sqr error of ECRIT or gives up
+after NEPOCHS of training. Returns TSS score.
+
+ INPUT_SET, TARGET_SET -> cc_learn(NETWORK,NEPOCHS) -> TSS;
+
+Actually puts NETWORK weights into a BP_NET and trains using
+backpropagation.
+
+    NEPOCHS     Total number of training epochs.
+
+-- CC_TENURE --------------------------------------------------------
+
+The procedure creates a pool of candidate units, and runs the
+pool.  The highest scoring (by S, the correlation measure)
+candidate unit is installed into the network.
+
+INPUT_SET, TARGET_SET ->
+        cc_tenure(NETWORK, POOL_SIZE, PATIENCE, CHANGE, NEPOCHS)
+            -> BEST_SCORE;
+
+    POOL        Size of candidate pool
+
+    NEPOCHS     Number of training epochs before giving up
+
+    CHANGE      The fraction [0,1] of change in S that counts
+                as a significant change.
+
+    PATIENCE    How long to run without a significant change in S
+                before giving up.
+
+    BEST_SCORE  The value of S for the winning candidate unit
+
+
+-- CC_TRAIN_POOL ------------------------------------------------
+
+Does all the work of training the POOL for CC_TENURE. May be useful if
+hidden units require more training after being installed.
+
+INPUT_SET, TARGET_SET ->
+    cc_train_pool(POOL,POOL_SIZE,NETWORK, PATIENCE, CHANGE, TIME_OUT)
+        -> (POOL, S, HIGHEST, EPOCHS)
+
+
+    POOL    array(POOL_SIZE) containing a vector of weights for
+            each candidate unit.  The updated version (after
+            training) is returned as a result.
+
+    S       array(POOL_SIZE), the correlation score for each
+            candidate.
+
+    HIGHEST The index into S of the winning unit.
+
+    EPOCHS  Number of epochs run.
+
+
+-- CC_ADJUST_POOL ---------------------------------------------------
+
+Calls C program to train the pool of candidate units.  Requires
+statistics calculated by CC_TRAIN_POOL.  Returns updated candidate
+POOL, correlation array S, index to that array for HIGHEST value and
+the number of EPOCHS trained.
+
+cc_adjust_pool ( POOL, POOL_SIZE, NLINES, NOUTPUTS, E, E_BAR,
+        LOWER_INPUTS, NPATTERNS, LRATE, PATIENCE, CHANGE,
+            NEPOCHS, S, EPOCHS)
+                    -> (POOL, S, HIGHEST, EPOCHS);
+
+    NLINES          iteger, number of input lines. Usually NHIDDEN +
+                    NINPUTS + 1 for bias weight.
+
+    E               array(noutputs,npatterns), error at output units.
+
+    E_BAR           array(noutputs), error at output units averaged over
+                    all the patterns.
+
+    LOWER_INPUTS    array(npatterns,NLINES), activation values of
+                    external inputs (first), lower hidden units
+                    (next), and bias (last, always 1.0).
+
+    LRATE           decimal, learning rate.
+
+    HIGHEST         integer, index to the highest value in S
+
+See also: utils/cc_adjust_pool.p and c/adjust_pool.c
+
+-- CC_FILE ----------------------------------------------------------
+
+To save a network:
+
+    NETWORK -> cc_file(FILENAME);
+
+        If FILENAME is an empty string, then the name of the network
+will be used as the FILENAME.   The extension '.ccn' will be added to
+the FILENAME unless a '.' is found in the FILENAME.
+
+To load a network:
+
+    cc_file(FILENAME) -> NETWORK;
+
+    Again, the '.ccn' will be added to the FILENAME unless a '.' is
+present.

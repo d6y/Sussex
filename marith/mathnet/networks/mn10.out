@@ -1,0 +1,10 @@
+      Welcome to bp, a PDP program (Version 1.17 Sussex local).
+Copyright 1987 by J. L. McClelland and D. E. Rumelhart.
+New features...
+20 Oct 1991: Sigmoid-prime offset.
+19 Nov 1991: Weight decay.
+ 3 Dec 1991: Pattern frequencies.
+ 5 Mar 1992: Tss change patience.
+ 6 Mar 1992: Sequence identification.
+ 8 Mar 1992: Backpropagation through time.
+ 2 Apr 1992: Test sequence.

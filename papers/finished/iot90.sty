@@ -1,0 +1,54 @@
+%% PAGE SIZE
+\textheight 24cm
+\textwidth  6.3in
+\oddsidemargin -0.05in
+\evensidemargin -0.05in
+\topmargin -0.5in
+
+\parskip 0mm    %  vertical space between paragraphs
+
+% HEADING FOR FIRST PAGE SHOWING WHERE PUBLISHED
+
+\def\wheretext{\scriptsize\noindent%
+Cliff \& Cahill, eds. (1990) {\em The Third White House
+Papers: Graduate Research in the Cognitive Sciences at Sussex.}
+University of Sussex, School of Cognitive \& Computing Sciences, Brighton, UK.
+Research Paper CSRP 172.}
+
+\def\where{\hspace{-0.0in}%
+\raisebox{15mm}[0pt][0pt]{\parbox[t]{4in}{\wheretext}}}
+
+%% MAKETITLE
+
+%\def\myf{\sf}   % font for sections, abstract and title
+\def\myf{\bf}
+
+\def\maketitle{\par
+ \begingroup
+ \def\thefootnote{\fnsymbol{footnote}}
+ \def\@makefnmark{\hbox
+ to 0pt{$^{\@thefnmark}$\hss}}
+ \newpage\global\@topnum\z@ %
+\@maketitle
+%\thispagestyle{plain}
+\@thanks
+ \endgroup
+ \setcounter{footnote}{0}
+ \let\maketitle\relax
+ \let\@maketitle\relax
+ \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\thanks\relax}
+\def\@maketitle{\newpage
+ \null
+\rightmark{\where} %% WHERE TEXT
+\pagestyle{myheadings}                      %% WHERE TEXT
+ \vskip 2em \begin{center}
+ {\Large \@title \par} \vskip 0.8em {\large %\lineskip .5em
+\begin{tabular}[t]{c}\@author\\\def\nxt{\@email}%
+%\ifx\@email\empty % produce no email entry for \email{}
+% \else\normalsize email: \nxt\fi
+\end{tabular}\par}
+% \vskip 1em {\large \@date}
+\end{center}
+% \par
+% \vskip 1.0em}
+}

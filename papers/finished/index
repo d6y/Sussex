@@ -1,0 +1,122 @@
+----------------------------------------------------------------------
+                CHILDREN'S ARITHMETIC AND CONNECTIONISM
+
+Talk presented at IOT91 --- The 4th White House COGS PG Workshop
+         Isle of Thorns Conference Centre, 17--19th July 1991
+
+ABSTRACT: Theories in cognitive science are in danger of being overly
+constrained by the methods of symbolic AI.  There seems to be no
+reason to adhere to the kind of computations available on conventional
+computers when attempting to model cognition.  Connectionism is
+changing the way we think about cognition, and as such is changing the
+kinds of computations available to model cognition. Cognitivism is
+urged to move towards a `hybrid systems' approach, incorporating many
+styles of computation.  In particular, Kurt VanLehn's [1990] theory of
+children's subtraction is presented as a
+candidate for revision by connectionism.
+
+@INPROCEEDINGS{child,
+    TITLE = {Children's Arithmetic and Connectionism},
+    AUTHOR = {R. Dallaway},
+    YEAR = 1991,
+    BOOKTITLE = {The Fourth White House Papers: Graduate Research in
+        the Cognitive and Computing Sciences at Sussex},
+    EDITOR = {R. Dallaway and T. {Del Soldato} and L. Mozer},
+    PUBLISHER = {Technical report CSRP 200, University of Sussex,
+        School of Cognitive and Computing Sciences},
+    ADDRESS = brighton }
+
+----------------------------------------------------------------------
+                     HOW DO CHILDREN FOLLOW RULES?
+                          A graduate seminar
+                 Tuesday 4 December 1990, 3.30pm 5C11
+
+ABSTRACT: For some behaviours, children have been viewed as rule
+following devices (production systems). Although such systems
+have achieved a certain amount of success, I want to ask what a
+production system explanation is an explanation of... The thought
+I want to pursuit is this: classical AI models (i.e., production
+systems) are appropriate for the study of some aspects the mind
+after revision (not rejection) by connectionism. For those who
+have read it, this is just my thesis proposal ("Serial processing in
+parallel networks") --- same tune, slightly different words.
+----------------------------------------------------------------------
+
+@INPROCEEDINGS{motives,
+    TITLE = {Serial Processing in Parallel Networks: Motives},
+    AUTHOR = {R. Dallaway},
+    YEAR = 1990,
+    BOOKTITLE = {The Third White House Papers: Graduate Research in
+        the Cognitive Sciences at Sussex},
+    EDITOR = {L. Cahill and D. Cliff},
+    PUBLISHER = {Technical report CSRP 172, University of Sussex,
+        School of Cognitive and Computing Sciences},
+    ADDRESS = brighton }
+
+----------------------------------------------------------------------
+         AN INTERACTIVE ACTIVATION MODEL OF CONTEXT EFFECTS IN
+        LETTER PERCEPTION: PART 1. AN ACCOUNT OF BASIC FINDINGS
+                       McClelland and Rumelhart
+                   Psychological Review 88:375--407
+                (or Anderson+Rosenfeld Neurocomputing)
+
+           Presentation for the Connectionist Reading Group
+                    Monday 22nd October BIOLS 4C21
+
+----------------------------------------------------------------------
+      SERIAL PROCESSING IN PARALLEL NETWORKS: RESEASRCH PROPOSAL
+                        Friday 12 October 1990
+
+A case is presented for viewing a connectionist production system as a
+good vehicle for exploring sequential aspects of cognition from within
+the connectionist framework.  By taking such an approach it becomes
+necessary to examine the issues surrounding the representation of
+structured knowledge, and the kinds of operations that can be
+performed on such representations.  That is, connectionist symbol
+processing becomes the focus of attention in this endeavour. The
+models proposed by classical artificial intelligence are taken as
+being appropriate for the study of some aspects the mind after
+revision (not rejection) by conectionism. It is appropriate,
+therefore, to ask how necessary symbol manipulation can be
+accommodated by a connectionist brain.
+
+----------------------------------------------------------------------
+               CONNECTIONIST MODELS AND THEIR PROPERTIES
+                    J. A. Feldman and D. H. Ballard
+               "Neurocomputing" chapter 28, pp. 484--507
+                    "Cognitive Science" 6:205--254
+
+           Presentation for the Connectionist Reading Group
+                            August 3, 1990
+
+----------------------------------------------------------------------
+            SERIAL PROCESSING IN PARALLEL NETWORKS: MOTIVES
+        Talk presented to The 3rd White House COGS PG Workshop.
+       Isle of Thorns Conference Centre, July 23rd -- 25th 1990.
+
+If connectionist networks are to model such high-level cognitive
+skills as problem solving, planning, language, game playing, and so
+on, they must be able to exhibit rich sequential behaviour. To date
+these skills have been best modelled by traditional AI for good
+reason: order is implicit in traditional models (e.g., production
+systems). However, connectionist methods have now started to emerge
+for dealing with sequences, and although not the final word on the
+subject, they make it appropriate to consider how connectionism can
+embody the clumsy serial behaviour prevalent in human performance. The
+problems and importance of serial order are examined, along with
+connectionism's role in the understanding of human ordered behaviour.
+
+----------------------------------------------------------------------
+            SEQUENTIAL PROCESSING IN CONNECTIONIST NETWORKS
+         (Talk presented to Sussex PDP Club Wed May 30, 1990)
+
+ There are a number of psychological and physiological processes that
+ are temporal in nature (involving ordered sequences of events).
+ Traditional AI seems to have the upper-hand when building models of
+ such processes (e.g., production systems vs. ``parallelized''
+ connectionist networks, where temporal problems are simply converted
+ to spatial problems).  However, there are now methods available to
+ connectionists wanting to tackle temporal phenomenon. This talk will
+ describe a selection of these methods.
+
+----------------------------------------------------------------------

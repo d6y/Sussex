@@ -1,0 +1,63 @@
+\documentstyle[11pt]{rzdthesis}
+
+\input title.tex
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{abstract}
+
+Arithmetic takes time.  Children need five or six years to
+master the one hundred multiplication facts (\x00 to \x99), and it takes
+adults approximately one second to recall an answer to a problem like \x78.
+Multicolumn arithmetic (e.g., \x{45}{67}) requires a sequence of actions,
+and children produce a host of systematic mistakes when solving such
+problems. This thesis models the time course and mistakes of adults and
+children solving arithmetic problems.  Two models are presented, both of
+which are built from connectionist components.
+
+First, a model of memory for multiplication facts is described. A
+system is built to capture the response time and slips of adults recalling
+two digit multiplication facts. The phenomenon is thought of as spreading
+activation between problem nodes (such as ``7'' and ``8'') and product
+nodes (``56'').  The model is a multilayer perceptron trained with
+backpropagation, and McClelland's (1988) cascade equations are
+used to simulate the spread of activation.  The resulting reaction times
+and errors are comparable to those reported for adults.  An analysis of
+the system, together with variations in the experiments, suggest that
+problem frequency and the ``coarseness'' of the input encoding have a
+strong effect on the phenomena.  Preliminary results  from
+damaging the network are compared to the arithmetic abilities of
+brain-damaged subjects.
+
+The second model is of children's errors in multicolumn multiplication.
+Here the
+aim is not to produce a detailed fit to the empirical observations of
+errors, but to demonstrate how a connectionist system can model the
+behaviour, and what advantages this brings. Previous production system
+models are based on an {\em impasse-repair} process: when an child
+encounters a problem an impasse is said to have occurred, which is then
+repaired with general-purpose heuristics. The style of the connectionist
+model moves away from this. A simple recurrent network is trained with
+backpropagation through time to activate procedures which manipulate a
+multiplication problem.  Training progresses through a curriculum of
+problems, and the
+system is tested on unseen problems.  Errors can occur during
+testing, and these are compared to children's errors.  The system is
+analysed in terms of hidden unit activation trajectories, and the errors
+are characterized as ``capture errors''.  That is, during processing the
+system may be attracted into a region of state space that produces an
+incorrect response but corresponds to a similar arithmetic subprocedure.
+The result is a {\em graded state machine}---a system with some of the
+properties of finite state machines, but with the additional flexibility of
+connectionist networks. The analysis shows that connectionist
+representations can be structured in ways that are useful for modelling
+procedural skills such as arithmetic. It is suggested that one of the
+strengths of the model is its emphasis on development, rather than on
+``snap-shot'' accounts. Notions such as ``impasse'' and ``repair'' are
+discussed from a connectionist perspective.
+
+\end{abstract}
+
+
+\end{document}

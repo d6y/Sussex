@@ -1,0 +1,13 @@
+get network 01_new10.net
+set lflag 1
+set mode lgrain epoch
+set dlevel 1
+set slevel 3
+set param offset 0.1
+
+set param momentum 0.9
+set param lrate 0.01
+set nepochs 25000
+
+set stepsize nepoch
+set mode patp 1

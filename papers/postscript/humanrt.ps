@@ -1,0 +1,137 @@
+%! output.ps
+%%BoundingBox: 36 36 392 392
+
+36.0 36.0 translate
+0.72 0.72 scale
+
+/ellipsedict 8 dict def
+ellipsedict /mtrx matrix put
+/positive_ellipse
+  { ellipsedict begin
+    /endangle exch def
+    /startangle exch def
+    /yrad exch def
+    /xrad exch def
+    /y exch def
+    /x exch def
+    /savematrix mtrx currentmatrix def
+    x y translate
+    xrad yrad scale
+    0 0 1 startangle endangle arc
+    savematrix setmatrix
+    end
+  } def
+/negative_ellipse
+  { ellipsedict begin
+    /endangle exch def
+    /startangle exch def
+    /yrad exch def
+    /xrad exch def
+    /y exch def
+    /x exch def
+    /savematrix mtrx currentmatrix def
+    x y translate
+    xrad yrad scale
+    0 0 1 startangle endangle arcn
+    savematrix setmatrix
+    end
+  } def
+/scaletextdict 8 dict def
+scaletextdict /mtrx matrix put
+/scale_text
+  { scaletextdict begin
+    /thesize exch def
+    /savematrix mtrx currentmatrix def
+    dup stringwidth pop thesize exch div 1 scale show
+    savematrix setmatrix
+    end
+  } def
+
+
+0.1 setlinewidth
+
+[] 0 setdash
+
+newpath 50 50 moveto 406 50 lineto stroke
+newpath 50 50 moveto 50 58 lineto stroke
+newpath 94 50 moveto 94 58 lineto stroke
+newpath 139 50 moveto 139 58 lineto stroke
+newpath 183 50 moveto 183 58 lineto stroke
+newpath 228 50 moveto 228 58 lineto stroke
+newpath 272 50 moveto 272 58 lineto stroke
+newpath 317 50 moveto 317 58 lineto stroke
+newpath 361 50 moveto 361 58 lineto stroke
+newpath 406 50 moveto 406 58 lineto stroke
+
+/Helvetica findfont 18 scalefont setfont
+91 25 moveto (2) 10 scale_text
+135 25 moveto (3) 10 scale_text
+180 25 moveto (4) 10 scale_text
+224 25 moveto (5) 10 scale_text
+269 25 moveto (6) 10 scale_text
+313 25 moveto (7) 10 scale_text
+358 25 moveto (8) 10 scale_text
+402 25 moveto (9) 10 scale_text
+newpath 50 50 moveto 50 54 lineto stroke
+newpath 94 50 moveto 94 54 lineto stroke
+newpath 139 50 moveto 139 54 lineto stroke
+newpath 183 50 moveto 183 54 lineto stroke
+newpath 228 50 moveto 228 54 lineto stroke
+newpath 272 50 moveto 272 54 lineto stroke
+newpath 317 50 moveto 317 54 lineto stroke
+newpath 361 50 moveto 361 54 lineto stroke
+newpath 406 50 moveto 406 54 lineto stroke
+402 11 moveto ( ) 5 scale_text
+newpath 50 50 moveto 50 450 lineto stroke
+newpath 50 50 moveto 58 50 lineto stroke
+newpath 50 130 moveto 58 130 lineto stroke
+newpath 50 210 moveto 58 210 lineto stroke
+newpath 50 290 moveto 58 290 lineto stroke
+newpath 50 370 moveto 58 370 lineto stroke
+newpath 50 450 moveto 58 450 lineto stroke
+2 46 moveto (0.7) 25 scale_text
+2 126 moveto (0.8) 25 scale_text
+2 206 moveto (0.9) 25 scale_text
+26 286 moveto (1) 10 scale_text
+2 366 moveto (1.1) 25 scale_text
+2 446 moveto (1.2) 25 scale_text
+newpath 50 50 moveto 54 50 lineto stroke
+newpath 50 130 moveto 54 130 lineto stroke
+newpath 50 210 moveto 54 210 lineto stroke
+newpath 50 290 moveto 54 290 lineto stroke
+newpath 50 370 moveto 54 370 lineto stroke
+newpath 50 450 moveto 54 450 lineto stroke
+26 460 moveto ( ) 5 scale_text
+newpath 94 85 moveto 139 121 lineto stroke
+newpath 139 121 moveto 183 152 lineto stroke
+newpath 183 152 moveto 228 119 lineto stroke
+newpath 228 119 moveto 272 167 lineto stroke
+newpath 272 167 moveto 317 161 lineto stroke
+newpath 317 161 moveto 361 200 lineto stroke
+newpath 361 200 moveto 406 201 lineto stroke
+newpath 406 50 moveto 450 50 lineto stroke
+newpath 450 450 moveto 446 450 lineto stroke
+newpath 450 450 moveto 450 50 lineto stroke
+newpath 446 138 moveto 450 138 lineto stroke
+459 138 moveto (1.5) 25 scale_text
+newpath 446 224 moveto 450 224 lineto stroke
+459 224 moveto (1.7) 25 scale_text
+newpath 446 311 moveto 450 311 lineto stroke
+459 311 moveto (1.9) 25 scale_text
+newpath 446 397 moveto 450 397 lineto stroke
+459 397 moveto (2.1) 25 scale_text
+newpath 94 126 moveto 139 313 lineto stroke
+newpath 139 313 moveto 183 319 lineto stroke
+newpath 183 319 moveto 228 243 lineto stroke
+newpath 228 243 moveto 272 346 lineto stroke
+newpath 272 346 moveto 317 383 lineto stroke
+newpath 317 383 moveto 361 437 lineto stroke
+newpath 361 437 moveto 406 366 lineto stroke
+%28 474 moveto (RT (sec)) 70 scale_text
+5 474 moveto (Adult RT (sec)) 125 scale_text
+400 474 moveto (Grade 5 RT) 89 scale_text
+139 90 moveto (Adult) 43 scale_text
+254 418 moveto (Grade 5) 65 scale_text
+228 2 moveto (Table) 46 scale_text
+
+showpage

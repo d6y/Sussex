@@ -1,0 +1,77 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\BCAY{Anderson, Spoehr, \BBA\ Bennett}{Anderson
+  et~al.}{1991}]{andestud}
+Anderson, J.~A., Spoehr, K.~T., \BBA\ Bennett, D.~J. \BBOP1991\BBCP.
+\newblock \BBOQ\BUcase{A study of numerical perversity: \uppercase{T}eaching
+  arithmetic to a neural network}\BBCQ\
+\newblock \BTR\ 91--3, Department of Cognitive and Linguistic Sciences, Brown
+  University.
+%\newblock To appear in Levine, D. S. and Aparicio, M. (eds) {\em Neural
+%  Networks for Knowledge Representation and Inference}, Lawrence Erlbaum
+%  Associates, Hillsdate, NJ.
+
+\bibitem[\protect\BCAY{Campbell}{Campbell}{1987}]{camprole}
+Campbell, J. I.~D. \BBOP1987\BBCP.
+\newblock \BBOQ\BUcase{The Role of Associative Interference in Learning and
+  Retrieving Arithmetic facts}\BBCQ\
+\newblock In Sloboda, J.~A. \BBA\ Rogers, D.\BEDS, {\Bem Cognitive Processes in
+  Mathematics}, \BPGS\ 107--122. Clarendon Press, Oxford.
+
+\bibitem[\protect\BCAY{Campbell \BBA\ Graham}{Campbell \BBA\
+  Graham}{1985}]{camp85}
+Campbell, J. I.~D. \BBA\ Graham, D.~J. \BBOP1985\BBCP.
+\newblock \BBOQ\BUcase{Mental Multiplication Skill: \uppercase{S}tructure,
+  Process, and Acquisition}\BBCQ\
+\newblock {\Bem Canadian Journal of Psychology}, {\Bem 39\/}(2), 338--366.
+
+\bibitem[\protect\BCAY{Harley}{Harley}{1991}]{harlasso}
+Harley, W.~S. \BBOP1991\BBCP.
+\newblock {\Bem Associative Memory in Mental Arithmetic}.
+\newblock Ph.D.\ thesis, Johns Hopkins University, Ann Armor, MI.
+
+\bibitem[\protect\BCAY{McClelland \BBA\ Rumelhart}{McClelland \BBA\
+  Rumelhart}{1988}]{pdp3}
+McClelland, J.~L. \BBA\ Rumelhart, D.~E. \BBOP1988\BBCP.
+\newblock {\Bem Explorations in Parallel Distributed Processing: A Handbook of
+  Models, Programs, and Exercises}.
+\newblock MIT Press, Cambridge, MA.
+
+\bibitem[\protect\BCAY{McCloskey, Harley, \BBA\ Sokol}{McCloskey
+  et~al.}{1991}]{mcclmode}
+McCloskey, M., Harley, W., \BBA\ Sokol, S.~M. \BBOP1991\BBCP.
+\newblock \BBOQ\BUcase{Models of Arithmetic Fact Retrieval: \uppercase{A}n
+  Evaluation in Light of Findings from Normal and Brain-Damaged Subjects}\BBCQ\
+\newblock {\Bem Journal of Experimental Psychology: Learning, Memory, and
+  Cognition}, {\Bem 17\/}(3), 377--397.
+
+\bibitem[\protect\BCAY{Miller, Permutter, \BBA\ Keating}{Miller
+  et~al.}{1984}]{millcogn}
+Miller, K., Permutter, M., \BBA\ Keating, D. \BBOP1984\BBCP.
+\newblock \BBOQ\BUcase{Cognitive Arithmetic: \uppercase{C}omparison of
+  Operations}\BBCQ\
+\newblock {\Bem Journal of Experimental Psychology}, {\Bem 10\/}(1), 46--60.
+
+\bibitem[\protect\BCAY{Siegler}{Siegler}{1988}]{siegmult}
+Siegler, R.~S. \BBOP1988\BBCP.
+\newblock \BBOQ\BUcase{Strategy Choice Procedures and the Development of
+  Multiplication Skill}\BBCQ\
+\newblock {\Bem Journal of Experimental Psychology: General}, {\Bem 117\/}(3),
+  258--275.
+
+\bibitem[\protect\BCAY{Sokol, McCloskey, Cohen, \BBA\ Aliminosa}{Sokol
+  et~al.}{1991}]{sokocogn}
+Sokol, S.~M., McCloskey, M., Cohen, N.~J., \BBA\ Aliminosa, D. \BBOP1991\BBCP.
+\newblock \BBOQ\BUcase{Cognitive Representations and Processes in Arithmetic:
+  Inferences from the performance of Brain-Damaged Subjects}\BBCQ\
+\newblock {\Bem Journal of Experimental Psychology: Learning, Memory, and
+  Cognition}, {\Bem 17\/}(3), 355--376.
+
+\bibitem[\protect\BCAY{Stazyk, Ashcraft, \BBA\ Hamann}{Stazyk
+  et~al.}{1982}]{staznetw}
+Stazyk, E.~H., Ashcraft, M.~H., \BBA\ Hamann, M.~S. \BBOP1982\BBCP.
+\newblock \BBOQ\BUcase{A network approach to mental multiplication}\BBCQ\
+\newblock {\Bem Journal of Experimental Psychology: Learning, Memory, and
+  Cognition}, {\Bem 8\/}(4), 320--335.
+
+\end{thebibliography}

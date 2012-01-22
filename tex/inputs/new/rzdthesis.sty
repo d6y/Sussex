@@ -1,0 +1,469 @@
+% Title:  rzdthesis.sty
+% Author: Richard Dallaway <richardd@cogs.susx.ac.uk>
+% Date:   Friday 11 December 1992
+%
+% A thesis style I have cobbled together by adding various style
+% to report.sty.
+%
+% Supported... Not! (intended for author's use only).
+
+\typeout{RZDTHESIS.STY, 11 Dec 1992}
+
+%         CONTENTS - (Use <ENTER> g to access required sections)
+
+ % -- USEFUL MACROS
+ % -- DEFAULT STYLE
+ % -- DOUBLE SPACING
+ % -- FONT CHANGING MACROS
+ % -- TABLE OF CONTENTS, ETC
+ % -- SECTIONING
+ % -- CHAPTER TITLES
+ % -- DECLARATION
+ % -- ACKNOWLEDGMENTS
+ % -- ABSTRACT
+ % -- TITLE PAGE
+ % -- PAGE SIZE
+ % -- CAPTIONS AND FIGURES
+ % -- BIBLIOGRAPHY
+ % -- DATE
+ % -- DRAFT MODE
+ % -- STARTING...
+ % -- READ USER'S DEFAULTS
+
+
+% -- USEFUL MACROS ------------------------------------------------------
+
+% Include text on the table of contents.
+
+\newcommand{\ontoc}[1]{\addcontentsline{toc}{chapter}{#1}}
+
+% To ensure that the next paragraph isn't indented.
+
+\newcommand{\dontindentnextpar}{\par
+    \everypar={\hskip -\parindent\everypar={}}}
+
+
+% -- DEFAULT STYLE ------------------------------------------------------
+
+% Style from:  REPORT STANDARD DOCUMENT STYLE -- Released 14 January 1992
+%              for LaTeX version 2.09 Copyright (C) 1992 by Leslie Lamport
+
+\input report.sty
+
+
+% -- DOUBLE SPACING -------------------------------------------------------
+
+\input doublespace.sty
+
+% In fact, use smaller spacing, not 2 (double) spacing
+
+\setstretch{1.6}
+
+% The "ssquote" environment for producing single spaced quotations
+
+\newenvironment{ssquote}%
+    {\begin{quote}\begin{singlespace}}{\end{singlespace}\end{quote}}
+
+
+% -- FONT CHANGING MACROS -------------------------------------------------
+
+% Palatino for the main font...
+
+\input pspalat.sty
+
+% Times Roman for the maths
+
+\input pstimesm.sty
+
+% Make sure we're using Palatino for the text
+
+\def\rmdefault{palatino}\rm
+
+\newcommand{\bi}% Bold italic
+     {\series{\bfdefault}\shape{\itdefault}\selectfont}
+
+\newcommand{\bsc}% Bold small caps
+     {\series{\bfdefault}\shape{\scdefault}\selectfont}
+
+\newcommand{\bsl}% Bold slanted
+    {\series{\bfdefault}\shape{\sldefault}\selectfont}
+
+\let\figfont=\it        % Font for float labels
+\let\titlefont=\rm      % Used to show the thesis title
+\let\titlepagefont=\rm  % Used for the rest of the title page
+\let\tocfont=\it        % Font used for sections in the contents
+\let\abstractfont=\rm   % Font used for the word Abstract in the abstract.
+
+\let\sectionfont=\bi    % The section fonts
+\let\ssfont=\it
+\let\sssfont=\it
+\let\parfont=\bf        % \paragraph
+\let\sparfont=\bf
+
+\let\chapterfont=\it    % Font used for chapter title
+\let\chapnofont=\sc     % Font used for chapter number
+
+% -- TABLE OF CONTENTS, ETC ---------------------------------------------
+
+% The table of contents (and list of figures, etc) has been modified (from
+% report.sty) to change the font of certain TOC entries.
+
+% \chapter titles are in \tocfont
+
+\def\l@chapter#1#2{\addpenalty{-\@highpenalty}%
+   \vskip 1.0em plus\p@
+   \@tempdima 1.5em
+   \begingroup
+     \parindent \z@ \rightskip \@pnumwidth
+     \parfillskip -\@pnumwidth
+     \large\tocfont
+     \leavevmode
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+     #1\nobreak\hfil \nobreak\hbox to\@pnumwidth{\hss #2}\par
+     \penalty\@highpenalty
+   \endgroup}
+
+% Don't show the \part page number on the TOC.
+
+\def\l@part#1#2{\addpenalty{-\@highpenalty}%
+   \addvspace{2.25em plus\p@}% space above part line
+   \begingroup
+   \@tempdima 3em
+     \parindent \z@ \rightskip \@pnumwidth
+     \parfillskip -\@pnumwidth
+     {\large \rm
+     \leavevmode
+     \hbox to \textwidth{Part~#1\hfil}}\par
+     \nobreak
+    \global\@nobreaktrue
+    \everypar{\global\@nobreakfalse\everypar{}}%
+   \endgroup}
+
+% Less indentation for sections and subsections on the TOC
+% Also check out the changes to \@chapter, below.
+
+\def\l@section{\@dottedtocline{1}{0em}{2.3em}}
+\def\l@subsection{\@dottedtocline{2}{2.3em}{3.2em}}
+
+
+% -- SECTIONING -----------------------------------------------------------
+
+% I thought the section headings were all a little too big, so I
+% copied the definitions from rep11.sty and changed the font size and
+% the spacing above and below the heading.
+
+\def\section{\@startsection {section}{1}{\z@}{-3.5ex plus-1ex minus
+    -.2ex}{1.5ex plus.2ex}{\reset@font\large\sectionfont}}
+\def\subsection{\@startsection{subsection}{2}{\z@}{-3.25ex plus-1ex
+    minus-.2ex}{0.5ex plus.2ex}{\reset@font\large\ssfont}}
+\def\subsubsection{\@startsection{subsubsection}{3}{\z@}{-1ex plus
+    -0.5ex minus-.1ex}{0.25ex plus.1ex}{\reset@font\normalsize\sssfont}}
+
+\def\paragraph{\@startsection
+    {paragraph}{4}{\z@}{3.25ex plus1ex minus.2ex}{-1em}{\reset@font
+    \normalsize\parfont}}
+\def\subparagraph{\@startsection
+     {subparagraph}{4}{\parindent}{3.25ex plus1ex minus
+     .2ex}{-1em}{\reset@font\normalsize\sparfont}}
+
+% Modification to \part from report.sty, to make part name in italic.
+
+\def\@part[#1]#2{\ifnum \c@secnumdepth >-2\relax
+        \refstepcounter{part}%
+
+        \addcontentsline{toc}{part}{\thepart
+        \hspace{1em}#1}\else
+
+        \addcontentsline{toc}{part}{#1}\fi
+   \thispagestyle{empty}%
+   \markboth{}{}%
+   {\centering
+    \interlinepenalty \@M
+    \ifnum \c@secnumdepth >-2\relax
+      \huge \partname~\thepart
+    \par
+    \vskip 20\p@\fi
+    \Huge \em
+    #2\par}\@endpart}
+
+% I probably won't use the *-form, but just in case...
+
+\def\@spart#1{{\centering
+   \interlinepenalty \@M
+   \Huge \em
+   #1\par}\@endpart}
+
+
+% Changes here because I wanted to change the information on the
+% table of contents.
+
+\def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
+        \refstepcounter{chapter}%
+        \typeout{\@chapapp\space\thechapter.}%
+% \@chapapp\space included here on TOC
+        \addcontentsline{toc}{chapter}{\@chapapp\space\protect
+        \numberline{\thechapter}#1}\else
+      \addcontentsline{toc}{chapter}{#1}\fi
+   \chaptermark{#1}%
+   \addtocontents{lof}%
+       {\protect\addvspace{10\p@}}% Adds between-chapter space
+   \addtocontents{lot}%
+       {\protect\addvspace{10\p@}}% to lists of figs & tables.
+   \if@twocolumn
+           \@topnewpage[\@makechapterhead{#2}]%
+     \else \@makechapterhead{#2}%
+           \@afterheading
+     \fi}
+
+
+
+% -- CHAPTER TITLES -------------------------------------------------------
+
+% Redefinition of macros that produce the chapter headings.  This is just
+% a whim of mine.  See rep12.sty for the original definitions.
+
+% The style is a cross between that used in "The Blind Watchmaker" (R.
+% Dawkins) and "Vision" (D. Marr) and "Pole to Pole" (M. Palin).
+% It requires a rule, which is defined thus...
+
+\newcommand{\watchmakerRule}{\noindent\rule{\textwidth}{0.4pt}\par}
+
+% ...and a rule in which we can centre the chapter number...
+
+\newcommand{\poleLeader}{\leaders\hrule height3.8pt depth-3.4pt\hfill}
+
+% A space between the leaders and the text
+% For some reason there seems to be more space between the chapter number
+% and the last rule, and the first rule and the \@chapapp. Don't know why.
+% So we manually fix the spacing...
+
+\newcommand{\poleGapBefore}{\hspace{3.0mm}}
+\newcommand{\poleGapAfter}{\hspace{2.7mm}}
+
+% The spacing in the following macros (and most other macros in this file,
+% come to think of it) are dependent on the doublespacing factor, hence the
+% use of the "singlespace" environment in the definition.
+
+\def\@makechapterhead#1{%
+\begin{singlespace}
+\vbox to 200pt{%
+    \large\chapnofont
+    \vbox to 70pt{
+        \vfil
+        \noindent\hbox to \textwidth{%
+            \poleLeader\poleGapBefore\@chapapp{}~%
+            \thechapter\poleGapAfter\poleLeader}\par
+    }
+    \vspace{0.5mm}
+    \begin{center}\Huge\chapterfont#1\end{center}
+    \nobreak\vfil}
+\end{singlespace}}
+
+\def\@makeschapterhead#1{%
+\begin{singlespace}
+\vbox to 200pt{%
+        \vspace*{70pt}%
+        \watchmakerRule%
+        \vspace{2mm}%
+        \begin{center}\Huge\chapterfont#1\end{center}\nobreak\vfil}
+\end{singlespace}}
+
+
+% This is old stuff that was used for making the chapter title appear
+% all in capitals. All capitals looks ok for short chapter headings, but
+% not for long ones. So I decided not to use them...
+%   \huge\chapterfont\uppercase\expandafter{#1}
+% With all-capitals chapter headings, the following should be used:
+%   \def\chaptername{CHAPTER}
+%   \def\appendixname{APPENDIX}
+
+% -- DECLARATION --------------------------------------------------------
+
+% The \declaration macro inserts a default declaration blurb.
+
+\newcommand{\declaration}{%
+\chapter*{Declaration}\ontoc{Declaration}%
+\noindent I hereby declare that this thesis has not been submitted,
+either in the same or different form, to this or any other university for a
+degree.\par\vspace*{1in}%
+%\noindent Signature:%
+\noindent\@author%
+\vfil\eject}
+
+
+% -- ACKNOWLEDGMENTS ----------------------------------------------------
+
+% Adds itself to the table of contents
+
+\newenvironment{acknowledgments}%
+    {\chapter*{Acknowledgements}\ontoc{Acknowledgements}%
+    \dontindentnextpar\begin{singlespace}}%
+    {\end{singlespace}\vfil\eject}
+
+% -- ABSTRACT -----------------------------------------------------------
+
+% We need a line about what's being submitted for what
+
+\def\qualline{Submitted for the degree of D.~Phil.}
+
+\renewenvironment{abstract}%
+    {\begin{singlespace}
+    \begin{center}\titlepagefont
+    {\Large The University of Sussex}\par\vskip 12pt
+    {\LARGE\titlefont\@title}\par\vskip 15pt
+    {\large\@author}\par\vskip 12pt
+    {\large\qualline,~\@date}\par\vskip 18pt
+    \ontoc{Abstract}
+    {\Large\abstractfont Abstract}\par
+    \end{center}
+    \begin{trivlist}\setlength{\labelsep}{0mm}
+%    \item[{\abstractfont ABSTRACT\hskip 0.75em}]}%
+    \item[]}%
+    {\end{trivlist}\end{singlespace}\vfil\eject}
+
+
+% -- TITLE PAGE ---------------------------------------------------------
+
+
+\renewcommand{\maketitle}{%
+\input epsf.sty % For the crest
+\begin{titlepage}\titlepagefont
+\begin{center}
+\vspace*{75pt}
+{\Large The University of Sussex}\par\vskip 40pt
+{\huge\titlefont\@title}\par\vskip 30pt
+{\Large\@author}\par\vskip 40pt
+{\large\qualline}\par
+{\large\@date}\par
+\vspace{5.5cm}
+{\epsfysize=40mm\centerline{\epsfbox{sussex.ps}}}
+\null\end{center}\end{titlepage}}
+
+
+% -- PAGE SIZE ----------------------------------------------------------
+
+% Most page settings are as for A4...
+
+\input a4.sty
+
+% ... but the width of the page must be 150mm, with 40mm left margin and
+% 20mm right margin.
+
+% When set to 40mm, the right margin is only 19mm
+
+\oddsidemargin=38mm
+
+\addtolength{\oddsidemargin}{-1in}
+
+\marginparwidth=0mm
+\marginparsep=0mm
+\textwidth=150mm
+
+% ... and let's squeeze a bit more on the length:
+
+\addtolength{\topmargin}{-1.5cm}
+\addtolength{\textheight}{1.5cm}
+
+% -- CAPTIONS AND FIGURES -------------------------------------------------
+
+% Library of macros for putting fancy boxes around tables and figures
+
+\input fancyboxlib.sty
+
+% Adjust the width of the caption, and make the float name "Figure"
+% or "Table" be in italic.
+
+% NB. For some reason I had to insert a minipage around the \else
+% part because fancyfigure complained about a missing \item for
+% center when the caption was short.
+
+\long\def\@makecaption#1#2{%
+   \vskip 10\p@
+   \setbox\@tempboxa\hbox{{\figfont#1.} #2}%
+   \ifdim \wd\@tempboxa >\hsize%
+    {\begin{minipage}{\hsize}\begin{quotation}\noindent%
+    {\figfont#1.} #2\end{quotation}\end{minipage}\smallskip}%
+    \else%
+    {\begin{minipage}{\hsize}\begin{center}\noindent%
+    {\figfont#1.} #2\end{center}\end{minipage}}%
+    \fi
+}
+
+
+% Allow more figures on a page
+
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{3}
+\setcounter{totalnumber}{4}
+
+\renewcommand{\topfraction}{1.0}
+\renewcommand{\bottomfraction}{1.0}
+
+\renewcommand{\textfraction}{0.0}
+\renewcommand{\floatpagefraction}{1.0}
+
+% -- BIBLIOGRAPHY -------------------------------------------------------
+
+% By default the \chapter* set \@makboth to use \uppercase version of
+% \bibname.  I didn't like this, so now it doesn't mess with the case.
+
+\def\thebibliography#1{\chapter*{\bibname\@mkboth
+  {\bibname}{\bibname}}\list
+  {\@biblabel{\arabic{enumiv}}}{\settowidth\labelwidth{\@biblabel{#1}}%
+    \leftmargin\labelwidth
+    \advance\leftmargin\labelsep
+    \usecounter{enumiv}%
+    \let\p@enumiv\@empty
+    \def\theenumiv{\arabic{enumiv}}}%
+    \def\newblock{\hskip .11em plus.33em minus.07em}%
+    \sloppy\clubpenalty4000\widowpenalty4000
+    \sfcode`\.=\@m}
+
+% -- DATE ---------------------------------------------------------------
+
+% UK style date, e.g., 16 November 1992
+
+\def\today{\number\day\space\ifcase\month\or
+ January\or February\or March\or April\or May\or June\or
+ July\or August\or September\or October\or November\or December\fi
+ \space\number\year}
+
+% -- DRAFT MODE -----------------------------------------------------------
+
+\newcommand{\rzddraftthesis}{%
+    \def\qualline{Draft D.~Phil. thesis} % We haven't submitted yet
+}
+
+
+% -- CSRP ---------------------------------------------------------------
+
+% Changes for when the thesis is produced as a Cognitive Science
+% Technical Report at Sussex.  Place \makeascsrp JUST before \maketitle
+
+\newcommand{\makeascsrp}%
+    {\def\declaration{}     % Save paper
+    \setstretch{1}          % No double spacing
+    \input a4.sty           % reset those silly margins
+    \input ssxcsrp.sty      % Use \reportnumber{}
+    \makecover
+    \typeout{WARNING WARNING WARNING WARNING WARNING WARNING}
+    \typeout{!!!!! The \makeascsrp macro is not ready !!!!!!}
+    \typeout{WARNING WARNING WARNING WARNING WARNING WARNING}
+    }
+
+
+% -- STARTING... --------------------------------------------------------
+
+% \starttext switches to arabic numbering for the main body of the work.
+
+\def\starttext{\pagenumbering{arabic}\setcounter{page}{1}}
+
+% Pages before the first chapter, however, are numbered with roman
+% numerals:
+
+\pagenumbering{roman}
+
+% -- READ USER'S DEFAULTS -------------------------------------------------
+
+\input rzdthesis.con

@@ -1,0 +1,14 @@
+set param lrate 0.05
+set param momentum 0.0
+set param mu 0
+set nepochs 10000
+set param tmax 0.9
+set param outputtolerance 0.2
+set pcrit 100
+set ecrit 0.05
+set mode autoassoc 0
+set dl 1
+set sl 1
+set lflag 1
+set mode lgrain epoch
+set stepsize epoch

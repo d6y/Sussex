@@ -1,0 +1,256 @@
+
+From jonm@integ.uucp Thu Jan 16 06:39:12 1992
+Received: from csunb by csuna.cogs.susx.ac.uk; Thu, 16 Jan 92 06:39:04 GMT
+Received: from syma by csunb.cogs.susx.ac.uk; Thu, 16 Jan 92 06:39:34 GMT
+Received: from integ.uucp by eros.uknet.ac.uk with UUCP 
+          id <1194-0@eros.uknet.ac.uk>; Thu, 16 Jan 1992 06:38:11 +0000
+From: Jonathan Meyer <jonm@integ.uucp>
+Date: Thu, 16 Jan 92 03:53:05 GMT
+Message-Id: <5684.9201160353@integ.integ.uucp>
+To: aarons@integ.uucp, davidy@cogs.susx.ac.uk
+Subject: Here's something to play with
+Cc: harryb@cogs.susx.ac.uk, richardd@cogs.susx.ac.uk
+
+
+
+I've written a fairly naive driver for rc_graphic to make it generate
+postscript code that you can either print out directly, or incorporate in
+eg. a Frame document. I've included the code and documentation below.
+What do people think ? Further things that I am thinking of doing are:
+
+  o  extending it to include other X drawing primitives, eg. image support
+
+  o  changing the font code to download the fonts if it doesn't recognize
+     them.
+
+  o  more features such as 'headings' and multiple page output
+
+  o  support for all the openwindows fonts (eg. bembo, etc)
+
+Jon.
+
+/*
+
+Author: Jonathan Meyer, 15 January 1991
+File: rc_postscript.p
+Purpose: RC_GRAPHIC POSTSCRIPT driver (incomplete)
+
+Overview
+--------
+This  library  contains  a  simple   postscript  driver  for  use   with
+rc_graphic. If  you  have programs  that  make  use only  of  the  basic
+rc_graphic drawing primitives, then using this library will allow you to
+convert the drawing either into an EPS (Encapulated Postscript)  drawing
+or a full postscript document.
+
+To use rc_postscript, you simply  wrap your rc_graphics requests  into a
+procedure, and pass that procedure to rc_postscript (described below).
+
+Note that there are currently many limitations on what rc_postscript can
+deal with, and that the implementation is not currently integrated  well
+with rc_graphic. Part of the problem is that rc_graphic needs to be more
+tightly  specified  so  that  for  example  fonts,  colours,  etc.   are
+integrated into the library.
+
+Limitations
+-----------
+
+Here are some known limitations:
+
+    1) font support is oversimplified. It won't work very well on
+       an OpenWindows server for the moment. (It should work though).
+    2) rc_function is ignored.
+    3) Many of the facilities of the Xpw Graphics widget are not
+       implemented.
+    4) you need to create an rc_window to use the package
+    5) It redefines some of the Xpw primitives, so Xpw won't work
+       when you are generating postscript
+
+Interface
+---------
+rc_postscript(FILENAME, DRAW_P)
+rc_postscript(FILENAME, DRAW_P, USE_EPS)
+rc_postscript(FILENAME, DRAW_P, SCALE, USE_EPS)
+        Used to generate  POSTSCRIPT code from  an rc_graphics  drawing.
+
+        FILENAME should be a  string, or -false-  to send the  generated
+        postscript to the  current -cucharout-. FILENAME  can also  be a
+        character consumer. DRAW_P should be  a procedure that takes  no
+        arguments, and  calls rc_graphic  primitives such  as  rc_start,
+        rc_draw, etc. USE_EPS is an optional boolean argument that tells
+        rc_postscript  whether   to   generate   postscript   code   use
+        Encapsulated Postscript format (eg.  for importing into  another
+        application). SCALE is an optional vector or list of numbers  of
+        the form:
+
+    {WIDTH HEIGHT LEFT_MARGIN BOTTOM_MARGIN}
+
+        The values are measured in inches, and tell rc_postscript how to
+        scale the resulting postscript picture. For example, if you want
+        the picture to appear using a full page, you can use:
+
+    {8 10 0.5 1}
+
+    This means that  the picture will  be 8x10 inches  in size,  and
+        will be 1/2 an inch  from the left hand  side of the page  and 1
+        inch from the bottom of the page.
+
+    If you provide a SCALE, but omit LEFT_MARGIN and  BOTTOM_MARGIN,
+    rc_postscript will use a  left/bottom margin of  0,0 for an  EPS
+        picture,  or  center  your  picture  on  the  page  if  you  are
+        generating a full postscript document.
+
+        rc_postscript will  interpret lines  drawn with  a  rc_linewidth
+        thickness of 0 as 'thin' lines,  and will use the (real)  number
+        in rcp_thin_line_size  (see  below)  to draw  such  lines.  This
+        allows you to draw lines which are smaller than 1 'pixel'  wide.
+        By default, such lines are drawn with a line thickness of 0.1
+
+    Note that  within  the context  of  rc_postscript, you  can  use
+    rc_postscript_inline  to  print   inline  postscript  code   and
+        comments to the file that is currently being generated.
+
+    Examples
+    --------
+    To draw some simple lines and arcs, use:
+
+    rc_start();
+    rc_postscript('/tmp/ps-output',
+    procedure;
+        rc_start();
+        1 -> rc_linewidth;
+        rc_turn(45);
+        rc_draw(30);
+
+        rc_arc_around(50, 66);
+        rc_arc_around(50, -180);
+        rc_arc_around(20, -180);
+        rc_arc_around(20, 180);
+        rc_draw(30);
+        rc_arc_around(10, 180);
+        rc_draw(30);
+    endprocedure);
+
+    Using rc_graphplot to generate a postscript graph:
+
+    uses rc_graphplot;
+
+    rc_postscript('/tmp/ps-output',
+    procedure;
+        ;;; place a comment into output file
+        rc_postscript_inline('%% An example\n');
+            rc_graphplot( 1, 1/10, 10, 'X',     log, 'log(X)')->;
+    endprocedure);
+
+    To make this an Encapsulate Postscript (EPS) file with size 5"x5",
+    use:
+
+    rc_postscript('/tmp/ps-output',
+    procedure;
+        rc_graphplot( 1, 1/10, 10, 'X',     log, 'log(X)')->;
+    endprocedure, [5 5 0.5 0.5], true );
+
+rc_postscript_inline(string)         [procedure]
+    Prints -string- out to the stream created by rc_postscript.  You
+        can use this procedure to insert inline comments and  postscript
+        code within the postscript file currently being generated.  This
+        procedure does  nothing if  there is  not a  current  postscript
+        stream.
+
+rcp_thin_line_size            [variable]
+    This variable specifies the size of lines drawn by rc_postscript
+    when rc_linewidth is  -0-. By  default, a  line size  of 0.1  is
+    used. If you  set this  variable to -false-,  then 'thin'  lines
+        will be drawn using a thickness of 1.
+
+
+rcp_use_standard_fonts()
+rcp_use_lw2_fonts()
+    These two  procedures setup  rc_postscript with  a default  font
+    mapping. The  'basic' fonts  use  only the  Courier,  Helvetica,
+    Times and Symbol typefaces.  The 'lw2' fonts  use all the  fonts
+    avaliable on the LaserWrite2 (ie. ITC Avant Garde, ITC  Bookman,
+    Courier, Helvetica,  Helvetica  Narrow, New  Century  Schoolbok,
+    Palatino,  Symbol,   Times,   ITC  Zapf   Chancery,   ITC   Zapf
+        Dingbats.
+
+
+rcp_postscript_font_map(X_FAMILY) -> POSTSCRIPT_FAMILY
+POSTSCRIPT_FAMILY -> rcp_postscript_font_map(X_FAMILY)
+rcp_postscript_style_map(POSTSCRIPT_FAMILY) -> STYLES
+STYLES -> rcp_postscript_style_map(POSTSCRIPT_FAMILY)
+        When you  use XptValue  to  change the  font of  the  rc_window,
+        rc_postscript detects this and tries to determine the equivelant
+        postscript font to use.
+
+    These two  maps  are used  to  convert  from an  X  font  into a
+        Postscript font. The  default maps  will map almost  any X  font
+        into either Courier (fixed  width fonts), Helvetica  (sans-serif
+        fonts), Times (serif fonts) or Symbol. If your postscript device
+        supports more than this  limited set of  fonts, you can  specify
+        that rc_postscript should map the font correctly.
+
+        The font  map  contains a  special  font keyed  under  the  word
+        "default"  which  is  used  if  rc_postscript  cannot  correctly
+        identify the font.  If rc_postscript cannot  even determine  the
+        font size, a point size of 10 is used.
+
+        X_FAMILY is an  X font's family  name (ie. the  2nd field of  an
+        XLFD font name, or FAMILY_NAME). It should be a lower case word.
+        Note that if the X  font includes an ADD_STYLE_NAME field  which
+        is not the  word "normal",  you can specify  this by  creating a
+        word  containing  the  family  name,   a  plus  sign,  and   the
+        ADD_STYLE_NAME, for example "'helvetica+sans'".
+
+        POSTSCRIPT_FAMILY is a postscript font family name. It should be
+        a word, but can have mixed case.
+
+        STYLES should be a 4 element vector, where the elements corrospond to
+        the normal typeface, the italic or oblique typeface, the bold
+        typeface, and the bold italic typeface:
+
+            {NORMAL ITALIC BOLD BOLD_ITALIC}
+
+        For example, if your postscript device supports the 'Palatino' font
+        family, you should do:
+
+            ;;; POSTSCRIPT NAME -> X NAME
+            "Palatino" -> rcp_postscript_font_map("palatino");
+
+            ;;; Styles
+            {   'Palatino'
+            'Palatino-Italic'
+            'Palatino-Bold'
+            'Palatino-BoldItalic'
+            } -> rcp_postscript_font_styles("Paletino");
+
+
+Further Examples
+----------------
+
+Multiple Fonts:
+
+    rc_start();
+    rcp_use_lw2_fonts();
+    vars fonts = [
+    '-adobe-times-medium-i-normal--17-120-*-*-p-*-iso8859-1'
+        '-adobe-times-bold-r-normal--18-180-*-*-p-*-iso8859-1'
+        '-adobe-times-bold-r-normal--10-100-*-*-p-*-iso8859-1'
+        '-adobe-helvetica-medium-o-normal--*-240-*-*-p-*-iso8859-1'
+        '-adobe-new century schoolbook-medium-r-normal--12-120-*-*-p-*-iso8859-1'
+    ];
+
+    rc_postscript('/tmp/ps-output', procedure;
+    rc_start();
+    vars x = 100, f;
+    for f in fonts do
+    XpwSetFont(rc_window, f)->;
+    x + XpwFontHeight(rc_window) + 10 -> x;
+    XpwDrawRectangle(rc_window, 10,x-XpwFontHeight(rc_window),
+        XpwTextWidth(rc_window, 'hello'),
+        XpwFontHeight(rc_window));
+    XpwDrawString(rc_window, 10, x, 'hello');
+    endfor;
+    endprocedure);
+
+*/

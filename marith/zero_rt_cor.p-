@@ -1,0 +1,39 @@
+
+vars miller_rt,harley_rt;
+raw_read_rt('~/marith/human/harley') -> (tables, data);
+flatten(data) -> harley_rt;
+vars miller_rt_unadj;
+raw_read_rt('~/marith/human/miller_rawZERO') -> (tables,data);
+flatten(data) -> miller_rt_unadj;
+
+raw_read_rt('~/marith/human/miller_adjxZERO') -> (tables, data);
+flatten(data) -> miller_rt;
+
+define zero_rt_cor(x);
+    vars r,adult,name,t,df,p;
+    foreach [?adult ?name] in [ [^harley_rt 'Harley'] [^miller_rt 'Miller']
+        [^miller_rt_unadj 'Miller (unadj)']] do
+        pearson_r(x,adult) -> r;
+        t_test_r(r,100) -> (t,df);
+        upper_t(t,df) -> p;
+        pr_field(name,12, false, ' ');
+        pr(' r = '); prnum(r,3,6);
+        pr(' p = '); pr(p);
+        nl(1);
+    endforeach;
+enddefine;
+
+vars x = datafile('~/marith/results/reaction_times/01_prob30.R');
+
+vars m = [%
+for i from 1 to 100 do
+mean([%
+for n from 1 to 20 do
+x(n)(i)->v;
+if v/=0.0 then v; endif;
+endfor;
+%]);
+endfor;
+%];
+
+zero_rt_cor(m);

@@ -1,0 +1,104 @@
+get net networks/fsm35.net
+
+do networks/fsm_param.str 1
+
+log output/332.log
+
+set param lrate 0.015
+set param momentum 0.0
+
+set dl 1
+set sl 1
+set stepsize nepochs
+set nepochs 9000
+
+get pat patterns/mult1.pat
+sttrain
+save w weights/332-1.wts
+get pat patterns/mult2.pat
+sttrain
+save w weights/332-2.wts
+get pat patterns/mult3.pat
+sttrain
+save w weights/332-3.wts
+get pat patterns/mult4.pat
+sttrain
+save w weights/332-4.wts
+get pat patterns/mult5.pat
+sttrain
+save w weights/332-5.wts
+get pat patterns/mult6.pat
+sttrain
+save w weights/332-6.wts
+get pat patterns/mult7.pat
+sttrain
+save w weights/332-7.wts
+get pat patterns/mult8.pat
+sttrain
+save w weights/332-8.wts
+get pat patterns/mult9.pat
+sttrain
+save w weights/332-9.wts
+get pat patterns/mult10.pat
+sttrain
+save w weights/332-10.wts
+get pat patterns/mult11.pat
+sttrain
+save w weights/332-11.wts
+get pat patterns/mult12.pat
+sttrain
+save w weights/332-12.wts
+get pat patterns/mult13.pat
+sttrain
+save w weights/332-13.wts
+get pat patterns/mult14.pat
+sttrain
+save w weights/332-14.wts
+get pat patterns/mult15.pat
+sttrain
+save w weights/332-15.wts
+get pat patterns/mult16.pat
+sttrain
+save w weights/332-16.wts
+get pat patterns/mult17.pat
+sttrain
+save w weights/332-17.wts
+get pat patterns/mult18.pat
+sttrain
+save w weights/332-18.wts
+get pat patterns/mult19.pat
+sttrain
+save w weights/332-19.wts
+get pat patterns/mult20.pat
+sttrain
+save w weights/332-20.wts
+get pat patterns/mult21.pat
+sttrain
+save w weights/332-21.wts
+get pat patterns/mult22.pat
+sttrain
+save w weights/332-22.wts
+get pat patterns/mult23.pat
+sttrain
+save w weights/332-23.wts
+get pat patterns/mult24.pat
+sttrain
+save w weights/332-24.wts
+get pat patterns/mult25.pat
+sttrain
+save w weights/332-25.wts
+get pat patterns/mult26.pat
+sttrain
+save w weights/332-26.wts
+get pat patterns/mult27.pat
+sttrain
+save w weights/332-27.wts
+get pat patterns/mult28.pat
+sttrain
+save w weights/332-28.wts
+get pat patterns/mult29.pat
+sttrain
+save w weights/332-29.wts
+log -
+q
+y

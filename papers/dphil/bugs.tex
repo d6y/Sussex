@@ -1,0 +1,1391 @@
+
+% Insert BLURB at start of Empirical adequacy
+
+\part[Multicolumn arithmetic]{Multicolumn Arithmetic}\label{c:mult}
+
+\newcommand{\anarrow}{\(\Rightarrow\)}
+
+\chapter[Symbolic accounts of arithmetic]{Symbolic Accounts of Arithmetic}
+\label{c:bugs}
+
+Different tasks lend themselves to different styles of representation
+\cite{slomwhy}.  As a rule of thumb it makes sense to
+use the most appropriate technology to model the phenomena of
+interest. An example would be to use connectionism for low-level
+processes (e.g., motor control), but switch to symbolic systems for
+higher-level tasks, such as planning \cite{micro}.  Such hybrid views of
+cognition are attractive \cite{thorstir,thorhybr,roseappr,hendneed}, but
+how do we know which technology is most appropriate for a given task?
+
+This chapter reviews the symbolic models that have been built to capture
+the way children learn multicolumn arithmetic.  Solving problems
+like 32$-$27 or \x{49}{12} involves a host of skills: not only do you
+need to know the arithmetic facts, you also need to know how to
+borrow and carry, which column to process next,
+what to do when a number does not have a number below it
+(as in 12+5), and so on.
+
+It appears that students are following rules when solving multicolumn
+problems.  Perhaps the main evidence for this comes from the observation
+that children discover faulty rules (malrules) when learning arithmetic.
+Hence, it seems appropriate to use something like a production system to
+model multicolumn arithmetic. Indeed, to date the only systems
+used to investigate arithmetic have been rule-based systems
+\cite{buggy,younerro,repair,vanlfeli,mindbugs}.
+
+This chapter first looks at the kinds of mistakes children make when
+solving multiplication problems.  The style of symbolic modelling is
+then described by briefly discussing a production system for
+multiplication.  Section~\ref{s:yo} considers the \citeA{younerro}
+approach to modelling children's errors, and
+section~\ref{s:sierra} looks at the way \citeA{mindbugs} has modelled
+the errors.   The conclusion is that the symbolic models offer a very
+plausible interpretation of children's arithmetic.  Nevertheless,
+section~\ref{s:whypdp} argues that there are good reasons for looking
+into a connectionist account of the phenomena.  In particular, I aim to
+show that connectionism may be an ``appropriate technology'' for this
+domain, despite the phenomena's rule-like appearance.
+Many of the assumptions
+and ideas from the VanLehn and Young \& O'Shea accounts are taken on
+board in chapter~\ref{c:fsm} which describes a connectionist model of
+multicolumn arithmetic.
+
+\section{Bug phenomena}\label{s:bugphen}
+
+At school children are introduced to multicolumn arithmetic over a number
+of years in lessons of ever-increasing difficulty.
+Maths textbooks \cite{howemath} suggests the following problem ordering
+for addition:
+
+\ssadjust
+\begin{enumerate}
+\begin{singlespace}
+\item One column addition, sum < 10.
+\item Two digit numbers, no carrying.
+\item Addition of three rows.
+\item Addition with gaps.
+\item Two digits with carry.
+\item Three column addition, without carry.
+\item Three column with carry.
+\end{singlespace}
+\end{enumerate}
+
+There is a similar sequence for multiplication, and \citeA[p.~13]{mindbugs}
+identifies one for subtraction.  By working through these stages students
+build up a hierarchy of maths skills, enabling them to tackle the next
+level of problems.  Interestingly, \citeA[p.~55]{resnpsyc} discuss studies
+involving a ``deep end'' approach to arithmetic teaching,
+in which students are just taught the
+higher level skills.  The reasoning behind this idea is that the student
+should be given meaningful problems, rather than many boring, relatively
+simple problems.  Of course, students taught this way still end up learning
+all the prerequisite skills.  However, the majority of students seem to
+learn best when led through a hierarchy of skills, and this is the way
+arithmetic is taught in most schools.
+
+Each lesson typically begins with the teacher working an example, and then
+the children solve similar problems on their own.  Textbooks work in much
+the same way.  An example is worked, by printing a snapshot of the various
+stages that need to be completed, and then there is a list of exercises.
+
+There are at least two multiplication algorithms that are taught
+in schools.  The one considered here involves building up the product of
+a multiplier on one row. For example:
+
+\begin{arithprobB}{lll}
+&$1_{\ }$&$2_{\ }$\\
+$\times$&$3_{\ }$&$4_{\ }$\\
+\cline{1-3}&&$8_{\ }$
+\end{arithprobB}
+\hfil
+\begin{arithprobB}{lll}
+&$1_{\ }$&$2_{\ }$\\
+$\times$&$3_{\ }$&$4_{\ }$\\
+\cline{1-3}&$4_{\ }$&$8_{\ }$
+\end{arithprobB}
+\hfil
+\begin{arithprobB}{lll}
+&$1_{\ }$&$2_{\ }$\\
+$\times$&$3_{\ }$&$4_{\ }$\\
+\cline{1-3}&$4_{\ }$&$8_{\ }$\\
+&&$0_{\ }$
+\end{arithprobB}
+\hfil
+\begin{arithprobB}{lll}
+&$1_{\ }$&$2_{\ }$\\
+$\times$&$3_{\ }$&$4_{\ }$\\
+\cline{1-3}&$4_{\ }$&$8_{\ }$\\
+&$6_{\ }$&$0_{\ }$
+\end{arithprobB}
+\hfil
+\begin{arithprobB}{lll}
+&$1_{\ }$&$2_{\ }$\\
+$\times$&$3_{\ }$&$4_{\ }$\\
+\cline{1-3}&$4_{\ }$&$8_{\ }$\\
+$3_{\ }$&$6_{\ }$&$0_{\ }$
+\end{arithprobB}
+\hfil
+\begin{arithprobB}{lll}
+&$1_{\ }$&$2_{\ }$\\
+$\times$&$3_{\ }$&$4_{\ }$\\
+\cline{1-3}&$4_{\ }$&$8_{\ }$\\
+$3_{\ }$&$6_{\ }$&$0_{\ }$\\
+\cline{1-3}$4_{1}$&$0_{\ }$&$8_{\ }$
+\end{arithprobB}\skipafterprob
+
+
+Studies of errors in arithmetic \cite{buggy,debuggy,repair}
+have characterized
+students as having buggy procedures---perturbations to the correct
+procedure.  For example, one error for multiplication (\bug{firstZ})
+begins like this:
+
+\begin{arithprob}{llllll}
+&&&$4_{\ }$&$3_{\ }$&$6_{\ }$\\
+&&$\times$&&$5_{\ }$&$1_{\ }$\\
+\cline{3-6}&&$4_{\ }$&$3_{\ }$&$6_{\ }$&$0_{\ }$\\
+\end{arithprob}\skipafterprob
+
+The student has incorrectly inserted zero into the first column.
+Another error is \bug{XlikeA}:
+
+\begin{arithprob}{lll}
+&$3_{\ }$&$4_{\ }$\\
+$\times$&$1_{\ }$&$2_{\ }$\\
+\cline{1-3}&$3_{\ }$&$8_{\ }$\\
+\end{arithprob}\skipafterprob
+
+Here the student has multiplied each digit in the lower row
+by the digit above it in the upper row.
+These kinds of errors are quite different from the recall errors discussed
+in previous chapters. Rather than slipping and incorrectly following the
+correct arithmetic procedure, students are systematically using faulty
+rules. \citeA{vanlbugs} reports that students exhibiting a particular bug
+can reproduce that bug a week later, giving exactly the same mistakes,
+digit for digit.  However, there are limits to this stability, and this is
+discussed below.
+
+
+\input totals.tex
+
+Many different kinds of bugs have been described, some frequent, some rare.
+The most specific bug catalogues previously published have been for
+subtraction. I have decided to look at long multiplication and addition, so
+appendix~\ref{c:aa}
+and \ref{c:xa} lists \Tp{} addition and \Tx{} multiplication bugs found in
+a trawl of the literature.
+Details of any particular bug, such as \bug{firstZ}, can be found in these
+appendices.  The descriptions use the terminology introduced in
+figure~\ref{f:xterms}.
+\begin{fancyfigure}
+\centerline{\psfig{file=xterms.ps,height=5.5cm}}
+\caption{Terminology used for multiplication problems.  For two
+row addition, the problem numbers are referred to as the ``addends''.}
+\label{f:xterms}
+\end{fancyfigure}
+
+There is a great deal of interpretation in classifying a given mistake as
+being one bug rather than another.  For example, if the child makes the
+mistake \x60=6 as part of a problem, is that the bug \bug{nXZEn}, or
+\bug{copymultiplicand}, or even \bug{AinXpattern}?  Another problem is
+deciding that a given error is systematic.  Different authors tend to take
+different approaches. The appendices are the result of combining the bugs
+listed by three authors, so at one level the problem of interpretation was
+solved because the authors had already classified the bugs.  However, as
+discussed in appendix~\ref{c:aa}, the interpretation problem then becomes
+one of finding corresponding bugs between the authors.  The controversy
+surrounding bug categorization is not pursued further here, and it is
+assumed that at least some of the errors made by children are well
+described by buggy rules.
+
+A number of studies have been conducted to discover the frequency of bugs.
+Of the 1147 seven- and eight-year-old children from VanLehn's Southbay
+study, 33 per cent harboured bugs, and a total of 134 distinct bugs were
+identified.  Individuals may have more than one bug, and their set of bugs
+will change over time. \citeA{coxanal} found that around 56 per cent of the
+564 grade 1--6 children in her study made systematic errors in addition,
+multiplication and division. However, 10 percent were making ``random
+errors'', and the remaining children were error-free or just slipping.
+\citeA[p.~6]{vanlbugs} also found that 10 per cent of grade 3 children's
+error could not be analysed in his study of subtraction.  Still, at most 90
+per cent of children's behaviour can,
+in principle, be explained by reference to a possibly faulty rule set.
+
+
+\section{Models}\label{s:mmods}
+
+The formalization of the child's rule set is discussed in this
+section---including rule acquisition, operation and representation.
+Starting with the account of arithmetic developed by
+\citeA{younerro}, I hope to show how the phenomena can be neatly
+modelled by production systems.  Repair theory \cite{repair} appeared at
+about the same time as the Young \& O'Shea model, and has since gone
+through many refinements to reach its current form as Sierra
+theory \cite{mindbugs}.  Despite a number of criticisms,
+Sierra theory is the best account we have of faulty rule acquisition.  The
+reasons for this are described below.
+
+\subsection{A production system for multiplication}
+
+%see \citeay{andearch}, pp.~7--12 for an addition production system).
+
+Young \& O'Shea produced a production system to model correct and buggy
+subtraction. In the same style as the Young \& O'Shea system a
+multiplication production system was built by Shaaron Ainsworth as
+part of her MSc work at Sussex.
+Table~\ref{f:xprod} lists the production rules for correct multiplication.
+In what follows, many of the
+implementation features of
+this particular system are glossed over,
+and it is assumed that the model works in much the same way as the
+Young \& O'Shea system.
+
+\begin{fancytable}
+\begin{alltt}
+      {\em Conditions}                 {\em Actions}\smallskip
+ INTO: [processmult]          \anarrow readintandb();
+ SM:   [t ?t] [b ?b] [c ?c]   \anarrow do_calc();
+ NX:   [next_top]             \anarrow [processmult] shift_top_left();
+ WM:   [result ?u] [carry ?c] \anarrow writedown(); [next_top]
+ CC:   [no_more_top]          \anarrow checkcarry(); [checkbottom] [addzero]
+ CB:   [checkbottom]          \anarrow check_bottom();
+ FI:   [none_left]            \anarrow [stop]\smallskip
+ NB:   [no_more]              \anarrow endmult(); [startadd]
+ CO:   [startadd]             \anarrow readincolumn();
+ DA:   [column ?len ?dig]     \anarrow do_add();
+ ML:   [next_left]            \anarrow [startadd] moveleft();
+ WA:   [u ?u] [c ?c]          \anarrow writeadd(); [next_left]
+ CA:   [no_more_digits]       \anarrow checkadd();
+ AZ:   [addzero]              \anarrow add_zero();
+\end{alltt}
+\caption{Production rules for correct multiplication.}
+\label{f:xprod}
+\end{fancytable}
+
+
+As is usual of production systems the left-hand side of the productions
+specify queries to be matched against a working memory.  The right-hand
+side specify actions which can be either calls to procedures
+(e.g., \verb|do_calc()|) or items to deposit in the working memory
+(such as \verb|[processmult]|, the initial goal).
+In working memory the partial solution is represented
+by a list containing: the two digits being multiplied; the result of the
+current row of multiplications; two numbers indicating which digits in the
+multiplicand and multiplier are being considered; and, the number currently
+being carried.  For example, while solving the problem \x{34}{22}, the
+representation will be\ldots
+\begin{alltt}
+  [ [3 4] [2 2] result=[6 8] topdigit=1 botdigit=2 carry=0 ]
+\end{alltt}
+\ldots indicating that the digits just considered were 3 (\verb|topdigit|
+is 1, the first number in \verb|[3 4]|) and 2 (the second number in
+\verb|[2 2]|).  The result of the row is 68, with no carry.  In the Young
+\& O'Shea model there was no explicit representation of \verb|topdigit| or
+\verb|botdigit|, or their equivalents.  Their production system used
+operations such as \verb|ShiftLeft| and \verb|NextColumn| to focus
+attention without worrying about the underlying registers.  However,
+registers are required, and it is useful to have them explicitly shown.
+
+Using this representation
+of the problem, and the \verb|topdigit| and
+\verb|botdigit| registers, the answer can be gradually
+built up in working memory. The procedure \verb|readintandb|,
+for example, identifies the digits to be multiplied.
+\verb|Shift_top_left|
+updates the \verb|topdigit| and \verb|botdigit| registers to focus on the
+next digits in the problem.  Eventually, \verb|shift_top_left| runs out of
+digits and deposits \verb|[no_more_top]| in working memory.  This then
+caused the productions system to enter into a different part of the
+arithmetic routine, ready to process the next multiplier.
+
+The details of this model are not of great interest here, but note the
+style of processing.  The model captures multiplication as small skill
+modules, which are pattern or event driven.  For example, certain actions
+bring about the recognition of certain other facts about the problem, which
+leads to other rules firing as happened with \verb|[no_more_top]|.
+Central to the model is the use of registers, such as \verb|topdigit|, to
+keep track of the system's position in the problem. Registers are also used
+in the eye movement models of arithmetic proposed by \citeA{suppproc}, and
+will be used in the connectionist model described in the next chapter.
+Finally note that the skill has been described at a level equivalent to how
+one might describe multiplication verbally.  Clearly there are other
+processes going on which are not modelled by the production system,
+such as eye movements, recall of arithmetic facts, physical action of
+writing, and so on.  However, it seems that this level is adequate for
+capturing arithmetic bugs.
+
+\subsection{Modelling bugs---the Young \& O'Shea way}\label{s:yo}
+
+Certain bugs can easily be modelled by removing a rule from the production
+system. For example, removing the AZ rule (from figure~\ref{f:xprod})
+produces the bug
+\bug{noleadingZ}.  Other bugs require that rules in the rulebase are
+replaced with faulty versions.  For example, \bug{Qafterfirstbottom} is
+generated by replacing the rule CB with the following:
+\begin{alltt}
+    bugCB:   [checkbottom]   \anarrow   [no_more]
+\end{alltt}
+
+Young \& O'Shea modelled errors in subtraction in this way, by adding and
+omitting various rules.  They discovered that a small number of changes
+could cover a large number of observed errors.  As an example Young \&
+O'Shea note (p.~163) that two rules (one correct, one faulty), in four
+possible permutations (each either present or absent from the rulebase)
+could account for 115 out of 124 errors found in their corpus, in addition
+to the correct algorithm.
+
+To account for all the observed errors, Young \& O'Shea included a number
+of other faulty rules.
+Clearly, it would be trivial to construct a
+production system to account for a particular error, and such a production
+system would be of no psychological use.
+However, an attempt was made to constrain the
+productions in various ways.
+Young \&
+O'Shea's aim was
+to model a particular child with a particular production
+system.
+Different children will have different productions, and each child's set of
+rules will change over time.  Given this constraint, it is still possible
+to build a production
+system ``\ldots whose conditions were
+so complex, bizarre, and ad hoc that each subtraction problem was
+effectively treated as a separate case\ldots'' \cite[p.~164]{younerro}.
+This consideration applies to all cognitive models, and it is not possible
+to exactly specify a set of constraints to avoid ad hoc models.  Young \&
+O'Shea used three heuristics to guide their model building:
+\begin{enumerate}
+\item Adopt a particular style for the rules.
+\item Avoid problem-specific symbols in the rules (i.e., numbers).
+\item Minimize the number of changes between rulebases.
+\end{enumerate}
+
+
+Using these heuristics, Young \& O'Shea optimized a number of production
+systems to fit the errors found in their data.  Starting with the correct
+production system for subtraction, rules were changed to improve a score.
+The score is the number of errors predicted by the system, minus the number
+of false errors. False errors are not errors which have never been observed
+(star bugs, discussed below), but are due to the fact that children are not
+fully consistent in applying faulty rules. It may be that a child
+exhibiting a particular error does not make the same mistake at every
+opportunity. A production system following a rule will always make the
+error. False errors are the mismatch between the child's and the system's
+error performance. Initially, the correct system makes no false errors, and
+predicts no bugs.  Young \& O'Shea mutated the rulebases and finished with
+eight production sets which accounted for 160 of the children's errors,
+missing 18 and falsely predicting another 32 \citeyear[table~3,
+p.~166]{younerro}.
+
+
+It is
+interesting that arithmetic skills can be captured in this way, but
+there is no account of where the rules (correct or otherwise) come from.
+The modularity of productions means that learning can be thought of as the
+accumulation of rules \cite{younprod,nechlear}, although no such account is
+given. The Young \& O'Shea model provides snapshots of children at various
+stages of development, but does not discuss the transition between stages
+(acknowledged on p.~176).
+There are ways to incorporate learning processes into
+the Young \& O'Shea ``family'' of models.  \citeA{klahinfo} lists a number
+of mechanisms, including condition generalization and discrimination, rule
+composition and chunking,
+proceduralization, and rule strengthening.  There is a gradual
+nature to some of these mechanisms, such as rule strengthening, but not to
+all of them.  At some stage new rules need to be added to the rule base
+\cite[p.~170]{klahinfo}.
+This is what is meant by the phrase ``snapshot account'': at one moment the
+rule base contains a certain set of rules, and at the next is contains some
+new ones.  The Young \& O'Shea model is an extreme example, but the
+granularity of other models (including VanLehn's) means that they also
+qualify as snapshot accounts of development. This style of
+learning will be contrasted with the gradual learning performed by
+connectionism later in the chapter.
+Rather than discuss ways in which learning
+could be incorporated into the Young \& O'Shea model, attention will be
+focussed on VanLehn's learning system in section~\ref{s:induct}.
+
+Inconsistent rule following is not accounted
+for by the Young \& O'Shea model. The term ``bug migration'' \cite{repair}
+refers to the phenomenon of children switching between sets of bugs.
+Some bugs are persistent, lasting for years, while others come and go
+over a short period to time---even during a single test.
+\citeA{hennwhy} believes that there is
+much more instability in children's performance than has been previously
+suggested.  She argues (pp.~178--180) that a more accurate, and less
+subjective means of bug diagnosis is required.  The \citeA{coxanal}
+study defined a bug as an incorrect procedure observed on three out of
+five problems.  This kind of definition leads to the three error
+categories of slip, bug and undiagnosed.  \citeA{vanlbugs} uses a
+different, more complicated method, designed to ``mimic the intuitions of
+human diagnosticians'' (p.~15).  A student is said to have a particular
+bug if the diagnosis makes ``enough'' true predictions, and at least
+more true predictions than false predictions. ``Enough'' is defined by a
+number of conditions, e.g., 75 per cent of predictions must be true
+\cite<for further discussion on the problems of diagnosis,
+see>{buggy,debuggy}. For Hennessy, any faulty procedure counts as a bug,
+no matter how frequent it is, with the exception of slips.  This
+definition clearly eliminates the ``undiagnosed'' category of errors,
+but increases the instability associated with a given student.
+
+A number of studies have attempted to pin-down the extend of bug
+migration.
+In a follow-up study, one year after her original study,
+\citeA{coxanal} found that 25 per cent (16 of 64) students exhibited the
+same bug as in the previous year,
+and 17 per cent (11 of 64) were showing a different error
+over all the arithmetic operations.
+VanLehn \citeyear{vanlbugs,mindbugs}
+found
+that in the short term (over 2 days) only 9 per cent (3 of 32) students
+produced the same errors, where as 38 per cent (12 of 32) exhibited bug
+migration for subtraction only.  The different ages of the children,
+different experimental procedures, and small sample sizes makes it
+difficult to compare the Cox and VanLehn results on bug migration.
+
+Despite the problems of diagnosis, it is apparent that bug migration is
+a common phenomenon.  Migration is usually defined as changes occurring
+``without intervening instruction'' \cite[p.~54]{mindbugs}, but this does
+not exclude the possibility that some kind of learning is causing
+migration.
+However, the
+Young \& O'Shea model does not address bug migration or
+learning, and as such it fails to capture important aspects of children's
+arithmetic.
+
+
+\subsection{Modelling bugs---the VanLehn way}\label{s:sierra}
+
+VanLehn's \citeyear{mindbugs} Sierra theory of learning arithmetic is
+the most detailed account of multicolumn arithmetic to date.  Like Young
+\& O'Shea, he
+focuses
+on long subtraction, but asserts that the principles should apply not
+only across the other three arithmetic procedures, but also to other
+domains. The account, a continuation of repair theory \cite{repair},
+tackles two
+problems of bug migration and learning. Three elements of his
+theory stand out:
+\begin{enumerate}
+\item Children's mistakes are the result of various kinds of
+{\em syntactic} changes to rules.  This not only includes the faulty
+rules from the Young \& O'Shea account, but also run time changes.
+\item Faulty rules are due to the {\em skew} in the school curriculum.
+\item Learning is from {\em examples}, not verbal recipes.
+\end{enumerate}
+
+
+Several observations support these points. First, it seems that students
+do not understand the operations they are performing: they are
+symbol-pushing \cite[pp.~38--40]{mindbugs}.  There is now work
+considering the role of the semantics of arithmetic
+\cite{hennwhy,paynalge,ohlsfunc} but there are a number of reasons why
+it seems appropriate to just model syntax. To support his
+``ateleological assumption'', VanLehn points out that students who
+understand the arithmetic procedure they are trying to perform should be
+able to see if their procedure is wrong, and also be able to fix it.
+Intuitively it is clear that students can learn procedures without the
+slightest understanding of the underlying principles, and this point
+appears uncontroversial \cite[p.~38]{mindbugs}.
+
+%This doesn't seem to rule out the possibility that students have a
+%false understanding of arithmetic, but considering such a proposal
+%ignores Occam's razor: it turns out that children's arithmetic can be
+%modelled without a consideration of their understanding of arithmetic.
+%Intuitively it's clear that students can learn procedures without the
+%slightest understanding of the underlying principles, and VanLehn
+%assures us (p.~38) that the ateleological assumption is
+%uncontroversial.
+
+
+The work of \citeA{hughwhat} also suggests that children have trouble with
+the syntax of arithmetic:
+\begin{ssquote}
+The problem is not that young children are completely lacking in their
+number concepts\ldots Rather the problem is that they are encountering a
+novel code, or representation system, which may be like a foreign language
+to them (p.~209).
+\end{ssquote}
+
+In other words, school
+arithmetic is, as \citeA{donachil} calls it, ``unembedded''.  This
+is demonstrated by the following protocol from a
+four year old reported by \citeA[p.~211]{hughwhat}:
+
+\begin{sstabular}
+\begin{tabular}{ll}\\
+Adult: &How many is two and one more?\\
+Child: &Four.\\
+Adult: &Well, how many is two {\em lollipops} and one more?\\
+Child: &Three.\\
+Adult: &How many is two {\em elephants} and one more?\\
+Child: &Three.\\
+Adult: &How many is two {\em giraffes} and one more?\\
+Child: &Three.\\
+Adult: &So how many is {\em two} and one more?\\
+Child: &(looks adult straight in the eye) Six.
+\end{tabular}
+\end{sstabular}
+\spaceafterquote
+
+These problems with syntax should come as no surprise given the way
+arithmetic is taught. \citeA[p.~82]{vanlfeli} points out that arithmetic
+texts are nothing like cookbooks or other kinds of manuals: they consist
+mostly of worked examples and exercises.  In contrast to examples are
+``explanations''---some
+form of natural language information, perhaps given
+by the teacher in class.
+VanLehn argues \citeyear[pp.~96--103]{mindbugs} that arithmetic is
+primarily learned from examples, and not explanation.  His justification
+of this assumption first notes that AI has experienced a number of
+problems in translating from natural language to programs.  However,
+there has been much more success in learning from examples.  Second,
+VanLehn supposes that if children learned mostly via
+natural language, there should be language fragments in their bugs, such as
+references to the ``tens place'' or the ``multiplicand''.
+However, VanLehn found that
+``\ldots 85 percent of all the observed bugs can be described with a
+small set of visual/spatial features.  No bug requires linguistic
+features for its description'' (p.~102).
+
+So it seems that children learn the steps in arithmetic procedure by
+example, without an understanding of the algorithm. But how do
+they acquire these procedures?
+
+\subsubsection{Learning by induction}\label{s:induct}
+
+Like Young \& O'Shea, VanLehn proposes that children have buggy core
+procedures.  However, unlike Young \& O'Shea, VanLehn shows how these
+procedures can be induced
+from the examples given in a lesson.  This section
+describes the learning part of Sierra, the name of VanLehn's
+model. In
+general terms, there
+is a learner which takes a lesson, $L_i$, and the current state of a
+student, $P_{i-1}$, and returns a set of procedures that are consistent
+with the examples in the lesson ${P_i^1, P_i^2,\ldots,P_i^k}$.
+That is, the learner returns a
+number of rule sets, some with bugs, and some without.  Each of the
+procedures can be tested to see how its bugs compare to those of children.
+Then another lesson is administered, and the learner
+generates procedures that can solve harder problems.
+
+Much of VanLehn's \citeyear{mindbugs} work is concerned with ways to
+constrain the learner
+to induce just those things that humans learn.  Hence, a number of
+assumptions are laid out, including:
+\begin{itemize}
+\item New rules are assimilated with the old. That is, the rules of
+$P_{i-1}$ are a subset of those of $P_i$.
+\item One disjunct per lesson.  At most one subprocedure (a new branch
+point) can be introduced to a rule in a lesson.
+\item The most specific patterns are induced.
+\end{itemize}
+
+Using a rule representation it is possible to parse arithmetic examples
+(see figure~\ref{f:parse}).  For problems that the system cannot solve,
+which are often the problems in the next lesson, it will not be possible to
+produce a parse
+tree.  In this situation VanLehn applies top-down and bottom-up parsing to
+construct as much of the parse as possible.  However, the resulting parse
+with have a gap in it where the child nodes do not meet with parent nodes.
+VanLehn then uses an algorithm called ``parse completion'' to fill in the
+gaps.
+
+\begin{fancyfigure}
+\centerline{\psfig{file=parse.ps,height=3in}}
+\caption{An example of parsing a subtraction example
+\protect\cite<from>[pp.~125 and 136]{mindbugs}.  Using the rewrite
+rules from the top of the figure, the stages in the examples at the
+bottom of the figure can be represented as a tree structure.  Note that
+the rules are context sensitive---i.e., Sub1Col\mysub{C} $\rightarrow$
+Diff\mysub{C} is only applied when the top digit is $\geq$ bottom digit.
+The subscript (C) indicates the column in which the operation applies.}
+\label{f:parse}
+\end{fancyfigure}
+
+For the problems that cannot be solved, there will be a large number of
+partial parses. Top-down and bottom-up parsing is used to produce a set of
+these ``skeletons''---the parent and child nodes that define the gap in a
+tree.  There will be at least one skeleton from each example that could
+not be parsed.  Because of all the constraints,
+the intersection of all the
+skeletons can produce one unique skeleton.  If this is not the case, the
+algorithm uses various biases to select a single skeleton. For example, one
+bias is to select the skeleton with the lowest parent nodes.
+
+
+In developing the constrains on the learner, VanLehn stresses the
+importance of a well formed lesson sequence.  Convention allows the learner
+to assume that lessons will obey certain rules \cite{vanllear}.  The lesson
+should introduce just one ``knowledge chunk'' (disjunction or
+subprocedure), and this will often allow the learner to solve problems that
+it could not solve before the lesson.  VanLehn suggests that ``\ldots
+experienced teachers generate such lesson sequences naturally, without even
+realizing that their lesson sequences obey the two conventions''
+\citeyear[p.~7]{vanllear}.  In short, good teachers give lessons that make
+the learner's task easier.
+
+The skeleton defines the goals and subgoals of a rule.  Patterns also need
+to be learned to clarify when the rule is to be applied.  For this, VanLehn
+uses Mitchell's \citeyear{mitcvers} version spaces
+\cite<see also>[chapter~2]{thortech}. Each example
+arithmetic problem is defined by a set of position, fact and action
+primitives. Patterns may contain factual primitives, such as ``less-than''
+or ``Zero?''.  Just three actions are available: writing a character,
+erasing a character and overwriting a character with some other character.
+See table~\ref{f:procrep} for an example procedure and problem
+representation.  These primitives were selected by guess work, and a more
+informed approach would require a theory of perception.
+
+Of all the patterns that could be induced, the most specific pattern is the
+one that is learned. For example, from the
+subtraction shown in figure~\ref{f:abl}b, the following rule will be
+learned:
+\begin{alltt}
+ borrow column = leftmost and left-adjacent
+\end{alltt}
+
+\noindent This
+is the most specific pattern to describe the borrowing column: the column
+that is both leftmost on the page and also adjacent to the current column.
+Most specific is defined relative to the granularity of the representation
+language, hence ensuring that generalization takes place,
+and the learner does not simply
+acquire
+a list of past problems. There are other technical reasons for why this
+constraint is proposed.  When combined with the constraint that patterns
+can only contain conjunctive connectives, it can be shown that the version
+space is finite, and there exists a fast algorithm for computing the whole
+version space \cite[p.~152]{mindbugs}.  From experimentation with the
+system, VanLehn discovered that the most specific rules learned are
+sufficient for generating impasses.
+
+VanLehn
+\citeyear[chapter~6]{mindbugs} describes a number of other restrictions on
+pattern learning.
+Indeed, many of the assumptions have been left out, and
+much of the detail skipped over in this review.  In particular the
+justifications
+for many of the assumptions have been omitted.  In essence,
+though, the learner is a highly constrained inductive mechanism, learning
+control structures to parse problems and patterns in terms of a
+predefined set of primitives.  The constrains are psychologically
+motivated, and strong enough to make the learning problem tractable.
+
+
+\begin{fancytable}
+\small
+\begin{alltt}
+        (Problem 1)                 {\em Object 1 is a subtraction problem}
+        (Column 2) (Column 3)       {\em Objects 2 \& 3 are columns}
+        (Part 1 2) (Part 1 3)       {\em The columns are part of the problem}
+        (First 1 3)                 {\em Object 3 is the leftmost object}
+        (Adjacent 1 2 3)            {\em The columns are adjacent}
+        (Cell 4) (Cell 5) (Cell 6)  {\em Objects 4--5 are cells}
+        (Digit 4) (Digit 5)         {\em Objects 4 and 5 are digits}
+        (Blank 6)                   {\em Object 6 is a blank cell}
+
+        Sub1Col(C) OR
+        1. [And (Digit T) (Part-of T C) (First T C)
+                (Digit B) (Part-of B C) (Middle B C)
+                (Ordered C T B) (Adjacent C T B)
+                (Value-of TV T) (Value-of BV B) (LessThan TV BV)
+           ->   (Borrow C)
+
+        2. [And (Digit T) (Part-of T C) (First T C)
+                (Digit B) (Part-of B C) (Middle B C)
+                (Ordered C T B) (Adjacent C TB)
+                (Value-of TV T) (Value-of BV B)
+                (Less-Than-or-Equal BV TV)
+           ->   (Diff C)
+
+        Diff(c) AND
+        1. [And (Digit T) (Part-of T C) (First T C)
+                (Digit B) (Part-of B C) (Middle B C)
+                (Cell A) (Part-of A C) (Last A C)
+                (Ordered C T B) (Adjacent C T B) (Ordered C BA)
+                (Value-of TV T) (Value-of BV B)
+                (AbsoluteDifference TV BV AV)
+           ->   (Write AV A)
+\end{alltt}
+\caption{Part of the problem representation for 57$-$9, and part
+of a subtraction procedure, both using Sierra's representation from
+\protect\cite[table~3.8 and 3.10]{mindbugs}.}\label{f:procrep}
+\end{fancytable}
+
+
+\subsubsection{The impasse-repair process}
+
+In addition to the learner, the other component of Sierra is the solver.
+This part of the model applies the learned rules to specific problems.
+Young \& O'Shea built their rulebases in such a way as to ensure that
+the condition patterns would be appropriate for all situations after
+conflict resolution. Building on the work of \citeA{repair}, Sierra
+incorporates the notion of an {\em impasse}.  For example, when no single
+rule is uniquely specified, and impasse is said to have occurred, and
+Sierra {\em repairs} the impasse with a number of local modifications to
+the solver's state.  That particular case, where more than one rule
+matches, is
+an instance of a
+decision impasse, and appears to be just another kind of conflict
+resolution.  In fact VanLehn suggests that there are
+three kinds of impasse:
+\begin{enumerate}
+\item Decision, when a decision is needed, but cannot be made.
+\item Reference, for an object in a pattern that is not
+uniquely specified.
+\item Primitive, where some primitive operation cannot be carried
+out---e.g., a student trying to solve 0-1, but not knowing the answer.
+\end{enumerate}
+These three kinds of impasse are all that Sierra needs to model children's
+errors in subtraction.
+
+When an impasse occurs, the local problem solver has to make a repair to
+the current state so that Sierra can continue with the problem.  VanLehn
+identifies three kinds of repairs:
+\begin{enumerate}
+\item No-op, which simply skips the offending operation.
+\item Barge-on, by relaxing the conditions and then applying the rule.
+\item Back-up, by going back and changing a previous action.
+\end{enumerate}
+
+Again, just these three kinds of repair are needed to model subtraction and
+other problems \cite[p.~43]{mindbugs}. The ``Cartesian product'' of repairs
+and impasses (each repair applied to each impasse) should be the repair
+strategies observed in the bug data. This assumes that repair strategies
+are not limited to specific impasses, but are general methods that could be
+applied to many different impasses. \citeA[pp.~44--54]{mindbugs} concludes
+that although there are some biases favouring particular repairs for
+particular bugs, repair selection can be approximated by random choice.
+This suggests a criterion for deciding whether or not to
+include new kinds of impasses or
+repairs: the new impasse or repair, when multiplied in with the other
+impasses and repairs should predict plausible bugs and no implausible bugs.
+ Indeed, VanLehn reports (p.~53) that when impasse-repair independence was
+first tested, it predicted 16 new bugs, 7 of which have been found.
+
+
+\begin{fancyfigure}
+\centerline{\psfig{file=abl.ps,height=3cm}}
+\caption{The bug always-borrows-left (a), where the student
+borrows from the leftmost column.  This behaviour is
+appropriate for two column problems, such as (b).}\label{f:abl}
+\end{fancyfigure}
+
+As an example of the impasse-repair process, consider the subtraction bug
+always-borrows-left, shown in figure~\ref{f:abl}a. As noted above, the
+skew in the curriculum means that children are exposed to two column
+problems before three column problems. Given the learner's bias to learn
+the most specific patterns, it acquires the rule ``borrow from the column
+that is leftmost and also left-adjacent''.  In the context of two column
+problems this is an appropriate rule (see figure~\ref{f:abl}b).  However,
+when the child encounters a three column problem which requires borrowing
+for the first column, an impasse occurs: there is no column that is both
+leftmost and left-adjacent.  At this point a local problem solver takes
+control from the interpreter and applies a repair.  If the barge-on repair
+is used, one of the rule's conditions is relaxed.  The bug shown in
+figure~\ref{f:abl}a results from relaxing the ``left-adjacent''
+requirement; relaxing ``leftmost'' clause results
+in the correct solution for the subtraction.
+
+\subsubsection{Empirical adequacy}\label{s:emprical}
+
+By the Sierra account, bug
+migration is the result of applying different repairs to the same
+impasse.  However, the local problem solver
+may construct a {\em patch} to
+the buggy procedure.  This associates the current repair
+with the current impasse, so that when the impasse occurs again, the same
+repair will be used.  In this
+way both bug migration and stable bugs are accounted for.
+
+The rule sets produced by Sierra (the predictions of the procedures that
+children could learn) are tested for bugs.  After each lesson, the results
+from the learner are passed to the solver. \citeA[p.~28]{mindbugs} claims
+that ``\ldots many bugs are caused by testing beyond training\ldots''.
+Hence, the system is tested not only on the current lesson, but also on
+harder problems not taught by the current lesson.  Buggy behaviour can also
+be found on the current test, especially if the deletion operation has been
+applied to a rule set (p.~106). This removes the most
+recently added goal from a procedure, resulting in procedures that exhibit
+bugs such as \bug{noCoverB}, \bug{stutterA} and \bug{nCA}.
+Allowing rules other than the most
+recent one to be deleted may result in implausible bugs, e.g., a rule set
+without the rules for writing down the answer.
+
+
+The results from the solver
+are diagnosed as buggy or not by passing them to an automated diagnosis
+tool called Debuggy \cite{debuggy}.  The overlap between observed bugs and
+predicted bugs is the criterion by which Sierra is evaluated. It may be that
+Sierra predicts more bugs than have been observed.  This is not a problem
+providing that the unobserved bugs are not implausible (star bugs).
+VanLehn comments (p.~19):
+\begin{ssquote}
+When Sierra generates a star bug, it is missing some kind of constraint.
+Star bugs indicate that the theory needs revision.  So avoiding the
+generation of star bugs is just as important as generating observed bugs.
+\end{ssquote}
+
+In the Southbay study of 1147 test solutions, 75 individual bugs were
+observed.  Of these, Sierra predicted 28, and failed to predict 47.  Sierra
+also predicted 21 plausible bugs which have not yet been observed, and 7
+star bugs.  VanLehn argues (p.~200) that when the simulation catches up
+with the theory, 39 of the 75 bugs will be predicted (missing 36), with no
+star bugs and just 21 plausible (but unobserved) new bugs.
+Most of the 36 bugs that are not predicted are pattern errors (e.g.,
+N$-$0=0).  If Sierra could generate an impasse when there is a zero to be
+borrowed from or to, then these bugs could be explained.  However, VanLehn
+notes that ``\ldots empirical quality is not the only measure of
+theoretical validity.  \label{p:empirical}
+It
+must be balanced against explanatory
+adequacy\ldots'' \citeyear[p.~205]{mindbugs}.  Young \& O'Shea explain
+pattern errors as being derived from confusions from other operations
+(i.e., N+0=0).  It is a simple matter to write a production rule with a
+condition to capture such pattern errors.  VanLehn is critical of
+this method, and demands an explanation of why such errors only occur in
+the context of zero and not other numbers.  ``If the model is too easily
+tailored, then it is the theorist and not the theory that is doing the
+explaining'' \cite[p.~204]{mindbugs}.
+
+
+\subsection{Summary}
+
+
+The systematic mistakes made by children solving arithmetic problems
+suggests that production systems should be used as a model.
+\citeA{younerro} built such a model for subtraction, and demonstrated that
+errors could be modelled by small perturbations to the rule set for correct
+subtraction.  The modular nature of the system also suggests that learning
+could be modelled by adding more rules to the rulebase.  However, the Young
+\& O'Shea model did not account for learning.
+
+Repair theory \cite{repair} suggests that buggy core procedures cause
+impasses which are repaired from a set of independent repair heuristics.
+This principle avoids Young \& O'Shea's arbitrarily hand-coded malrules,
+and can also account for bug migration.  In fact repair theory predicted
+bug migration before it was found \cite{vanlfeli,vanlbugs}. Sierra theory
+\cite{mindbugs} developed from repair theory, and includes a learning
+component.  Buggy rules are induced from a skewed curriculum and then
+interpreted by a problem solver which detects and repairs impasses.  The
+constraints on the theory are argued for with evidence from psychology, and
+ensure that the learning task is not only tractable, but also fits the bug
+data rather well.
+
+The difference between core procedure bugs and impasses is that the latter
+are detectable by the person following the procedure.  However,
+\citeA{mindbugs} notes that the existence of impasses is an empirical issue:
+ACT* \cite{andearch} doesn't require impasses, but Soar \cite{soar} does.
+A discussion of the importance of impasses and the relationship between
+Soar and Sierra is deferred until section~\ref{s:important-impasse}.
+Despite the subjective nature of labeling errors as bugs or slips, or as
+plausible or implausible, it seems that rule based systems are
+adequate for modelling children's arithmetic.
+
+
+
+\section{Why connectionism?}\label{s:whypdp}
+
+
+Sierra theory is a success story of symbolic modelling.  Admittedly it is
+not without some problems, but it is the most significant existing account
+of children's arithmetic and of faulty rule acquisition in general.
+Arithmetic looks symbolic and can be modelled with symbolic systems, so why
+bother thinking about a connectionist model?  There are at least five
+observations which suggest that connectionism is worth considering:
+
+\begin{enumerate}
+
+
+\item The construction of a connectionist model of arithmetic is a
+tough engineering task, but only by implementation do we fully realize the
+difficulties faced by connectionism and how they might be solved.
+
+\item There is support for the idea that connectionist systems
+are the appropriate tool for capturing developmental phenomena.
+
+\item More generally, connectionist system exhibit
+mind-like properties, such as automatic generalization and graceful
+degradation.  Connectionist computation is ``brain-style'' computation
+\cite{pdp:4}.
+
+\item Theory and implementation are never as independent as one would wish.
+Without an alternative for comparison there is a danger that Sierra is
+unduly biased by symbolic AI.
+
+\item Connectionism is changing our understanding of notions like
+``symbol''.
+\end{enumerate}
+%
+Chapter~\ref{c:fsm} gives details on the construction of the connectionist
+model of multicolumn arithmetic. This section expands on the
+remaining (strongly interrelated) points.
+
+\subsection{Development}
+
+There is a growing body of research applying connectionism to problems in
+developmental psychology.  Examples include general treatments of
+developmental phenomena, such as stages of development \cite{shulsimu}, and
+models for: balance scale \cite{shulcasc,mcclpara}; seriation
+\cite{mareconn}; English verb morphology \cite{plunconn,pdp:18}; and
+concept formation and vocabulary growth \cite{plunconn}.  In addition there
+are a number of models which look at the importance of development in
+terms of constraints which help the learner \cite<most
+notably>{elmaincr,elmarepr}. Some authors assert that ``\ldots PDP models
+provide a superior account of developmental phenomena than that offered by
+cognitivist (symbolic) computational theories'' \cite[p.~1]{plunconn}.
+Given this interest in development, it is natural that connectionism should
+be applied to arithmetic skills.
+
+It is worth briefly looking at a couple of these models to appreciate
+the connectionist approach to development. \citeA{shulsimu} comments
+that the vast majority of developmental studies have focussed on what
+has developed rather than on how transitions occur.  For example, four
+stages have been identified for the balance scale task.  In these
+experiments the subject (usually a child) is presented with a beam
+balance.  Various weights are placed at various distances from the
+fulcrum.  Typically the subject is asked to judge which side of the
+balance will go down when a support is removed.  In the first stage
+the subject uses weight alone to decide how the scale
+balances.  Later, distance from the fulcrum is correctly used, but
+only when the weights are equal.  Stage three is characterized by the
+correct use of weight and distance in most instances, but confusions
+occur when one side has the greater weight and the other side has the
+greater distance. Finally, the stage four subject multiplies distance
+by weight and compares each side's product to find the answer.
+
+As a starting point to understanding the transitions between the stages,
+Shultz identified a set of essential features of stages based on a
+previous analysis of Piaget's work.  These features included notions of
+qualitative change, stage ordering, and denied any abruptness in transitions.
+To elaborate, changes between stages seem to involve a qualitative, and not
+quantitative, change.  Transition
+is ``\ldots not simply a matter of adding more
+information, but rather the emergence of a substantially different way of
+processing information'' \cite[p.~105]{shulsimu}.  Stages also tend to be
+acquired in a particular order, although stage skipping and regression are
+occasionally observed.
+The transition from one stage to another is more gradual
+than abrupt.  That is, signs of stage $n+1$ performance are present during
+stage $n$, and perfection at stage $n+1$ is not achieved until the end of
+stage $n+1$.
+
+Shultz listed four ways in which stage development can occur in
+connectionist networks.
+\begin{enumerate}
+
+\item {\em Hidden unit herding.}  For multilayered networks
+(e.g., those trained with backpropagation), each hidden unit does not
+select a unique role early in learning. Rather, all the hidden units move
+to reduce the current largest error \cite{cascor}.  Eventually hidden
+unit responsibilities are sorted out, but in the intervening time stages
+can be observed.  An example of this occurs in the learning of past tenses
+\cite{pdp:18,plunfrom,marclang}.
+
+\item  {\em Over generalization.}  Hidden unit herding is one form of over
+generalization, but a network without hidden units can also
+over-generalize.  An initial period of over generalization could be seen as
+one
+stage, with later stages occurring as the network learned the fine
+distinctions in the training set.
+
+\item {\em Training
+bias.}  As seen in chapters~\ref{c:xlit} and \ref{c:xnet},
+networks are sensitive to problem frequency.
+By manipulating the training environment, networks can be made to exhibit
+stages.
+
+\item {\em Hidden unit recruitment.} Construction algorithm, such as
+cascade correlation \cite{cascor,rcascor}, incrementally
+install new hidden units to reduce error.  These kinds of networks are not
+pursued further here, but Shultz notes that of 24 hidden units recruited in
+his model of the balance scale task, 13 corresponded to stage progressions.
+\end{enumerate}
+
+These kinds of connectionist stage transitions also have other properties.
+For example, qualitative changes in behaviour are observed, although the
+weights of the networks only go through small quantitative changes. It is
+noted, though, that whether a change is quantitative or qualitative often
+depends on how closely it is looked at.   Likewise, the grain size of a
+particular model will determine the degree to which changes are more or
+less qualitative.  In connectionist models it is also found that stage
+transitions are tentative at first, with the network bobbing between stages
+before committing itself. These behaviours are found in both the cascade
+correlation \cite{shulcasc} and the backpropagation \cite{mcclpara} models
+of the balance scale task, and the model of seriation \cite{mareconn}.
+The conclusion drawn is that ``\ldots connectionist modelling of stages is
+so far quite consistent with the major regularities in the psychological
+literature on cognitive development'' \cite[p.~109]{shulsimu}.
+
+
+\citeA{elmaincr} has looked at the significance of certain kinds of
+development for the learner.  Elman notes that if a child is given just
+positive examples of some data, then only a regular grammar can be learned.
+ However, natural language appears to belong to a more complex class of
+grammars.  Given that children do learn language, the usual assumption is
+that there is something innate which constrains the learner to allow it to
+learn natural language.  Elman uses the fact that the
+learner develops as a constraint which enables it to acquire a
+complex grammar.  In one experiment, a network's memory was allowed to grow
+over time. Specifically, a simple recurrent network (see
+figure~\ref{f:srn}) had its memory ``blanked'' every third or fourth word.
+This was done by resetting the context layer every third or fourth input.
+The memory span was
+increased over time by blanking less often. The network was trained on a
+large, complex grammar which included number agreement, use of direct
+and optional arguments to verbs, and sentence embedding.  Previously it
+had been established that a standard simple recurrent network could not
+learn this grammar.  However, by starting with a small memory span and
+gradually increasing it, the grammar could be learned.
+The network's
+memory limitations advantageously constrained what could be learned, in
+effect reducing the size of the solution space.
+That is ``\ldots they [the memory limitations] act as a filter on the
+input, and focus learning on just that subset of facts which lay the
+foundations for future success'' \cite[p.~8]{elmaincr}.
+This method only applies in structured
+environments, in which fragments of the problem are useful in solving the
+whole problem. These conditions are not met when learning a random set
+of facts.  But Elman comments: ``In practice, the world is not a random
+place, and the sorts of things children have to learn about typically
+contain a great deal of structure'' \citeyear[p.~9]{elmaincr}.
+
+\begin{fancyfigure}
+\centerline{\psfig{file=srn.ps,height=7cm}}
+\caption{The simple recurrent network used by \protect\citeA{elmaincr}.
+Each word in the lexicon is represented as a 26 bit vector.
+The network
+learns to re-encode the input into 10 units.  A sentence is fed one word at
+a time
+to the network.The task is to
+predict the next word in the sentence.
+At each time step the hidden units are activated and
+copied back to the context layer.  Hence, the context layer acts as a
+memory of the network's
+previous state.  As words are fed in, the hidden layer
+uses the current word and the context to build up a representation of the
+sentence.}\label{f:srn}
+\end{fancyfigure}
+
+
+Returning to arithmetic, it seems that the symbolic accounts have mainly
+been applied to the capture of the end-result of learning.
+\citeA[p.~175]{hennwhy} pin-points the problem:
+\begin{ssquote}
+While the production-system framework has yielded a number of useful
+characterisations of children's procedural skills, it has failed so far as
+an attempt to model the process involved in development. Its focus is on
+describing what is learned---the endstate of a learning process or a
+snapshot view---rather than on how malrules are actually generated.
+\end{ssquote}
+This applies to Sierra, where the learner takes a lesson and a rulebase,
+and returns a number of updated rulebases that are consistent with the
+lesson.  There is no consideration of how the new rules are incorporated
+into the solver, or the effects this has on the system's performance.
+VanLehn is developing a theory of impasse-driven learning, but as
+discussed in section~\ref{s:important-impasse}, this
+is not
+yet fully specified. An
+inescapable aspect of connectionism is the gradual nature of learning.
+There does not have to be ``a moment'' when learning ``happens'', and hence
+the snapshot problem of learning in the Young \& O'Shea and the VanLehn
+models is side-stepped \cite[p.~14]{bateconn}.
+
+
+In summary, connectionism looks promising for understanding aspects of
+development. As a {\em metaphor}, connectionism does seem better suited
+to account for development.  \citeA{bateconn} list the features of symbolic
+AI which they believe has hindered the understanding of development:
+discrete representations, absolute rules, learning as programming, and the
+hardware/software distinction (which places few constraints on what can be
+learned).  These points are contrasted with connectionism's distributed
+representations, graded rules, learning by structural change, and software
+as hardware (the network's knowledge is defined by the structure of the
+network). To this list, Bates \& Elman add that the non-linear dynamics
+of connectionism can make networks behave in unexpected ways, producing
+``truly novel outputs''.  Connectionism does seem to have all the right
+properties for capturing development, at least as a metaphor.
+Although the metaphor of production systems is
+attractive for modelling the stages {\em reached} in development (e.g., as
+accumulating rules) connectionist models
+provide insight to the {\em transitions} between stages.
+
+The examples above have
+demonstrated
+that connectionism is useful in understanding development in a number of
+domains. It seems reasonable to suppose that a connectionist treatment
+could do the same for arithmetic.
+
+\subsection{Implementation and theory}
+
+VanLehn built Sierra as a variant form of a production system.  On making
+this decision he comments \citeyear[p.~69]{mindbugs}:
+\begin{ssquote}
+If one had to choose between production systems and
+connection systems as a representation language for knowledge
+about subtraction, then production systems seem much more
+plausible.  Indeed it is not easy to see how a connection system could
+possibly generate the kind of extended, sequential problem-solving
+behaviour that characterizes students solving subtraction problems.
+\end{ssquote}
+It is
+hard to disagree with VanLehn here.  Much of this chapter has outlined
+the benefits of production system models for arithmetic, and they do indeed
+appear to be more plausible.
+However, at least one reason why production systems
+seem better suited is because there have been few
+connectionist models of anything as complicated as arithmetic.
+If it were
+easy to see how networks can generate ``extended, sequential
+problem-solving behaviour'', then perhaps VanLehn would not opt for
+production systems so quickly.  This seems to be borne out
+by \citeauthor{andearch}'s comment that
+connectionist systems ``\ldots have been applied to such a small range of
+tasks that they are totally vague on the issue of control of cognition\ldots
+in which the precision of productions systems is most exact''
+\citeyear[note~2, p.~307]{andearch}.
+
+This section looks at the consequences of selecting a particular
+representation language, and concludes that a {\em theory} can be unduly
+restricted by the language.  If the goal is to model a phenomenon with a
+virtual machine, then although symbolic AI has proved to be useful, there
+is no decisive reason to cling to our current understanding of symbolic
+representation when designing the virtual machine. Section~\ref{s:symbol}
+demonstrates that there are other (connectionist) structures which can be
+considered as ``symbols''.  These new structures and new styles of
+processing provide a different way to think about problems, and it is
+suggested that models of arithmetic will benefit from such ideas.
+
+In selecting production systems, one is typically forced to
+build models that rely on the methods of symbolic AI.\@ Rules, frames,
+plans, searching, and so on, have
+a role to play, but ``the space of computational possibilities has hardly
+been entered'' \cite[p.~260]{bodecomp}.  This leaves the following
+open question: what kinds of computations are going to be useful in
+modelling the mind?  VanLehn has placed his bet on symbolic AI, and this
+has no doubt influenced the development of his {\em theory} of arithmetic.
+But as \citeA[p.~xvi]{zenon} states:
+\begin{ssquote}
+We cannot accept an operation as basic just because it is
+generally available on conventional computers.  The operations built
+into production-model computers were chosen for reasons of economics,
+whereas the operations available to the mind are to be discovered
+empirically.
+\end{ssquote}
+By modelling with an operation available on
+a conventional computer there is a risk of over- or under-estimating that
+operation's importance.  In the worst case the model will
+incorporate highly improbable mechanisms, such as demanding a processor
+which is much faster than the human information processor.
+Another way of looking at this is to say that there is a danger of building
+``cognitive wheels''.  A cognitive wheel is:
+\begin{ssquote}
+Any design proposal in cognitive theory\ldots that is profoundly
+unbiological, however wizardly and elegant it is as a bit of technology.
+
+\hfill \cite[p.~147]{denncogn}
+\end{ssquote}
+As \citeA{clararti,clarbiol} notes, although the mind is treated as a black
+box system, we at least know that it is a ``naturally occurring back box''.
+Hence, a biological metaphor is suggested, in which it is insisted that
+cognitive science ``be concerned with the development and testing of only
+such computational mechanisms as seem plausible in the light of whatever
+biological constraints may be expected to govern emerging natural
+structures'' \cite[p.~47]{clarbiol}.  Of course, these constraints are not
+detailed.
+
+Logically there is no reason why nature could not have evolved a
+conventional computing architecture, in which case symbolic models would
+capture human performance exactly \cite{clarconn,micro}.  In fact, some
+kind of higher-level ``programming'' language seems essential.  As
+\citeA[p.~3]{andearch} notes:
+\begin{ssquote}
+\ldots it is totally implausible that we have evolved special facilities or
+``organs'' for mathematics, chess, computer programming, or sculpture.
+People become expert at activities for which there was no possibility of
+anticipation in our evolutionary history\ldots
+\end{ssquote}
+However, given the kludgey way in which evolution constructs solutions
+\cite{clarklud}, it seems unlikely that the symbolic architecture would be
+{\em just} that one which we use today.
+
+
+Connectionism cannot claim to be empirically discovering the ``operations
+available to the mind'', and is it just as capable of producing cognitive
+wheels as symbolic AI\@. However it is clear that connectionism has changed
+the way we think about representational issues (discussed further in the
+next section). For example, given that connectionism is seen as being most
+applicable to the low-level processes, the following quotation suggests
+that it will also be essential in understanding the higher-level processes:
+\begin{ssquote}
+Whatever the basic principles of language representation, they
+are not likely to be utterly unrelated to the way or ways that
+the nervous system generates visual representations or auditory
+representations, or represents spatial maps or motor planning.
+
+\hfill \cite[p.~42]{churneur}
+\end{ssquote}
+For ``language representation'' read any of your favourite higher-level
+functions.  Although these issues are often dismissed as just
+implementational
+detail, they can have a profound effect on the models begin considered.
+If it turns out that some mechanism, X, is a very cheap computation, it
+could be used frequently. If X were expensive, then it would probably be
+used less often.  So it seems that neither connectionism nor symbolic AI
+alone can expect to explain cognition: there is a sense in which all
+modelling involves forcing a phenomenon
+into the representation language you
+use. Some of the phenomena will fit naturally, and other aspects will not.
+
+
+
+
+There seems no easy way to detect ``unlikely mechanisms'', and it is often
+only with hindsight that specific mechanisms may be declared as begin
+misguided.  One possible example is any mechanism requiring centralized
+control.  Connectionist research and neuroscience has suggested that control
+is distributed in the brain \cite[pp.~134--135]{pdp:4}.  A good candidate
+for a mechanism that is biased by a technology can be found in repair
+theory.  In describing the impasse-repair process, \citeA{repair} comment:
+``When a constraint or precondition gets violated the student, unlike a
+typical computer program, is not apt to just quit'' (p.~381).  What
+\citeauthor{repair} have in mind is an analogy to the computer's error
+handling mechanism. This is made explicit by \citeA{mindbugs}:
+\begin{ssquote}
+%When people reach an impasse\ldots they do not simply halt and
+%issue and error message, as a computer would (p.~7).
+%
+When computers reach an impasse, they do not just turn themselves
+off\ldots Instead they start executing an error-handling routine instead of
+the main program. Similarly when people are executing a procedure and reach
+an impasse, they\ldots handle the impasse in some fashion (p.~41).
+\end{ssquote}
+The idea is that certain errors are detectable in both human and machine,
+and once detected something can be done about the error.  As discussed in
+section~\ref{s:mmods}, this way of thinking has been successful in modelling
+arithmetic.  However, the analogy breaks down for connectionism.  The
+notion of an impasse is ill-defined for networks; networks
+will continue to produce output whenever
+they are given input.  Thanks to properties
+such as similarity-based processing and automatic generalization, networks
+never ``get stuck'', unable to continue processing.  This throws a whole
+new light on the impasse-repair mechanism: perhaps networks can
+automatically repair undefined situations just by virtue of having the
+right kind of architecture to start with---being a connectionist
+network, rather than a production system.  All this depends, of course, on
+what networks actually do (chapter~\ref{c:fsm}), and on the psychological
+importance of impasses (discussed in section~\ref{s:important-impasse}).
+
+The point to note here is simply that particular technologies suggest
+certain kinds of models and theories, and other technologies can force
+different interpretations. Despite his attempt to isolate his theory from
+his model, VanLehn concedes that at least one part of his argument ``\ldots
+relies on concepts and distinctions from traditional serial computer
+science\ldots'' \cite[p.~212]{mindbugs}. He adds: ``\ldots but those
+distinctions are rapidly changing as parallel computer science, especially
+connectionism, develops''.
+
+
+
+
+
+\s$5&&&&&&15&&&&&c&3&&23&&49&&&&&&&&&&&&&&&&&&&&& \\
+5$\times$2&&&&&2&15&&&&&c&3&&23&&50&&&&&&&&&&&&&&&&&&&&& \\
+2$\times$6&&&&&&&105&&&&&c&8&&&25&&&&&&&&&&&&&&&&&&&&& \\
+6$\times$2&&&&&&&115&&&&&c&8&&&25&&&&&&&&&&&&2&&&&&&&&& \\
+2$\times$7&&&&&&&12&44&&&&48&c&&&&&&&&&&&&&&&3&&&&&&&&& \\
+7$\times$2&&&&&&&4&49&&&&49&c&&&&&&&&&&&&&&&4&&&&&&&&& \\
+2$\times$8&&5&&&&&&&41&25&&&25&&c&24&&&&&&&&&&&&&&&&&&&&4& \\
+8$\times$2&&8&&&&&&&44&25&&&25&&c&25&&&&&&&&&&&&&&&&&&&1&8& \\
+2$\times$9&&&&&&&&&&&&10&&&&c&&&&&34&&&&&&&&&&&&&&&& \\
+9$\times$2&&&&&&&&&&2&&3&&&&c&&&&&41&&&&&&&&&&&&&&&& \\
+3$\times$3&25&&&3&&&&&&c&&&&&&&&&&&50&&&&&&&&&&&&&&&&23\\
+3$\times$4&18&&&&&&&&&&&c&&&&25&&&&&32&24&&&&&&&&&&&&&&& \\
+4$\times$3&18&&&&&&&&&&&c&&&&22&&&&&38&20&&&&&&&&&&&&&&& \\
+3$\times$5&&&&&&&6&&&&23&75&&c&&25&&&25&&&&&&&&&&&&&&&&&& \\
+5$\times$3&&&&&&&4&&&&23&77&&c&&25&&&25&&&&&&&&&&&&&&&&&& \\
+3$\times$6&&&&&&&29&&&&&85&&&&c&&25&&&&&&&&&&5&&&&&&&&& \\
+6$\times$3&&&&&&&27&&&&&75&&&&c&&25&5&&&&&&&&&3&&&&&&&&& \\
+3$\times$7&17&&&&&&&&&&&60&&&&20&&c&16&&&47&&&&&&2&&&&&&7&&& \\
+7$\times$3&15&&&&&&&&&&&61&&&&15&&c&18&&&47&&&&&&2&&&&&&12&&& \\
+3$\times$8&&&&&&&&&&&&&&&&&&&c&&76&&&&&&&&&&&&&&&10&16\\
+8$\times$3&&&&&&&&&&&&&&&&&&&c&&72&&&&&&&&&&&&&&&5&13\\
+3$\times$9&&&&&&&&&&3&&&&&&14&&&6&&c&&&&&&&&&&&&&&&&5\\
+9$\times$3&&&&&&&&&&2&&&&&&15&&&8&&c&&&&&&&&&&&&&&&&5\\
+4$\times$4&&11&&&&&&&&29&&25&&7&c&&&&&38&&&&&&35&&&&&&&&&&& \\
+4$\times$5&11&&&&&&&&&&&&&25&&&c&&&&&&24&&&&&&19&&&&&&&& \\
+5$\times$4&2&&&&&&&&&&&&&25&&&c&&&&&&25&&&&&&26&&&&&&&& \\
+4$\times$6&11&&&&&&&&&&&10&&&&&25&&c&&&&9&&&&&4&&&&&&&&& \\
+6$\times$4&7&&&&&&&&&&&16&&&&&25&&c&&&&34&&&&&8&&&&&&&&& \\
+4$\times$7&29&&&&&&&&&&&&&&&&&29&25&&&c&&&&&&10&&&25&&&&&& \\
+7$\times$4&30&&&&&&&&&&&&&&&&&30&25&&&c&&&&&&14&&&25&&&&&& \\
+4$\times$8&&&&&&&&&&&&&&&34&&&&2&&&&&c&&&21&&25&&&&&&&& \\
+8$\times$4&&&&&&&&&&&&&&&33&&&&5&&&&&c&&&17&&25&&&&&&&2& \\
+4$\times$9&&&&&&&&&&&&&&&&&&&&&40&&&&&c&&&25&&&3&&&&& \\
+9$\times$4&&&&&&&&&&&&&&&&&&&&&44&&&&&c&&&25&&&2&&&&& \\
+5$\times$5&7&&&&&&&&&&&&&&&&&&&c&&&&&&2&&&38&&&&&&&& \\
+5$\times$6&&&&&&&&&&&&&&&&&&&&&&&c&&&&&&&&&9&&&&& \\
+6$\times$5&&&&&&&&&&&&&&&&&&&&&&&c&&&&&&&&&14&&&&& \\
+5$\times$7&25&&&&&&&&&&&&&&&&&&&&&&25&&c&&&25&&&&&&&&& \\
+7$\times$5&25&&&&&&&&&&&&&&&&&&&&&&25&&c&&&25&&&&&&&&& \\
+5$\times$8&&&&&&&&&&&&&&&&&&&&&&&&&&&c&&80&&&&&&&& \\
+8$\times$5&&&&&&&&&&&&&&&&&&&&&&&&&&&c&&68&&&&&&&& \\
+5$\times$9&&&&&&&&&&&&&&&&&&&&&&&&&&&&&c&&&25&&&&& \\
+9$\times$5&&&&&&&&&&&&&&&&&&&&&&&&&&&&&c&&&23&&&&& \\
+6$\times$6&23&&&&&&&&&19&&&&&&&&&&&5&&&&&c&&&17&9&&52&&&&& \\
+6$\times$7&&&&&&&&&&&&&&&&&&&&&&&&&&&&c&&23&&18&&&&& \\
+7$\times$6&&&&&&&&&&&&&&&&&&&&&&&&&&&&c&&21&&16&&&&& \\
+6$\times$8&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&c&&87&&&&& \\
+8$\times$6&&&&&&&&&&&&&&&&&&&&&&&&&&&&8&&c&&88&&&&& \\
+6$\times$9&&&&&&&&&&&&&&&&&&&&&&&&&&&1&&&&&c&&&&& \\
+9$\times$6&&&&&&&&&&&&&&&&&&&&&&&&&&&1&&&&&c&&&&& \\
+7$\times$7&46&&&&&&&&&&&&&&&&&&&&&&&&&25&&24&&25&c&5&15&7&&& \\
+7$\times$8&25&&&&&&&&&&&&&&&&&&&&&&&&&&&&&27&10&&c&90&&& \\
+8$\times$7&25&&&&&&&&&&&&&&&&&&&&&&&&&&&&&34&14&&c&89&&& \\
+7$\times$9&14&&&&&&&&&&&&&&&&&&&&&&&&&&10&&&9&&16&&c&&& \\
+9$\times$7&13&&&&&&&&&&&&&&&&&&&&&&&&&&14&&&10&&13&&c&&& \\
+8$\times$8&&9&&&&&&&23&&&&&&&&&&&&&&&&&&&&&9&10&&&&c&50&31\\
+8$\times$9&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&23&&c& \\
+9$\times$8&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&24&&c& \\
+9$\times$9&&&&&&&&&&&&&&&&&&&&&&&&&&&&&9&&&&&&7&19&c\\
+\end{tabular}
+\caption{Errors of 20 ``skewed'' networks.  No errors were made on
+zero problems, and these have been omitted from the table. ``c'' means
+correct answer, and on average represents 423 correct recalls from 500
+trials.}
+\label{f:netematzn}
+\end{fancytable}
+%\end{table}
+                                                                                                                                                                                                                                                                                                                                                                                                    richardd/papers/dphil/conc.aux                                                                         644     517     517         2072  5440156315  16417  0                                                                                                    ustar   richardd                        richardd                                                                                                                                                                                                               \relax 
+\citation{mcclmath}
+\@writefile{toc}{\string\contentsline\space {chapter}{Chapter \string\numberline\space {6}Summary}{162}}
+\@writefile{lof}{\string\addvspace\space {10\p@ }}
+\@writefile{lot}{\string\addvspace\space {10\p@ }}
+\@writefile{toc}{\string\contentsline\space {section}{\string\numberline\space {6.1}Memory for arithmetic facts}{162}}
+\@writefile{toc}{\string\contentsline\space {section}{\string\numberline\space {6.2}Multicolumn arithmetic}{163}}
+\citation{suppproc}
+\citation{rosesymb}
+\@writefile{toc}{\string\contentsline\space {section}{\string\numberline\space {6.3}Future work}{165}}
+\global\@namedef{cp@conc}{
+\setcounter{page}{166}
+\setcounter{equation}{0}
+\setcounter{enumi}{2}
+\setcounter{enumii}{0}
+\setcounter{enumiii}{0}
+\setcounter{enumiv}{0}
+\setcounter{footnote}{0}
+\setcounter{mpfootnote}{0}
+\setcounter{part}{2}
+\setcounter{chapter}{6}
+\setcounter{section}{3}
+\setcounter{subsection}{0}
+\setcounter{subsubsection}{0}
+\setcounter{paragraph}{0}
+\setcounter{subparagraph}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\setcounter{APAenum}{0}
+}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                      richardd/papers/dphil/miscount.p                                                                      

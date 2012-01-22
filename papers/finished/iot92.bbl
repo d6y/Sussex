@@ -1,0 +1,112 @@
+\begin{thebibliography}{}
+\itemsep=0pt\parsep=0pt\bibleftmargin=0pt\parskip=0.5mm
+
+\bibitem[\protect\BCAY{Anderson, Spoehr, \BBA\ Bennett}{Anderson
+  et~al.}{1991}]{andestud}
+Anderson, J.~A., Spoehr, K.~T., \BBA\ Bennett, D.~J. \BBOP1991\BBCP.
+\newblock \BBOQ A study of numerical perversity: \uppercase{T}eaching
+  arithmetic to a neural network\BBCQ\
+\newblock \BTR\ 91--3, Department of Cognitive and Linguistic Sciences, Brown
+  University.
+\newblock To appear in Levine, D. S. and Aparicio, M. (eds) {\em Neural
+  Networks for Knowledge Representation and Inference}, Lawrence Erlbaum
+  Associates, Hillsdate, NJ.
+%
+\bibitem[\protect\BCAY{Botham \BBA\ Purchase}{Botham \BBA\
+  Purchase}{1992}]{bothwhy}
+Botham, P.\BBACOMMA\  \BBA\ Purchase, I. \BBOP1992\BBCP.
+\newblock \BBOQ Why laboratory rats are here to stay\BBCQ\
+\newblock {\Bem New Scientist}, {\Bem 134\/}(1819), 29--30.
+%
+\bibitem[\protect\BCAY{Campbell \BBA\ Graham}{Campbell \BBA\
+  Graham}{1985}]{camp85}
+Campbell, J. I.~D.\BBACOMMA\  \BBA\ Graham, D.~J. \BBOP1985\BBCP.
+\newblock \BBOQ Mental multiplication skill: \uppercase{S}tructure, process,
+  and acquisition\BBCQ\
+\newblock {\Bem Canadian Journal of Psychology}, {\Bem 39\/}(2), 338--366.
+%
+\bibitem[\protect\BCAY{Clark}{Clark}{1989}]{micro}
+Clark, A. \BBOP1989\BBCP.
+\newblock {\Bem Microcognition: Philosophy, Cognitive Science, and Parallel
+  Distributed Processing}.
+\newblock MIT Press, Cambridge, MA.
+%
+\bibitem[\protect\BCAY{Dallaway}{Dallaway}{1992a}]{dallmemo}
+Dallaway, R.~Z. \BBOP1992a\BBCP.
+\newblock \BBOQ Memory for multiplication facts\BBCQ\
+\newblock In {\Bem Proceedings of the Fourteenth Annual Conference of the
+  Cognitive Science Society}, \BPGS\ 558--563. Lawrence Erlbaum Associates,
+  Hillsdale, NJ.
+%
+\bibitem[\protect\BCAY{Dallaway}{Dallaway}{1992b}]{dallspee}
+Dallaway, R.~Z. \BBOP1992b\BBCP.
+\newblock \BBOQ The speed and slips of mental arithmetic\BBCQ\
+\newblock In Aleksander, I.\BBACOMMA\  \BBA\ Taylor, J.\BEDS, {\Bem Artificial
+  Neural Networks \uppercase{II}: \uppercase{P}roceedings of the International
+  Conference on Artificial Neural Networks}, \BPGS\ 1369--1372. Elsevier
+  Science Publishers B.V.
+%
+\bibitem[\protect\BCAY{Hanson \BBA\ Burr}{Hanson \BBA\ Burr}{1990}]{hanswhat}
+Hanson, S.~J.\BBACOMMA\  \BBA\ Burr, D.~J. \BBOP1990\BBCP.
+\newblock \BBOQ What connectionist models learn: \uppercase{L}earning and
+  representation in connectionist networks\BBCQ\
+\newblock {\Bem Behavioral and Brain Sciences}, {\Bem 13}, 471--518.
+%
+\bibitem[\protect\BCAY{{Hendrick-Jansen}}{{Hendrick-Jansen}}{1992}]{hendcuri}
+{Hendrick-Jansen}, H. \BBOP1992\BBCP.
+\newblock \BBOQ The curious case of the horseshoe crab\BBCQ\
+\newblock This volume.
+%
+\bibitem[\protect\BCAY{McCloskey}{McCloskey}{1991}]{mcclnetw}
+McCloskey, M. \BBOP1991\BBCP.
+\newblock \BBOQ Networks and theories: \uppercase{T}he place of connectionism
+  in cognitive science\BBCQ\
+\newblock {\Bem Psychological Science}, {\Bem 2\/}(6), 387--395.
+%
+\bibitem[\protect\BCAY{McCloskey, Aliminosa, \BBA\ Sokol}{McCloskey
+  et~al.}{1991}]{mcclfact}
+McCloskey, M., Aliminosa, D., \BBA\ Sokol, S.~M. \BBOP1991\BBCP.
+\newblock \BBOQ Facts, rules, and procedures in normal calculation:
+  \uppercase{E}vidence from multiple single-patient studies of impared
+  arithmetic fact retrieval\BBCQ\
+\newblock {\Bem Brain and Cognition}, {\Bem 17}, 154--203.
+%
+\bibitem[\protect\BCAY{McCloskey \BBA\ Lindermann}{McCloskey \BBA\
+  Lindermann}{1992}]{mcclmath}
+McCloskey, M.\BBACOMMA\  \BBA\ Lindermann, A.~M. \BBOP1992\BBCP.
+\newblock \BBOQ \uppercase{MATHNET}: \uppercase{P}reliminary results from a
+  distributed model of arithmetic fact retrieval\BBCQ\
+\newblock In Campbell, J. I.~D.\BED, {\Bem The Nature and Origins of
+  Mathematical Skills}. Elsevier Science Publishers B.V.
+%
+\bibitem[\protect\BCAY{Minsky \BBA\ Papert}{Minsky \BBA\
+  Papert}{1988}]{minsperc}
+Minsky, M.~L.\BBACOMMA\  \BBA\ Papert, S.~A. \BBOP1988\BBCP.
+\newblock {\Bem Perceptrons: An Introduction to Computational Geometry\/}
+  (Expanded \BEd).
+\newblock MIT Press, Cambridge, MA.
+%
+\bibitem[\protect\BCAY{Newell \BBA\ Simon}{Newell \BBA\ Simon}{1981}]{newecomp}
+Newell, A.\BBACOMMA\  \BBA\ Simon, H.~A. \BBOP1981\BBCP.
+\newblock \BBOQ Computer science as empirical inquiry: Symbols and search\BBCQ\
+\newblock In Haugeland, J.\BED, {\Bem Mind Design: Philosophy, Psychology,
+  Artificial Intelligence}, \BCH~1. MIT Press, Cambridge, MA.
+%
+\bibitem[\protect\BCAY{Resnick}{Resnick}{1983}]{resndeve}
+Resnick, L.~B. \BBOP1983\BBCP.
+\newblock \BBOQ A developmental theory of number understanding\BBCQ\
+\newblock In Ginsburg, H.~P.\BED, {\Bem The Development of Mathematical
+  Thinking}, \BCH~3. Academic Press, Inc., New York, NY.
+%
+\bibitem[\protect\BCAY{Smolensky}{Smolensky}{1988}]{ptc}
+Smolensky, P. \BBOP1988\BBCP.
+\newblock \BBOQ On the proper treatment of connectionism\BBCQ\
+\newblock {\Bem Behavioral and Brain Sciences}, {\Bem 11}, 1--74.
+%
+\bibitem[\protect\BCAY{Suppes}{Suppes}{1990}]{suppprob}
+Suppes, P. \BBOP1990\BBCP.
+\newblock \BBOQ Problems of extension, representation, and computational
+  irreducibility\BBCQ\
+\newblock {\Bem Behavioral and Brain Sciences}, {\Bem 13}, 507--508.
+\newblock Commentry on \citeA{hanswhat}.
+\end{thebibliography}

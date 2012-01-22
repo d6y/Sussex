@@ -1,0 +1,1262 @@
+;;; LOADING /csuna/home/richardd/pop/init.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3.p
+;;; Loading PDP3 utilities
+;;; LOADING /csuna/home/richardd/fsm/maths/unseen.p
+;;; LOADING /csuna/home/richardd/fsm/maths/primitives.p
+;;; LOADING /csuna/home/richardd/fsm/maths/n_column_addition/addition.p
+;;; LOADING /csuna/home/richardd/fsm/maths/n_column_multiplication/multiplicat
+	ion.p
+;;; LOADING /csuna/home/richardd/fsm/maths/n_column_multiplication/one_row_car
+	ry_raise.p
+;;; LOADING /csuna/home/richardd/fsm/maths/n_column_multiplication/n_row_carry
+	_raise.p
+** [CHECKING 303 a FILES]
+** Mon Mar 15 14:47:05 GMT 1993 
+
+
+** [303 a - 15 -----------------------------------------------------------]
+[~/fsm/weights/303a-15.wts x 12 5 ok]
+[~/fsm/weights/303a-15.wts x 12 9 ok]
+[------ DIFFERENT -------]
+[x 1 11]
+[[- - - 1] [- - - -] [- - 1 1] [- - - -] [- = = =] [- = = =] [- - - 1]
+	 [- - - -] [- - - -] [- - - -] [- - - -] [- - - -] [- - - -] [-
+	 - - -]]
+[SMU PSH JTR MUL JAS UNI DON]
+[SMU PSH JTR MUL JAS UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI RUL ZAC SAD
+	 ADD DWN ADD DWN DWN UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 11 11]
+[[- - - 1 1] [- - - - -] [- - - 1 1] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 2 1] [- - - - -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL DWN ADD JAS RDC UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN
+	 ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC TNC DWN
+	 ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 1 111]
+[[- - - - 1] [- - - - -] [- - 1 1 1] [- - - - -] [- = = = =] [- = = = =]
+	 [- - - - 1] [- - - - -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS UNI DON]
+[SMU PSH JTR MUL JAS UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI NAR MKZ MKZ
+	 NBC PSH JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN ADD DWN ADD DWN
+	 DWN UNI ZAC TNC DWN ADD DWN ADD DWN DWN RDC UNI ZAC TNC DWN DWN
+	 ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 15]
+[[- - - 1 2] [- - - - -] [- - - 1 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD
+	 ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC
+	 TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 19]
+[[- - - 1 2] [- - - - -] [- - - 1 9] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS RDC UNI
+	 RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN
+	 RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 50]
+[[- - - 1 2] [- - - - -] [- - - 5 0] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 5 0] [- - - - -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL DWN ADD JAS RDC UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI RUL ZAC SAD
+	 ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC
+	 TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 55]
+[[- - - 1 2] [- - - - -] [- - - 5 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI RUL
+	 ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC
+	 UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 59]
+[[- - - 1 2] [- - - - -] [- - - 5 9] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC
+	 ADD UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 90]
+[[- - - 1 2] [- - - - -] [- - - 9 0] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 9 0] [- - - - -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL DWN ADD JAS RDC UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN
+	 RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN
+	 RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 95]
+[[- - - 1 2] [- - - - -] [- - - 9 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN
+	 RHT UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC MKC UNI ZAC TNC DWN ADD DWN DWN RDC ADD UNI ZAC TNC
+	 DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 99]
+[[- - - 1 2] [- - - - -] [- - - 9 9] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC
+	 ADD LFT TEN RHT UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC
+	 ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI
+	 ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 111 11]
+[[- - - 1 1 1] [- - - - - -] [- - - - 2 1] [- - - - - -] [- - = = = =]
+	 [- - = = = =] [- - - - - 1] [- - - - - -] [- - - - - -] [- - -
+	 - - -] [- - - - - -] [- - - - - -] [- - - - - -] [- - - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL DWN ADD RDC RDC UNI IAC ITC DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN ADD DWN
+	 DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+
+
+** [303 a - 16 -----------------------------------------------------------]
+[~/fsm/weights/303a-16.wts x 12 5 ok]
+[~/fsm/weights/303a-16.wts x 12 9 ok]
+[------ DIFFERENT -------]
+[x 1 11]
+[[- - - 1] [- - - -] [- - 1 1] [- - - -] [- = = =] [- = = =] [- - - 1]
+	 [- - - -] [- - - -] [- - - -] [- - - -] [- - - -] [- - - -] [-
+	 - - -]]
+[SMU PSH JTR MUL JAS UNI DON]
+[SMU PSH JTR MUL JAS UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI RUL ZAC SAD
+	 ADD DWN ADD DWN DWN UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 11 11]
+[[- - - 1 1] [- - - - -] [- - - 1 1] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 2 1] [- - - - -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL DWN ADD JAS UNI UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN
+	 ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC TNC DWN
+	 ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 1 111]
+[[- - - - 1] [- - - - -] [- - 1 1 1] [- - - - -] [- = = = =] [- = = = =]
+	 [- - - - 1] [- - - - -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS UNI DON]
+[SMU PSH JTR MUL JAS UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI NAR MKZ MKZ
+	 NBC PSH JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN ADD DWN ADD DWN
+	 DWN UNI ZAC TNC DWN ADD DWN ADD DWN DWN RDC UNI ZAC TNC DWN DWN
+	 ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 15]
+[[- - - 1 2] [- - - - -] [- - - 1 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD
+	 ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC
+	 TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 19]
+[[- - - 1 2] [- - - - -] [- - - 1 9] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS RDC UNI
+	 RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN
+	 RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 50]
+[[- - - 1 2] [- - - - -] [- - - 5 0] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 5 0] [- - - - -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL DWN ADD JAS UNI UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI RUL ZAC SAD
+	 ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC
+	 TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 55]
+[[- - - 1 2] [- - - - -] [- - - 5 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI RUL
+	 ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC
+	 UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 59]
+[[- - - 1 2] [- - - - -] [- - - 5 9] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC
+	 ADD UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 90]
+[[- - - 1 2] [- - - - -] [- - - 9 0] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 9 0] [- - - - -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL DWN ADD JAS UNI UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN
+	 RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN
+	 RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 95]
+[[- - - 1 2] [- - - - -] [- - - 9 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN
+	 RHT UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC MKC UNI ZAC TNC DWN ADD DWN DWN RDC ADD UNI ZAC TNC
+	 DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 99]
+[[- - - 1 2] [- - - - -] [- - - 9 9] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC
+	 ADD LFT TEN RHT UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC
+	 ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI
+	 ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 111 11]
+[[- - - 1 1 1] [- - - - - -] [- - - - 1 1] [- - - - - -] [- - = = = =]
+	 [- - = = = =] [- - - - 2 1] [- - - - - -] [- - - - - -] [- - -
+	 - - -] [- - - - - -] [- - - - - -] [- - - - - -] [- - - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL DWN ADD DWN DWN RDC UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN ADD DWN
+	 DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+
+
+** [303 a - 17 -----------------------------------------------------------]
+[~/fsm/weights/303a-17.wts x 12 5 ok]
+[~/fsm/weights/303a-17.wts x 12 9 ok]
+[~/fsm/weights/303a-17.wts x 1 11 ok]
+[------ DIFFERENT -------]
+[x 11 11]
+[[- - - 1 1] [- - - - -] [- - - 1 1] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 1 1] [- - - - -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC TNC DWN DWN JAS RDC UNI UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN
+	 ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC TNC DWN
+	 ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 1 111]
+[[- - - - 4] [- - - - -] [- - 1 1 1] [- - - - -] [- = = = =] [- = = = =]
+	 [- - - - 1] [- - - - -] [- - - 1 0] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI IAC IAC JTR
+	 MUL UNI ADD UNI ADD UNI ADD DWN ADD DWN DWN ADD DWN UNI DON]
+[SMU PSH JTR MUL JAS UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI NAR MKZ MKZ
+	 NBC PSH JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN ADD DWN ADD DWN
+	 DWN UNI ZAC TNC DWN ADD DWN ADD DWN DWN RDC UNI ZAC TNC DWN DWN
+	 ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 15]
+[[- - - 1 2] [- - - - -] [- - - 1 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD
+	 ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC
+	 TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 19]
+[[- - - 1 2] [- - - - -] [- - - 1 9] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS RDC UNI
+	 RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN
+	 RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 50]
+[[- - - 1 2] [- - - - -] [- - - 5 0] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 0 0] [- - - - -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC TNC DWN DWN JAS RDC UNI UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI RUL ZAC SAD
+	 ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC
+	 TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 55]
+[[- - - 1 2] [- - - - -] [- - - 5 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI RUL
+	 ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC
+	 UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 59]
+[[- - - 1 2] [- - - - -] [- - - 5 9] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC
+	 ADD UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 90]
+[[- - - 1 2] [- - - - -] [- - - 9 0] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 0 0] [- - - - -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC TNC DWN DWN JAS RDC UNI UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN
+	 RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN
+	 RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 95]
+[[- - - 1 2] [- - - - -] [- - - 9 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN
+	 RHT UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC MKC UNI ZAC TNC DWN ADD DWN DWN RDC ADD UNI ZAC TNC
+	 DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 99]
+[[- - - 1 2] [- - - - -] [- - - 9 9] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC
+	 ADD LFT TEN RHT UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC
+	 ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI
+	 ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 111 11]
+[[- - - 1 1 1] [- - - - - -] [- - - - 1 1] [- - - - - -] [- - = = = =]
+	 [- - = = = =] [- - 0 1 - 1] [- - - - - -] [= = = = = =] [= = =
+	 = = =] [- - 1 - 0 2] [- - - - - -] [- - - - 0 -] [- - - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC TNC DWN DWN ZAC RDC UNI UNI RUL SAD ADD DWN
+	 DWN UNI ZAC TNC DWN DWN ADD UNI ZAC TNC TNC ZAC UNI UNI UNI SAD
+	 ADD DWN DWN ADD UNI ZAC TNC DWN DWN ADD DWN UNI IAC ITC JTR MUL
+	 DWN JAS RDC UNI TNC ADD DWN DWN RDC UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN ADD DWN
+	 DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+
+
+** [303 a - 18 -----------------------------------------------------------]
+[~/fsm/weights/303a-18.wts x 12 5 ok]
+[~/fsm/weights/303a-18.wts x 12 9 ok]
+[~/fsm/weights/303a-18.wts x 1 11 ok]
+[~/fsm/weights/303a-18.wts x 11 11 ok]
+[------ DIFFERENT -------]
+[x 1 111]
+[[- - - - 1] [- - - - -] [- - 1 1 1] [- - - - -] [- = = = =] [- = = = =]
+	 [- - - - 1] [- - - - -] [- - - 1 0] [- - - - -] [= = = = =] [=
+	 = = = =] [- - 0 1 1] [- - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI RUL ZAC SAD
+	 ADD DWN ADD DWN DWN UNI ZAC TNC DWN ADD DWN DWN RDC UNI ZAC TNC
+	 DWN DWN DWN RDC UNI DON]
+[SMU PSH JTR MUL JAS UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI NAR MKZ MKZ
+	 NBC PSH JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN ADD DWN ADD DWN
+	 DWN UNI ZAC TNC DWN ADD DWN ADD DWN DWN RDC UNI ZAC TNC DWN DWN
+	 ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 15]
+[[- - - 1 2] [- - - - -] [- - - 1 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD
+	 ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC
+	 TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 19]
+[[- - - 1 2] [- - - - -] [- - - 1 9] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS RDC UNI
+	 RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN
+	 RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 50]
+[[- - - 1 2] [- - - - -] [- - - 5 0] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 0 0] [- - - - -] [- - 6 0 0] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC UNI IAC LFT JTR MUL JAS RDC RDC UNI TEN ITC JTR MUL
+	 JAS ADD UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI RUL ZAC SAD
+	 ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC
+	 TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 55]
+[[- - - 1 2] [- - - - -] [- - - 5 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI RUL
+	 ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC
+	 UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 59]
+[[- - - 1 2] [- - - - -] [- - - 5 9] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC
+	 ADD UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 90]
+[[- - 0 1 2] [- - - - -] [- 0 - 9 0] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 0 0] [- - - - -] [- 0 1 8 0] [1 - - - -] [= = = = =] [=
+	 = = = =] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC UNI IAC LFT JTR MUL JAS RDC RDC UNI TEN ITC JTR MUL
+	 JAS ADD LFT MKC RDC UNI IAC ITC JTR MUL UNI IAC ITC JTR IAC JAS
+	 JTR ZAC IAC JTR RUL DWN UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN
+	 RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN
+	 RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 95]
+[[- - - 1 2] [- - - - -] [- - - 9 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN
+	 RHT UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC MKC UNI ZAC TNC DWN ADD DWN DWN RDC ADD UNI ZAC TNC
+	 DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 99]
+[[- - - 1 2] [- - - - -] [- - - 9 9] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC
+	 ADD LFT TEN RHT UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC
+	 ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI
+	 ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 111 11]
+[[- - - 1 1 1] [- - - - - -] [- - - - 1 1] [- - - - - -] [- - = = = =]
+	 [- - = = = =] [- - - 1 1 1] [- - - - - -] [- - - - - -] [- - -
+	 - - -] [- - - - - -] [- - - - - -] [- - - - - -] [- - - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN ADD DWN
+	 DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+
+
+** [303 a - 19 -----------------------------------------------------------]
+[~/fsm/weights/303a-19.wts x 12 5 ok]
+[~/fsm/weights/303a-19.wts x 12 9 ok]
+[~/fsm/weights/303a-19.wts x 1 11 ok]
+[~/fsm/weights/303a-19.wts x 11 11 ok]
+[~/fsm/weights/303a-19.wts x 1 111 ok]
+[------ DIFFERENT -------]
+[x 12 15]
+[[- - - 1 2] [- - - - -] [- - - 1 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD
+	 ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC
+	 TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 19]
+[[- - - 1 2] [- - - - -] [- - - 1 9] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS RDC UNI
+	 RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN
+	 RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 50]
+[[- - - 1 2] [- - - - -] [- - - 5 0] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 0 0] [- - - - -] [- - 1 0 0] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC UNI LFT TEN RHT JTR JTR JAS JAS ADD LFT DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI RUL ZAC SAD
+	 ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC
+	 TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 55]
+[[- - - 1 2] [- - - - -] [- - - 5 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI RUL
+	 ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC
+	 UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 59]
+[[- - - 1 2] [- - - - -] [- - - 5 9] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC
+	 ADD UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 90]
+[[- - - 1 2] [- - - - -] [- - - 9 0] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 0 0] [- - - - -] [- - 1 8 0] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC UNI LFT TEN RHT JTR JTR JAS JAS ADD LFT DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN
+	 RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN
+	 RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 95]
+[[- - - 1 2] [- - - - -] [- - - 9 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN
+	 RHT UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC MKC UNI ZAC TNC DWN ADD DWN DWN RDC ADD UNI ZAC TNC
+	 DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 99]
+[[- - - 1 2] [- - - - -] [- - - 9 9] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC
+	 ADD LFT TEN RHT UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC
+	 ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI
+	 ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 111 11]
+[[- - - 1 1 1] [- - - - - -] [- - - - 1 1] [- - - - - -] [- - = = = =]
+	 [- - = = = =] [- - - - 1 1] [- - - - - -] [= = = = = =] [= = =
+	 = = =] [- 1 8 0 9 -] [- - - - - -] [- - - - - -] [- - - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC JTR MUL JAS
+	 ADD DWN DWN RDC UNI ZAC TNC DWN DWN RDC UNI ZAC ITC JTR MUL JAS
+	 ADD DWN DWN ADD UNI MUL JAS ADD DWN DWN ADD UNI UNI TNC TNC ADD
+	 DWN DWN LFT TEN RHT UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN ADD DWN
+	 DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+
+
+** [303 a - 20 -----------------------------------------------------------]
+[~/fsm/weights/303a-20.wts x 12 5 ok]
+[~/fsm/weights/303a-20.wts x 12 9 ok]
+[~/fsm/weights/303a-20.wts x 1 11 ok]
+[~/fsm/weights/303a-20.wts x 11 11 ok]
+[~/fsm/weights/303a-20.wts x 1 111 ok]
+[~/fsm/weights/303a-20.wts x 12 15 ok]
+[------ DIFFERENT -------]
+[x 12 19]
+[[- - - 1 2] [- - - - -] [- - - 1 9] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS RDC UNI
+	 RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN
+	 RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 50]
+[[- - - 1 2] [- - - - -] [- - - 5 0] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 0 0] [- - - - -] [- - 1 0 0] [- - - - -] [- - 1 0 0] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC LFT TEN RHT UNI NAR MKZ NBC LFT JTR MUL JAS RDC LFT
+	 TEN RHT UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI RUL ZAC SAD
+	 ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC
+	 TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 55]
+[[- - - 1 2] [- - - - -] [- - - 5 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- - 0 - 0] [- - - - -] [= = = = =] [=
+	 = = = =] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC LFT TEN RHT JTR MUL JAS RDC LFT ADD RHT LFT
+	 ZAC UNI MKZ RUL ZAC DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI RUL
+	 ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC
+	 UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 59]
+[[- - - 1 2] [- - - - -] [- - - 5 9] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC
+	 ADD UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 90]
+[[- - - 1 2] [- - - - -] [- - - 9 0] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 0 0] [- - - - -] [- - 1 8 0] [- - - - -] [- - 1 8 0] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC LFT TEN RHT UNI NAR MKZ NBC LFT JTR MUL JAS RDC LFT
+	 TEN RHT UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN
+	 RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN
+	 RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 95]
+[[- - - 1 2] [- - - - -] [- - - 9 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- - 0 - 0] [- - - - -] [= = = = =] [=
+	 = = = =] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC LFT TEN RHT JTR MUL JAS RDC LFT ADD RHT LFT
+	 ZAC UNI MKZ RUL ZAC DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN
+	 RHT UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC MKC UNI ZAC TNC DWN ADD DWN DWN RDC ADD UNI ZAC TNC
+	 DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 99]
+[[- - - 1 2] [- - - - -] [- - - 9 9] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - - - -] [- - - - -] [- - - - -] [-
+	 - - - -] [- - - - -] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC
+	 ADD LFT TEN RHT UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC
+	 ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI
+	 ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 111 11]
+[[- - - 1 1 1] [- - - - - -] [- - - - 1 1] [- - - - - -] [- - = = = =]
+	 [- - = = = =] [- - - - 1 1] [- - - - - -] [= = = = = =] [= = =
+	 = = =] [- - - 0 1 0] [- - - - - -] [- - - - - -] [- - - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC JTR MUL JAS
+	 ADD ADD ADD ZAC NAR DWN UNI ZAC TNC ADD DWN DWN RDC UNI ZAC TNC
+	 DWN DWN RDC UNI IAC TNC DWN DWN ZAC DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN ADD DWN
+	 DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+
+
+** [303 a - 21 -----------------------------------------------------------]
+[~/fsm/weights/303a-21.wts x 12 5 ok]
+[~/fsm/weights/303a-21.wts x 12 9 ok]
+[~/fsm/weights/303a-21.wts x 1 11 ok]
+[~/fsm/weights/303a-21.wts x 11 11 ok]
+[~/fsm/weights/303a-21.wts x 1 111 ok]
+[~/fsm/weights/303a-21.wts x 12 15 ok]
+[~/fsm/weights/303a-21.wts x 12 19 ok]
+[------ DIFFERENT -------]
+[x 12 50]
+[[- - - 1 2] [- - - - -] [- - - 5 0] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 0 0] [- - - - -] [- - 1 0 0] [- - - - -] [- - 0 0 0] [-
+	 - - - -] [= = = = =] [= = = = =]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC LFT TEN RHT UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI
+	 IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN ADD DWN ADD DWN
+	 DWN UNI ZAC TNC ADD DWN ADD DWN ADD DWN DWN RDC UNI ZAC TNC DWN
+	 ADD DWN ADD DWN DWN RDC UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI RUL ZAC SAD
+	 ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC
+	 TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 55]
+[[- - - 1 2] [- - - - -] [- - - 5 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- - 1 0 0] [- - - - -] [- - 0 0 0] [-
+	 - - - -] [= = = = =] [= = = = =]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC LFT TEN RHT UNI NAR MKZ NBC PSH JTR MUL JAS
+	 RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN ADD DWN
+	 ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN ADD DWN DWN RDC UNI ZAC
+	 TNC DWN ADD DWN ADD DWN DWN RDC UNI DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI RUL
+	 ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC
+	 UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 59]
+[[- - - 1 2] [- - - - -] [- - - 5 9] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - 1 0 0] [- - - - -] [- - 0 0 0] [-
+	 - - - -] [= = = = =] [= = = = =]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC LFT TEN RHT UNI NAR MKZ NBC PSH
+	 JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD ADD
+	 DWN ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN ADD DWN DWN
+	 RDC UNI ZAC TNC ADD DWN ADD DWN ADD DWN DWN RDC UNI DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC
+	 ADD UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 90]
+[[- - - 1 2] [- - - - -] [- - - 9 0] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 0 0] [- - - - -] [- - 1 8 0] [- - - - -] [- - 0 0 0] [-
+	 - - - -] [= = = = =] [= = = = =]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC LFT TEN RHT UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI
+	 IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN ADD DWN ADD DWN
+	 DWN UNI ZAC TNC ADD DWN ADD DWN ADD DWN DWN RDC UNI ZAC TNC DWN
+	 ADD DWN ADD DWN DWN RDC UNI ZAC TNC DWN DWN DWN DWN RDC UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN
+	 RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN
+	 RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 95]
+[[- - - 1 2] [- - - - -] [- - - 9 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- - 1 8 0] [- - - - -] [- - 0 0 0] [-
+	 - - - -] [= = = = =] [= = = = =]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC LFT TEN RHT UNI NAR MKZ NBC PSH JTR MUL JAS
+	 RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN ADD DWN
+	 ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN ADD DWN DWN RDC UNI ZAC
+	 TNC DWN ADD DWN ADD DWN DWN RDC UNI ZAC TNC DWN DWN DWN DWN RDC
+	 UNI DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN
+	 RHT UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC MKC UNI ZAC TNC DWN ADD DWN DWN RDC ADD UNI ZAC TNC
+	 DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 99]
+[[- - - 1 2] [- - - - -] [- - - 9 9] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - 1 8 0] [- - - - -] [- - 0 0 0] [-
+	 - - - -] [= = = = =] [= = = = =]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC LFT TEN RHT UNI NAR MKZ NBC PSH
+	 JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC JTR MUL
+	 JAS ADD DWN DWN RDC UNI ZAC TNC JTR NAR DWN UNI ZAC TNC ADD DWN
+	 ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD DWN ADD DWN DWN
+	 ADD UNI UNI TNC DWN ADD DWN RHT ADD DWN DWN ZAC UNI UNI TNC DWN
+	 ADD DWN RHT ADD DWN DWN ZAC UNI UNI TNC DWN ADD DWN RHT ADD DWN
+	 DWN ZAC UNI UNI TNC DWN ADD DWN RHT ADD DWN DWN ZAC UNI UNI TNC
+	 DWN ADD DWN RHT ADD DWN DWN ZAC UNI UNI TNC DWN ADD DWN RHT ADD
+	 DWN DWN ADD TIMEOUT]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC
+	 ADD LFT TEN RHT UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC
+	 ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI
+	 ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 111 11]
+[[- - - 1 1 1] [- - - - - -] [- - - - 1 1] [- - - - - -] [- - = = = =]
+	 [- - = = = =] [- - - - 1 1] [- - - - - -] [= = = = = =] [= = =
+	 = = =] [- - 0 0 4 -] [- - - - - -] [- - - - - -] [- - - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC JTR MUL JAS
+	 ADD ADD ADD DWN DWN RDC UNI ZAC TNC DWN DWN RDC UNI ZAC TNC DWN
+	 DWN RDC UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN ADD DWN
+	 DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+
+
+** [303 a - 22 -----------------------------------------------------------]
+[~/fsm/weights/303a-22.wts x 12 5 ok]
+[~/fsm/weights/303a-22.wts x 12 9 ok]
+[~/fsm/weights/303a-22.wts x 1 11 ok]
+[~/fsm/weights/303a-22.wts x 11 11 ok]
+[~/fsm/weights/303a-22.wts x 1 111 ok]
+[~/fsm/weights/303a-22.wts x 12 15 ok]
+[~/fsm/weights/303a-22.wts x 12 19 ok]
+[~/fsm/weights/303a-22.wts x 12 50 ok]
+[~/fsm/weights/303a-22.wts x 12 55 ok]
+[~/fsm/weights/303a-22.wts x 12 59 ok]
+
+!!WARNING!!  Operation failed
+mark_carry off the top/bottom of the page! 
+
+!!WARNING!!  Operation failed
+mark_carry off the top/bottom of the page! 
+
+!!WARNING!!  Operation failed
+mark_carry off side of page! 
+
+!!WARNING!!  Operation failed
+mark_carry off side of page! 
+[------ DIFFERENT -------]
+[x 12 90]
+[[- - - 1 2] [- - - - -] [- - - 9 0] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 0 0 0] [- - - - -] [- - 0 8 0] [- 1 1 - -] [= = = = 0] [=
+	 = = = =] [- 0 0 2 0] [- - 7 - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD MKC UNI ZAC TNC
+	 DWN RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN
+	 DWN RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI ZAC TNC DWN DWN DWN
+	 RDC UNI NAR MKZ ADD DWN ADD DWN RDC UNI IAC JTR MUL JAS DWN ADD
+	 JTR ZAC TNC UNI DWN ADD JTR MUL NAR ADD DWN UNI IAC ITC JTR MUL
+	 JAS ADD MUL JAS MKC RDC MKC UNI ZAC SAD ADD DWN ADD DWN ADD DWN
+	 ADD DWN ADD DWN UNI IAC ITC JTR DWN JAS ADD NAR MUL JAS ADD DWN
+	 ADD DWN UNI IAC ITC JTR NAR ADD DWN ADD OPERATION-THAT-FAILED
+	 = MKC OPERATION-THAT-FAILED = MKC DWN UNI IAC ITC JTR OPERATION-THAT-
+	FAILED = MKC OPERATION-THAT-FAILED = MKC TIMEOUT]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN
+	 RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN
+	 RDC UNI DON]
+
+!!WARNING!!  Operation failed
+trying to draw_rule off page 
+
+!!WARNING!!  Operation failed
+mark_carry off the top/bottom of the page! 
+
+!!WARNING!!  Operation failed
+mark_carry off the top/bottom of the page! 
+[------ DIFFERENT -------]
+[x 12 95]
+[[- - - 1 2] [- - - - -] [- - - 9 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- - 0 8 0] [- 1 1 - -] [= = = = =] [=
+	 = = = =] [- - 4 4 0] [- - - 1 -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD MKC UNI
+	 ZAC TNC DWN RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN
+	 ADD DWN DWN RDC RDC UNI TNC DWN ADD DWN DWN RDC RDC UNI TNC DWN
+	 NAR DWN ADD MKC NAR OPERATION-THAT-FAILED = RUL ADD ADD DWN OPERATION
+	-THAT-FAILED = MKC OPERATION-THAT-FAILED = MKC ZAC ITC DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN
+	 RHT UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC MKC UNI ZAC TNC DWN ADD DWN DWN RDC ADD UNI ZAC TNC
+	 DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 99]
+[[- - 0 1 2] [- 7 - - -] [- - - 9 9] [- 7 - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - 0 8 0] [- 1 1 - -] [= = = = 0] [=
+	 = = = =] [- 0 1 8 8] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC
+	 ADD MKC UNI ZAC TNC DWN RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC
+	 TNC ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC
+	 UNI ZAC TNC DWN DWN DWN RDC UNI NAR MKZ ADD DWN ADD DWN RDC UNI
+	 ITC JTR JTR MUL MKC MKC DWN MKC MKC JTR ZAC UNI DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC
+	 ADD LFT TEN RHT UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC
+	 ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI
+	 ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+
+!!WARNING!!  Operation failed
+trying to draw_rule off page 
+[------ DIFFERENT -------]
+[x 111 11]
+[[- - - 1 1 1] [- - - - - -] [- - - - 1 1] [- - - - - -] [- - = = = =]
+	 [- - = = = =] [- - - - 1 3] [- - - - - -] [= = = = = 0] [= = =
+	 = = =] [= = = = = =] [= = = = = =] [- - 0 0 4 0] [- - - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC JTR MUL JAS
+	 ADD ADD ADD DWN DWN RDC UNI ZAC TNC DWN DWN RDC UNI ZAC TNC DWN
+	 DWN RDC UNI NAR MKZ ADD DWN ADD DWN RDC UNI RUL ZAC NAR DWN UNI
+	 NAR ADD DWN DWN IAC DWN PSH MKZ NBC NAR JTR ADD DWN ADD DWN DWN
+	 ADD UNI OPERATION-THAT-FAILED = RUL TNC ADD DWN DWN DWN RDC UNI
+	 ZAC TNC DWN DWN DWN RDC UNI ZAC TNC DWN DWN DWN RDC UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN ADD DWN
+	 DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+
+
+** [303 a - 23 -----------------------------------------------------------]
+[~/fsm/weights/303a-23.wts x 12 5 ok]
+[~/fsm/weights/303a-23.wts x 12 9 ok]
+[~/fsm/weights/303a-23.wts x 1 11 ok]
+[~/fsm/weights/303a-23.wts x 11 11 ok]
+[~/fsm/weights/303a-23.wts x 1 111 ok]
+[~/fsm/weights/303a-23.wts x 12 15 ok]
+[~/fsm/weights/303a-23.wts x 12 19 ok]
+[~/fsm/weights/303a-23.wts x 12 50 ok]
+[~/fsm/weights/303a-23.wts x 12 55 ok]
+[~/fsm/weights/303a-23.wts x 12 59 ok]
+
+!!WARNING!!  Operation failed
+mark_carry off the top/bottom of the page! 
+
+!!WARNING!!  Operation failed
+mark_carry off the top/bottom of the page! 
+
+!!WARNING!!  Operation failed
+mark_carry off side of page! 
+
+!!WARNING!!  Operation failed
+mark_carry off side of page! 
+[------ DIFFERENT -------]
+[x 12 90]
+[[- - - 1 2] [- - - - -] [- - - 9 0] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 0 0 0] [- - - - -] [- - 0 8 0] [- 1 1 - -] [= = = = 0] [=
+	 = = = =] [- 0 0 2 0] [- - 7 - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD MKC UNI ZAC TNC
+	 DWN RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN
+	 DWN RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI ZAC TNC DWN DWN DWN
+	 RDC UNI NAR MKZ ADD DWN ADD DWN RDC UNI IAC JTR MUL JAS DWN ADD
+	 JTR ZAC TNC UNI DWN ADD JTR MUL NAR ADD DWN UNI IAC ITC JTR MUL
+	 JAS ADD MUL JAS MKC RDC MKC UNI ZAC SAD ADD DWN ADD DWN ADD DWN
+	 ADD DWN ADD DWN UNI IAC ITC JTR DWN JAS ADD NAR MUL JAS ADD DWN
+	 ADD DWN UNI IAC ITC JTR NAR ADD DWN ADD OPERATION-THAT-FAILED
+	 = MKC OPERATION-THAT-FAILED = MKC DWN UNI IAC ITC JTR OPERATION-THAT-
+	FAILED = MKC OPERATION-THAT-FAILED = MKC TIMEOUT]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN
+	 RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN
+	 RDC UNI DON]
+
+!!WARNING!!  Operation failed
+trying to draw_rule off page 
+
+!!WARNING!!  Operation failed
+mark_carry off the top/bottom of the page! 
+
+!!WARNING!!  Operation failed
+mark_carry off the top/bottom of the page! 
+[------ DIFFERENT -------]
+[x 12 95]
+[[- - - 1 2] [- - - - -] [- - - 9 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- - 0 8 0] [- 1 1 - -] [= = = = =] [=
+	 = = = =] [- - 4 4 0] [- - - 1 -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD MKC UNI
+	 ZAC TNC DWN RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN
+	 ADD DWN DWN RDC RDC UNI TNC DWN ADD DWN DWN RDC RDC UNI TNC DWN
+	 NAR DWN ADD MKC NAR OPERATION-THAT-FAILED = RUL ADD ADD DWN OPERATION
+	-THAT-FAILED = MKC OPERATION-THAT-FAILED = MKC ZAC ITC DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN
+	 RHT UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC MKC UNI ZAC TNC DWN ADD DWN DWN RDC ADD UNI ZAC TNC
+	 DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 99]
+[[- - 0 1 2] [- 7 - - -] [- - - 9 9] [- 7 - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - 0 8 0] [- 1 1 - -] [= = = = 0] [=
+	 = = = =] [- 0 1 8 8] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC
+	 ADD MKC UNI ZAC TNC DWN RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC
+	 TNC ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC
+	 UNI ZAC TNC DWN DWN DWN RDC UNI NAR MKZ ADD DWN ADD DWN RDC UNI
+	 ITC JTR JTR MUL MKC MKC DWN MKC MKC JTR ZAC UNI DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC
+	 ADD LFT TEN RHT UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC
+	 ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI
+	 ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+
+!!WARNING!!  Operation failed
+trying to draw_rule off page 
+[------ DIFFERENT -------]
+[x 111 11]
+[[- - - 1 1 1] [- - - - - -] [- - - - 1 1] [- - - - - -] [- - = = = =]
+	 [- - = = = =] [- - - - 1 3] [- - - - - -] [= = = = = 0] [= = =
+	 = = =] [= = = = = =] [= = = = = =] [- - 0 0 4 0] [- - - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC JTR MUL JAS
+	 ADD ADD ADD DWN DWN RDC UNI ZAC TNC DWN DWN RDC UNI ZAC TNC DWN
+	 DWN RDC UNI NAR MKZ ADD DWN ADD DWN RDC UNI RUL ZAC NAR DWN UNI
+	 NAR ADD DWN DWN IAC DWN PSH MKZ NBC NAR JTR ADD DWN ADD DWN DWN
+	 ADD UNI OPERATION-THAT-FAILED = RUL TNC ADD DWN DWN DWN RDC UNI
+	 ZAC TNC DWN DWN DWN RDC UNI ZAC TNC DWN DWN DWN RDC UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN ADD DWN
+	 DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+
+
+** [303 a - 24 -----------------------------------------------------------]
+[~/fsm/weights/303a-24.wts x 12 5 ok]
+[~/fsm/weights/303a-24.wts x 12 9 ok]
+[~/fsm/weights/303a-24.wts x 1 11 ok]
+[~/fsm/weights/303a-24.wts x 11 11 ok]
+[~/fsm/weights/303a-24.wts x 1 111 ok]
+[~/fsm/weights/303a-24.wts x 12 15 ok]
+[~/fsm/weights/303a-24.wts x 12 19 ok]
+[~/fsm/weights/303a-24.wts x 12 50 ok]
+[~/fsm/weights/303a-24.wts x 12 55 ok]
+[~/fsm/weights/303a-24.wts x 12 59 ok]
+[------ DIFFERENT -------]
+[x 12 90]
+[[- - - 1 2] [- - - - -] [- - - 9 0] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 0 0] [- - - - -] [- - 0 8 0] [- 1 1 - -] [= = = = 0] [=
+	 = = = =] [- 0 0 8 0] [- - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD MKC UNI ZAC TNC
+	 DWN RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN
+	 DWN RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI ZAC TNC DWN DWN DWN
+	 RDC UNI NAR MKZ ADD DWN ADD DWN RDC UNI IAC ZAC JTR MUL JAS DWN
+	 ADD DWN RDC IAC DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI NAR MKZ NBC PSH JTR
+	 MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD DWN DWN
+	 RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN
+	 RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 95]
+[[- - - 1 2] [- - - - -] [- - - 9 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- - 0 8 0] [- 1 1 - -] [= = = = =] [=
+	 = = = =] [- - 4 4 4] [- - - 1 -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD MKC UNI
+	 ZAC TNC DWN RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN
+	 ADD DWN DWN RDC RDC UNI TNC DWN ADD DWN DWN RDC RDC UNI TNC DWN
+	 SAD ADD DWN ADD DWN DWN ADD MKC UNI ZAC TNC ADD DWN ADD DWN DWN
+	 ADD RDC DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN
+	 RHT UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC MKC UNI ZAC TNC DWN ADD DWN DWN RDC ADD UNI ZAC TNC
+	 DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 12 99]
+[[- - - 1 2] [- - - - -] [- - - 9 9] [- - - - -] [- - = = =] [- - = = =]
+	 [- - 1 0 8] [- - - 1 -] [- - 0 8 0] [- 1 1 - -] [= = = = 0] [=
+	 = = = =] [= = = = =] [= = = = =]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC
+	 ADD MKC UNI ZAC TNC DWN RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC
+	 TNC ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC
+	 UNI ZAC TNC DWN DWN DWN RDC UNI NAR MKZ ADD DWN ADD DWN RDC UNI
+	 IAC ZAC JTR MUL JAS DWN ADD MKC MUL UNI ADD RUL MUL MUL JAS DWN
+	 RDC RDC DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN RHT UNI
+	 NAR MKZ NBC PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC
+	 ADD LFT TEN RHT UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC
+	 ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI
+	 ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+[------ DIFFERENT -------]
+[x 111 11]
+[[- - - 1 1 1] [- - - - - -] [- - - - 1 1] [- - - - - -] [- - = = = =]
+	 [- - = = = =] [- - - - 1 1] [- - - - - -] [= = = = = =] [= = =
+	 = = =] [- - 0 1 1 5] [- - 0 1 - -] [= = = = = =] [= = = = = =]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC JTR MUL JAS
+	 ADD ADD ADD DWN DWN RDC UNI ZAC TNC DWN DWN RDC UNI ZAC TNC DWN
+	 DWN RDC UNI IAC ITC JTR MUL NAR DWN UNI ZAC TNC ADD DWN DWN ADD
+	 RDC UNI UNI TNC ITC DWN DWN ADD NAR UNI RUL TNC ADD DWN DWN ADD
+	 MKC UNI ZAC UNI ZAC TNC DWN DWN ADD MKC UNI ZAC TNC DWN DWN ZAC
+	 JAS ADD RUL RUL ZAC ADD DWN DWN UNI ZAC TNC ADD DWN DWN ADD UNI
+	 UNI RUL TNC DWN DWN ADD RDC UNI RUL RUL ZAC MUL NAR DWN ADD DWN
+	 UNI IAC DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN ADD DWN
+	 DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+
+
+** [303 a - 25 -----------------------------------------------------------]
+[~/fsm/weights/303a-25.wts x 12 5 ok]
+[~/fsm/weights/303a-25.wts x 12 9 ok]
+[~/fsm/weights/303a-25.wts x 1 11 ok]
+[~/fsm/weights/303a-25.wts x 11 11 ok]
+[~/fsm/weights/303a-25.wts x 1 111 ok]
+[~/fsm/weights/303a-25.wts x 12 15 ok]
+[~/fsm/weights/303a-25.wts x 12 19 ok]
+[~/fsm/weights/303a-25.wts x 12 50 ok]
+[~/fsm/weights/303a-25.wts x 12 55 ok]
+[~/fsm/weights/303a-25.wts x 12 59 ok]
+[~/fsm/weights/303a-25.wts x 12 90 ok]
+[------ DIFFERENT -------]
+[x 12 95]
+[[- - - 1 2] [- - - - -] [- - - 9 5] [- - - - -] [- - = = =] [- - = = =]
+	 [- - - 6 0] [- - - 1 -] [- 1 0 8 0] [- - 1 - -] [= = = = =] [=
+	 = = = =] [- 1 0 6 0] [- - - - -]]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN
+	 RHT UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC UNI UNI TNC ZAC SAD ADD DWN ADD DWN DWN ADD DWN UNI
+	 TNC ADD DWN MUL DWN DWN ADD RDC UNI ZAC TNC DWN ADD DWN DWN RDC
+	 UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+[SMU PSH JTR MUL JAS MKC UNI IAC ITC JTR MUL JAS RDC ADD UNI NAR MKZ NBC
+	 PSH JTR MUL JAS RDC MKC UNI IAC ITC JTR MUL JAS RDC ADD LFT TEN
+	 RHT UNI RUL ZAC SAD ADD DWN ADD DWN DWN UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC MKC UNI ZAC TNC DWN ADD DWN DWN RDC ADD UNI ZAC TNC
+	 DWN ADD DWN DWN RDC UNI DON]
+[~/fsm/weights/303a-25.wts x 12 99 ok]
+[------ DIFFERENT -------]
+[x 111 11]
+[[- - - 1 1 1] [- - - - - -] [- - - 1 1 1] [- - - - - -] [- - = = = =]
+	 [- - = = = =] [- - - - 1 1] [- - - - - -] [= = = = = 0] [= = =
+	 = = =] [= = = = = =] [= = = = = =] [- - 1 - 1 1] [- - - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD MUL JAS
+	 ADD DWN DWN RDC UNI ZAC TNC DWN DWN RDC UNI ZAC TNC DWN DWN RDC
+	 UNI NAR MKZ ADD DWN ADD DWN RDC IAC ITC ZAC JTR ADD DWN RDC UNI
+	 RUL ZAC SAD MUL DWN ADD DWN DWN UNI ZAC TNC ADD DWN DWN DWN RDC
+	 UNI TNC TNC DWN DWN DWN RDC UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN ADD DWN
+	 DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+
+
+** [303 a - 26 -----------------------------------------------------------]
+[~/fsm/weights/303a-26.wts x 12 5 ok]
+[~/fsm/weights/303a-26.wts x 12 9 ok]
+[~/fsm/weights/303a-26.wts x 1 11 ok]
+[~/fsm/weights/303a-26.wts x 11 11 ok]
+[~/fsm/weights/303a-26.wts x 1 111 ok]
+[~/fsm/weights/303a-26.wts x 12 15 ok]
+[~/fsm/weights/303a-26.wts x 12 19 ok]
+[~/fsm/weights/303a-26.wts x 12 50 ok]
+[~/fsm/weights/303a-26.wts x 12 55 ok]
+[~/fsm/weights/303a-26.wts x 12 59 ok]
+[~/fsm/weights/303a-26.wts x 12 90 ok]
+[~/fsm/weights/303a-26.wts x 12 95 ok]
+[~/fsm/weights/303a-26.wts x 12 99 ok]
+[------ DIFFERENT -------]
+[x 111 11]
+[[- - - 1 1 1] [- - - - - -] [- - - - 1 1] [- - - - - -] [- - = = = =]
+	 [- - = = = =] [- - - - 1 1] [- - - - - -] [= = = = = =] [= = =
+	 = = =] [- - 0 0 4 -] [- - - - - -] [- - - - - -] [- - - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC JTR MUL JAS
+	 ADD ADD ADD DWN DWN RDC UNI ZAC TNC DWN DWN RDC UNI IAC TNC DWN
+	 DWN RDC UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN ADD DWN
+	 DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+
+
+** [303 a - 27 -----------------------------------------------------------]
+[~/fsm/weights/303a-27.wts x 12 5 ok]
+[~/fsm/weights/303a-27.wts x 12 9 ok]
+[~/fsm/weights/303a-27.wts x 1 11 ok]
+[~/fsm/weights/303a-27.wts x 11 11 ok]
+[~/fsm/weights/303a-27.wts x 1 111 ok]
+[~/fsm/weights/303a-27.wts x 12 15 ok]
+[~/fsm/weights/303a-27.wts x 12 19 ok]
+[~/fsm/weights/303a-27.wts x 12 50 ok]
+[~/fsm/weights/303a-27.wts x 12 55 ok]
+[~/fsm/weights/303a-27.wts x 12 59 ok]
+[~/fsm/weights/303a-27.wts x 12 90 ok]
+[~/fsm/weights/303a-27.wts x 12 95 ok]
+[~/fsm/weights/303a-27.wts x 12 99 ok]
+[------ DIFFERENT -------]
+[x 111 11]
+[[- - - 1 1 1] [- - - - - -] [- - - - 1 1] [- - - - - -] [- - = = = =]
+	 [- - = = = =] [- - - - 1 1] [- - - - - -] [= = = = = =] [= = =
+	 = = =] [- - 0 0 4 -] [- - - - - -] [- - - - - -] [- - - - - -]]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC JTR MUL JAS
+	 ADD ADD ADD DWN DWN RDC UNI ZAC TNC DWN DWN RDC UNI IAC TNC DWN
+	 DWN RDC UNI DON]
+[SMU PSH JTR MUL JAS UNI IAC ITC JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI NAR MKZ NBC PSH JTR MUL JAS RDC UNI IAC ITC JTR MUL JAS
+	 RDC UNI IAC ITC JTR MUL JAS RDC UNI RUL ZAC SAD ADD DWN ADD DWN
+	 DWN UNI ZAC TNC ADD DWN ADD DWN DWN RDC UNI ZAC TNC ADD DWN ADD
+	 DWN DWN RDC UNI ZAC TNC DWN ADD DWN DWN RDC UNI DON]
+** Mon Mar 15 15:07:49 GMT 1993 
+;;; DECLARING VARIABLE set_addition
+;;; DECLARING VARIABLE set_multiplication
+;;; DECLARING VARIABLE mult_leftmost
+;;; DECLARING VARIABLE multiplication
+;;; DECLARING VARIABLE addition
+;;; DECLARING VARIABLE BOTTOM_COLUMN
+;;; DECLARING VARIABLE TOP_ROW
+;;; DECLARING VARIABLE BOTTOM_ROW
+;;; DECLARING VARIABLE register
+;;; DECLARING VARIABLE fsm_inputs

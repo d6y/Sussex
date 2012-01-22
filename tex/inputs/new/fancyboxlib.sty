@@ -1,0 +1,143 @@
+% FANCYBOXLIST.STY - Library of macros based on fancybox.sty
+% Richard Dallaway <richardd@cogs.susx.ac.uk>
+% Thursday 3 December 1992
+% Not supported - intended for author's use only.
+
+% New environments:
+%
+%   frametable      ovaltable       doubletable     shadowtable
+%   framefigure     ovalfigure      doublefigure    shadowfigure
+%
+% Generic use:
+%
+%   \begin{fancytable} or \begin{fancyfigure}
+%
+% uses the style set by:
+%
+%   \fancyfloatstyle{frame}     [default]
+%   \fancyfloatstyle{shadow}
+%   \fancyfloatstyle{double}
+%   \fancyfloatstyle{oval}
+%   \fancyfloatstyle{plain}
+
+\typeout{Fancy box library -- some sections commented-out}
+
+\input fancybox.sty
+
+% Using the fancy boxes and macros from fancybox.sty, we can define a
+% generic "fancyfloat" environment which will place a box around a float.
+
+\newbox{\ftmpbox}
+\newlength{\ftmpwd}
+
+% \begin{fancyfloat}{WIDTH}{TABLE or FIGURE}
+% To ensure that the frame of a box matches the width of the page, the
+% argument WIDTH needs to be the maximum size of the box inside the frame.
+
+% Note that [tb] is my preferred placement.
+
+\def\fancyfloat#1#2%
+    {\begin{#2}[tb]\beginsbox{\ftmpbox}%
+    \begin{minipage}{#1}\begin{center}}
+
+
+% \end{fancyfloat}{BOXMACRO}{TABLE or FIGURE}
+% BOXMACRO is the macro used to draw the frame (e.g., \fbox).
+
+\def\endfancyfloat#1#2%
+    {\end{center}\end{minipage}\endsbox
+        #1{\usebox{\ftmpbox}}%
+        \end{#2}}
+
+
+% FRAMED TABLES AND FIGURES
+
+\newenvironment{frametable}%
+    {\setlength{\ftmpwd}{\textwidth}%
+    \addtolength{\ftmpwd}{-2\fboxrule}%
+     \addtolength{\ftmpwd}{-2\fboxsep}%
+     \fancyfloat{\ftmpwd}{table}}%
+    {\endfancyfloat{\fbox}{table}}
+
+\newenvironment{framefigure}%
+    {\setlength{\ftmpwd}{\textwidth}%
+     \addtolength{\ftmpwd}{-2\fboxrule}%
+     \addtolength{\ftmpwd}{-2\fboxsep}%
+     \fancyfloat{\ftmpwd}{figure}}%
+    {\endfancyfloat{\fbox}{figure}}
+
+% SHADOW TABLES AND FIGURES
+
+\newenvironment{shadowtable}%
+    {\setlength{\ftmpwd}{\textwidth}%
+    \addtolength{\ftmpwd}{-\shadowsize}%
+    \addtolength{\ftmpwd}{-\fboxrule}%
+    \addtolength{\ftmpwd}{-2\fboxsep}%
+    \fancyfloat{\ftmpwd}{table}}%
+    {\endfancyfloat{\shadowbox}{table}}
+
+\newenvironment{shadowfigure}%
+    {\setlength{\ftmpwd}{\textwidth}%
+    \addtolength{\ftmpwd}{-\shadowsize}%
+    \addtolength{\ftmpwd}{-\fboxrule}%
+    \addtolength{\ftmpwd}{-2\fboxsep}%
+    \fancyfloat{\ftmpwd}{figure}}%
+    {\endfancyfloat{\shadowbox}{figure}}
+
+% DOUBLE TABLES AND FIGURES
+%
+% \newenvironment{doubletable}%
+%     {\setlength{\ftmpwd}{\textwidth}%
+%     \addtolength{\ftmpwd}{-7.5\fboxrule}%
+%     \addtolength{\ftmpwd}{-2\fboxsep}%
+%     \addtolength{\ftmpwd}{-1pt}%
+%     \fancyfloat{\ftmpwd}{table}}%
+%     {\endfancyfloat{\doublebox}{table}}
+%
+% \newenvironment{doublefigure}%
+%     {\setlength{\ftmpwd}{\textwidth}%
+%     \addtolength{\ftmpwd}{-7.5\fboxrule}%
+%     \addtolength{\ftmpwd}{-2\fboxsep}%
+%     \addtolength{\ftmpwd}{-1pt}%
+%     \fancyfloat{\ftmpwd}{figure}}%
+%     {\endfancyfloat{\doublebox}{figure}}
+%
+% OVAL TABLES AND FIGURES
+
+% \newenvironment{ovaltable}%
+%     {\setlength{\ftmpwd}{\textwidth}%
+%     \addtolength{\ftmpwd}{-2\@wholewidth}%
+%     \addtolength{\ftmpwd}{-2\fboxsep}%
+%     \fancyfloat{\ftmpwd}{table}}%
+%     {\endfancyfloat{\ovalbox}{table}}
+%
+% \newenvironment{ovalfigure}%
+%     {\setlength{\ftmpwd}{\textwidth}%
+%     \addtolength{\ftmpwd}{-2\@wholewidth}%
+%     \addtolength{\ftmpwd}{-2\fboxsep}%
+%     \fancyfloat{\ftmpwd}{figure}}%
+%     {\endfancyfloat{\ovalbox}{figure}}
+%
+% PLAIN FIGURES AND TABLES
+%
+% \newenvironment{plaintable}%
+%     {\fancyfloat{\textwidth}{table}}%
+%     {\endfancyfloat{}{table}}
+%
+% \newenvironment{plainfigure}%
+%     {\fancyfloat{\textwidth}{figure}}%
+%     {\endfancyfloat{}{figure}}
+%
+
+% The "fancytable" and "fancyfigure" environments use the style of box
+% set by \fancyfloatstyle
+
+\newcommand{\fancyfloatstyle}[1]%
+    {\def\fancytable{\@nameuse{#1table}}%
+    \def\endfancytable{\@nameuse{end#1table}}%
+    \def\fancyfigure{\@nameuse{#1figure}}%
+    \def\endfancyfigure{\@nameuse{end#1figure}}}
+
+% The default is to use \fbox
+
+\fancyfloatstyle{frame}

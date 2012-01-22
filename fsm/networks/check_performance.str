@@ -1,0 +1,2 @@
+run pdp3_valtest logfile 3 "<" 100 quit_text nothing end
+do pdp3_result.str 1

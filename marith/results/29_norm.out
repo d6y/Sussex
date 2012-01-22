@@ -1,0 +1,77 @@
+;;; LOADING product_ZERO.p
+...?...0...1...2...3...4...5...6...7...8...9..10..12..14..15..16..18..20..21..
+	24..25..27..28..30..32..35..36..40..42..45..48..49..54..56..63..64..72
+	..81
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3.p
+;;; LOADING /csuna/home/richardd/pop/lib/stringtolist.p
+;;; LOADING /csuna/home/richardd/pop/lib/stringtovector.p
+;;; LOADING /csuna/home/richardd/pop/lib/sysio.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_utils.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_getweights.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_getpatterns.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_activate.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_cascade.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_recordunits.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_performance.p
+;;; LOADING read_rt.p
+;;; LOADING threshold_errors.p
+;;; LOADING latex_matrix.p
+;;; LOADING c_errrt.p
+;;; LOADING Structured_variables.p
+;;; LOADING product_code.p
+...?...4...6...8...9..10..12..14..15..16..18..20..21..24..25..27..28..30..32..
+	35..36..40..42..45..48..49..54..56..63..64..72..81
+
+
+** [/tmp/richardd/NORM10after05- 1 - 20 min 0.4 Max 0.9 and 25 blocks]
+** [now starting 1]
+** [zeros in /tmp/richardd/NORM10after05- 1]
+** [now starting 2]
+** [zeros in /tmp/richardd/NORM10after05- 2]
+** [now starting 3]
+** [zeros in /tmp/richardd/NORM10after05- 3]
+** [now starting 4]
+** [zeros in /tmp/richardd/NORM10after05- 4]
+** [now starting 5]
+** [zeros in /tmp/richardd/NORM10after05- 5]
+** [now starting 6]
+** [zeros in /tmp/richardd/NORM10after05- 6]
+** [now starting 7]
+** [now starting 8]
+** [now starting 9]
+** [zeros in /tmp/richardd/NORM10after05- 9]
+** [now starting 10]
+** [zeros in /tmp/richardd/NORM10after05- 10]
+** [now starting 11]
+** [zeros in /tmp/richardd/NORM10after05- 11]
+** [now starting 12]
+** [zeros in /tmp/richardd/NORM10after05- 12]
+** [now starting 13]
+** [zeros in /tmp/richardd/NORM10after05- 13]
+** [now starting 14]
+** [zeros in /tmp/richardd/NORM10after05- 14]
+** [now starting 15]
+** [zeros in /tmp/richardd/NORM10after05- 15]
+** [now starting 16]
+** [zeros in /tmp/richardd/NORM10after05- 16]
+** [now starting 17]
+** [zeros in /tmp/richardd/NORM10after05- 17]
+** [now starting 18]
+** [zeros in /tmp/richardd/NORM10after05- 18]
+** [now starting 19]
+** [zeros in /tmp/richardd/NORM10after05- 19]
+** [now starting 20]
+Total of 5973 errors (tokens),  38.54% of which...
+Operand errors           5184.00  86.79%
+Operand distance effect  4427.00  74.12%
+High frequency           1216.00  23.46%
+Table errors              789.00  13.21%
+Operation errors          196.00   3.28%
+Omission errors             0.00   0.00%
+0xN = N                     0.00   0.00%
+Tie error                  47.00   0.79%
+
+** [product and prob . err . count]
+** [r= 0.043112 p( 62 )= 0.367587]
+;;; DECLARING VARIABLE epc
+;;; DECLARING VARIABLE pec

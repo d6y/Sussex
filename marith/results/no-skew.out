@@ -1,0 +1,100 @@
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3.p
+;;; LOADING /csuna/home/richardd/pop/lib/stringtolist.p
+;;; LOADING /csuna/home/richardd/pop/lib/stringtovector.p
+;;; LOADING /csuna/home/richardd/pop/lib/sysio.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_utils.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_getweights.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_getpatterns.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_activate.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_cascade.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_recordunits.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_performance.p
+;;; LOADING read_rt.p
+;;; LOADING threshold_errors.p
+;;; LOADING latex_matrix.p
+;;; LOADING c_errrt.p
+;;; LOADING product_ZERO.p
+...?...0...1...2...3...4...5...6...7...8...9..10..12..14..15..16..18..20..21..
+	24..25..27..28..30..32..35..36..40..42..45..48..49..54..56..63..64..72
+	..81
+;;; LOADING zero_rt_cor.p
+;;; LOADING Structured_variables.p
+;;; LOADING product_code.p
+...?...4...6...8...9..10..12..14..15..16..18..20..21..24..25..27..28..30..32..
+	35..36..40..42..45..48..49..54..56..63..64..72..81
+
+
+** [~/marith/weights/no-skew/ns10- 1 - 10 min 0.4 Max 0.9 and 25 blocks]
+** [now starting 1]
+** [Classify 100.0 per cent with tss 0.011819]
+** [now starting 2]
+** [Classify 100.0 per cent with tss 0.010568]
+** [zeros in ~/marith/weights/no-skew/ns10- 2]
+** [now starting 3]
+** [Classify 100.0 per cent with tss 0.01202]
+** [zeros in ~/marith/weights/no-skew/ns10- 3]
+** [now starting 4]
+** [Classify 100.0 per cent with tss 0.010791]
+** [zeros in ~/marith/weights/no-skew/ns10- 4]
+** [now starting 5]
+** [Classify 100.0 per cent with tss 0.009929]
+** [now starting 6]
+** [Classify 100.0 per cent with tss 0.009797]
+** [zeros in ~/marith/weights/no-skew/ns10- 6]
+** [now starting 7]
+** [Classify 100.0 per cent with tss 0.008902]
+** [zeros in ~/marith/weights/no-skew/ns10- 7]
+** [now starting 8]
+** [Classify 100.0 per cent with tss 0.01629]
+** [zeros in ~/marith/weights/no-skew/ns10- 8]
+** [now starting 9]
+** [Classify 100.0 per cent with tss 0.015802]
+** [zeros in ~/marith/weights/no-skew/ns10- 9]
+** [now starting 10]
+** [Classify 100.0 per cent with tss 0.010767]
+** [zeros in ~/marith/weights/no-skew/ns10- 10]
+Total of 2031 errors (tokens),  26.21% of which...
+Operand errors           1777.00  87.49%
+Operand distance effect  1639.00  80.70%
+High frequency            506.00  28.47%
+Table errors              254.00  12.51%
+Operation errors          109.00   5.37%
+Omission errors             0.00   0.00%
+0xN = N                     0.00   0.00%
+Tie error                  13.00   0.64%
+
+
+
+plot_list([21.9 25.3 25.5556 23.8 31.5 25.7 29.4 27.4 25.2 26.3333 29.1111
+	 23.875 25.3 28.3333 24.8889 23.1 25.6667 29.9 21.8 25.5 26.2222
+	 28.8889 25.4444 29.1 23.7 23.875 25.7 21.5 22.0 27.4 29.5556 25.8889
+	 31.6 25.4 26.2222 21.8889 24.1 23.3 27.375 26.8 26.0 28.5556 29.0
+	 27.3 23.2 24.7 24.0 25.6 29.3 24.8889 25.6667 29.4444 27.375 24.0
+	 24.0 25.4444 27.1 23.2 29.3 25.0 26.5 25.5 25.3333 21.3]);
+
+** [RT and prob . err . count]
+** [r= 0.361729 p( 62 )= 0.001657]
+
+Correlations to structure variables
+Sum     ;;; DECLARING VARIABLE N_problems
+;;; DECLARING VARIABLE First_multiplier
+;;; DECLARING VARIABLE Last_multiplier
+;;; DECLARING VARIABLE product_list
+;;; DECLARING VARIABLE N_tables
+;;; DECLARING VARIABLE N_products
+;;; DECLARING VARIABLE epc
+;;; DECLARING VARIABLE cE
+;;; DECLARING VARIABLE pec
+;;; DECLARING VARIABLE little_r
+
+;;; MISHAP - BAD ARGUMENTS FOR INDEXED LIST ACCESS
+;;; INVOLVING:  65 [21.9 25.3 25.5556 23.8 31.5 25.7 29.4 27.4 25.2 26.3333
+	 29.1111 23.875 25.3 28.3333 24.8889 23.1 25.6667 29.9 21.8 25.5
+	 26.2222 28.8889 25.4444 29.1 23.7 23.875 25.7 21.5 22.0 27.4 29.5556
+	 25.8889 31.6 25.4 26.2222 21.8889 24.1 23.3 27.375 26.8 26.0 28.5556
+	 29.0 27.3 23.2 24.7 24.0 25.6 29.3 24.8889 25.6667 29.4444 27.375
+	 24.0 24.0 25.4444 27.1 23.2 29.3 25.0 26.5 25.5 25.3333 21.3]
+	 
+;;; FILE     :  /csuna/home/richardd/marith/no-skew.p   LINE NUMBER:  129
+;;; DOING    :  pearson_r cor structured_variables testnet compile trycompile
+	 

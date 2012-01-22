@@ -1,0 +1,44 @@
+#FIG 2.0
+80 2
+2 1 0 1 0 0 0 0 0.000 1 0
+	0 0 1.000 4.000 8.000
+	 453 422 453 451 9999 9999
+2 1 0 1 0 0 0 0 0.000 1 0
+	0 0 1.000 4.000 8.000
+	 81 351 81 380 9999 9999
+2 1 0 1 0 0 0 0 0.000 1 0
+	0 0 1.000 4.000 8.000
+	 82 230 82 259 9999 9999
+2 1 0 1 0 0 0 0 0.000 1 0
+	0 0 1.000 4.000 8.000
+	 78 124 78 153 9999 9999
+2 1 0 1 0 0 0 0 0.000 1 0
+	0 0 1.000 4.000 8.000
+	 416 236 451 295 9999 9999
+4 0 16 12 0 0 0 0.000 1 12 149 80 429 Real time recurrent lerning
+4 0 16 12 0 0 0 0.000 1 9 114 79 412 Cascade correlation
+4 0 16 12 0 0 0 0.000 1 12 226 443 523 temporal phenomena at a diferent scale.
+4 0 16 12 0 0 0 0.000 1 12 298 442 505 Memory: response mechanisms, speading activation,
+4 0 16 12 0 0 0 0.000 1 9 62 446 414 arithmetic?
+4 0 16 12 0 0 0 0.000 1 9 266 448 396 BUT FIRST. . . what information is needed to do
+4 0 16 12 0 0 0 0.000 1 9 168 447 375 Can we offer a PDP account?
+4 0 16 12 0 0 0 0.000 1 12 248 448 360 AI theory of the development of subtraction.
+4 0 16 12 0 0 0 0.000 1 9 149 473 277 of human arithmetic skils.  
+4 0 16 12 0 0 0 0.000 1 9 284 454 258 Started to think of PDP state machines as a model
+4 0 16 12 0 0 0 0.000 1 9 135 111 382 formed state machines...
+4 0 16 12 0 0 0 0.000 1 9 252 110 366 looked at other forms of recurrent nets which
+4 0 16 12 0 0 0 0.000 1 9 147 75 339 available to an Elman net.
+4 0 16 12 0 0 0 0.000 1 9 309 76 324 Found that some FSM need more information than that
+4 0 16 12 0 0 0 0.000 1 12 300 76 308 and all that goes with them (full bp thru time, RAAM).
+4 0 16 12 0 0 0 0.000 1 12 87 114 251 Implemented. . .
+4 0 16 12 0 0 0 0.000 1 12 354 76 221 Tried to look at the problem in terms of finite state machines. . .
+4 0 16 12 0 0 0 0.000 1 12 548 75 201 How might rules be encoded in a network in such a way that they take on "symbolic" properties?
+4 0 16 12 0 0 0 0.000 1 12 199 37 112 on a specific sequential problem. . .
+4 0 16 12 0 0 0 0.000 1 12 504 38 92 Investigating a PDP production system architecture was a tough job, so decided to focus
+4 0 17 18 0 0 0 0.000 1 18 211 73 290 Simple recurrent networks
+4 0 19 18 0 0 0 0.000 1 14 120 448 332 Kurt VanLehn
+4 0 19 18 0 0 0 0.000 1 18 174 440 483 Cognitive arithmetic
+4 0 19 18 0 0 0 0.000 1 18 117 75 176 Long addition
+4 0 19 18 0 0 0 0.000 1 18 255 18 55 Simple rule following systems
+4 0 16 12 0 0 0 0.000 1 12 50 207 163 e.g.,  6 4
+4 0 16 12 0 0 0 0.000 1 9 29 229 177 + 2 2

@@ -1,0 +1,129 @@
+
+\begin{fancytable}
+\begin{center}
+\begin{tabular}{r|rrrrrrrrrr}
+&
+      0 &   1 &   2 &   3 &   4 &   5 &   6 &   7 &   8 &   9\\
+\hline
+0 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0\\
+1 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0\\
+2 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0\\
+3 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0\\
+4 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0\\
+5 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0\\
+6 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0\\
+7 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0\\
+8 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0\\
+9 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0 &   0\\
+\end{tabular}
+\end{center}
+\caption{Percentage error on each of the problems \x00 to \x99 for one
+network produced by uniformly reducing the magnitude of all weights.}
+\label{f:reldam}
+\end{fancytable}
+
+The architecture has evolved in a number of stages since it was first
+used as a subnetwork in a sequential network multiplication).  Initially
+the output layer was divided into ``tens'' and ``units'', and by adding
+a simple RT measure it was found that the network produced a prominent
+dip in the RT curve for the five times table.  This effect was increased
+by training sequentially through the tables, but the network did not
+produce the kinds of mistakes reported by \citeA{camp85}. Changing the
+output layer to a representation of products, and using a coarse
+encoding of the input digits produced more realistic errors.
+
+
+\begin{fancyfigure}
+\centerline{\psfig{file=p4x4.ps,height=10cm,clip=}}
+\caption{Response of the output units over 40 time steps for the problem
+\x44.  Output units for products over 18 are not shown on this graph.}
+\label{f:act01plot}
+\end{fancyfigure}
+
+The nine times table has the largest range of all the tables. This seems to
+give the table a RT advantage because many hidden units respond
+to the nine times table: the nine times table is the third ``most encoded''
+problem (typically five hidden units respond to the nine times table; seven
+for the two times tables; six to the three times).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+As McCloskey notes: ``In a sense the modeler `grows' the network
+rather than building it.  And, just as a gardener's ability to grow a plant
+from a seed does not imply that the gardener has an explicit theory of
+plant physiology, the ability to grow a network that mimics in some
+respects a human cognitive function does not demonstrate that the modeler
+has an explicit theory of that function'' \citeyear[p.~391]{mcclnetw}.
+
+
+\citeA{mcclnetw} suggests that connectionist networks should be treated as
+a kind of ``animal model'' for cognitive science. Animal models are things
+like guinea pigs. The skin of a guinea pig is a good model of human skin to
+the degree in which it shows the same kinds of allergic reactions that
+human skin shows \cite{bothwhy}. It is supposed that the animal shares some
+``critical features'' with the equivalent human system, and that the animal
+system will be in some sense simpler, and hence more amenable to analysis.
+In addition, it is possible to perform experiments on animals that cannot
+be performed on human subjects.  On the other hand, it may turn out that
+the similarity between the human and animal system is superficial, and that
+there are no shared features of interest.
+
+The guinea pig is not a theory of human skin allergy, nor even a simulation
+of a theory:  it is an object of study.  Knowledge about such an object is
+not expected to contribute directly to the understanding of the human
+system.  Instead, the object contributes to the development
+of a theory of the corresponding human system.
+
+For connectionist networks the hope is that the ability of a network to
+replicate some phenomena is due to some ``critical features'' shared with
+humans. To clarify: the analogy with animal models is {\em not\/} alluding
+to any biological similarity or plausibility. ``If by studying the network
+we can gain some understanding of it structure and functioning at a level
+relevant for cognitive theorizing, this understanding might aid in
+developing a theory of human cognitive processes'' \cite[p.~393]{mcclnetw}.
+
+Connectionism has all the advantages of animal models, with the added
+bonuses that come from computer simulations (e.g., knowing all the details
+about the simulations, being able to stop and restart the simulation from
+any point, etc). Connectionism also shares some of the disadvantages:
+despite similar behaviour, there may be no interesting common features
+between networks and humans.
+
+----
+
+
+reasons for why they formed.
+
+The IA model states that units representing problems are
+important in arithmetic recall. For that model, the question that needs to
+be addressed is how and why problem units form. For hidden unit models,
+there is a learning mechanism that constructs the representations, but the
+question of why the representations are formed is pushed back: the question
+becomes, what factors influence the learner to produce those
+representations.
+
+So on the one hand the hidden unit model can fit the empirical data, but is
+at a loss for why the hidden representations are useful.  On the other
+hand, without hidden units one is at a loss for a mechanism for the
+formation of postulated representations.
+
+Examination of the hidden units (figures~\ref{f:xact} and \ref{f:xnetin})
+identifies some interesting structures, but does not explain why they
+formed.  One way to explore the reasons behind a networks' success at
+modelling some phenomenon is to look at variations in the model.  Results
+from such experiments were presented above.  They included looking at \x22
+to \x99 and \x00 to \x99 problems; changing the input representation from
+one-of-N to two different coarse encodings; changes in the number of hidden
+units; changes in the distribution of products by introducting 10s, 11s and
+12s problems.

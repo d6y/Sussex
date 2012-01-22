@@ -1,0 +1,100 @@
+HELP CONVEX_HULL                                    Richard Dallaway
+                                                    March 1993
+
+Given a set of (x,y) points, -convex_hull- returns the lines that
+define the polygon containing all the points (the "convex hull").
+
+lib convex_hull;
+convex_hull(PointList) -> LineList;
+
+
+         CONTENTS - (Use <ENTER> g to access required sections)
+
+ -- Usage
+ -- Example
+ -- RELATED DOCUMENTATION
+ -- ACKNOWLEDGEMENTS
+
+-- Usage --------------------------------------------------------------
+
+lib convex_hull;
+convex_hull(PointList) -> LineList;
+
+The procedure is given a list containing a list of x and y coordinates.
+E.g., [ [3 4] [5 8] [2 3] ...etc]
+
+The result is a list containing a list for every side of the polygon.
+Each sublist contains four numbers representing the two start and two
+end coordinates of the line.
+E.g., [ [3 4 5 8] [5 8 2 3] .. etc]
+
+NOTE: The algorithm assumes that y increases DOWN the screen (that is,
+y is smallest at the top of the screen.  This is consistent with Xpw
+routines, but not automatically so for rc_graphic).
+
+-- Algorithm ----------------------------------------------------------
+
+1.  Find the bounding box of the (x,y) data.
+2.  Select one of the bounding box points as the "starting point".
+3.  Call the "current point" the "starting point".
+4.  Initialize "previous angle" to be zero.
+5.  Repeat:
+    5.1 Measure the angle from the "current point" to all other (x,y)
+        points
+    5.2 Select the points which are larger than the "previous angle"
+    5.3 Of those points, selected the point with the smallest corresponding
+        angle.
+    5.4 Add the line from the "current point" to the "selected point" to
+        the polygon.
+    5.5 Call the "selected point" the current point.
+    5.6 Call the "selected point"'s angle the "previous angle".
+    5.7 Quit when "selected point" is "starting point"
+
+See SHOWLIB * CONVEX_HULL
+
+-- Example ------------------------------------------------------------
+
+If you reverse and flatten then list returned from -convex_hull-, you
+can pass it on to XpwFillPolygon for plotting.  Note that either before
+or after calling -convex_hull- the user should convert coordinates
+using -rc_transxyout-.
+
+uses popxlib;
+uses rc_graphic;
+
+define poly_demo;
+    ;;; Generates a random sets of points, and then fits the hull.
+    rc_start();
+    vars x, y,plist = [], llist;
+    repeat 5000 times
+        random(200)-100 -> x;
+        random(200)-100 -> y;
+        rc_jumpto(x,y);
+        rc_draw_rectangle(3,3);
+        rc_transxyout(x,y) -> y -> x;
+        conspair([^x ^y],plist) -> plist;
+    endrepeat;
+
+    convex_hull(plist) -> llist;
+
+    flatten(rev(llist)) -> llist;
+
+    ;;;XpwFillPolygon(rc_window,llist,Convex,CoordModeOrigin);
+    ;;; or
+    XpwDrawLines(rc_window, llist, CoordModeOrigin);
+    ;;; for an outline polygon
+
+enddefine;
+
+poly_demo();
+
+-- RELATED DOCUMENTATION ----------------------------------------------
+
+HELP * RC_GRAPHIC   "Relative-Coordinates" Graphics library
+HELP * Xpw          Poplog Widget Set for X11
+HELP * XpwFillPolygon
+
+-- ACKNOWLEDGEMENTS ---------------------------------------------------
+
+Converted to POP from Paulo Savio Da Silva Costa's original
+idea, algorithm and C code.  Paulc also helped debug the POP version!

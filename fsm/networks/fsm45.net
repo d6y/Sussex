@@ -1,0 +1,10 @@
+definitions:
+nunits 123
+ninputs 9
+noutputs 24
+end
+network:
+style srn
+end
+biases:
+end

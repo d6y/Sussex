@@ -1,0 +1,28 @@
+t   op  eye  err   closest     input
+----------------------------------------------------------
+1   SMU r3c1 2.410 RUL 0.7623  ___MUL_____________________
+2   PSH r3c1 2.389 NAR 0.7515  ___MUL_________NUM______RHT
+3   JTR r1c1 2.339 NAR 0.7655  ___MUL_________NUM______RHT
+4   MUL r1c1 2.408 NAR 0.7279  ___MUL_________NUM______RHT
+5   JAS r7c1 2.320 MKC 0.7997  ___MULTEN______NUM______RHT
+6   MKC r7c1 2.388 JTR 0.7035  ___MULTENSPC____________RHT
+7   UNI r7c1 2.150 NAR 0.7948  ___MULTENSPC____________RHT
+8   IAC r7c1 2.435 ZAC 0.6582  ___MULTENSPC____________RHT
+9   ITC r7c1 2.404 TNC 0.7070  ___MULTENSPC____________RHT
+10  JTR r1c2 2.398 DWN 0.7498  ___MULTENSPC____________RHT
+11  MUL r1c2 2.469 ZAC 0.7625  ___MULTEN______NUMuLFlLF___
+12  JAS r7c2 2.351 DWN 0.7726  ___MUL_________NUMuLFlLF___
+13  RDC r7c2 2.203 SAD 0.7548  ___MUL___SPC______uLFlLF___
+14  ADD r7c2 2.251 TEN 0.7513  ___MUL_________NUMuLFlLF___
+15  UNI r7c2 2.644 JTR 0.5756  ___MUL_________NUMuLFlLF___
+16  NAR r9c1 3.068 DON 0.1775  ___MUL_________NUMuLFlLF___
+17  MKZ r9c2 3.201 ZAC 0.4318  ___MUL___SPC____________RHT
+18  NBC r3c2 2.930 ZAC 0.1270  ___MUL___SPC______uLFlLF___
+19  PSH r3c2 2.958 JAS 0.1364  ___MUL_________NUMuLFlLF___
+20  ADD r3c2 3.123 JTR 0.1082  ___MUL_________NUMuLFlLF___
+21  DWN r5c2 3.425 MUL 0.1991  ___MUL_________NUMuLFlLF___
+22  DWN r7c2 3.274 JAS 0.3146  ___MUL______RUL___uLFlLF___
+23  ADD r7c2 3.357 RDC 0.1937  ___MUL_________NUMuLFlLF___
+24  LFT r7c3 3.363 RDC 0.4319  ___MULTEN______NUMuLFlLF___
+25  TEN r7c3 3.322 UNI 0.1624  ___MULTENSPC_______________
+26  DON r7c3 3.917 RHT 0.0507  ___MULTENSPC_______________

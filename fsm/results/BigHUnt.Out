@@ -1,0 +1,36 @@
+;;; LOADING /csuna/home/richardd/pop/init.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3.p
+;;; Loading PDP3 utilities
+;;; LOADING /csuna/home/richardd/fsm/maths/unseen.p
+;;; LOADING /csuna/home/richardd/fsm/maths/primitives.p
+;;; LOADING /csuna/home/richardd/fsm/maths/n_column_addition/addition.p
+;;; LOADING /csuna/home/richardd/fsm/maths/n_column_multiplication/multiplicat
+	ion.p
+;;; LOADING /csuna/home/richardd/fsm/maths/n_column_multiplication/one_row_car
+	ry_raise.p
+;;; LOADING /csuna/home/richardd/fsm/maths/n_column_multiplication/n_row_carry
+	_raise.p
+** [CHECKING 303 a FILES]
+** Wed Apr 21 23:00:29 BST 1993 
+
+
+** [303 a - 11 -----------------------------------------------------------]
+;;; DECLARING VARIABLE set_addition
+;;; DECLARING VARIABLE set_multiplication
+;;; DECLARING VARIABLE mult_leftmost
+;;; DECLARING VARIABLE multiplication
+;;; DECLARING VARIABLE addition
+;;; DECLARING VARIABLE BOTTOM_COLUMN
+;;; DECLARING VARIABLE TOP_ROW
+;;; DECLARING VARIABLE BOTTOM_ROW
+;;; DECLARING VARIABLE register
+;;; DECLARING VARIABLE fsm_inputs
+
+;;; MISHAP - SET_PROBLEM: Unrecognized operation
+;;; INVOLVING:  [[- - - - 1 2] [- - - - - -] [- - - 9 9 9] [- - - - - -]
+	 [- - = = = =] [- - = = = =] [- - - 1 0 8] [- - - - 1 -] [- - 1
+	 0 8 0] [- - - 1 - -] [- 1 0 8 0 0] [- - 1 - - -] [= = = = = =]
+	 [= = = = = =] [- - - - - -] [- - - - - -]] 
+;;; FILE     :  /csuna/home/richardd/fsm/progs/bughunt.p   LINE NUMBER:
+	  2557
+;;; DOING    :  set_problem correct_solve bugfind compile trycompile 

@@ -1,0 +1,108 @@
+HELP ISPELL                                                Richard Dallaway
+                                                               January 1992
+
+              Check the spelling of the word at cursor in VED
+
+
+         CONTENTS - (Use <ENTER> g to access required sections)
+
+ -- <ENTER> ispell
+ -- Versions of ISPELL
+ -- Putting VED_ISPELL on a key
+ -- Variables
+ -- -- ved_ispell_flags (string)
+ -- -- ved_ispell_motivation_list (list)
+ -- Related files
+
+-- <ENTER> ispell -----------------------------------------------------
+
+ved_ispell reads the word at the cursor and passes it to ispell to
+checking.  Guesses are displayed in the same way as vedfileselect (i.e, on
+the command line if they fit, or in another file).
+
+For example, checking the word cts (moving the cursor onto that word and
+doing <ENTER> ispell) may produce the following list of words:
+
+    1: acts
+    2: cats
+    3: cots ...etc
+
+Pressing 1, 2 or 3 will replace "cts" the corresponding word.  Ispell will
+take care of any capitalization the word has.
+
+If none of ISPELL's guesses are what you want, press RETURN.
+
+Pressing * will add the word to your personal spelling dictionary.
+
+If the word to be checked is correct, ved_ispell will say so.  If ISPELL
+cannot guess the word, ved_ispell will apologize.
+
+-- Versions of ISPELL -------------------------------------------------
+
+ved_ispell only works with versions of ISPELL that are 3.0.08 (beta) (and
+possibly later).  You can check which version you use by typing "ispell -v"
+to the Unix prompt.  Also, ved_ispell will mishap with the message...
+
+    VED_ISPELL: No version identifier produced by ispell (wrong version?)
+
+...if "ispell -a" does not generate a "version identifier" (i.e., a message
+like "@(#) International Ispell Version 3.0.08").
+
+-- Putting VED_ISPELL on a key ----------------------------------------
+
+You may find it more convenient to assign ved_ispell to a key.  For
+example, adding the following line to your vedinit.p file will assign
+ispell to CONTROL-a.
+
+    vedsetkey('\^a', "ved_ispell");
+
+Every time you hold the CONTROL key and press "a", the word the cursor is on
+is passed to ved_ispell.  Note that the first time you use it, ved_ispell
+will be slow because it is being loaded.
+
+-- Variables ----------------------------------------------------------
+
+-- -- ved_ispell_flags (string)
+
+    If you want to pass additional flags to the Unix ISPELL program, place
+them in this string.  The default value is ''.  ISPELL is always run with
+the "-a" option.
+
+Other options that may be of use:
+
+    '-p file' to specify <file> as your personal dictionary (ISPELL
+    defaults to ~/.ispell_words)
+
+    '-t' if the input contains TeX or LaTeX commands (see HELP * LATEX)
+
+    '-n' if the input contains nroff/troff commands (see HELP * RNO)
+
+    '-C' Consider run-together words as legal compounds (e.g., "notthe" for
+    "not the").
+
+So, if you often check LaTeX files, you do want guesses to be sorted, and
+you do have legal run-together words you may add the following to your
+vedinit.p file:
+
+   '-C -t' -> ved_ispell_flags;
+
+
+-- -- ved_ispell_motivation_list (list) -------------------------------
+
+When the word to be checked is correct, ved_ispell displays the message
+'OK' and appends one of the strings found in ved_ispell_motivation_list to
+the 'OK' (using -oneof-).
+
+The default setting is:
+
+    [' - Great spelling!' ' - Lovely spelling' '' '' '' '' ''
+    ' - You didn\'t need my help' ' - that spelling is fine']
+
+Note the empty strings.  This means that sometimes ved_ispell responds with
+just 'OK'.
+
+-- Related files ------------------------------------------------------
+
+    man ispell
+    HELP * VED_SPELL
+    HELP * VED_MSPELL

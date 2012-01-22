@@ -1,0 +1,544 @@
+
+ABSOLUTE
+========
+
+    value = 6
+    Performance  between 1 and 25 %
+
+   Total of 41351.0 errors (tokens),  82.70% of which...
+   Operand errors           0999.00  26.60%
+   Operand distance effect  6528.00  15.79%
+   High frequency           2018.00  18.35%
+   Table errors             2130.00   5.15%
+   Operation errors          221.00   0.53%
+   Omission errors          8222.00  68.25%
+   0xN = N                     4.00  22.22%
+   Tie error                 130.00   0.31%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= 0.230087 p( 98 )= 0.010641]
+    ** [SUM correlation]
+    ** [r= 0.257763 p( 98 )= 0.004811]
+
+    .........
+
+    value = 3
+    Performance between 23 and 55 %
+
+    Total of 25437.0 errors (tokens),  50.87% of which...
+    Operand errors           7829.00  30.78%
+    Operand distance effect  5754.00  22.62%
+    High frequency           1367.00  17.46%
+    Table errors              906.00   3.56%
+    Operation errors          171.00   0.67%
+    Omission errors          6702.00  65.66%
+    0xN = N                     0.00   0.00%
+    Tie error                 105.00   0.41%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= 0.358118 p( 98 )= 0.000127]
+    ** [SUM correlation]
+    ** [r= 0.293874 p( 98 )= 0.001501]
+
+    ..........
+
+    value = 2.5
+
+    Total of 8142.0 errors (tokens),  16.28% of which...
+    Operand errors           5685.00  69.82%
+    Operand distance effect  4751.00  58.35%
+    High frequency            847.00  14.90%
+    Table errors              517.00   6.35%
+    Operation errors          231.00   2.84%
+    Omission errors          1940.00  23.83%
+    0xN = N                     0.00   0.00%
+    Tie error                  45.00   0.55%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= 0.265185 p( 98 )= 0.003833]
+    ** [SUM correlation]
+    ** [r= 0.295064 p( 98 )= 0.00144]
+
+    ..........
+
+
+    value = 2.25
+
+    Total of 8470.0 errors (tokens),  16.94% of which...
+    Operand errors           6810.00  80.40%
+    Operand distance effect  4957.00  58.52%
+    High frequency            979.00  14.38%
+    Table errors              564.00   6.66%
+    Operation errors          171.00   2.02%
+    Omission errors          1096.00  12.94%
+    0xN = N                     0.00   0.00%
+    Tie error                  84.00   0.99%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= 0.105859 p( 98 )= 0.147267]
+    ** [SUM correlation]
+    ** [r= 0.204468 p( 98 )= 0.020646]
+
+    ........
+
+    value = 1.5
+
+    Total of 5356.0 errors (tokens),  10.71% of which...
+    Operand errors           4900.00  91.49%
+    Operand distance effect  4046.00  75.54%
+    High frequency            855.00  17.45%
+    Table errors              257.00   4.80%
+    Operation errors          101.00   1.89%
+    Omission errors           199.00   3.72%
+    0xN = N                     0.00   0.00%
+    Tie error                  35.00   0.65%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= 0.120108 p( 98 )= 0.116965]
+    ** [SUM correlation]
+    ** [r= 0.080621 p( 98 )= 0.212617]
+
+
+END
+
+RELATIVE
+========
+
+   value = 6
+    Performance 0%
+
+   Total of 49975.0 errors (tokens),  99.95% of which...
+   Operand errors            232.00   0.46%
+   Operand distance effect   197.00   0.39%
+   High frequency             51.00  21.98%
+   Table errors               25.00   0.05%
+   Operation errors           46.00   0.09%
+   Omission errors          9718.00  99.49%
+   0xN = N                     0.00   0.00%
+   Tie error                   1.00   0.00%
+
+   ........................
+
+    value = 3
+    Performance between 0 and 10 %
+
+    Total of 45898.0 errors (tokens),  91.80% of which...
+    Operand errors           3151.00  28.65%
+    Operand distance effect  6299.00  13.72%
+    High frequency           3462.00  26.32%
+    Table errors             7365.00  16.05%
+    Operation errors          334.00   0.73%
+    Omission errors          5382.00  55.30%
+    0xN = N                     5.00  27.78%
+    Tie error                 193.00   0.42%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= -0.044462 p( 98 )= 0.330242]
+    ** [SUM correlation]
+    ** [r= -0.000568 p( 98 )= 0.497761]
+
+    ...............
+
+    value = 2
+    Performance: 4 to 27 %
+
+
+    Total of 34652.0 errors (tokens),  69.30% of which...
+    Operand errors           7778.00  51.30%
+    Operand distance effect  0857.00  31.33%
+    High frequency           4693.00  26.40%
+    Table errors             4721.00  13.62%
+    Operation errors         1245.00   3.59%
+    Omission errors          2153.00  35.07%
+    0xN = N                    11.00  61.11%
+    Tie error                 184.00   0.53%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= 0.025808 p( 98 )= 0.399407]
+    ** [SUM correlation]
+    ** [r= 0.092677 p( 98 )= 0.179548]
+
+    ................
+
+
+    value = 1.5
+    Performance:
+
+    Total of 40705.0 errors (tokens),  81.41% of which...
+    Operand errors           4499.00  35.62%
+    Operand distance effect  7787.00  19.13%
+    High frequency           2830.00  19.52%
+    Table errors             5926.00  14.56%
+    Operation errors          711.00   1.75%
+    Omission errors          0280.00  49.82%
+    0xN = N                     7.00  38.89%
+    Tie error                 187.00   0.46%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= 0.199148 p( 98 )= 0.023495]
+    ** [SUM correlation]
+    ** [r= 0.243875 p( 98 )= 0.00724]
+
+    ..................
+
+    value = 1.25
+
+
+    Total of 37665.0 errors (tokens),  75.33% of which...
+    Operand errors           4474.00  38.43%
+    Operand distance effect  8550.00  22.70%
+    High frequency           2934.00  20.27%
+    Table errors             4044.00  10.74%
+    Operation errors          684.00   1.82%
+    Omission errors          9147.00  50.83%
+    0xN = N                     7.00  38.89%
+    Tie error                 187.00   0.50%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= 0.293382 p( 98 )= 0.001526]
+    ** [SUM correlation]
+    ** [r= 0.327539 p( 98 )= 0.00044]
+
+    ................
+
+
+    value = 1.1
+
+    Total of 30836.0 errors (tokens),  61.67% of which...
+    Operand errors           4704.00  47.68%
+    Operand distance effect  8980.00  29.12%
+    High frequency           3069.00  20.87%
+    Table errors             2461.00   7.98%
+    Operation errors          765.00   2.48%
+    Omission errors          3671.00  44.33%
+    0xN = N                     9.00  50.00%
+    Tie error                 168.00   0.54%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= 0.295897 p( 98 )= 0.001399]
+    ** [SUM correlation]
+    ** [r= 0.277879 p( 98 )= 0.002561]
+
+    .................
+
+    value = 1
+
+    Total of 30205.0 errors (tokens),  60.41% of which...
+    Operand errors           5938.00  52.77%
+    Operand distance effect  0155.00  33.62%
+    High frequency           3474.00  21.80%
+    Table errors             2101.00   6.96%
+    Operation errors          637.00   2.11%
+    Omission errors          2166.00  40.28%
+    0xN = N                     3.00  16.67%
+    Tie error                 160.00   0.53%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= 0.466229 p( 98 )= 0.000001]
+    ** [SUM correlation]
+    ** [r= 0.507956 p( 98 )= 0.0]
+
+    ..........
+
+    value = 0.75
+
+    Total of 20920.0 errors (tokens),  41.84% of which...
+    Operand errors           0407.00  49.75%
+    Operand distance effect  7529.00  35.99%
+    High frequency           1994.00  19.16%
+    Table errors             1267.00   6.06%
+    Operation errors          333.00   1.59%
+    Omission errors          9246.00  44.20%
+    0xN = N                     2.00  11.11%
+    Tie error                  97.00   0.46%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= 0.459643 p( 98 )= 0.000001]
+    ** [SUM correlation]
+    ** [r= 0.498098 p( 98 )= 0.0]
+
+    ...........
+
+    value = 0.5
+
+    Total of 11104.0 errors (tokens),  22.21% of which...
+    Operand errors           6644.00  59.83%
+    Operand distance effect  4655.00  41.92%
+    High frequency           1628.00  24.50%
+    Table errors              688.00   6.20%
+    Operation errors          150.00   1.35%
+    Omission errors          3772.00  33.97%
+    0xN = N                     3.00  16.67%
+    Tie error                  93.00   0.84%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= 0.155423 p( 98 )= 0.061283]
+    ** [SUM correlation]
+    ** [r= 0.197838 p( 98 )= 0.024245]
+
+
+
+
+END
+
+DESTROY
+=======
+
+    value = 0.3
+    Performance between 0 and 6 %
+
+     Total of 48702.0 errors (tokens),  97.40% of which...
+     Operand errors           4556.00   9.35%
+     Operand distance effect  1725.00   3.54%
+     High frequency            550.00  12.07%
+     Table errors             1645.00   3.38%
+     Operation errors           73.00   0.15%
+     Omission errors          2501.00  87.27%
+     0xN = N                     1.00   5.56%
+     Tie error                 106.00   0.22%
+
+
+
+    .......
+
+    value = 0.15
+    Performance between 1 and 12 %
+
+    Total of 43348.0 errors (tokens),  86.70% of which...
+    Operand errors           3134.00  30.30%
+    Operand distance effect  6626.00  15.29%
+    High frequency           4263.00  32.46%
+    Table errors             4235.00   9.77%
+    Operation errors          483.00   1.11%
+    Omission errors          5979.00  59.93%
+    0xN = N                     6.00  33.33%
+    Tie error                 174.00   0.40%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= 0.24181 p( 98 )= 0.00768]
+    ** [SUM correlation]
+    ** [r= 0.289338 p( 98 )= 0.001752]
+
+    ......
+
+    value = 0.075
+
+    Total of 29176.0 errors (tokens),  58.35% of which...
+    Operand errors           0099.00  34.61%
+    Operand distance effect  6484.00  22.22%
+    High frequency           2075.00  20.55%
+    Table errors             2521.00   8.64%
+    Operation errors          369.00   1.26%
+    Omission errors          6556.00  56.75%
+    0xN = N                     4.00  22.22%
+    Tie error                 136.00   0.47%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= 0.414669 p( 98 )= 0.000009]
+    ** [SUM correlation]
+    ** [r= 0.405331 p( 98 )= 0.000014]
+
+
+    .........
+
+    value = 0.02
+
+
+    Total of 13186.0 errors (tokens),  26.37% of which...
+    Operand errors           7673.00  58.19%
+    Operand distance effect  4831.00  36.64%
+    High frequency           1190.00  15.51%
+    Table errors             1232.00   9.34%
+    Operation errors          169.00   1.28%
+    Omission errors          4281.00  32.47%
+    0xN = N                     0.00   0.00%
+    Tie error                  91.00   0.69%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= -0.022159 p( 98 )= 0.413391]
+    ** [SUM correlation]
+    ** [r= 0.022324 p( 98 )= 0.412755]
+
+
+
+
+END
+
+UNIT DELETION
+=============
+
+    Deleting 1 unit.
+    Performance 34 to 80 %
+
+    Total of 22490.0 errors (tokens),  44.98% of which...
+    Operand errors           0738.00  47.75%
+    Operand distance effect  6698.00  29.78%
+    High frequency           2422.00  22.56%
+    Table errors             1993.00   8.86%
+    Operation errors          402.00   1.79%
+    Omission errors          9759.00  43.39%
+    0xN = N                     5.00  27.78%
+    Tie error                 122.00   0.54%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= 0.448365 p( 98 )= 0.000001]
+    ** [SUM correlation]
+    ** [r= 0.434943 p( 98 )= 0.000003]
+
+    ..................
+
+    Deleting 2 units
+    Performance: 14 to 62 %
+
+    Total of 31325.0 errors (tokens),  62.65% of which...
+    Operand errors           3662.00  43.61%
+    Operand distance effect  7386.00  23.58%
+    High frequency           3730.00  27.30%
+    Table errors             4245.00  13.55%
+    Operation errors          425.00   1.36%
+    Omission errors          3418.00  42.83%
+    0xN = N                     4.00  22.22%
+    Tie error                 210.00   0.67%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= 0.113315 p( 98 )= 0.130819]
+    ** [SUM correlation]
+    ** [r= 0.087232 p( 98 )= 0.19407]
+
+    ..................
+
+    Deleting 3 units
+
+    Total of 40164.0 errors (tokens),  80.33% of which...
+    Operand errors           1946.00  29.74%
+    Operand distance effect  6923.00  17.24%
+    High frequency           2023.00  16.93%
+    Table errors             5332.00  13.28%
+    Operation errors          687.00   1.71%
+    Omission errors          2886.00  56.98%
+    0xN = N                    10.00  55.56%
+    Tie error                 114.00   0.28%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= 0.430259 p( 98 )= 0.000004]
+    ** [SUM correlation]
+    ** [r= 0.476331 p( 98 )= 0.0]
+
+    ..................
+
+
+    Deleting 4 units
+
+    Total of 43218.0 errors (tokens),  86.44% of which...
+    Operand errors           4135.00  32.71%
+    Operand distance effect  7534.00  17.43%
+    High frequency           2580.00  18.25%
+    Table errors             5334.00  12.34%
+    Operation errors          526.00   1.22%
+    Omission errors          3749.00  54.95%
+    0xN = N                     2.00  11.11%
+    Tie error                 205.00   0.47%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= 0.254225 p( 98 )= 0.00535]
+    ** [SUM correlation]
+    ** [r= 0.281703 p( 98 )= 0.00226]
+
+
+    .................
+
+    Deleting 5 units
+
+    Total of 46878.0 errors (tokens),  93.76% of which...
+    Operand errors           9073.00  19.35%
+    Operand distance effect  4626.00   9.87%
+    High frequency           2576.00  28.39%
+    Table errors             3831.00   8.17%
+    Operation errors          410.00   0.87%
+    Omission errors          3974.00  72.47%
+    0xN = N                     2.00  11.11%
+    Tie error                 112.00   0.24%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= -0.05555 p( 98 )= 0.291523]
+    ** [SUM correlation]
+    ** [r= 0.013709 p( 98 )= 0.44616]
+
+
+    ..................
+
+    Deleting 6 units
+
+
+    Total of 48499.0 errors (tokens),  97.00% of which...
+    Operand errors           6157.00  12.70%
+    Operand distance effect  2816.00   5.81%
+    High frequency           1842.00  29.92%
+    Table errors             2532.00   5.22%
+    Operation errors          137.00   0.28%
+    Omission errors          9810.00  82.08%
+    0xN = N                     0.00   0.00%
+    Tie error                  98.00   0.20%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= -0.351241 p( 98 )= 0.00017]
+    ** [SUM correlation]
+    ** [r= -0.401488 p( 98 )= 0.000017]
+
+    .................
+
+    Deleting 7
+
+    Total of 49663.0 errors (tokens),  99.33% of which...
+    Operand errors           2463.00   4.96%
+    Operand distance effect   939.00   1.89%
+    High frequency            376.00  15.27%
+    Table errors             3012.00   6.06%
+    Operation errors           49.00   0.10%
+    Omission errors          4188.00  88.98%
+    0xN = N                     0.00   0.00%
+    Tie error                  36.00   0.07%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= 0.134632 p( 98 )= 0.090859]
+    ** [SUM correlation]
+    ** [r= 0.266359 p( 98 )= 0.003696]
+
+    ..................
+
+    Deleting 8
+
+    Total of 49985.0 errors (tokens),  99.97% of which...
+    Operand errors            163.00   0.33%
+    Operand distance effect    93.00   0.19%
+    High frequency            111.00  68.10%
+    Table errors              435.00   0.87%
+    Operation errors           36.00   0.07%
+    Omission errors          9387.00  98.80%
+    0xN = N                     0.00   0.00%
+    Tie error                  15.00   0.03%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= -0.304082 p( 98 )= 0.00105]
+    ** [SUM correlation]
+    ** [r= -0.275806 p( 98 )= 0.002739]
+
+    ..................
+
+    Deleting 9
+
+
+    Total of 49944.0 errors (tokens),  99.89% of which...
+    Operand errors            769.00   1.54%
+    Operand distance effect   422.00   0.84%
+    High frequency            756.00  98.31%
+    Table errors              481.00   0.96%
+    Operation errors            7.00   0.01%
+    Omission errors          8694.00  97.50%
+    0xN = N                     0.00   0.00%
+    Tie error                  20.00   0.04%
+
+    ** [Correlation of Omissions to PRODUCT]
+    ** [r= -0.082558 p( 98 )= 0.207079]
+    ** [SUM correlation]
+    ** [r= -0.064649 p( 98 )= 0.261401]

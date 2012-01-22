@@ -1,0 +1,109 @@
+HELP RC_3D
+
+
+         CONTENTS - (Use <ENTER> g to access required sections)
+
+ -- Overview
+ -- Persepctive
+ -- Rotation
+ -- Scales
+ -- rc_3d_scale_from_list(list);
+ -- rc_3d_jumpto(x,y,z);
+ -- rc_3d_drawto(x,y,z);
+ -- rc_3d_cross(x,y,z);
+ -- rc_3d_print_at(x,y,z,txt);
+ -- rc_3d_to_2d(x,y,z) -> (x,y);
+ -- rc_3d_init()
+ -- rc_3d_unitcube();
+ -- rc_3d_axis(width);
+
+
+-- Overview -----------------------------------------------------------
+
+rc_3d allows you to plot (x,y,z) in a unit cube.  This means you must
+make sure your data falls into the range [0-1]!
+
+-- Persepctive --------------------------------------------------------
+
+Global variable. <true> to draw "in perspective" (not recommended).
+
+true  -> rc_3d_perspective;
+false -> rc_3d_perspective;  ;;; default
+
+-- Rotation -----------------------------------------------------------
+
+Global vairable rc_3d_R holds the current rotation matrix.
+
+mkrotate(-15,25,0) -> rc_3d_R;  ;;; default
+
+
+-- Scales -------------------------------------------------------------
+
+default values:
+
+    1 -> rc_3d_xscale;
+    1 -> rc_3d_yscale;
+   -1 -> rc_3d_zscale;
+
+
+-- rc_3d_graphplot(xyzlist); ------------------------------------------
+
+    Expects list in [ [x y z] [x y z] ... ] format
+
+rc_start();
+rc_3d_init();
+rc_3d_unitcube();
+
+vars l1 = [
+    [-5 6 -5]
+    [0 10 -4]
+    [15 11 30]
+    [11 5 -1] ];
+
+
+rc_3d_graphplot(l1);
+
+
+TO CHANGE TO PLOTTING PROCEDURE:
+    As an optional argument, rc_3d_graphplot ca be given a procedure.
+    This procedure will be passsed (x,y,z) ad should plot the point.
+
+rc_3d_jumpto(0,0,0);
+rc_3d_graphplot(l1,rc_3d_drawto);
+
+rc_3d_jumpto(0,0,0);
+rc_3d_graphplot(l1,rc_3d_arrow);
+
+-- rc_3d_scale_list(list) -> newlist; ---------------------------------
+
+Takes a list of any (x,y,z) values and returns a new list containing
+the (x,y,z) data scalled betwen 0 and 1.
+
+-- rc_3d_prescaled_graphplot(xyzlist) ---------------------------------
+
+Like rc_3d_graphplot, but expects the list to be prescalled.
+
+
+-- rc_3d_jumpto(x,y,z); -----------------------------------------------
+
+-- rc_3d_drawto(x,y,z); -----------------------------------------------
+
+-- rc_3d_cross(x,y,z); ------------------------------------------------
+    Draw a cross at (x,y,z)
+
+-- rc_3d_print_at(x,y,z,txt); -----------------------------------------
+
+
+-- rc_3d_to_2d(x,y,z) -> (x,y); ---------------------------------------
+
+-- rc_3d_init() -------------------------------------------------------
+
+    Sets various rc_graphic parameters.
+
+-- rc_3d_unitcube(); --------------------------------------------------
+
+    Draws a unit cube.
+
+-- rc_3d_axis(width); -------------------------------------------------
+
+    Draws tick-mark axis around the unit cube.

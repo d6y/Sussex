@@ -1,0 +1,14 @@
+\input myfonts.sty
+
+% To combat seminar's scaling of figures
+% Usage: \pssem{file}{width}
+\input epsf.sty
+\newcommand{\pssem}[2]{\setslidelength{\epsfxsize}{#2}%
+    \centerline{\epsffile{#1}}}
+
+\renewcommand{\printlandscape}{\special{landscape}}
+\slideframe{none}
+%\slidestyle{empty}
+%\slidepagestyle{empty}
+% \def\pssem#1#2{}
+\endinput

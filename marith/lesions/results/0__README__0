@@ -1,0 +1,7 @@
+
+Filenames with _24 or _48 mean that they were run with
+"relaxed addition".  _24 means 1/4 of the value was
+randomly added to a weight, and _48 menas 1/8.
+The Number after _nn is the Value used to reduce
+the magnitude of the weight.
+

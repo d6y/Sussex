@@ -1,0 +1,29 @@
+This is TeX, C Version 3.14t3 (format=lplain 92.3.12)  6 AUG 1993 19:17
+**test.tex
+(test.tex
+LaTeX Version 2.09 <14 January 1992>
+(/usr/local/lib/tex/inputs/article.sty
+Standard Document Style `article' <14 Jan 92>.
+(/usr/local/lib/tex/inputs/art10.sty)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+) (/usr/local/lib/tex/inputs/rot.sty
+\@rotdimen=\dimen99
+)
+(test.aux) (tab.tex) [1] (test.aux) ) 
+Here is how much of TeX's memory you used:
+ 199 strings out of 4213
+ 1775 string characters out of 53072
+ 29286 words of memory out of 262141
+ 2361 multiletter control sequences out of 9500
+ 18987 words of font info for 72 fonts, out of 72000 for 255
+ 16 hyphenation exceptions out of 607
+ 16i,8n,15p,139b,162s stack positions out of 300i,40n,60p,3000b,4000s
+
+Output written on test.dvi (1 page, 852 bytes).

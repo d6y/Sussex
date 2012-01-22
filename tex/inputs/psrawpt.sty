@@ -1,0 +1,32 @@
+%%% ====================================================================
+%%%  @LaTeX-style-file{
+%%%     author          = "Alan Jeffrey",
+%%%     version         = "0.02",
+%%%     date            = "24 June 1992",
+%%%     time            = "14:20:32 BST",
+%%%     filename        = "psrawpt.sty",
+%%%     address         = "School of Cognitive and Computing Sciences
+%%%                        University of Sussex
+%%%                        Brighton BN1 9QH
+%%%                        UK",
+%%%     telephone       = "+44 273 606755 x 3238",
+%%%     FAX             = "+44 273 678188",
+%%%     checksum        = "22281 32 160 1542",
+%%%     email           = "alanje@cogs.sussex.ac.uk",
+%%%     codetable       = "ISO/ASCII",
+%%%     keywords        = "",
+%%%     supported       = "yes",
+%%%     abstract        = "This document style option switches off the
+%%%                       `smart' font scaling of psfont.sty.",
+%%%     docstring       = "The checksum field above contains a CRC-16
+%%%                        checksum as the first value, followed by the
+%%%                        equivalent of the standard UNIX wc (word
+%%%                        count) utility output of lines, words, and
+%%%                        characters.  This is produced by Robert
+%%%                        Solovay's checksum utility.",
+%%%     package         = "stands alone",
+%%%     dependencies    = "none",
+%%%  }
+%%% ====================================================================
+
+\def\load@ps@family@hook{\main@font@x@height=\maxdimen}

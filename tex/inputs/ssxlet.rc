@@ -1,0 +1,19 @@
+\typeout{READING USERS SSXLET.RC FILE}
+
+\school{School of Cognitive \& Computing Sciences}
+\building{}
+\postcode{BN1 9QH}
+\faxextension{8188}
+\hostname{cogs.susx.ac.uk}
+\headrulewidth0.5pt
+\extension{3072}
+\username{richardd}
+
+\textwidth=14.5cm
+\addressanddatewidth=\textwidth
+\parskip=5mm
+\headrulesep=5mm
+\headtextsep=1cm
+\addressrulesep=2cm
+
+%\international

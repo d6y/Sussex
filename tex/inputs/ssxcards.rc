@@ -1,0 +1,15 @@
+% This is the default addresses and telephone numbers for COGS
+% business cards:
+
+\address{School of Cognitive \\
+   and Computing Sciences \\
+   University of Sussex \\
+   Falmer, Brighton BN1 9QH}
+
+\telephone{Telephone: (0273) 606755 \\
+   School Office: (0273) 678195 \\
+   Fax: (0273) 678188}
+
+\typeout{}
+\typeout{To be printed with `dvips -Plwa \jobname'.}
+\typeout{}

@@ -1,0 +1,28 @@
+do /csuna/home/richardd/marith/networks/new10.str 1
+
+get pat /csuna/home/richardd/marith/patterns/EQ-ONE.pat
+
+set param outputtolerance 100
+set mode allcrit 1
+set ecrit 0.0
+
+log /csuna/home/richardd/marith/weights/one-of-n/equ1.log
+
+get w /csuna/home/richardd/marith/weights/one-of-n/skew10-1.wts
+ptrain
+save w /csuna/home/richardd/marith/weights/one-of-n/equ10-1.wts
+get w /csuna/home/richardd/marith/weights/one-of-n/skew10-2.wts
+ptrain
+save w /csuna/home/richardd/marith/weights/one-of-n/equ10-2.wts
+get w /csuna/home/richardd/marith/weights/one-of-n/skew10-3.wts
+ptrain
+save w /csuna/home/richardd/marith/weights/one-of-n/equ10-3.wts
+get w /csuna/home/richardd/marith/weights/one-of-n/skew10-4.wts
+ptrain
+save w /csuna/home/richardd/marith/weights/one-of-n/equ10-4.wts
+get w /csuna/home/richardd/marith/weights/one-of-n/skew10-5.wts
+ptrain
+save w /csuna/home/richardd/marith/weights/one-of-n/equ10-5.wts
+log -
+q
+y

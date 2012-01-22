@@ -1,0 +1,33 @@
+define: layout 32 700
+epoch   $                               tss $            ($      %)
+cpname  $                               pss $
+
+    SAD SMU ZAC ADD MUL PSH UNI TEN MKZ MKC RDC TNC JAS JTR NAR NBC LFT RHT UP_ DWN IAC ITC RUL DON
+   $
+ T:$
+ O:$
+   $
+   $
+
+ H:$
+   $
+ C:$
+
+ I:$
+   ADD MUL TEN SPC RUL NUM LFT RHT
+end
+
+epochno     variable    1   $   n   epochno     6   1.0
+tss         floatvar    1   $   n   tss         8   1.0
+performance floatvar    1   $   n   performance 6   1.0
+cpname      variable    3   $   n   cpname      -27 1.0
+pss         floatvar    3   $   n   pss         8   1.0
+targmax     vectormax   3   $   n   target      h 4       0 nexternaloutputs
+targets     vector      3   $   n   target      h 4 100.0 0 nexternaloutputs
+output      vector      3   $   n   activation  h 4 100.0 firstoutput nexternaloutputs
+wtchg       vector      4   $   n   delta       h 4 1000 firstoutput nexternaloutputs
+maxout      vectormax   3   $   n   activation  h 4       firstoutput nexternaloutputs
+hidden      vector      3   $   n   activation  h 3 100.0 firsthidden nhidden
+hiddendelta vector      4   $   n   delta       h 3 1000 firsthidden nhidden
+context     vector      4   $   n   activation  h 3 100.0 firstcontext ncontext
+input       vector      3   $   n   activation  h 4 100.0 firstinput nexternalinputs

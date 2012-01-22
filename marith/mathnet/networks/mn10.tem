@@ -1,0 +1,23 @@
+define: layout 32 120
+epoch   $       tss $
+cpname  $       pss $
+cycle   $
+
+    ?  0  1  2  3  4  5  6  7  8  9 10 12 14 15 16 18 20 21 24 25 27 28 30 32 35 36 40 42 45 48 49 54 56 63 64 72 81
+t $
+
+o $
+
+h $
+
+i $
+end
+epochno variable    1   $   n   epochno 6   1.0
+tss floatvar    1   $       n       tss 8   1.0
+cpname  variable    2   $   n   cpname  -6  1.0
+pss floatvar    2   $   n   pss 8   1.0
+cycle variable 2 $ n cycleno 5 1.0
+targets vector 2 $  n target  h 3 100.0 0 38
+output vector 2 $  n activation h 3 100.0 35 38
+hidden vector 2 $ n activation h 3 100.0 25 10
+input vector 2 $ n activation h 3 100.0 0 25

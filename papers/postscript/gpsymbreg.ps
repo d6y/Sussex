@@ -1,0 +1,321 @@
+%! output.ps
+%%BoundingBox: 48 48 234 242
+% Graph of curve y=2.718*x*x+3.1416*x (solid) and the curve evolved
+% using GP without parsimony measures.  The square region shows the
+% area from which 20 sample (x,y) pairs were taken.
+
+36.0 36.0 translate
+0.432 0.432 scale
+
+/ellipsedict 8 dict def
+ellipsedict /mtrx matrix put
+/positive_ellipse
+  { ellipsedict begin
+    /endangle exch def
+    /startangle exch def
+    /yrad exch def
+    /xrad exch def
+    /y exch def
+    /x exch def
+    /savematrix mtrx currentmatrix def
+    x y translate
+    xrad yrad scale
+    0 0 1 startangle endangle arc
+    savematrix setmatrix
+    end
+  } def
+/negative_ellipse
+  { ellipsedict begin
+    /endangle exch def
+    /startangle exch def
+    /yrad exch def
+    /xrad exch def
+    /y exch def
+    /x exch def
+    /savematrix mtrx currentmatrix def
+    x y translate
+    xrad yrad scale
+    0 0 1 startangle endangle arcn
+    savematrix setmatrix
+    end
+  } def
+/scaletextdict 8 dict def
+scaletextdict /mtrx matrix put
+/scale_text
+  { scaletextdict begin
+    /thesize exch def
+    /savematrix mtrx currentmatrix def
+    dup stringwidth pop thesize exch div 1 scale show
+    savematrix setmatrix
+    end
+  } def
+
+
+0.1 setlinewidth
+
+[3] 0 setdash
+
+[] 0 setdash
+
+newpath 50 50 moveto 450 50 lineto stroke
+newpath 100 50 moveto 100 58 lineto stroke
+newpath 256 50 moveto 256 58 lineto stroke
+newpath 411 50 moveto 411 58 lineto stroke
+
+/Helvetica findfont 12 scalefont setfont
+93 38 moveto (-2) 15 scale_text
+252 38 moveto (0) 7 scale_text
+408 38 moveto (2) 7 scale_text
+newpath 54 50 moveto 54 50 lineto stroke
+newpath 69 50 moveto 69 50 lineto stroke
+newpath 85 50 moveto 85 50 lineto stroke
+newpath 100 50 moveto 100 50 lineto stroke
+newpath 116 50 moveto 116 50 lineto stroke
+newpath 132 50 moveto 132 50 lineto stroke
+newpath 147 50 moveto 147 50 lineto stroke
+newpath 163 50 moveto 163 50 lineto stroke
+newpath 178 50 moveto 178 50 lineto stroke
+newpath 194 50 moveto 194 50 lineto stroke
+newpath 209 50 moveto 209 50 lineto stroke
+newpath 225 50 moveto 225 50 lineto stroke
+newpath 240 50 moveto 240 50 lineto stroke
+newpath 256 50 moveto 256 50 lineto stroke
+newpath 271 50 moveto 271 50 lineto stroke
+newpath 287 50 moveto 287 50 lineto stroke
+newpath 302 50 moveto 302 50 lineto stroke
+newpath 318 50 moveto 318 50 lineto stroke
+newpath 333 50 moveto 333 50 lineto stroke
+newpath 349 50 moveto 349 50 lineto stroke
+newpath 365 50 moveto 365 50 lineto stroke
+newpath 380 50 moveto 380 50 lineto stroke
+newpath 396 50 moveto 396 50 lineto stroke
+newpath 411 50 moveto 411 50 lineto stroke
+newpath 427 50 moveto 427 50 lineto stroke
+newpath 442 50 moveto 442 50 lineto stroke
+447 24 moveto (x) 6 scale_text
+newpath 50 50 moveto 50 450 lineto stroke
+newpath 50 107 moveto 58 107 lineto stroke
+newpath 50 221 moveto 58 221 lineto stroke
+newpath 50 336 moveto 58 336 lineto stroke
+newpath 50 450 moveto 58 450 lineto stroke
+36 104 moveto (0) 7 scale_text
+29 218 moveto (10) 14 scale_text
+29 332 moveto (20) 14 scale_text
+29 446 moveto (30) 14 scale_text
+newpath 50 50 moveto 50 50 lineto stroke
+newpath 50 61 moveto 50 61 lineto stroke
+newpath 50 73 moveto 50 73 lineto stroke
+newpath 50 84 moveto 50 84 lineto stroke
+newpath 50 96 moveto 50 96 lineto stroke
+newpath 50 107 moveto 50 107 lineto stroke
+newpath 50 119 moveto 50 119 lineto stroke
+newpath 50 130 moveto 50 130 lineto stroke
+newpath 50 141 moveto 50 141 lineto stroke
+newpath 50 153 moveto 50 153 lineto stroke
+newpath 50 164 moveto 50 164 lineto stroke
+newpath 50 176 moveto 50 176 lineto stroke
+newpath 50 187 moveto 50 187 lineto stroke
+newpath 50 199 moveto 50 199 lineto stroke
+newpath 50 210 moveto 50 210 lineto stroke
+newpath 50 221 moveto 50 221 lineto stroke
+newpath 50 233 moveto 50 233 lineto stroke
+newpath 50 244 moveto 50 244 lineto stroke
+newpath 50 256 moveto 50 256 lineto stroke
+newpath 50 267 moveto 50 267 lineto stroke
+newpath 50 279 moveto 50 279 lineto stroke
+newpath 50 290 moveto 50 290 lineto stroke
+newpath 50 301 moveto 50 301 lineto stroke
+newpath 50 313 moveto 50 313 lineto stroke
+newpath 50 324 moveto 50 324 lineto stroke
+newpath 50 336 moveto 50 336 lineto stroke
+newpath 50 347 moveto 50 347 lineto stroke
+newpath 50 359 moveto 50 359 lineto stroke
+newpath 50 370 moveto 50 370 lineto stroke
+newpath 50 381 moveto 50 381 lineto stroke
+newpath 50 393 moveto 50 393 lineto stroke
+newpath 50 404 moveto 50 404 lineto stroke
+newpath 50 416 moveto 50 416 lineto stroke
+newpath 50 427 moveto 50 427 lineto stroke
+newpath 50 439 moveto 50 439 lineto stroke
+newpath 50 450 moveto 50 450 lineto stroke
+36 460 moveto (y) 7 scale_text
+newpath 50 450 moveto 450 450 lineto stroke
+newpath 100 442 moveto 100 450 lineto stroke
+newpath 256 442 moveto 256 450 lineto stroke
+newpath 411 442 moveto 411 450 lineto stroke
+newpath 54 450 moveto 54 450 lineto stroke
+newpath 69 450 moveto 69 450 lineto stroke
+newpath 85 450 moveto 85 450 lineto stroke
+newpath 100 450 moveto 100 450 lineto stroke
+newpath 116 450 moveto 116 450 lineto stroke
+newpath 132 450 moveto 132 450 lineto stroke
+newpath 147 450 moveto 147 450 lineto stroke
+newpath 163 450 moveto 163 450 lineto stroke
+newpath 178 450 moveto 178 450 lineto stroke
+newpath 194 450 moveto 194 450 lineto stroke
+newpath 209 450 moveto 209 450 lineto stroke
+newpath 225 450 moveto 225 450 lineto stroke
+newpath 240 450 moveto 240 450 lineto stroke
+newpath 256 450 moveto 256 450 lineto stroke
+newpath 271 450 moveto 271 450 lineto stroke
+newpath 287 450 moveto 287 450 lineto stroke
+newpath 302 450 moveto 302 450 lineto stroke
+newpath 318 450 moveto 318 450 lineto stroke
+newpath 333 450 moveto 333 450 lineto stroke
+newpath 349 450 moveto 349 450 lineto stroke
+newpath 365 450 moveto 365 450 lineto stroke
+newpath 380 450 moveto 380 450 lineto stroke
+newpath 396 450 moveto 396 450 lineto stroke
+newpath 411 450 moveto 411 450 lineto stroke
+newpath 427 450 moveto 427 450 lineto stroke
+newpath 442 450 moveto 442 450 lineto stroke
+newpath 450 50 moveto 450 450 lineto stroke
+newpath 442 107 moveto 450 107 lineto stroke
+newpath 442 221 moveto 450 221 lineto stroke
+newpath 442 336 moveto 450 336 lineto stroke
+newpath 442 450 moveto 450 450 lineto stroke
+newpath 450 50 moveto 450 50 lineto stroke
+newpath 450 61 moveto 450 61 lineto stroke
+newpath 450 73 moveto 450 73 lineto stroke
+newpath 450 84 moveto 450 84 lineto stroke
+newpath 450 96 moveto 450 96 lineto stroke
+newpath 450 107 moveto 450 107 lineto stroke
+newpath 450 119 moveto 450 119 lineto stroke
+newpath 450 130 moveto 450 130 lineto stroke
+newpath 450 141 moveto 450 141 lineto stroke
+newpath 450 153 moveto 450 153 lineto stroke
+newpath 450 164 moveto 450 164 lineto stroke
+newpath 450 176 moveto 450 176 lineto stroke
+newpath 450 187 moveto 450 187 lineto stroke
+newpath 450 199 moveto 450 199 lineto stroke
+newpath 450 210 moveto 450 210 lineto stroke
+newpath 450 221 moveto 450 221 lineto stroke
+newpath 450 233 moveto 450 233 lineto stroke
+newpath 450 244 moveto 450 244 lineto stroke
+newpath 450 256 moveto 450 256 lineto stroke
+newpath 450 267 moveto 450 267 lineto stroke
+newpath 450 279 moveto 450 279 lineto stroke
+newpath 450 290 moveto 450 290 lineto stroke
+newpath 450 301 moveto 450 301 lineto stroke
+newpath 450 313 moveto 450 313 lineto stroke
+newpath 450 324 moveto 450 324 lineto stroke
+newpath 450 336 moveto 450 336 lineto stroke
+newpath 450 347 moveto 450 347 lineto stroke
+newpath 450 359 moveto 450 359 lineto stroke
+newpath 450 370 moveto 450 370 lineto stroke
+newpath 450 381 moveto 450 381 lineto stroke
+newpath 450 393 moveto 450 393 lineto stroke
+newpath 450 404 moveto 450 404 lineto stroke
+newpath 450 416 moveto 450 416 lineto stroke
+newpath 450 427 moveto 450 427 lineto stroke
+newpath 450 439 moveto 450 439 lineto stroke
+newpath 450 450 moveto 450 450 lineto stroke
+newpath 50 230 moveto 58 218 lineto stroke
+newpath 58 218 moveto 66 206 lineto stroke
+newpath 66 206 moveto 73 194 lineto stroke
+newpath 73 194 moveto 81 184 lineto stroke
+newpath 81 184 moveto 89 174 lineto stroke
+newpath 89 174 moveto 97 164 lineto stroke
+newpath 97 164 moveto 104 155 lineto stroke
+newpath 104 155 moveto 112 147 lineto stroke
+newpath 112 147 moveto 120 139 lineto stroke
+newpath 120 139 moveto 128 132 lineto stroke
+newpath 128 132 moveto 135 126 lineto stroke
+newpath 135 126 moveto 143 120 lineto stroke
+newpath 143 120 moveto 151 115 lineto stroke
+newpath 151 115 moveto 159 111 lineto stroke
+newpath 159 111 moveto 167 107 lineto stroke
+newpath 167 107 moveto 174 104 lineto stroke
+newpath 174 104 moveto 182 101 lineto stroke
+newpath 182 101 moveto 190 99 lineto stroke
+newpath 190 99 moveto 198 98 lineto stroke
+newpath 198 98 moveto 205 97 lineto stroke
+newpath 205 97 moveto 213 97 lineto stroke
+newpath 213 97 moveto 221 97 lineto stroke
+newpath 221 97 moveto 229 98 lineto stroke
+newpath 229 98 moveto 236 100 lineto stroke
+newpath 236 100 moveto 244 102 lineto stroke
+newpath 244 102 moveto 252 105 lineto stroke
+newpath 252 105 moveto 260 109 lineto stroke
+newpath 260 109 moveto 267 113 lineto stroke
+newpath 267 113 moveto 275 118 lineto stroke
+newpath 275 118 moveto 283 124 lineto stroke
+newpath 283 124 moveto 291 130 lineto stroke
+newpath 291 130 moveto 299 136 lineto stroke
+newpath 299 136 moveto 306 144 lineto stroke
+newpath 306 144 moveto 314 152 lineto stroke
+newpath 314 152 moveto 322 160 lineto stroke
+newpath 322 160 moveto 330 169 lineto stroke
+newpath 330 169 moveto 337 179 lineto stroke
+newpath 337 179 moveto 345 190 lineto stroke
+newpath 345 190 moveto 353 201 lineto stroke
+newpath 353 201 moveto 361 212 lineto stroke
+newpath 361 212 moveto 368 225 lineto stroke
+newpath 368 225 moveto 376 237 lineto stroke
+newpath 376 237 moveto 384 251 lineto stroke
+newpath 384 251 moveto 392 265 lineto stroke
+newpath 392 265 moveto 400 280 lineto stroke
+newpath 400 280 moveto 407 295 lineto stroke
+newpath 407 295 moveto 415 311 lineto stroke
+newpath 415 311 moveto 423 328 lineto stroke
+newpath 423 328 moveto 431 345 lineto stroke
+newpath 431 345 moveto 438 363 lineto stroke
+newpath 438 363 moveto 446 382 lineto stroke
+[3] 0 setdash
+
+newpath 59 50 moveto 66 130 lineto stroke
+newpath 66 130 moveto 73 172 lineto stroke
+newpath 73 172 moveto 81 188 lineto stroke
+newpath 81 188 moveto 89 189 lineto stroke
+newpath 89 189 moveto 97 183 lineto stroke
+newpath 97 183 moveto 104 173 lineto stroke
+newpath 104 173 moveto 112 163 lineto stroke
+newpath 112 163 moveto 120 152 lineto stroke
+newpath 120 152 moveto 128 142 lineto stroke
+newpath 128 142 moveto 135 133 lineto stroke
+newpath 135 133 moveto 143 126 lineto stroke
+newpath 143 126 moveto 151 119 lineto stroke
+newpath 151 119 moveto 159 113 lineto stroke
+newpath 159 113 moveto 167 108 lineto stroke
+newpath 167 108 moveto 174 104 lineto stroke
+newpath 174 104 moveto 182 101 lineto stroke
+newpath 182 101 moveto 190 99 lineto stroke
+newpath 190 99 moveto 198 98 lineto stroke
+newpath 198 98 moveto 205 97 lineto stroke
+newpath 205 97 moveto 213 97 lineto stroke
+newpath 213 97 moveto 221 97 lineto stroke
+newpath 221 97 moveto 229 98 lineto stroke
+newpath 229 98 moveto 236 100 lineto stroke
+newpath 236 100 moveto 244 102 lineto stroke
+newpath 244 102 moveto 252 105 lineto stroke
+newpath 252 105 moveto 260 109 lineto stroke
+newpath 260 109 moveto 267 113 lineto stroke
+newpath 267 113 moveto 275 118 lineto stroke
+newpath 275 118 moveto 283 123 lineto stroke
+newpath 283 123 moveto 291 129 lineto stroke
+newpath 291 129 moveto 299 136 lineto stroke
+newpath 299 136 moveto 306 143 lineto stroke
+newpath 306 143 moveto 314 151 lineto stroke
+newpath 314 151 moveto 322 160 lineto stroke
+newpath 322 160 moveto 330 169 lineto stroke
+newpath 330 169 moveto 337 179 lineto stroke
+newpath 337 179 moveto 345 190 lineto stroke
+newpath 345 190 moveto 353 201 lineto stroke
+newpath 353 201 moveto 361 213 lineto stroke
+newpath 361 213 moveto 368 225 lineto stroke
+newpath 368 225 moveto 376 237 lineto stroke
+newpath 376 237 moveto 384 248 lineto stroke
+newpath 384 248 moveto 392 255 lineto stroke
+newpath 392 255 moveto 400 257 lineto stroke
+newpath 400 257 moveto 407 247 lineto stroke
+newpath 407 247 moveto 415 216 lineto stroke
+newpath 415 216 moveto 423 148 lineto stroke
+newpath 423 148 moveto 429 50 lineto stroke
+[3] 0 setdash
+
+newpath 178 174 moveto 0 -78 rlineto 155 0 rlineto 0 78 rlineto closepath stroke
+388 354 moveto (Target) 36 scale_text
+373 78 moveto (Evolved) 46 scale_text
+178 180 moveto (Training area) 74 scale_text
+
+showpage

@@ -1,0 +1,11 @@
+get net arith.net
+get pat arith.pat
+set nepochs 5000
+set param lrate 0.01
+set param momentum 0.9
+set lflag 1
+set mode lgrain epoch
+set dl 1
+set sl 2
+set param offset 0.0
+set ecrit 0.5

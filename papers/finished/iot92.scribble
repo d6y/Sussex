@@ -1,0 +1,58 @@
+
+A first (hopefully obvious) point to make is that the ability of the
+network to replicate human behaviour is not the same as the ability to
+explain that behaviour.  However, central to McCloskey's thesis is the
+point that further description and analysis of the network do nothing to
+add to the explanation.  For any trained network, all kinds of information
+can be listed: number of hidden units, activation rules, training
+information, list of weight values, and so on---enough information to
+rebuild the network.  Of course, this description is not enough because the
+functioning of the system has not been explained.  Two additional questions
+need answers: 1.~which details are important, and which are
+impementational?  2.~How does the network solve the problem (of, say,
+recall of multiplication facts)?
+
+No-one would want to argue that a single network constitues a theory of
+some cognitive phenomena.  A theory could specify important features of the
+domain (input representation), and a number of simulations could help
+confirm of disconfirm the importance of such features.  In addition,
+multiple simulations could quantify the importance of other features (like
+the number of hidden units) which are not usually specified in a theory.
+For any interesting problem, though, there will be too many
+implementational parameters to test exhaustively.
+
+On the question of how a network solves some problem, connectionists often
+resort to a small number of visulization tools \cite{hanswhat}, such as
+cluster analysis, principle components analysis, and Hinton diagrams.  The
+idea here is to find answers to questions like: What knowledge does the
+system encode? How is that knowledge used? and (less often) How did that
+knowledge get there?  These are hard questions that are not fully answered
+by current analysis techniques. We can hope that techniques will be
+developed to enable us to fully understand the functioning of networks. The
+replies to \citeauthor{hanswhat}'s article range from the optimistic to
+positively pessimistic on this point: ``\ldots actual large nets produced
+in the future will be {\em computationally irreducible}, in that no
+analysis in terms smaller than the nets themselves will give anything like
+a really detailed and accurate account of how they work''
+\citein{suppprob}{mcclnetw}.
+
+These analyses are based on one network's weights, which is presumably just
+one example from the class of nets constrained by some theory.
+
+To summarize: You need more than a single connectionist simulation before
+you have a (connectionist) theory; and,
+networks are hard to analyse (at the
+moment).
+
+Compare this description of connectionist modelling
+with the symbolic model (for addition) shown in figure~\ref{min}.
+This model is easy to analysise: it's obvious what determines response time
+(the magnitude of the smaller number).
+
+\begin{fancyfigure}
+\centerline{\psfig{file=minmodel.ps,width=11cm}}
+\caption{The MIN model of cognitive counting,
+where is subject is assumed to
+be unconsciously incrementing a counter when performing mental addition.}
+\label{min}
+\end{fancyfigure}

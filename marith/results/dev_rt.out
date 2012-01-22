@@ -1,0 +1,190 @@
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3.p
+;;; LOADING /csuna/home/richardd/pop/lib/stringtolist.p
+;;; LOADING /csuna/home/richardd/pop/lib/stringtovector.p
+;;; LOADING /csuna/home/richardd/pop/lib/sysio.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_utils.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_getweights.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_getpatterns.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_activate.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_cascade.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_recordunits.p
+;;; LOADING /csuna/home/richardd/pop/pdp3/pdp3_performance.p
+;;; LOADING /csuna/home/richardd/marith/read_rt.p
+;;; LOADING /csuna/home/richardd/marith/threshold_errors.p
+;;; LOADING /csuna/home/richardd/marith/latex_matrix.p
+;;; LOADING /csuna/home/richardd/marith/c_errrt.p
+;;; LOADING /csuna/home/richardd/marith/product_code.p
+...?...4...6...8...9..10..12..14..15..16..18..20..21..24..25..27..28..30..32..
+	35..36..40..42..45..48..49..54..56..63..64..72..81
+;;; LOADING /csuna/home/richardd/marith/rt_cor.p
+;;; LOADING Structured_variables.p
+
+
+** [~/marith/development/weights/tolerance0_25/deva-100 min 0.4 Max 0.9
+	 and 50 blocks]
+
+
+   ------------- WARNING ----------------
+23 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+
+
+plot_list([24 47 0 24 38 35 35 21 47 31 28 40 24 36 25 44 0 28 22 28 32
+	 43 0 23 23 39 28 22 28 47 37 27 37 24 32 27 29 25 34 36 35 36
+	 44 48 26 32 35 32 34 26 0 37 35 35 27 29 20 42 24 27 39 32 29
+	 33]);
+
+
+Correlations to structure variables
+Sum     ** [r= 0.106384 p( 62 )= 0.201388]
+Product ** [r= 0.105562 p( 62 )= 0.203219]
+Min     ** [r= 0.100663 p( 62 )= 0.214343]
+Max     ** [r= 0.082884 p( 62 )= 0.257483]
+Sum     ** [r= 0.106384 p( 62 )= 0.201388]
+Campbell     r =   0.02040 p = 0.436434
+Miller       r =  -0.01863 p = 0.441914
+Aiken        r =   0.11674 p = 0.179146
+Grade 3a     r =   0.07041 p = 0.341621
+Grade 3b     r =   0.06572 p = 0.351668
+Grade 3c     r =   0.09502 p = 0.290722
+Grade 4      r =  -0.04666 p = 0.393485
+Grade 5      r =   0.07744 p = 0.326744
+
+
+** [~/marith/development/weights/tolerance0_25/devb-100 min 0.4 Max 0.9
+	 and 50 blocks]
+
+
+   ------------- WARNING ----------------
+41 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+
+
+plot_list([21 33 27 22 30 29 36 26 34 39 36 29 17 36 32 30 27 36 19 33
+	 51 34 27 17 22 29 33 21 25 40 47 34 30 16 52 25 20 22 43 33 29
+	 36 34 41 22 39 37 25 35 32 28 48 43 36 21 22 27 32 17 35 32 27
+	 22 38]);
+
+
+Correlations to structure variables
+Sum     ** [r= 0.071463 p( 62 )= 0.287346]
+Product ** [r= 0.058595 p( 62 )= 0.322788]
+Min     ** [r= 0.062588 p( 62 )= 0.3116]
+Max     ** [r= 0.060709 p( 62 )= 0.316846]
+Sum     ** [r= 0.071463 p( 62 )= 0.287346]
+Campbell     r =   0.01793 p = 0.444083
+Miller       r =  -0.01113 p = 0.46522
+Aiken        r =   0.06833 p = 0.295821
+Grade 3a     r =  -0.05525 p = 0.374468
+Grade 3b     r =   0.04468 p = 0.397904
+Grade 3c     r =   0.05836 p = 0.367644
+Grade 4      r =   0.06785 p = 0.347087
+Grade 5      r =   0.12617 p = 0.231707
+
+
+** [~/marith/development/weights/tolerance0_25/devc-100 min 0.4 Max 0.9
+	 and 50 blocks]
+
+
+   ------------- WARNING ----------------
+44 correct product(s) did not exceed the 
+threshold within 100 steps.
+;;; good
+
+
+plot_list([28 30 23 23 38 31 34 33 30 28 25 29 28 29 47 28 23 26 32 28
+	 44 23 41 32 24 29 28 35 25 37 28 29 37 28 44 25 21 24 41 29 31
+	 29 23 37 25 47 45 42 34 47 42 27 43 44 54 30 33 28 30 29 29 42
+	 29 28]);
+
+
+Correlations to structure variables
+Sum     ** [r= 0.352376 p( 62 )= 0.002147]
+Product ** [r= 0.316739 p( 62 )= 0.005386]
+Min     ** [r= 0.282259 p( 62 )= 0.011919]
+Max     ** [r= 0.325705 p( 62 )= 0.004316]
+Sum     ** [r= 0.352376 p( 62 )= 0.002147]
+Campbell     r =   0.31398 p = 0.005759
+Miller       r =   0.27759 p = 0.013181
+Aiken        r =   0.14972 p = 0.118833
+Grade 3a     r =   0.33493 p = 0.022925
+Grade 3b     r =   0.46031 p = 0.002365
+Grade 3c     r =   0.33766 p = 0.022001
+Grade 4      r =   0.30256 p = 0.036437
+Grade 5      r =   0.39440 p = 0.00865
+
+
+** [~/marith/development/weights/tolerance0_25/devd-100 min 0.4 Max 0.9
+	 and 50 blocks]
+
+
+   ------------- WARNING ----------------
+123 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+;;; good = d
+rc_print_at(2,40,'devd network');
+
+
+plot_list([21 31 22 26 25 36 29 35 31 24 40 25 27 43 23 33 22 39 23 23
+	 40 48 37 18 28 25 23 20 25 39 22 30 25 27 41 25 23 27 46 21 35
+	 44 48 39 27 28 48 27 28 24 37 23 47 49 41 39 35 29 17 27 20 26
+	 37 37]);
+
+
+Correlations to structure variables
+Sum     ** [r= 0.240024 p( 62 )= 0.028043]
+Product ** [r= 0.232925 p( 62 )= 0.031995]
+Min     ** [r= 0.218885 p( 62 )= 0.041131]
+Max     ** [r= 0.195234 p( 62 )= 0.061051]
+Sum     ** [r= 0.240024 p( 62 )= 0.028043]
+Campbell     r =   0.10532 p = 0.20375
+Miller       r =  -0.07806 p = 0.269914
+Aiken        r =   0.12055 p = 0.171346
+Grade 3a     r =   0.32915 p = 0.024986
+Grade 3b     r =   0.38083 p = 0.01097
+Grade 3c     r =   0.31266 p = 0.031685
+Grade 4      r =   0.25318 p = 0.068133
+Grade 5      r =   0.24972 p = 0.07094
+
+
+** [~/marith/development/weights/tolerance0_25/deve-100 min 0.4 Max 0.9
+	 and 50 blocks]
+
+
+   ------------- WARNING ----------------
+36 correct product(s) did not exceed the 
+threshold within 100 steps.
+
+
+
+plot_list([24 17 30 28 36 23 40 33 17 41 28 36 24 30 34 25 29 28 20 26
+	 34 47 39 68 28 36 26 24 28 30 26 27 36 24 34 28 33 28 23 25 23
+	 30 46 29 27 22 35 40 40 33 39 27 23 37 37 34 34 25 66 27 26 38
+	 34 55]);
+
+
+Correlations to structure variables
+Sum     ** [r= 0.301684 p( 62 )= 0.007704]
+Product ** [r= 0.250945 p( 62 )= 0.022744]
+Min     ** [r= 0.152908 p( 62 )= 0.113857]
+Max     ** [r= 0.367594 p( 62 )= 0.001403]
+Sum     ** [r= 0.301684 p( 62 )= 0.007704]
+Campbell     r =   0.27411 p = 0.014196
+Miller       r =   0.20522 p = 0.051897
+Aiken        r =   0.18517 p = 0.071475
+Grade 3a     r =   0.26067 p = 0.06233
+Grade 3b     r =   0.23781 p = 0.081261
+Grade 3c     r =   0.16386 p = 0.169809
+Grade 4      r =   0.19453 p = 0.127796
+Grade 5      r =   0.14779 p = 0.19484
+;;; DECLARING VARIABLE N_problems
+;;; DECLARING VARIABLE First_multiplier
+;;; DECLARING VARIABLE Last_multiplier
+;;; DECLARING VARIABLE product_list
+;;; DECLARING VARIABLE N_tables
+;;; DECLARING VARIABLE N_products
+;;; DECLARING VARIABLE epc
+;;; DECLARING VARIABLE Run_name

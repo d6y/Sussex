@@ -1,0 +1,15 @@
+set dl 2
+set sl 2
+set mode minimacheck 1
+set mode follow 1
+set nepochs 10
+set pcrit 101
+set ecrit 0.0
+sttrain
+set dl 1
+set sl 1
+set nepochs 10000
+set pcrit 100
+set ecrit 0.05
+set mode minimacheck 0
+set mode follow 0

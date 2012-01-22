@@ -1,0 +1,105 @@
+% File:         IOT92.STY
+% Description:  Style file option to article for
+%               Isle of Thorns papers (1992)
+% Author:       Richard Dallaway <richardd@cogs.susx.ac.uk>
+% Supported:    YES
+
+% Usage:
+%
+%   \documentstyle[iot92]{article}
+%
+% In addition to \author and \title, there is \email (default {})
+%
+% New macros to be used before \maketitle:
+%
+% \showwherepublished       - Inserted text on head of first page
+% \firstpage{N}             - Use pager numbers, starting from page N
+% \publishedin{WIDTH}{TEXT} - TEXT of WIDTH for \showwherepublsihed
+
+\typeout{Optional `Isle of Thorns 1992' style (5 Oct 1992)}
+\input /csuna/home/richardd/tex/inputs/fontmix.sty
+
+%% PAGE SIZE
+\textheight 24cm
+\textwidth  6.3in
+\oddsidemargin -0.05in
+\evensidemargin -0.05in
+\topmargin -0.6in
+
+\parskip 0mm    %  vertical space between paragraphs
+
+\def\email#1{\gdef\@email{#1}}
+\email{} % default is no email address
+
+\def\gap{\vskip 5mm\relax}
+
+% Don't print the space around the email if empty
+\def\insertemail#1{\ifx#1\empty\else{#1}\fi}
+
+% \publishedin{WIDTH}{TEXT} Makes a box of size WIDTH for the
+% TEXT that is used as the "where published" text. See default.
+\def\publishedin#1#2{\def\HeadText{\parbox[b]{#1}{\noindent#2}}}
+
+% Default publication.
+\publishedin{4.2in}{\footnotesize In:
+Wood, Davidge \& Costa, eds., 1992 {\em The Fifth White
+House Papers: Graduate Research in the Cognitive \& Computing Sciences at
+Sussex.} University of Sussex, School of Cognitive \& Computing Sciences,
+Brighton, UK. Research Paper CSRP~251.}
+
+% The \showwherepublished command enables printing of the
+% "where published" text on the first page.
+\def\showwherepublished{\def\showhead{\HeadText}}
+% Default: Show nothing.
+\def\showhead{}
+
+% Sets the first page number to #1, and enables print of page numbers.
+\def\firstpage#1{%
+    \def\showpagenumber{\rm\thepage}
+    \setcounter{page}{#1}
+}
+% Default: no page numbers
+\def\showpagenumber{}
+
+
+\def\ps@myheadings{\let\@mkboth\@gobbletwo
+    \def\@oddhead{{\showhead}}\def\@evenhead{\@oddhead}
+    \def\@evenfoot{\hfil\showpagenumber\hfil}
+    \def\@oddfoot{\@evenfoot}
+    \def\sectionmark##1{}\def\subsectionmark##1{}}
+
+\def\ps@plain{\let\@mkboth\@gobbletwo
+     \let\@oddhead\@empty\def\@oddfoot{\hfil\reset@font\showpagenumber
+     \hfil}\let\@evenhead\@empty\let\@evenfoot\@oddfoot}
+
+\pagestyle{plain}
+\thispagestyle{myheadings}
+
+
+\def\@maketitle{\newpage\null\vskip 2em
+    \begin{center}\hf\LARGE\bf
+    \@title\medskip\\
+    \Large\@author\\
+    \normalsize\insertemail{\@email}
+    \end{center}
+}
+
+\def\maketitle{\par
+ \begingroup
+   \def\thefootnote{\fnsymbol{footnote}}%
+   \def\@makefnmark{\hbox
+       to\z@{$\m@th^{\@thefnmark}$\hss}}%
+   \if@twocolumn
+     \twocolumn[\@maketitle]%
+     \else \newpage
+    \global\@topnum\z@ \@maketitle \fi\@thanks
+ \endgroup
+ \gap
+ \setcounter{footnote}{0}
+ \let\maketitle\relax
+ \let\@maketitle\relax
+ \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\thanks\relax}
+
+% NOTE: should change this to a trivlist at some stage
+\def\abstract{\begin{quote}{\hf\bf ABSTRACT}\hspace{3mm}}
+\def\endabstract{\end{quote}}

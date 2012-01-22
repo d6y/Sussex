@@ -1,0 +1,347 @@
+% File:     superrotatedtabular.sty
+% Author:   A friend of Richard Dallaway's
+% Date:     Friday 18 June 1993
+% Not supported.
+%
+% This is a hacked version of supertab.sty to allow the supertabular
+% environment produce a rotated table.
+%
+% See supertab.tex for instructions.
+%
+% Do not use it with supertab.sty
+% Do not use \bottomcaption (only use \topcaption)
+% Do not use it with \twocolumn
+% There is no superrotatedtabular* environment
+% Only really works when the tables are as wide as the page
+% Hence, it usually starts the table on a new page
+% etc
+
+% Usage guide:
+%
+% Use the optional macros...
+%
+%   \tablefirsthead
+%   \tablehead
+%   \tabletail
+%   \tablelasttail
+%   \topcaption
+%
+% ...before you type:
+%
+%   \begin{superrotatedtabular}{...}
+%
+%   \end{superrotatedtabular}
+%
+
+\input rot.sty
+
+% @topcaption to determine where to put the tablecaption. The default
+% is to put the caption on the top of the table
+%
+\newif\if@topcaption \@topcaptiontrue
+\def\topcaption{\@topcaptiontrue\tablecaption}
+\def\bottomcaption{\@topcaptionfalse\tablecaption}
+%
+% Added the command \tablecaption, with the use of the definition
+% of the \caption and \@caption commands from latex.tex.
+% This command has to function exactly like \caption does except it
+% has to store its argument (and the optional argument) for later
+% processing WITHIN the supertabular environment
+% JB
+%
+\long\def\tablecaption{\refstepcounter{table} \@dblarg{\@xtablecaption}}
+\long\def\@xtablecaption[#1]#2{%
+  \long\def\@process@tablecaption{\@stcaption{table}[#1]{#2}}}
+\let\@process@tablecaption\relax
+
+%
+% This is a redefinition of LaTeX's \@caption, \@makecaption is
+% called within a group so as not to return to \normalsize globally.
+% also a fix is made for the `feature' of the \@makecaption of article.sty and
+% friends that a caption ALWAYS gets a \vskip 10pt at the top and NONE at the
+% bottom. If a user wants to precede his table with a caption this results
+% in a collision.
+%
+\long\def\@stcaption#1[#2]#3{\par%
+    \addcontentsline{\csname ext@#1\endcsname}{#1}%
+        {\protect\numberline{\csname the#1\endcsname}{\ignorespaces #2}}
+    \begin{minipage}{\textwidth}
+    \@parboxrestore
+    \normalsize
+    \if@topcaption \vskip -10pt \fi % 'fix'
+    \@@@makecaption{\csname fnum@#1\endcsname}{\ignorespaces #3}
+    \if@topcaption \vskip 10pt \fi % 'fix'
+    \end{minipage}
+}
+
+\long\def\@@@makecaption#1#2{%
+%   \vskip 10\p@
+%   \setbox\@tempboxa\hbox{#1: #2}%
+%   \ifdim \wd\@tempboxa >\hsize
+       #1: #2\par
+%     \else
+%       \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+%   \fi
+}
+
+
+                             % \tablehead activates the new tabular \cr
+                             % commands
+\def\@tablehead{}
+\def\tablehead#1{\gdef\@tablehead{#1}}
+\def\tablefirsthead#1{\gdef\@table@first@head{#1}}
+
+%+
+%     If the user uses an extra amount of tabular-data (like \multicolumn)
+%     in \verb=\tabletail= \TeX\ starts looping because of the definition
+%     of \verb=\nextline=. So make \verb=\\= act like just a \verb=\cr=
+%     inside this tail to prevent the loop.
+%     Save and restore the value of \verb=\\=
+%-
+\def\@tabletail{}
+\def\tabletail#1{%
+    \gdef\@tabletail{\noalign{\global\let\@savcr=\\\global\let\\=\cr}%
+                     #1\noalign{\global\let\\=\@savcr}}}
+\def\tablelasttail#1{\gdef\@table@last@tail{#1}}
+
+\newdimen\maxsize            % maximum pagesize
+\newdimen\actsize            % actual pagesize
+\newdimen\parboxheight       % height plus depth of a parbox-argument
+\newdimen\addspace           % stores the value of \\[#1]
+\newdimen\midlineheight      % estimated size of a normal line
+\newdimen\pargcorrection     % to set page height tolerance if p-arg
+\newdimen\computedimens      % computation variable
+\newbox\tabparbox
+
+         %%%%  Redefine original LaTeX tabular \cr commands. %%%%
+         %%%%  New tabular \cr commands get a leading `s'    %%%%
+
+                             % Insert  \nextline command for counting
+\def\@stabularcr{{\ifnum0=`}\fi\@ifstar{\@sxtabularcr}{\@sxtabularcr}}
+\def\@sxtabularcr{\@ifnextchar[{\@sargtabularcr}%
+                 {\ifnum0=`{\fi}\cr\nextline}}
+
+                             % contents of command unchanged
+\def\@sargtabularcr[#1]{\ifnum0=`{\fi}\ifdim #1>\z@
+    \unskip\@sxargarraycr{#1}\else \@syargarraycr{#1}\fi}
+
+                             % here copy the value #1 of [ ] of \\
+                             % to \addspace
+\def\@sxargarraycr#1{\@tempdima #1\advance\@tempdima \dp \@arstrutbox%
+    \vrule \@height\z@ \@depth\@tempdima \@width\z@ \cr%
+    \noalign{\global\addspace=#1}\nextline}
+
+                             % command will be called when \\[0pt]
+\def\@syargarraycr#1{\cr\noalign{\vskip #1\global\addspace=#1}\nextline}
+
+         %%%%  Redefine original LaTeX p-arg commands.       %%%%
+         %%%%  New commands get a leading `s'                %%%%
+
+                                      % reduce maximum pagesize to have
+                                      % a small tolerance for last entry
+\def\@sstartpbox#1{\global\advance\maxsize by -\pargcorrection
+                   \global\pargcorrection=0pt
+                                      % put text into box to save height
+                   \setbox\tabparbox%
+%                          \vtop\bgroup\hsize#1\@arrayparboxrestore}
+                          \vtop\bgroup#1\@arrayparboxrestore}
+
+\def\@sendpbox{\par\vskip\dp\@arstrutbox\egroup%
+               \computedimens=\ht\tabparbox%
+               \advance\computedimens by \dp\tabparbox%
+               \ifnum\parboxheight<\computedimens
+                  \global\parboxheight=\computedimens
+               \fi
+               \computedimens=0pt
+               \box\tabparbox\hfill}
+
+         %%%%  Here start really new supertabular commands   %%%%
+
+                                 % estimate height of normal line
+                                 % regarding \array- and \baselinestretch
+\def\calmidlineheight{\midlineheight=\arraystretch \baslineskp
+                      \global\advance\midlineheight by 1pt
+                      \global\pargcorrection=4\midlineheight}
+
+\def\calpage{%\global\actsize=\pagetotal  % where am I on the actual page?
+            \global\actsize=0pt
+             \global\advance\actsize by \midlineheight
+             \maxsize=\textwidth       % start a new page when 90% of
+             \multiply \maxsize by 9     % the page are used
+             \divide\maxsize by 10
+             \ifnum\actsize > \maxsize
+                   \clearpage
+                   \global\actsize=0pt
+%\global\actsize=\pagetotal
+             \fi
+             \maxsize=\textwidth       % now set \maxsize with tolerance
+             \global\advance\maxsize by -\midlineheight} % of one lines
+
+% Here is the definition of supertabular
+
+\def\superrotatedtabular#1{%
+    \def\tableformat{\string#1} % store preamble
+    \typeout{Tableformat is \tableformat}
+    \global\starfalse % remember this is the normal version
+
+    \begin{rotate}
+                                 % Check if we have to insert a caption
+%    \if@topcaption\@process@tablecaption\fi
+
+    \def\baslineskp{\baselineskip}
+    \calmidlineheight% estimate height of a normal line
+    \calpage         % calculate max. pagesize and startpoint
+
+                                 % save old \@tabularcr
+    \let\@@tabularcr\@tabularcr%             Added JB 4/2/91
+                                % Now insert the definition of \@stabularcr
+    \let\@tabularcr\@stabularcr
+                                 % save old \\
+    \global\let\@oldcr=\\
+
+                                 % activate new parbox algorithm
+    \let\@@startpbox=\@sstartpbox
+    \let\@@endpbox=\@sendpbox
+%
+%    Moved the check for the use of \tablefirsthead to befor the start of
+%    the tabular environment in order to make the \futurelet inside \hline
+%    do its work correctly (15.02.91)
+%
+
+    \ifx\@table@first@head\undefined
+        \let\@@tablehead=\@tablehead
+    \else
+        \let\@@tablehead=\@table@first@head
+    \fi%                                     Added JB 4/2/91
+                                 % start normal tabular environment
+    \begin{tabular}{\tableformat}%
+%    \multicolumn{1}{l}{\@process@tablecaption}\\[5mm]%
+\noalign{\@process@tablecaption\bigskip}
+    \@@tablehead}%   Added JB 15/2/91
+
+
+% this is \end{supertabular}
+
+\def\endsuperrotatedtabular{%
+    \ifx\@table@last@tail\undefined%
+        \@tabletail%
+    \else%
+        \@table@last@tail%
+    \fi%                                     Added JB 4/2/91
+    \end{tabular}
+    \let\@tabularcr\@@tabularcr             % Added JB 4/2/91
+                                 % Check if we have to insert a caption
+%    \if@topcaption
+%    \else
+%        \@process@tablecaption
+%                                 % resore to default behaviour
+%        \@topcaptiontrue
+%    \fi
+\end{rotate}
+
+%+
+%    Restore the meaning of \verb=\\= to the one it had before the start
+%    of this environment. Also re-initialize some control-sequences
+%-
+    \global\let\\=\@oldcr
+    \let\@table@first@head\undefined        % For the next ocurrence
+    \let\@table@last@tail\undefined         % of this environment
+    \let\@process@tablecaption\relax
+}
+
+\def\nextline{%           %%% algorithm to calculate the pagebreaks %%%
+    \noalign{\ifnum\parboxheight=0
+                                 % if no p-arg add `normal' line height
+                   \advance\actsize by \midlineheight
+                                      % \addspace is value #1 of \\[#1]
+                   \global\advance\actsize by \addspace
+             \else
+                                 % if p-arg add height of box and more
+                   \global\advance\actsize by \parboxheight
+                   \divide\parboxheight by 11\relax
+                   \global\advance\actsize by \parboxheight%
+                   \global\parboxheight=0pt
+             \fi
+             \global\addspace=0pt}%
+%\noalign{Debug: Actual \the\actsize MaxSize \the\maxsize}
+% when page becomes full:
+    \ifnum\actsize<\maxsize\noalign{\global\let\next\@empty}%
+    \else\@tabletail\end{tabular}\end{rotate}%
+\clearpage                         %
+\global\actsize=\midlineheight%
+         \let\next\@tablehead%                 % Added 15.2.91
+           \begin{rotate}\begin{tabular}{\tableformat}%
+    \fi\next}%                                % Added \next 15.2.91
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newif\ifstar
+\newdimen\tabularwidth
+\@namedef{supertabular*}#1#2 {% modified JB (15.2.91)
+                                 % before it was \edef\tableformat,
+                                 % but gave error with @{\hspace{..}} !
+    \def\tableformat{#2} % store preamble
+    \tabularwidth=#1 % The total width of the tabular
+    \global\startrue % remember this is the *-version
+
+                                 % Check if we have to insert a caption
+    \if@topcaption\@process@tablecaption\fi
+
+    \def\baslineskp{\baselineskip}
+    \calmidlineheight% estimate height of a normal line
+    \calpage         % calculate max. pagesize and startpoint
+
+
+                                 % save old \@tabularcr
+    \let\@@tabularcr\@tabularcr%              Added JB 4/2/91
+                                % Now insert the definition of \@stabularcr
+    \let\@tabularcr\@stabularcr%              Added JB 4/2/91
+                                 % save old \\
+    \global\let\@oldcr=\\
+
+                                 % activate new parbox algorithm
+    \let\@@startpbox=\@sstartpbox
+    \let\@@endpbox=\@sendpbox
+%
+%    The same modification as for \tabular 15.2.91
+    \ifx\@table@first@head\undefined
+        \let\@@tablehead\@tablehead
+    \else
+        \let\@@tablehead\@table@first@head
+    \fi%                                     Added JB 4/2/91
+                                 % start normal tabular environment
+    \begin{tabular*}{\tabularwidth}{\tableformat}%
+%
+%removed JB                \noalign{\global\let\\=\@stabularcr}
+    \@@tablehead}%
+                                 % this is \end{supertabular*}
+\@namedef{endsupertabular*}{%
+    \ifx\@table@last@tail\undefined%
+        \@tabletail%
+    \else%
+        \@table@last@tail%
+    \fi%                                     Added JB 4/2/91
+%removed JB                \noalign{\global\let\\=\@oldcr}%
+    \end{tabular*}
+                                 % restore old \@tabularcr
+    \let\@tabularcr\@@tabularcr
+%               \let\@@startpbox=\@startpbox%
+%               \let\@@endpbox=\@endpbox%
+                                 % Check if we have to insert a caption
+    \if@topcaption
+    \else
+        \@process@tablecaption
+                                 % resore to default behaviour
+        \@topcaptiontrue
+    \fi
+%+
+%    Restore the meaning of \verb=\\= to the one it had before the start
+%    of this environment. Also re-initialize some control-sequences
+%-
+    \global\let\\=\@oldcr
+    \let\@table@first@head\undefined        % For the next ocurrence
+    \let\@table@last@tail\undefined         % of this environment
+    \let\@process@tablecaption\relax}

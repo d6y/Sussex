@@ -1,0 +1,28 @@
+do /csuna/home/richardd/marith/networks/new10.str 1
+
+get pat /csuna/home/richardd/marith/patterns/NORMAL.pat
+
+set param outputtolerance 100
+set mode allcrit 1
+set ecrit 0.5
+
+log no-skew1.log
+
+ptrain
+save w weights/no-skew/ns10-1.wts
+newstart
+ptrain
+save w weights/no-skew/ns10-2.wts
+newstart
+ptrain
+save w weights/no-skew/ns10-3.wts
+newstart
+ptrain
+save w weights/no-skew/ns10-4.wts
+newstart
+ptrain
+save w weights/no-skew/ns10-5.wts
+
+log -
+q
+y

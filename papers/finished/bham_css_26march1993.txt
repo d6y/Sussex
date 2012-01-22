@@ -1,0 +1,20 @@
+A CONNECTIONIST ACCOUNT OF MENTAL ARITHMETIC
+
+Richard Dallaway
+School of Cognitive & Computing Science
+University of Sussex
+
+ABSTRACT:
+
+Mastering the simple number facts, such as the one hundred multiplications
+(0x0 to 9x9), requires five or six years of classroom drill.
+
+Despite this (or perhaps because of it) children and adults have difficulty
+in recalling these facts.
+
+I'll present a connectionist account of mental multiplication which models
+adult reaction time and error patterns.
+
+When it comes to analysing the model, the conclusion is that it may be
+better to think of connectionist models as "animal models", rather than as
+theory simulations.
